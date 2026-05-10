@@ -776,7 +776,7 @@ footer {
 .ci-lbl{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .ci-val{font-size:14px;transition:color .2s}
 .ci-val a:hover{color:var(--ame)}
-.con-body{padding:80px var(--px);display:grid;grid-template-columns:1fr 380px;gap:80px}
+.con-body{padding:80px var(--px);display:grid;grid-template-columns:1fr 1fr;gap:80px}
 .cform{display:flex;flex-direction:column;gap:20px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fg{display:flex;flex-direction:column;gap:8px}
