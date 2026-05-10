@@ -610,191 +610,47 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
 }
 /* ================= ABOUT LAB SECTION ================= */
 
-.about-lab{
-  position:relative;
-  width:100vw;
-  min-height:100vh;
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-  padding:120px var(--px) 88px;
-  background:
-    radial-gradient(circle at 70% 20%, rgba(106,79,122,.08), transparent 34%),
-    radial-gradient(circle at 20% 80%, rgba(134,163,110,.08), transparent 34%),
-    #111;
-  color:#f7f3ea;
-  overflow:hidden;
-}
+<section class="about-lab" id="about">
+  <div class="about-lab-inner">
 
-.about-lab::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.16;
-  background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size:4px 4px;
-  mix-blend-mode:screen;
-}
+    <div class="about-top-row">
+      <div class="about-label">About</div>
+      <div class="about-pill">
+        <span class="about-pill-dot"></span>
+        Open to work
+      </div>
+    </div>
 
-.about-lab-inner{
-  position:relative;
-  z-index:1;
-  width:100%;
-  max-width:1440px;
-  margin:0 auto;
-  min-height:calc(100vh - 208px);
-  display:grid;
-  grid-template-rows:auto 1fr auto;
-}
+    <h2 class="about-lab-title">
+      I work as a multidisciplinary designer
+      <span>combining product thinking, brand systems,</span>
+      and visual direction to create meaningful digital experiences.
+    </h2>
 
-.about-mark{
-  position:absolute;
-  top:-56px;
-  left:0;
-  font-family:var(--fd);
-  font-size:64px;
-  line-height:1;
-  color:#f7f3ea;
-  transform:rotate(-12deg);
-}
+    <p class="about-lab-desc">
+      With 5 years in digital product design and 8 years in branding &amp; graphic design,
+      I bridge how products work, how they look, and how they feel across every touchpoint.
+    </p>
 
-.about-topline{
-  position:absolute;
-  top:-32px;
-  right:0;
-  width:52%;
-  height:1px;
-  background:rgba(247,243,234,.38);
-}
+    <div class="about-lab-divider"></div>
 
-.about-content{
-  display:grid;
-  grid-template-columns:140px minmax(0,1fr);
-  gap:72px;
-  align-self:center;
-}
+    <div class="about-ways">
+      <div class="about-way">
+        <div class="about-way-num">01</div>
+        <h3>Product design</h3>
+        <p>User flows, interface design, dashboards, onboarding, and product experience.</p>
+      </div>
+      <div class="about-way">
+        <div class="about-way-num">02</div>
+        <h3>Brand systems</h3>
+        <p>Visual identity, design language, campaign direction, and scalable brand assets.</p>
+      </div>
+      <div class="about-way">
+        <div class="about-way-num">03</div>
+        <h3>Design systems</h3>
+        <p>Foundations, components, tokens, documentation, and design-to-dev handoff.</p>
+      </div>
+    </div>
 
-.about-label{
-  font-family:var(--fm);
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:rgba(247,243,234,.45);
-  padding-top:16px;
-}
-
-.about-main{
-  max-width:1180px;
-}
-
-.about-lab-title{
-  margin:0;
-  max-width:1120px;
-  font-family:var(--fu);
-  font-size:clamp(42px,5.4vw,86px);
-  font-weight:400;
-  letter-spacing:-0.055em;
-  line-height:.94;
-  color:#f7f3ea;
-}
-
-.about-lab-title span{
-  color:rgba(247,243,234,.52);
-}
-
-.about-lab-desc{
-  max-width:760px;
-  margin:34px 0 0;
-  font-family:var(--fu);
-  font-size:clamp(18px,1.6vw,26px);
-  line-height:1.26;
-  letter-spacing:-.035em;
-  color:rgba(247,243,234,.46);
-}
-
-.about-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-family:var(--fm);
-  font-size:8px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:rgba(247,243,234,.9);
-  border:1px solid rgba(247,243,234,.55);
-  padding:5px 14px 5px 10px;
-  border-radius:100px;
-  position:absolute;
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.about-pill::before{
-  content:"";
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#86a36e;
-  flex-shrink:0;
-  animation:pulse 2s infinite;
-}
-
-.about-ways{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:64px;
-  align-self:end;
-}
-
-.about-way-line{
-  height:1px;
-  width:100%;
-  margin-bottom:22px;
-  background:rgba(247,243,234,.28);
-}
-
-.about-way h3{
-  margin:0 0 12px;
-  font-family:var(--fu);
-  font-size:22px;
-  font-weight:400;
-  letter-spacing:-.035em;
-  color:#f7f3ea;
-}
-
-.about-way p{
-  margin:0;
-  max-width:360px;
-  font-size:14px;
-  line-height:1.7;
-  color:rgba(247,243,234,.46);
-}
-
-/* Responsive */
-@media(max-width:900px){
-  .about-lab{
-    padding:96px 24px 64px;
-  }
-
-  .about-content{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .about-topline{
-    width:48%;
-  }
-
-  .about-pill{
-    display:none;
-  }
-
-  .about-ways{
-    grid-template-columns:1fr;
-    gap:36px;
-    margin-top:80px;
-  }
-}
+  </div>
+</section>
