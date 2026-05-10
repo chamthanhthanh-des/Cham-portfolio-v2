@@ -599,22 +599,18 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
 .hero-cursor-ring.is-hover::after{
   display:none;
 }
-/* Override nav Let's Talk button to stroke style */
-.ncta{
-  height:44px !important;
-  padding:0 28px !important;
-  border-radius:999px !important;
-  border:1px solid rgba(17,17,17,.22) !important;
+/* Force nav Let's Talk button to outline style */
+#nav .nlinks .nav-outline-cta{
   background:transparent !important;
   background-image:none !important;
+  border:1px solid rgba(17,17,17,.28) !important;
   color:var(--text) !important;
   box-shadow:none !important;
 }
 
-.ncta:hover{
-  border-color:#6a4f7a !important;
-  color:#6a4f7a !important;
+#nav .nlinks .nav-outline-cta:hover{
   background:rgba(106,79,122,.04) !important;
   background-image:none !important;
-  transform:translateY(-1px);
+  border-color:#6a4f7a !important;
+  color:#6a4f7a !important;
 }
