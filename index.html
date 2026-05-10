@@ -47,7 +47,7 @@
     <div class="hero-bg-static"></div>
     <div class="hero-cursor-g" id="heroCursorG"></div>
     <div class="hero-c">
-      <div class="hero-eye">UI/UX &amp; Branding Designer</div>
+      <div class="hero-eye">Product &amp; Brand Designer</div>
       <h1 class="hero-title" id="heroTitle">
         <span class="b">Hi, I'm <em>Châm.</em></span><br>
         <span class="b">Design</span> <span class="f1">that</span><br>
@@ -58,7 +58,7 @@
         <p class="hero-desc" id="heroDesc">With a background in both user experience and visual identity, I find the sweet spot between usability and personality — every design not only works, but feels right.</p>
         <div class="hero-act">
           <button class="btn1" onclick="go('works')">View Works →</button>
-          <button class="btn2" onclick="go('contact')">Get in Touch</button>
+          <span class="hero-link" onclick="go('contact')" style="font-family:var(--fm);font-size:13px;letter-spacing:2px;text-decoration:underline;color:var(--text);cursor:pointer;transition:opacity .2s;text-transform:uppercase">Get in touch</span>
         </div>
       </div>
     </div>
@@ -119,7 +119,38 @@
       <h2>Selected Works</h2>
       <span class="la" onclick="go('works')">All projects →</span>
     </div>
-    <div class="fw-list" id="featW"></div>
+    <div class="fw-list" id="featW">
+      <div class="fw-item">
+        <div class="fw-preview"><div class="fw-preview-inner">1</div></div>
+        <div class="fw-main">
+          <div class="fw-cat-row"><span class="fw-catbadge">Product Design</span><span class="fw-yr">2023</span></div>
+          <h3 class="fw-title">SelfChain — Decentralized Identity for Web3</h3>
+          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Design • UX Research • Branding</span></div>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">First modular intent-centric blockchain for multi-chain interoperability.</p>
+        </div>
+        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-preview"><div class="fw-preview-inner">2</div></div>
+        <div class="fw-main">
+          <div class="fw-cat-row"><span class="fw-catbadge">Design Systems</span><span class="fw-yr">2023–2024</span></div>
+          <h3 class="fw-title">Self Design System</h3>
+          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Design System • Component Library</span></div>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">Comprehensive design system with tokens, components, and documentation.</p>
+        </div>
+        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-preview"><div class="fw-preview-inner">3</div></div>
+        <div class="fw-main">
+          <div class="fw-cat-row"><span class="fw-catbadge">Branding</span><span class="fw-yr">2023–2025</span></div>
+          <h3 class="fw-title">Hot Cross — Multi-Chain Web3 Platform</h3>
+          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Brand Development • Art Direction • Marketing</span></div>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">Visual identity and brand guidelines for a multi-chain DeFi platform.</p>
+        </div>
+        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
+      </div>
+    </div>
   </div>
 
   <div class="cstrip reveal">
@@ -131,14 +162,7 @@
     </div>
   </div>
 
-  <footer>
-    <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks">
-      <span class="flink" onclick="go('works')">Works</span>
-      <span class="flink" onclick="go('quiet')">Quiet</span>
-      <span class="flink" onclick="go('contact')">Contact</span>
-    </div>
-    <div class="fcopy">©2025 Châm Thanh Thanh</div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
@@ -147,8 +171,8 @@
   <div class="wpage-hero">
     <h1>Works</h1>
     <div class="wpage-sub">
-      <div class="ltag">2016 — 2025</div>
-      <p>Selected projects across product design, branding &amp; digital experiences.</p>
+      <div class="ltag">2016 — 2026</div>
+      <p>Selected projects across product design, brand systems, and digital experiences.</p>
     </div>
   </div>
   <div class="wfilters" id="wfilters"></div>
@@ -156,14 +180,14 @@
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks"><span class="flink" onclick="go('about')">About</span><span class="flink" onclick="go('contact')">Contact</span></div>
-    <div class="fcopy">©2025 Châm Thanh Thanh</div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
 <!-- ══════ WORK DETAIL ══════ -->
 <div id="page-work-detail" class="page">
   <div id="wdc"></div>
-  <footer><div class="flogo">Châm Thanh Thanh</div><div class="flinks"><span class="flink" onclick="go('works')">← All Works</span></div><div class="fcopy">©2025</div></footer>
+  <footer><div class="flogo">Châm Thanh Thanh</div><div class="flinks"><span class="flink" onclick="go('works')">← All Works</span></div><div class="fcopy">©2026</div></footer>
 </div>
 
 <!-- ══════ ABOUT ══════ -->
@@ -257,7 +281,7 @@
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks"><span class="flink" onclick="go('works')">Works</span><span class="flink" onclick="go('contact')">Contact</span></div>
-    <div class="fcopy">©2025 Châm Thanh Thanh</div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
@@ -274,7 +298,7 @@
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks"><span class="flink" onclick="go('about')">About</span><span class="flink" onclick="go('contact')">Contact</span></div>
-    <div class="fcopy">©2025 Châm Thanh Thanh</div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
@@ -315,7 +339,7 @@
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks"><span class="flink" onclick="go('home')">Home</span><span class="flink" onclick="go('works')">Works</span></div>
-    <div class="fcopy">©2025 Châm Thanh Thanh</div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
