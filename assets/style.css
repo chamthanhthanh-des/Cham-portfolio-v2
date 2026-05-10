@@ -118,7 +118,7 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
 .flinks{display:flex;gap:24px}
 .flink{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color .2s}
 .flink:hover{color:var(--text)}
-.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--grad);color:white;font-family:var(--fm);font-size:10px;font-weight:700;border-radius:8px;flex-shrink:0}
+.brand-mark{display:inline-flex;width:28px;height:28px;object-fit:contain;flex-shrink:0;margin-right:10px}
 .fcopy{font-family:var(--fm);font-size:10px;color:var(--muted2)}
 
 /* ═══════════════════════════════════════════════ */
