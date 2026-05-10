@@ -487,34 +487,27 @@ function initHeroMouse(){
   if(!section)return;
 
   let cx=0,cy=0,rx=0,ry=0;
+  let tx=50,ty=50,gx=50,gy=50;
+  let glowActive=false;
 
   section.addEventListener('mousemove',e=>{
     const rect=section.getBoundingClientRect();
     cx=e.clientX;cy=e.clientY;
     const x=((e.clientX-rect.left)/rect.width)*100;
     const y=((e.clientY-rect.top)/rect.height)*100;
-    const t = (Date.now() % 3000) / 3000;
-const mix = Math.sin(t * Math.PI * 2) * 0.5 + 0.5;
 
-const r = Math.round(106 + (134 - 106) * mix);
-const g = Math.round(79 + (163 - 79) * mix);
-const b = Math.round(122 + (110 - 122) * mix);
+    tx=x;
+    ty=y;
+    glowActive=true;
 
-gradDiv.style.background = `
-  radial-gradient(
-    circle 300px at ${x}% ${y}%,
-    rgba(${r},${g},${b},.38) 0%,
-    rgba(${r},${g},${b},.22) 32%,
-    rgba(${r},${g},${b},.10) 58%,
-    transparent 76%
-  )
-`;
     cursor.style.left=cx+'px';cursor.style.top=cy+'px';
     cursor.style.display='block';ring.style.display='block';
   });
+  });
   section.addEventListener('mouseleave',()=>{
-    gradDiv.style.background='';
-    cursor.style.display='none';ring.style.display='none';
+  glowActive=false;
+  gradDiv.style.background='';
+  cursor.style.display='none';ring.style.display='none';
   });
   document.querySelectorAll('a, button, span[onclick], .btn, .nlink, .cta, .fw-card, .work-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{
@@ -527,6 +520,40 @@ gradDiv.style.background = `
     ring.classList.remove('is-hover');
   });
 });
+
+  function paintHeroGlow(){
+  gx += (tx-gx)*0.055;
+  gy += (ty-gy)*0.055;
+
+  if(glowActive){
+    const t = (Date.now() % 3600) / 3600;
+    const mix = Math.sin(t * Math.PI * 2) * 0.5 + 0.5;
+
+    const r = Math.round(106 + (134 - 106) * mix);
+    const g = Math.round(79 + (163 - 79) * mix);
+    const b = Math.round(122 + (110 - 122) * mix);
+
+    gradDiv.style.background = `
+      radial-gradient(
+        circle 420px at ${gx}% ${gy}%,
+        rgba(${r},${g},${b},.30) 0%,
+        rgba(${r},${g},${b},.16) 34%,
+        rgba(${r},${g},${b},.06) 58%,
+        transparent 76%
+      ),
+      radial-gradient(
+        circle 220px at ${tx}% ${ty}%,
+        rgba(${r},${g},${b},.16) 0%,
+        rgba(${r},${g},${b},.07) 48%,
+        transparent 72%
+      )
+    `;
+  }
+
+  requestAnimationFrame(paintHeroGlow);
+}
+
+paintHeroGlow();
 
   // Smooth ring follow with lag
   function animRing(){
