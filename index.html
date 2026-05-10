@@ -493,7 +493,7 @@ function initHeroMouse(){
     cx=e.clientX;cy=e.clientY;
     const x=((e.clientX-rect.left)/rect.width)*100;
     const y=((e.clientY-rect.top)/rect.height)*100;
-    const t = (Date.now() % 1000) / 1000;
+    const t = (Date.now() % 3000) / 3000;
 const mix = Math.sin(t * Math.PI * 2) * 0.5 + 0.5;
 
 const r = Math.round(106 + (134 - 106) * mix);
@@ -502,7 +502,7 @@ const b = Math.round(122 + (110 - 122) * mix);
 
 gradDiv.style.background = `
   radial-gradient(
-    circle 720px at ${x}% ${y}%,
+    circle 300px at ${x}% ${y}%,
     rgba(${r},${g},${b},.38) 0%,
     rgba(${r},${g},${b},.22) 32%,
     rgba(${r},${g},${b},.10) 58%,
