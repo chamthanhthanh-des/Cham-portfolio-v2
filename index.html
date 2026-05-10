@@ -506,8 +506,11 @@ function initHeroMouse(){
   });
   section.addEventListener('mouseleave',()=>{
   glowActive=false;
-  gradDiv.style.background='';
+  setTimeout(()=>{
+    if(!glowActive) gradDiv.style.background='';
+  }, 500);
   cursor.style.display='none';ring.style.display='none';
+});
   });
   document.querySelectorAll('a, button, span[onclick], .btn, .nlink, .cta, .fw-card, .work-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{
