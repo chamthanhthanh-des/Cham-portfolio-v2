@@ -487,6 +487,8 @@ function initHeroMouse(){
   if(!section)return;
 
   let cx=0,cy=0,rx=0,ry=0;
+  let trail=[];
+  const TRAIL_LIFE=900;
   let tx=50,ty=50,gx=50,gy=50;
   let glowActive=false;
 
@@ -499,6 +501,15 @@ function initHeroMouse(){
     tx=x;
     ty=y;
     glowActive=true;
+    trail.push({
+  x,
+  y,
+  time:Date.now()
+});
+
+if(trail.length>24){
+  trail.shift();
+}
 
     cursor.style.left=cx+'px';cursor.style.top=cy+'px';
     cursor.style.display='block';ring.style.display='block';
@@ -506,10 +517,14 @@ function initHeroMouse(){
   });
   section.addEventListener('mouseleave',()=>{
   glowActive=false;
-  setTimeout(()=>{
-    if(!glowActive) gradDiv.style.background='';
-  }, 500);
   cursor.style.display='none';ring.style.display='none';
+
+  setTimeout(()=>{
+    if(!glowActive){
+      trail=[];
+      gradDiv.style.background='';
+    }
+  },TRAIL_LIFE);
 });
   });
   document.querySelectorAll('a, button, span[onclick], .btn, .nlink, .cta, .fw-card, .work-card').forEach(el=>{
@@ -525,23 +540,38 @@ function initHeroMouse(){
 });
 
   function paintHeroGlow(){
-  if(glowActive){
-    const t = (Date.now() % 3000) / 3000;
-    const mix = Math.sin(t * Math.PI * 2) * 0.5 + 0.5;
+  const now=Date.now();
 
-    const r = Math.round(106 + (134 - 106) * mix);
-    const g = Math.round(79 + (163 - 79) * mix);
-    const b = Math.round(122 + (110 - 122) * mix);
+  trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
 
-    gradDiv.style.background = `
-      radial-gradient(
-        circle 360px at ${tx}% ${ty}%,
-        rgba(${r},${g},${b},.34) 0%,
-        rgba(${r},${g},${b},.18) 34%,
-        rgba(${r},${g},${b},.07) 58%,
-        transparent 76%
-      )
-    `;
+  if(glowActive || trail.length){
+    const t=(now % 3600) / 3600;
+    const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
+
+    const r=Math.round(106+(134-106)*mix);
+    const g=Math.round(79+(163-79)*mix);
+    const b=Math.round(122+(110-122)*mix);
+
+    const gradients=trail.map((p,i)=>{
+      const age=now-p.time;
+      const life=1-age/TRAIL_LIFE;
+      const size=160+life*180;
+      const alpha1=0.20*life;
+      const alpha2=0.10*life;
+      const alpha3=0.04*life;
+
+      return `
+        radial-gradient(
+          circle ${size}px at ${p.x}% ${p.y}%,
+          rgba(${r},${g},${b},${alpha1}) 0%,
+          rgba(${r},${g},${b},${alpha2}) 42%,
+          rgba(${r},${g},${b},${alpha3}) 64%,
+          transparent 82%
+        )
+      `;
+    });
+
+    gradDiv.style.background=gradients.join(',');
   }
 
   requestAnimationFrame(paintHeroGlow);
