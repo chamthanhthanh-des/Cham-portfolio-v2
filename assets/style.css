@@ -183,7 +183,9 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
   height:78px;
   border:1px solid rgba(106,79,122,.65);
   background:transparent;
-  animation:cursorRingColor 1.8s ease-in-out infinite alternate;
+  animation:
+    cursorRingColor 1.8s ease-in-out infinite alternate,
+    cursorRingGlow 1.8s ease-in-out infinite alternate;
 }
 
 .hero-cursor-ring.is-hover::before,
@@ -209,6 +211,18 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
   }
   100%{
     border-color:rgba(134,163,110,.65);
+  }
+}
+@keyframes cursorRingGlow{
+  0%{
+    box-shadow:
+      0 0 28px 10px rgba(106,79,122,.20),
+      0 0 70px 22px rgba(106,79,122,.10);
+  }
+  100%{
+    box-shadow:
+      0 0 28px 10px rgba(134,163,110,.22),
+      0 0 70px 22px rgba(134,163,110,.10);
   }
 }
 
