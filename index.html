@@ -545,7 +545,7 @@ if(trail.length>24){
   trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
 
   if(glowActive || trail.length){
-    const t=(now % 3600) / 3600;
+    const t=(now % 3000) / 3000;
     const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
 
     const r=Math.round(106+(134-106)*mix);
@@ -556,9 +556,9 @@ if(trail.length>24){
       const age=now-p.time;
       const life=1-age/TRAIL_LIFE;
       const size=120+life*140;
-      const alpha1=0.20*life;
-      const alpha2=0.10*life;
-      const alpha3=0.04*life;
+      const alpha1=0.30*life;
+      const alpha2=0.16*life;
+      const alpha3=0.06*life;
 
       return `
         radial-gradient(
