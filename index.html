@@ -526,11 +526,23 @@ function initHeroMouse(){
   const TRAIL_LIFE=900;
   let glowActive=false;
 
-  section.addEventListener('mousemove',e=>{
-    const rect=section.getBoundingClientRect();
-
+  document.addEventListener('mousemove',e=>{
     cx=e.clientX;
     cy=e.clientY;
+
+    cursor.style.left=cx+'px';
+    cursor.style.top=cy+'px';
+    cursor.style.display='block';
+    ring.style.display='block';
+  });
+
+  document.addEventListener('mouseleave',()=>{
+    cursor.style.display='none';
+    ring.style.display='none';
+  });
+
+  section.addEventListener('mousemove',e=>{
+    const rect=section.getBoundingClientRect();
 
     const x=((e.clientX-rect.left)/rect.width)*100;
     const y=((e.clientY-rect.top)/rect.height)*100;
@@ -546,29 +558,20 @@ function initHeroMouse(){
     if(trail.length>24){
       trail.shift();
     }
-
-    cursor.style.left=cx+'px';
-    cursor.style.top=cy+'px';
-    cursor.style.display='block';
-
-    ring.style.display='block';
   });
 
   section.addEventListener('mouseleave',()=>{
     glowActive=false;
-
-    cursor.style.display='none';
-    ring.style.display='none';
+    gradDiv.style.background='';
 
     setTimeout(()=>{
       if(!glowActive){
         trail=[];
-        gradDiv.style.background='';
       }
     },TRAIL_LIFE);
   });
 
-  section.querySelectorAll('a, button, span[onclick], .btn1, .btn2, .nlink, .ncta, .fw-item, .wgi').forEach(el=>{
+  document.querySelectorAll('a, button, span[onclick], .btn1, .btn2, .nlink, .ncta, .fw-item, .wgi').forEach(el=>{
     el.addEventListener('mouseenter',()=>{
       cursor.classList.add('is-hover');
       ring.classList.add('is-hover');
