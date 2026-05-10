@@ -568,7 +568,7 @@ footer {
 .h-about p{color:var(--muted);font-size:16px;line-height:1.85;max-width:560px}
 
 /* ── SECTION HEADER ─────────────────────────────── */
-.shd{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.shd{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;padding-bottom:24px}
 .shd h2{font-family:var(--fd);font-size:44px;font-weight:300;font-style:italic}
 .la{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color .2s,gap .2s}
 .la:hover{color:var(--text);gap:14px}
