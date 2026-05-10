@@ -1,4 +1,3 @@
-
 /* ── TOKENS ─────────────────────────────────────── */
 :root {
   --bg:      #ffffff;
@@ -21,7 +20,7 @@
   --ease: cubic-bezier(0.16,1,0.3,1);
   --px: 80px;   /* main horizontal padding from section 2 */
 }
-@media(max-width:1400px){ :root{ --px:120px } }
+@media(max-width:1400px){ :root{ --px:64px } }
 @media(max-width:1100px){ :root{ --px:64px } }
 @media(max-width:768px) { :root{ --px:32px } }
 @media(max-width:480px) { :root{ --px:20px } }
@@ -586,19 +585,6 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
   .fw-item::before{display:none}
   .qd-body{padding:48px var(--px)}
 }
-/* Cursor hover ring — thin version */
-.hero-cursor-ring.is-hover{
-  width:78px;
-  height:78px;
-  border:1px solid rgba(106,79,122,.65);
-  background:transparent;
-  animation:cursorRingColor 1.8s ease-in-out infinite alternate;
-}
-
-.hero-cursor-ring.is-hover::before,
-.hero-cursor-ring.is-hover::after{
-  display:none;
-}
 /* Force nav Let's Talk button to outline style */
 #nav .nlinks span.ncta.nav-outline-cta{
   height:44px !important;
@@ -723,25 +709,31 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
 }
 
 .about-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--fm);
+  font-size:8px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(247,243,234,.9);
+  border:1px solid rgba(247,243,234,.55);
+  padding:5px 14px 5px 10px;
+  border-radius:100px;
   position:absolute;
   right:0;
   top:50%;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid rgba(247,243,234,.82);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0;
+  transform:translateY(-50%);
 }
 
-.about-pill::after{
+.about-pill::before{
   content:"";
-  width:9px;
-  height:9px;
+  width:6px;
+  height:6px;
   border-radius:50%;
-  background:#f7f3ea;
+  background:#86a36e;
+  flex-shrink:0;
+  animation:pulse 2s infinite;
 }
 
 .about-ways{
