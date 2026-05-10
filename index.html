@@ -42,9 +42,9 @@
 
 <!-- ══════ HOME ══════ -->
 <div id="page-home" class="page">
+  <div class="hero-cursor-g" id="heroCursorG"></div>
   <section class="hero" id="heroSection">
     <div class="hero-bg-static"></div>
-    <div class="hero-cursor-g" id="heroCursorG"></div>
     <div class="hero-c">
       <div class="hero-eye">UI/UX &amp; Branding Designer</div>
       <h1 class="hero-title" id="heroTitle">
@@ -514,7 +514,7 @@ function togMenu(){
 
 /* ── HERO MOUSE GRADIENT ────────────────────────── */
 function initHeroMouse(){
-  const section=document.getElementById('heroSection');
+  const section=document.getElementById('page-home');
   const gradDiv=document.getElementById('heroCursorG');
   const cursor=document.getElementById('hCursor');
   const ring=document.getElementById('hCursorRing');
@@ -597,10 +597,10 @@ function initHeroMouse(){
         const age=now-p.time;
         const life=1-age/TRAIL_LIFE;
 
-        const size=120+life*140;
-        const alpha1=0.30*life;
-        const alpha2=0.16*life;
-        const alpha3=0.06*life;
+        const size=100+life*120;
+        const alpha1=0.18*life;
+        const alpha2=0.09*life;
+        const alpha3=0.03*life;
 
         return `
           radial-gradient(
