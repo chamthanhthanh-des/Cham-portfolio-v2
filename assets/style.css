@@ -620,10 +620,7 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding: 120px var(--px) 100px;
-  background:
-    radial-gradient(circle at 72% 18%, rgba(106,79,122,.08), transparent 38%),
-    radial-gradient(circle at 18% 82%, rgba(134,163,110,.06), transparent 36%),
-    var(--bg2);
+  background: white;
   color: var(--text);
   overflow: hidden;
 }
