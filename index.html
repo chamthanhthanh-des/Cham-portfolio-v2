@@ -501,6 +501,17 @@ function initHeroMouse(){
     gradDiv.style.background='';
     cursor.style.display='none';ring.style.display='none';
   });
+  document.querySelectorAll('a, button, span[onclick], .btn, .nlink, .cta, .fw-card, .work-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.classList.add('is-hover');
+    ring.classList.add('is-hover');
+  });
+
+  el.addEventListener('mouseleave',()=>{
+    cursor.classList.remove('is-hover');
+    ring.classList.remove('is-hover');
+  });
+});
 
   // Smooth ring follow with lag
   function animRing(){
