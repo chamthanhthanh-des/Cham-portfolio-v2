@@ -439,7 +439,6 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
 .q-item{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:32px;padding:40px var(--px);border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s;position:relative;overflow:hidden}
 .q-item:hover{background:var(--bg2)}
 .q-num{font-family:var(--fm);font-size:10px;color:var(--muted2)}
-.q-main{}
 .q-catdate{display:flex;align-items:center;gap:16px;margin-bottom:10px}
 .q-cat{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ame)}
 .q-date{font-family:var(--fm);font-size:9px;color:var(--muted2)}
