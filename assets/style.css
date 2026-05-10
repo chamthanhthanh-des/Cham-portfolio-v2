@@ -540,3 +540,16 @@ footer{border-top:1px solid var(--border);padding:40px var(--px);display:flex;al
   .fw-item::before{display:none}
   .qd-body{padding:48px var(--px)}
 }
+/* Cursor hover ring — thin version */
+.hero-cursor-ring.is-hover{
+  width:78px;
+  height:78px;
+  border:1px solid rgba(106,79,122,.65);
+  background:transparent;
+  animation:cursorRingColor 1.8s ease-in-out infinite alternate;
+}
+
+.hero-cursor-ring.is-hover::before,
+.hero-cursor-ring.is-hover::after{
+  display:none;
+}
