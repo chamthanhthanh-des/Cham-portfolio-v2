@@ -76,6 +76,29 @@ button {
   line-height: 1.2;
 }
 
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 6px;
+  padding: 10px 16px;
+  background: var(--ame);
+  color: white;
+  font-family: var(--fm);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  z-index: 10000;
+  transition: top .2s ease, opacity .2s ease;
+  opacity: 0;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 12px;
+  opacity: 1;
+}
+
 input, textarea, select {
   font-family: inherit;
   background: var(--surface);
