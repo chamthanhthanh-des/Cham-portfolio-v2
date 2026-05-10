@@ -51,7 +51,7 @@ label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mut
 
 /* ── TAGS / PILLS ──────────────────────────────── */
 .ltag{font-family:var(--fm);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-.pill{display:inline-block;background:var(--grad);color:white;font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;font-weight:700}
+.pill{display:inline-block;background:transparent;color:white;font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;font-weight:700}
 .tag{font-family:var(--fm);font-size:9px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--border);padding:3px 10px;border-radius:100px;color:var(--muted)}
 .divider{border:none;border-top:1px solid var(--border)}
 
