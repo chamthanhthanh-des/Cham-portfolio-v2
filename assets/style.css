@@ -93,7 +93,6 @@ label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mut
   border-color:#6a4f7a;
   color:#6a4f7a;
   background:rgba(106,79,122,.04);
-  transform:translateY(-1px);
 }
 .nburger{display:none;width:24px;height:24px;flex-direction:column;justify-content:center;gap:5px;cursor:pointer}
 .nburger span{display:block;height:1px;background:var(--text);transition:all .3s var(--ease)}
