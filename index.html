@@ -522,8 +522,8 @@ function initHeroMouse(){
 });
 
   function paintHeroGlow(){
-  gx += (tx-gx)*0.055;
-  gy += (ty-gy)*0.055;
+  gx += (tx-gx)*0.025;
+  gy += (ty-gy)*0.025;
 
   if(glowActive){
     const t = (Date.now() % 3600) / 3600;
