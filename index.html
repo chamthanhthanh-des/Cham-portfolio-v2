@@ -61,7 +61,7 @@
         <p class="hero-desc" id="heroDesc">With a background in both user experience and visual identity, I find the sweet spot between usability and personality — every design not only works, but feels right.</p>
         <div class="hero-act">
           <button class="btn1" onclick="go('works')">View Works →</button>
-          <span class="hero-link" onclick="go('contact')" style="font-family:var(--fm);font-size:13px;letter-spacing:2px;text-decoration:underline;color:var(--text);cursor:pointer;transition:opacity .2s;text-transform:uppercase">Get in touch</span>
+          <span class="hero-link font-mono text-xs letter-spacing-2 uppercase">Get in touch</span>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
 
   <hr class="divider" style="margin:0 var(--px)">
 
-  <div class="sw" style="padding-top:80px;padding-bottom:120px">
+  <div class="sw padding-top-80 padding-bottom-120">
     <div class="shd">
       <h2>Selected Works</h2>
       <span class="la" onclick="go('works')">All projects →</span>
@@ -128,8 +128,8 @@
         <div class="fw-main">
           <div class="fw-cat-row"><span class="fw-catbadge">Product Design</span><span class="fw-yr">2023</span></div>
           <h3 class="fw-title">SelfChain — Decentralized Identity for Web3</h3>
-          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Design • UX Research • Branding</span></div>
-          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">First modular intent-centric blockchain for multi-chain interoperability.</p>
+          <div class="fw-tags"><span class="text-small text-muted">Design • UX Research • Branding</span></div>
+          <p class="text-xs text-muted margin-top-8 line-height-16">First modular intent-centric blockchain for multi-chain interoperability.</p>
         </div>
         <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
       </div>
@@ -138,8 +138,8 @@
         <div class="fw-main">
           <div class="fw-cat-row"><span class="fw-catbadge">Design Systems</span><span class="fw-yr">2023–2024</span></div>
           <h3 class="fw-title">Self Design System</h3>
-          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Design System • Component Library</span></div>
-          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">Comprehensive design system with tokens, components, and documentation.</p>
+          <div class="fw-tags"><span class="text-small text-muted">Design System • Component Library</span></div>
+          <p class="text-xs text-muted margin-top-8 line-height-16">Comprehensive design system with tokens, components, and documentation.</p>
         </div>
         <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
       </div>
@@ -148,8 +148,8 @@
         <div class="fw-main">
           <div class="fw-cat-row"><span class="fw-catbadge">Branding</span><span class="fw-yr">2023–2025</span></div>
           <h3 class="fw-title">Hot Cross — Multi-Chain Web3 Platform</h3>
-          <div class="fw-tags"><span style="font-size:11px;color:var(--muted)">Brand Development • Art Direction • Marketing</span></div>
-          <p style="font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6">Visual identity and brand guidelines for a multi-chain DeFi platform.</p>
+          <div class="fw-tags"><span class="text-small text-muted">Brand Development • Art Direction • Marketing</span></div>
+          <p class="text-xs text-muted margin-top-8 line-height-16">Visual identity and brand guidelines for a multi-chain DeFi platform.</p>
         </div>
         <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
       </div>
@@ -171,18 +171,28 @@
 
 <!-- ══════ WORKS LIST ══════ -->
 <div id="page-works" class="page">
-  <div class="wpage-hero">
-    <h1>Works</h1>
-    <div class="wpage-sub">
-      <div class="ltag">2016 — 2026</div>
-      <p>Selected projects across product design, brand systems, and digital experiences.</p>
+  <section class="wpage-hero" aria-labelledby="works-title">
+    <div class="wpage-hero-inner">
+      <h1 id="works-title">Works</h1>
+
+      <div class="wpage-sub">
+        <div class="ltag">2016 — 2026</div>
+        <p>Selected projects across product design, brand systems, and digital experiences.</p>
+      </div>
     </div>
-  </div>
-  <div class="wfilters" id="wfilters"></div>
-  <div class="wgrid" id="wgrid"></div>
+  </section>
+
+  <section class="works-projects" aria-label="Selected work projects">
+    <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
+    <div class="wgrid" id="wgrid"></div>
+  </section>
+
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks"><span class="flink" onclick="go('about')">About</span><span class="flink" onclick="go('contact')">Contact</span></div>
+    <div class="flinks">
+      <span class="flink" onclick="go('about')">About</span>
+      <span class="flink" onclick="go('contact')">Contact</span>
+    </div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
@@ -205,7 +215,7 @@
         <span class="f1">with</span> <span class="b"><em>products.</em></span>
       </h1>
       <div class="ab-body">
-        <div class="ltag" style="margin-bottom:16px">Thanh Châm · Senior Designer · Hà Nội, 1995</div>
+        <div class="ltag margin-bottom-16">Thanh Châm · Senior Designer · Hà Nội, 1995</div>
         <p>Hi there! I'm a designer with 5 years in digital product design and 8 years in branding &amp; graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural, meaningful way.</p>
         <div class="ab-ways">
           <div class="ab-way"><span class="ab-wn">01</span><span>Working with usability &amp; user flows to solve real challenges</span></div>
@@ -248,14 +258,14 @@
       <div>
         <div class="ab-lbl">Skills</div>
         <div class="sk-l reveal">
-          <div class="sk-row"><span class="sk-name">UI · Visual Design</span><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div></div>
-          <div class="sk-row"><span class="sk-name">UX Research</span><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div></div>
-          <div class="sk-row"><span class="sk-name">Design Systems</span><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
-          <div class="sk-row"><span class="sk-name">Wireframing</span><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
-          <div class="sk-row"><span class="sk-name">Interaction Design</span><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
-          <div class="sk-row"><span class="sk-name">Branding</span><div class="sk-bar"><div class="sk-fill" style="width:93%"></div></div></div>
+          <div class="sk-row"><span class="sk-name">UI · Visual Design</span><div class="sk-bar"><div class="sk-fill skill-95"></div></div></div>
+          <div class="sk-row"><span class="sk-name">UX Research</span><div class="sk-bar"><div class="sk-fill skill-82"></div></div></div>
+          <div class="sk-row"><span class="sk-name">Design Systems</span><div class="sk-bar"><div class="sk-fill skill-90"></div></div></div>
+          <div class="sk-row"><span class="sk-name">Wireframing</span><div class="sk-bar"><div class="sk-fill skill-88"></div></div></div>
+          <div class="sk-row"><span class="sk-name">Interaction Design</span><div class="sk-bar"><div class="sk-fill skill-85"></div></div></div>
+          <div class="sk-row"><span class="sk-name">Branding</span><div class="sk-bar"><div class="sk-fill skill-93"></div></div></div>
         </div>
-        <div style="margin-top:48px">
+        <div class="margin-bottom-48">
           <div class="ab-lbl">Tools</div>
           <div class="tools-l reveal rd1">
             <div class="tl-row"><span class="tl-dot"></span>Figma</div>
@@ -265,9 +275,9 @@
             <div class="tl-row"><span class="tl-dot"></span>Notion</div>
           </div>
         </div>
-        <div style="margin-top:48px">
+        <div class="margin-bottom-48">
           <div class="ab-lbl">Services</div>
-          <div class="sv-chips reveal rd2" style="margin-top:16px">
+          <div class="sv-chips reveal rd2 padding-top-16">
             <span class="sv-chip">Web Design</span>
             <span class="sv-chip">Branding</span>
             <span class="sv-chip">Product Design</span>
@@ -276,7 +286,7 @@
         </div>
       </div>
       <div>
-        <div class="ab-lbl" style="margin-bottom:32px">Career</div>
+        <div class="ab-lbl margin-bottom-32">Career</div>
         <div class="tl-l" id="tlCareer"></div>
       </div>
     </div>
@@ -312,13 +322,13 @@
     <div class="con-info">
       <div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a></div></div>
       <div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:+84336009451">+84 336 009 451</a></div></div>
-      <div><div class="ci-lbl">Location</div><div class="ci-val" style="color:var(--muted)">Hà Nội, Vietnam</div></div>
+      <div><div class="ci-lbl">Location</div><div class="ci-val text-muted">Hà Nội, Vietnam</div></div>
       <div><div class="ci-lbl">Status</div><div class="ci-val"><span class="cbadge">Open to work</span></div></div>
     </div>
   </div>
   <div class="con-body">
     <div>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:28px;line-height:1.85">Whether you have a project in mind, want to collaborate, or just want to say hi — I'd love to hear from you. I usually reply within 24 hours.</p>
+      <p class="text-muted" style="font-size:14px;margin-bottom:28px;line-height:1.85">Whether you have a project in mind, want to collaborate, or just want to say hi — I'd love to hear from you. I usually reply within 24 hours.</p>
       <form class="cform" onsubmit="subCon(event)">
         <div class="frow">
           <div class="fg"><label>Name</label><input type="text" placeholder="Nguyễn Văn A" required></div>
