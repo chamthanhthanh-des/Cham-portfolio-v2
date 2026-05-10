@@ -675,7 +675,8 @@ footer {
 .mb-lid{background:#1d1d1f;border-radius:12px 12px 0 0;border:6px solid #2d2d2d;border-bottom:none;position:relative;overflow:hidden;aspect-ratio:16/10;box-shadow:0 -4px 20px rgba(0,0,0,.12),inset 0 0 0 1px rgba(255,255,255,.06)}
 .mb-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:22px;background:#1d1d1f;border-radius:0 0 10px 10px;z-index:10;display:flex;align-items:center;justify-content:center}
 .mb-cam{width:7px;height:7px;border-radius:50%;background:#2a2a2a;border:1px solid #444;margin-top:4px}
-.mb-screen{width:100%;height:100%;background:linear-gradient(145deg,#f9f8f6 0%,#eeecea 100%);position:relative;overflow:hidden}
+.mb-screen{width:100%;height:100%;background:linear-gradient(145deg,#f9f8f6 0%,#eeecea 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.mb-screen img.about-photo{width:100%;height:100%;object-fit:cover;display:block}
 .mac-ui{width:100%;height:100%;padding:26px 16px 10px;display:flex;flex-direction:column}
 .mac-nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.1);margin-bottom:10px}
 .mac-logo{font-family:var(--fd);font-size:8px;font-style:italic;color:#111}
