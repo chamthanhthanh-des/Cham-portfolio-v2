@@ -518,107 +518,119 @@ function initHeroMouse(){
   const gradDiv=document.getElementById('heroCursorG');
   const cursor=document.getElementById('hCursor');
   const ring=document.getElementById('hCursorRing');
-  if(!section)return;
+
+  if(!section || !gradDiv || !cursor || !ring) return;
 
   let cx=0,cy=0,rx=0,ry=0;
   let trail=[];
   const TRAIL_LIFE=900;
-  let tx=50,ty=50,gx=50,gy=50;
   let glowActive=false;
 
   section.addEventListener('mousemove',e=>{
     const rect=section.getBoundingClientRect();
-    cx=e.clientX;cy=e.clientY;
+
+    cx=e.clientX;
+    cy=e.clientY;
+
     const x=((e.clientX-rect.left)/rect.width)*100;
     const y=((e.clientY-rect.top)/rect.height)*100;
 
-    tx=x;
-    ty=y;
     glowActive=true;
+
     trail.push({
-  x,
-  y,
-  time:Date.now()
-});
-
-if(trail.length>24){
-  trail.shift();
-}
-
-    cursor.style.left=cx+'px';cursor.style.top=cy+'px';
-    cursor.style.display='block';ring.style.display='block';
-  });
-  });
-  section.addEventListener('mouseleave',()=>{
-  glowActive=false;
-  cursor.style.display='none';ring.style.display='none';
-
-  setTimeout(()=>{
-    if(!glowActive){
-      trail=[];
-      gradDiv.style.background='';
-    }
-  },TRAIL_LIFE);
-});
-  });
-  document.querySelectorAll('a, button, span[onclick], .btn, .nlink, .cta, .fw-card, .work-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    cursor.classList.add('is-hover');
-    ring.classList.add('is-hover');
-  });
-
-  el.addEventListener('mouseleave',()=>{
-    cursor.classList.remove('is-hover');
-    ring.classList.remove('is-hover');
-  });
-});
-
-  function paintHeroGlow(){
-  const now=Date.now();
-
-  trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
-
-  if(glowActive || trail.length){
-    const t=(now % 3000) / 3000;
-    const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
-
-    const r=Math.round(106+(134-106)*mix);
-    const g=Math.round(79+(163-79)*mix);
-    const b=Math.round(122+(110-122)*mix);
-
-    const gradients=trail.map((p,i)=>{
-      const age=now-p.time;
-      const life=1-age/TRAIL_LIFE;
-      const size=120+life*140;
-      const alpha1=0.30*life;
-      const alpha2=0.16*life;
-      const alpha3=0.06*life;
-
-      return `
-        radial-gradient(
-          circle ${size}px at ${p.x}% ${p.y}%,
-          rgba(${r},${g},${b},${alpha1}) 0%,
-          rgba(${r},${g},${b},${alpha2}) 42%,
-          rgba(${r},${g},${b},${alpha3}) 64%,
-          transparent 82%
-        )
-      `;
+      x,
+      y,
+      time:Date.now()
     });
 
-    gradDiv.style.background=gradients.join(',');
+    if(trail.length>24){
+      trail.shift();
+    }
+
+    cursor.style.left=cx+'px';
+    cursor.style.top=cy+'px';
+    cursor.style.display='block';
+
+    ring.style.display='block';
+  });
+
+  section.addEventListener('mouseleave',()=>{
+    glowActive=false;
+
+    cursor.style.display='none';
+    ring.style.display='none';
+
+    setTimeout(()=>{
+      if(!glowActive){
+        trail=[];
+        gradDiv.style.background='';
+      }
+    },TRAIL_LIFE);
+  });
+
+  document.querySelectorAll('a, button, span[onclick], .btn1, .btn2, .nlink, .ncta, .fw-item, .wgi').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      cursor.classList.add('is-hover');
+      ring.classList.add('is-hover');
+    });
+
+    el.addEventListener('mouseleave',()=>{
+      cursor.classList.remove('is-hover');
+      ring.classList.remove('is-hover');
+    });
+  });
+
+  function paintHeroGlow(){
+    const now=Date.now();
+
+    trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
+
+    if(glowActive || trail.length){
+      const t=(now % 3000) / 3000;
+      const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
+
+      const r=Math.round(106+(134-106)*mix);
+      const g=Math.round(79+(163-79)*mix);
+      const b=Math.round(122+(110-122)*mix);
+
+      const gradients=trail.map(p=>{
+        const age=now-p.time;
+        const life=1-age/TRAIL_LIFE;
+
+        const size=120+life*140;
+        const alpha1=0.30*life;
+        const alpha2=0.16*life;
+        const alpha3=0.06*life;
+
+        return `
+          radial-gradient(
+            circle ${size}px at ${p.x}% ${p.y}%,
+            rgba(${r},${g},${b},${alpha1}) 0%,
+            rgba(${r},${g},${b},${alpha2}) 42%,
+            rgba(${r},${g},${b},${alpha3}) 64%,
+            transparent 82%
+          )
+        `;
+      });
+
+      gradDiv.style.background=gradients.join(',');
+    }
+
+    requestAnimationFrame(paintHeroGlow);
   }
 
-  requestAnimationFrame(paintHeroGlow);
-}
+  paintHeroGlow();
 
-paintHeroGlow();
-
-  // Smooth ring follow with lag
   function animRing(){
-    rx+=(cx-rx)*0.1;ry+=(cy-ry)*0.1;
-    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    rx+=(cx-rx)*0.1;
+    ry+=(cy-ry)*0.1;
+
+    ring.style.left=rx+'px';
+    ring.style.top=ry+'px';
+
     requestAnimationFrame(animRing);
   }
+
   animRing();
 }
 
