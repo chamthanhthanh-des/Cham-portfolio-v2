@@ -41,11 +41,25 @@ function toast(msg) {
 
 /* ── HERO CUSTOM CURSOR ──────────────────────────── */
 function initHeroMouse() {
-  const section = document.getElementById('heroSection');
-  const gradDiv = document.getElementById('heroCursorG');
   const cursor  = document.getElementById('hCursor');
   const ring    = document.getElementById('hCursorRing');
-  if (!section || !gradDiv || !cursor || !ring) return;
+  if (!cursor || !ring) return;
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left    = e.clientX + 'px';
+    cursor.style.top     = e.clientY + 'px';
+    cursor.style.display = 'block';
+    ring.style.display   = 'block';
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.style.display = 'none';
+    ring.style.display   = 'none';
+  });
+
+  const section = document.getElementById('heroSection');
+  const gradDiv = document.getElementById('heroCursorG');
+  if (!section || !gradDiv) return;
 
   let cx=0, cy=0, rx=0, ry=0, trail=[], glowActive=false;
   const TRAIL_LIFE = 900;
