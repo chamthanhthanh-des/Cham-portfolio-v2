@@ -1528,6 +1528,14 @@ body {
   overflow-x: hidden;
 }
 /* ── ABOUT PAGE REVISED ──────────────────────────── */
+
+.ab-sec {
+  padding: 80px var(--px);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-top: 1px solid var(--border);
+}
+
 .ab-row {
   display: grid;
   grid-template-columns: 120px 1fr;
