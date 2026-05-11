@@ -1658,3 +1658,8 @@ body {
   max-width: none;
   margin: 0;
 }
+.about-hero__title {
+  font-size: clamp(16px, 2.5vw, 24px) !important;
+  font-weight: 300;
+  font-style: normal;
+}
