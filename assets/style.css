@@ -1598,12 +1598,13 @@ body {
 
 .ab-skill-label {
   font-family: var(--fm);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--oli);
   margin-bottom: 18px;
+  margin-top: 8px;
 }
 
 .ab-skill-list {
