@@ -99,11 +99,6 @@ function initHeroMouse() {
     setTimeout(() => { if (!glowActive) trail = []; }, TRAIL_LIFE);
   });
 
-  document.querySelectorAll('a, button, .fw-item, .wgi').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.classList.add('is-hover'); ring.classList.add('is-hover'); });
-    el.addEventListener('mouseleave', () => { cursor.classList.remove('is-hover'); ring.classList.remove('is-hover'); });
-  });
-
   (function paintHeroGlow() {
     const now = Date.now();
     trail = trail.filter(p => now-p.time < TRAIL_LIFE);
