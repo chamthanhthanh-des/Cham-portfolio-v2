@@ -1427,7 +1427,7 @@ footer {
 .fbtn.active:hover {
   background: transparent;
   color: #fff;
-  border-color: none;
+  border-color: transparent;
   transform: none;
   box-shadow: none;
 }
