@@ -826,6 +826,7 @@ footer {
 .about-hero__info {
   display: grid;
   gap: 12px;
+  margin-top: 48px;
 }
 
 .about-hero__info h2 {
@@ -878,7 +879,7 @@ footer {
   }
 
   .about-hero__title {
-    font-size: clamp(24px, 2.5vw, 36px);
+    font-size: clamp(16px, 2.5vw, 24px);
   }
 
   .about-hero__image-wrap {
