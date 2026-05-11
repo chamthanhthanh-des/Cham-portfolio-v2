@@ -1393,3 +1393,49 @@ footer {
 .skill-88 { width: 88%; }
 .skill-85 { width: 85%; }
 .skill-93 { width: 93%; }
+
+/* ==== FILTER BUTTON HOVER FIX ==== */
+
+.fbtn {
+  height: 44px;
+  min-height: 44px;
+  padding: 0 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  line-height: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  transform: none;
+}
+
+.fbtn:hover {
+  transform: none;
+}
+
+.fbtn.active {
+  height: 44px;
+  min-height: 44px;
+  padding: 0 28px;
+  border-radius: 999px;
+  overflow: hidden;
+  transform: none;
+  box-shadow: none;
+}
+.fbtn.active,
+.fbtn.active:hover {
+  background: var(--grad);
+  color: #fff;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+@media (max-width: 768px) {
+  .fbtn,
+  .fbtn.active {
+    height: 40px;
+    min-height: 40px;
+    padding: 0 20px;
+  }
+}
