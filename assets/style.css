@@ -1692,3 +1692,63 @@ body {
   font-weight: 300;
   font-style: normal;
 }
+/* ── CONTACT PAGE REVISED ────────────────────────── */
+.con-sec {
+  padding: 80px var(--px);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-top: 1px solid var(--border);
+}
+
+.con-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.con-row-label {
+  font-family: var(--fm);
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.con-form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.con-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.con-info-label {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--oli);
+  margin-bottom: 16px;
+}
+
+.con-info-val {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.con-info-val a:hover {
+  color: var(--ame);
+}
+
+@media (max-width: 768px) {
+  .con-row { grid-template-columns: 1fr; gap: 24px; }
+  .con-info-grid { grid-template-columns: 1fr; gap: 32px; }
+}

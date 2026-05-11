@@ -47,33 +47,43 @@
   <section class="subpage-hero" aria-labelledby="contact-title">
     <div class="subpage-hero__inner">
       <h1 class="subpage-hero__title" id="contact-title">Let's talk</h1>
-      <p class="subpage-hero__description">Whether you have a project in mind or just want to say hi — I'd love to hear from you. Usually reply within 24 hours.</p>
+      <p class="subpage-hero__description">Whether you have a project in mind or just want to say hi — I'd love to hear from you.</p>
     </div>
   </section>
 
-  <div class="con-body">
-    <div>
-      <p class="text-muted" style="font-size:14px;margin-bottom:28px;line-height:1.85">Whether you have a project in mind, want to collaborate, or just want to say hi — I'd love to hear from you. I usually reply within 24 hours.</p>
-      <form class="cform" onsubmit="subCon(event)">
+  <section class="con-sec">
+    <div class="con-row">
+      <div class="con-row-label">Say hi</div>
+      <div class="con-form-wrap">
         <div class="frow">
           <div class="fg"><label>Name</label><input type="text" placeholder="Nguyễn Văn A" required></div>
           <div class="fg"><label>Email</label><input type="email" placeholder="email@company.com" required></div>
         </div>
         <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-        <button type="submit" class="btn1">Send Message →</button>
-      </form>
-    </div>
-    <div>
-      <div class="ci-lbl">Contact</div>
-      <div class="ci-val" style="margin-bottom:24px"><a href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a></div>
-      <div class="ci-val" style="margin-bottom:32px"><a href="tel:+84336009451">+84 336 009 451</a></div>
-      <div class="ci-lbl" style="margin-bottom:16px">Socials</div>
-      <div class="soc-l">
-        <a href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank" class="soc-a"><span class="soc-name">LinkedIn</span><span class="soc-arr">↗</span></a>
-        <a href="https://www.facebook.com/chamthanhthanh.imc/" target="_blank" class="soc-a"><span class="soc-name">Facebook</span><span class="soc-arr">↗</span></a>
+        <button type="submit" class="btn1" onclick="subCon(event)">Send Message →</button>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="con-sec">
+    <div class="con-row">
+      <div class="con-row-label">Connect</div>
+      <div class="con-info-grid">
+        <div>
+          <div class="con-info-label">Contact</div>
+          <p class="con-info-val"><a href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a></p>
+          <p class="con-info-val"><a href="tel:+84336009451">+84 336 009 451</a></p>
+        </div>
+        <div>
+          <div class="con-info-label">Socials</div>
+          <div class="soc-l">
+            <a href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank" class="soc-a"><span class="soc-name">LinkedIn</span><span class="soc-arr">↗</span></a>
+            <a href="https://www.facebook.com/chamthanhthanh.imc/" target="_blank" class="soc-a"><span class="soc-name">Facebook</span><span class="soc-arr">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
