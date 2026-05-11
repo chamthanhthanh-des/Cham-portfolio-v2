@@ -22,7 +22,7 @@
   --ease: cubic-bezier(0.16,1,0.3,1);
 
   /* Global layout spacing */
-  --page-padding-x: clamp(24px, 4vw, 80px);
+  --page-padding-x: clamp(20px, 3vw, 64px);
   --px: var(--page-padding-x);
   --page-max-width: none;
 }
