@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Châm Thanh Thanh — UI/UX & Branding Designer</title>
-<meta name="description" content="Senior UI/UX & Branding Designer with 8+ years experience.">
+<title>Works — Châm Thanh Thanh</title>
+<meta name="description" content="Selected projects across product design, brand systems, and digital experiences.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>
+
 <body>
 
-<!-- Skip link for accessibility -->
 <a href="#app" class="skip-link">Skip to main content</a>
 
-<!-- Custom cursor for hero -->
 <div class="hero-cursor" id="hCursor"></div>
 <div class="hero-cursor-ring" id="hCursorRing"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <a class="nlogo" href="/">
     <img class="brand-mark" src="/assets/favicon.svg" alt="Logo">Châm.
@@ -28,7 +28,7 @@
 
   <div class="nlinks">
     <a class="nlink active" href="/works/">Works</a>
-    <a class="nlink" href="/about/">About</a>    
+    <a class="nlink" href="/about/">About</a>
     <a class="nlink" href="/quiet/">Quiet</a>
     <a class="nlink" href="/contact/">Contact</a>
 
@@ -60,510 +60,377 @@
 
 <main id="app" aria-label="Main content">
 
+  <div id="page-works" class="page active">
+    <section class="subpage-hero" aria-labelledby="works-title">
+      <div class="subpage-hero__inner">
+        <h1 class="subpage-hero__title" id="works-title">Works</h1>
+        <p class="subpage-hero__description">
+          Selected projects across product design, brand systems, and digital experiences.
+        </p>
+      </div>
+    </section>
 
-<!-- ══════ WORKS LIST ══════ -->
-<div id="page-works" class="page">
-  <section class="subpage-hero" aria-labelledby="works-title">
-    <div class="subpage-hero__inner">
-      <h1 class="subpage-hero__title" id="works-title">Works</h1>
-      <p class="subpage-hero__description">Selected projects across product design, brand systems, and digital experiences.</p>
-    </div>
-  </section>
+    <section class="works-projects" aria-label="Selected work projects">
+      <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
+      <div class="wgrid" id="wgrid"></div>
+    </section>
 
-  <section class="works-projects" aria-label="Selected work projects">
-    <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
-    <div class="wgrid" id="wgrid"></div>
-  </section>
+    <footer>
+      <div class="flogo">Châm Thanh Thanh</div>
+      <div class="flinks">
+        <a class="flink" href="/about/">About</a>
+        <a class="flink" href="/contact/">Contact</a>
+      </div>
+      <div class="fcopy">©2026 Châm Thanh Thanh</div>
+    </footer>
+  </div>
 
-  <footer>
-    <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks">
-      <span class="flink" onclick="go('about')">About</span>
-      <span class="flink" onclick="go('contact')">Contact</span>
-    </div>
-    <div class="fcopy">©2026 Châm Thanh Thanh</div>
-  </footer>
-</div>
+  <div id="page-work-detail" class="page">
+    <div id="wdc"></div>
 
-<!-- ══════ WORK DETAIL ══════ -->
-<div id="page-work-detail" class="page">
-  <div id="wdc"></div>
-  <footer><div class="flogo">Châm Thanh Thanh</div><div class="flinks"><span class="flink" onclick="go('works')">← All Works</span></div><div class="fcopy">©2026</div></footer>
-</div>
+    <footer>
+      <div class="flogo">Châm Thanh Thanh</div>
+      <div class="flinks">
+        <span class="flink" onclick="go('works')">← All Works</span>
+      </div>
+      <div class="fcopy">©2026 Châm Thanh Thanh</div>
+    </footer>
+  </div>
 
+</main>
 
 <script>
-/* ── DATA ───────────────────────────────────────── */
-const PWD='cham2025',LW='ctw_w4',LQ='ctw_q1',LC='ctw_c4',LH='ctw_h4',LA='ctw_a4';
-
-const DW=[
-  {id:'selfchain',title:'SelfChain — Decentralized Identity for Web3',year:'2023',category:'product',tags:['Product Design','Branding Design','Product Improvement'],description:'SelfChain is a Layer 1 blockchain focused on decentralized identity for Web3. I led the full product design and branding effort — from defining the visual identity to designing the core dApp experience.\n\nThe challenge was making complex Web3 concepts accessible to mainstream audiences while maintaining a cutting-edge aesthetic resonant with the crypto-native community.',cover:'',color:'#EDE9F7',featured:true,order:1},
-  {id:'self-design-system',title:'Self Design System',year:'2023–2024',category:'product',tags:['Product Design','Design System'],description:'A comprehensive design system for the SelfChain product suite — covering components, tokens, documentation, and governance processes.\n\nDeep collaboration with engineering ensured seamless handoff and implementation consistency across all product surfaces.',cover:'',color:'#EBF0E9',featured:true,order:2},
-  {id:'hotcross',title:'Hot Cross — Multi-Chain Web3 Platform',year:'2021–2023',category:'branding',tags:['Brand Development','Dapp Improvement','Marketing Design'],description:'Hot Cross is a multi-chain infrastructure and Web3 playground. As Senior Product & Branding Designer I led brand development, improved the core dApp experience, and created all marketing design assets.\n\nBuilt a cohesive visual system across product, social, and marketing channels over a 2-year engagement.',cover:'',color:'#F0EBE5',featured:true,order:3},
-  {id:'mill-3',title:'Mill 3 — DeFi Platform',year:'2022',category:'product',tags:['Dapp Design','Brand Development','Product Research'],description:'A DeFi platform requiring a strong brand presence and intuitive product experience. Led the full design process from brand identity through to product UX — conducting user research, competitive analysis, and iterative design.',cover:'',color:'#EBF0EC',featured:false,order:4},
-  {id:'bocongann',title:'Bồ Công Anh — Creative Agency Web',year:'2020',category:'web',tags:['Web Design','Development'],description:'Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.',cover:'',color:'#F5F0E8',featured:false,order:5},
-  {id:'artvr',title:'ArtVR — Virtual Reality Art Platform',year:'2019',category:'web',tags:['Web Design','Development'],description:'ArtVR is a platform for experiencing art in virtual reality. I designed the web presence bridging physical art with immersive VR technology — an interface as novel as the medium itself.',cover:'',color:'#EEE9F5',featured:false,order:6}
-];
-
-const DQ=[
-  {id:'q1',title:'Khoảng lặng trong thiết kế',date:'Apr 2025',category:'Design Thoughts',reading:'5 min read',excerpt:'Không gian trống không phải là sự thiếu vắng — đó là hơi thở của một layout. Mỗi khoảng trống đều mang ý nghĩa.',lead:'Trong thiết kế, điều người ta hay bỏ qua nhất không phải là màu sắc hay typography — mà là khoảng lặng. Negative space. Sự im lặng có chủ đích.',content:'<p>Tôi thường nói với các designer trẻ rằng: một thiết kế tốt không phải là nhồi nhét mọi thứ vào một trang. Thiết kế tốt là biết khi nào cần dừng lại.</p><h2>Khoảng trống không phải là sự lãng phí</h2><p>Khi nhìn vào các sản phẩm của Apple, Muji, hay các brand Scandinavian, điều đập vào mắt bạn đầu tiên không phải là những gì có ở đó — mà là những gì không có. Khoảng trống đó không phải do họ không có gì để điền vào. Đó là một quyết định thiết kế có chủ đích.</p><blockquote>Whitespace is like air. You cannot see it, but without it, everything suffocates.</blockquote><p>Trong UX, khoảng lặng có vai trò tạo nhịp điệu cho người dùng. Nó cho họ thời gian để xử lý thông tin, quyết định hành động tiếp theo, và cảm thấy không bị áp lực.</p><h3>Áp dụng trong thực tế</h3><p>Lần tới khi bạn thiết kế một màn hình, hãy thử zoom out ra 50% và nhìn vào tổng thể. Nếu mắt bạn không biết phải nhìn vào đâu trước — đó là dấu hiệu cần thêm khoảng trống, không phải thêm nội dung.</p>'},
-  {id:'q2',title:'Khi màu sắc nói thay ngôn ngữ',date:'Mar 2025',category:'Inspiration',reading:'4 min read',excerpt:'Màu sắc không chỉ là thẩm mỹ. Đó là ngôn ngữ — và mỗi màu sắc đều mang một giọng điệu riêng.',lead:'Tôi đã từng mất 3 ngày để chọn màu accent cho một dự án. Không phải vì tôi không biết — mà vì màu sắc có quá nhiều điều cần nói.',content:'<p>Trong thiết kế thương hiệu, màu sắc là quyết định chiến lược đầu tiên và quan trọng nhất. Trước cả typography, trước cả logo — màu sắc đặt ra tông cảm xúc cho toàn bộ trải nghiệm.</p><h2>Màu sắc mang ký ức</h2><p>Khi bạn nhìn vào màu xanh navy đậm của Hermès, hay màu cam năng động của ING — những màu đó không chỉ đẹp. Chúng chứa đựng cả một câu chuyện, một cá tính, một lời hứa với khách hàng.</p><blockquote>Color is the place where our brain and the universe meet.</blockquote><h3>Pastel và câu chuyện của sự mềm mại</h3><p>Trong dự án này tôi đang dùng Amethyst và Olivine — hai màu tưởng như không liên quan. Nhưng khi đặt cạnh nhau, chúng tạo nên một câu chuyện: sự sáng tạo (tím) gặp sự tự nhiên (xanh lá). Đó chính xác là những gì tôi muốn thể hiện.</p>'},
-  {id:'q3',title:'Viết để hiểu, không phải để xuất bản',date:'Feb 2025',category:'Process',reading:'3 min read',excerpt:'Writing as thinking. Mỗi bài viết trong Quiet này đều bắt đầu từ một ghi chú rời rạc trong Notion lúc 2 giờ sáng.',lead:'Tôi không tự nhận mình là writer. Nhưng tôi viết mỗi ngày — không để publish, mà để hiểu.',content:'<p>Có một khoảng thời gian tôi nghĩ rằng ghi chép là việc của nhà văn, của journalist. Designer thì cần sketch, wireframe, prototype. Viết là thứ xa xỉ.</p><h2>Sai hoàn toàn</h2><p>Sau 8 năm làm thiết kế, tôi nhận ra rằng viết — dù chỉ là ghi chú cho bản thân — là công cụ tư duy mạnh nhất mà tôi có. Khi tôi không thể giải thích một quyết định thiết kế bằng chữ, đó là dấu hiệu tôi chưa thực sự hiểu nó.</p><blockquote>If you cannot write it clearly, you do not think it clearly.</blockquote><h3>Quiet bắt đầu như thế nào</h3><p>Section này trên portfolio của tôi không phải là blog theo nghĩa truyền thống. Đây là nơi tôi chia sẻ những mảnh suy nghĩ — về design, về process, về cuộc sống của một designer. Không hoàn hảo. Không được edit nhiều. Nhưng thật.</p>'}
-];
-
-const DC=[
-  {id:'c1',role:'Senior Product · Branding Designer',company:'Hotcross Web3',url:'hotcross.com',period:'Sep 2022 – Present',current:true},
-  {id:'c2',role:'Senior Product · Branding Designer',company:'SelfChain Web3',url:'selfchain.xyz',period:'Oct 2023 – Feb 2025',current:false},
-  {id:'c3',role:'Senior Product Designer',company:'Sapo Technology Jsc',url:'sapo.vn',period:'Jun 2021 – Oct 2022',current:false},
-  {id:'c4',role:'Multimedia · UI Designer',company:'Bồ Công Anh Creative Agency',url:'boconganh.net.vn',period:'Apr 2019 – May 2021',current:false},
-  {id:'c5',role:'Senior Graphic Designer',company:'Fresh House & Partners',url:'fresh-house.com',period:'Dec 2018 – Mar 2019',current:false},
-  {id:'c6',role:'Senior Graphic Designer',company:'Sonice Frontier Market Vietnam',url:'sonice.vn',period:'Jul 2017 – Nov 2017',current:false},
-  {id:'c7',role:'Graphic Designer · Team Leader',company:'Topica Edtech · Edumall',url:'edumall.vn',period:'Mar 2016 – Jun 2017',current:false}
-];
-const DH={
- title:`<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e">products</span> <span class="f1">&</span> <span class="b" style="color:#86a36e">brands.</span>`,
- desc:`I work at the intersection of product experience and brand systems — turning ideas into clear, intuitive, and memorable digital experiences.`
-};
-  
-function ld(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}}
-function sv(k,v){localStorage.setItem(k,JSON.stringify(v))}
-
-let works=ld(LW,DW),posts=ld(LQ,DQ),career=ld(LC,DC),hero=ld(LH,DH);
-let page='home',filter='all';
-
-/* ── ROUTER ─────────────────────────────────────── */
-function go(p,id){
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.nlink').forEach(x=>x.classList.remove('active'));
-  page=p;
-
-  if(p==='work-detail'&&id){
-    const w=works.find(x=>x.id===id);if(!w){go('works');return}
-    renderWD(w);document.getElementById('page-work-detail').classList.add('active');window.scrollTo(0,0);return;
+/* ===== DATA ===== */
+const DW = [
+  {
+    id: 'selfchain',
+    title: 'SelfChain — Decentralized Identity for Web3',
+    year: '2023',
+    category: 'product',
+    tags: ['Product Design', 'Branding Design', 'Product Improvement'],
+    description: 'SelfChain is a Layer 1 blockchain focused on decentralized identity for Web3. I led the full product design and branding effort — from defining the visual identity to designing the core dApp experience.\n\nThe challenge was making complex Web3 concepts accessible to mainstream audiences while maintaining a cutting-edge aesthetic resonant with the crypto-native community.',
+    cover: '',
+    color: '#EDE9F7',
+    featured: true,
+    order: 1
+  },
+  {
+    id: 'self-design-system',
+    title: 'Self Design System',
+    year: '2023–2024',
+    category: 'product',
+    tags: ['Product Design', 'Design System'],
+    description: 'A comprehensive design system for the SelfChain product suite — covering components, tokens, documentation, and governance processes.\n\nDeep collaboration with engineering ensured seamless handoff and implementation consistency across all product surfaces.',
+    cover: '',
+    color: '#EBF0E9',
+    featured: true,
+    order: 2
+  },
+  {
+    id: 'hotcross',
+    title: 'Hot Cross — Multi-Chain Web3 Platform',
+    year: '2021–2023',
+    category: 'branding',
+    tags: ['Brand Development', 'Dapp Improvement', 'Marketing Design'],
+    description: 'Hot Cross is a multi-chain infrastructure and Web3 playground. As Senior Product & Branding Designer I led brand development, improved the core dApp experience, and created all marketing design assets.\n\nBuilt a cohesive visual system across product, social, and marketing channels over a 2-year engagement.',
+    cover: '',
+    color: '#F0EBE5',
+    featured: true,
+    order: 3
+  },
+  {
+    id: 'mill-3',
+    title: 'Mill 3 — DeFi Platform',
+    year: '2022',
+    category: 'product',
+    tags: ['Dapp Design', 'Brand Development', 'Product Research'],
+    description: 'A DeFi platform requiring a strong brand presence and intuitive product experience. Led the full design process from brand identity through to product UX — conducting user research, competitive analysis, and iterative design.',
+    cover: '',
+    color: '#EBF0EC',
+    featured: false,
+    order: 4
+  },
+  {
+    id: 'bocongann',
+    title: 'Bồ Công Anh — Creative Agency Web',
+    year: '2020',
+    category: 'web',
+    tags: ['Web Design', 'Development'],
+    description: 'Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.',
+    cover: '',
+    color: '#F5F0E8',
+    featured: false,
+    order: 5
+  },
+  {
+    id: 'artvr',
+    title: 'ArtVR — Virtual Reality Art Platform',
+    year: '2019',
+    category: 'web',
+    tags: ['Web Design', 'Development'],
+    description: 'ArtVR is a platform for experiencing art in virtual reality. I designed the web presence bridging physical art with immersive VR technology — an interface as novel as the medium itself.',
+    cover: '',
+    color: '#EEE9F5',
+    featured: false,
+    order: 6
   }
-  if(p==='quiet-detail'&&id){
-    const q=posts.find(x=>x.id===id);if(!q){go('quiet');return}
-    renderQD(q);document.getElementById('page-quiet-detail').classList.add('active');window.scrollTo(0,0);return;
-  }
+];
 
-  const el=document.getElementById('page-'+p);if(!el)return;
-  el.classList.add('active');
-  const lk=document.querySelector(`.nlink[data-p="${p}"]`);if(lk)lk.classList.add('active');
-  window.scrollTo(0,0);
-  if(p==='home')    initHome();
-  if(p==='works')   renderWorks();
-  if(p==='about')   renderAbout();
-  if(p==='quiet')   renderQuiet();
-  if(p==='admin')   initAdmin();
-  setTimeout(initReveal,80);
+const LW = 'ctw_w4';
+
+function ld(k, d) {
+  try {
+    const v = localStorage.getItem(k);
+    return v ? JSON.parse(v) : d;
+  } catch {
+    return d;
+  }
 }
 
-/* ── NAV ────────────────────────────────────────── */
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
-let mopen=false;
-function togMenu(){
-  mopen=!mopen;document.getElementById('mm').classList.toggle('open',mopen);
-  const s=document.querySelectorAll('.nburger span');
-  s[0].style.transform=mopen?'rotate(45deg) translate(4px,4px)':'';
-  s[1].style.transform=mopen?'rotate(-45deg) translate(4px,-4px)':'';
-}
+let works = ld(LW, DW);
+let filter = 'all';
+let page = 'works';
 
-/* ── HERO MOUSE GRADIENT ────────────────────────── */
-function initHeroMouse(){
-  const section=document.getElementById('heroSection');
-  const gradDiv=document.getElementById('heroCursorG');
-  const cursor=document.getElementById('hCursor');
-  const ring=document.getElementById('hCursorRing');
+/* ===== ROUTER ===== */
+function go(p, id) {
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
 
-  if(!section || !gradDiv || !cursor || !ring) return;
+  page = p;
 
-  let cx=0,cy=0,rx=0,ry=0;
-  let trail=[];
-  const TRAIL_LIFE=900;
-  let glowActive=false;
+  if (p === 'work-detail' && id) {
+    const w = works.find(item => item.id === id);
 
-  document.addEventListener('mousemove',e=>{
-    cx=e.clientX;
-    cy=e.clientY;
-
-    cursor.style.left=cx+'px';
-    cursor.style.top=cy+'px';
-    cursor.style.display='block';
-    ring.style.display='block';
-  });
-
-  document.addEventListener('mouseleave',()=>{
-    cursor.style.display='none';
-    ring.style.display='none';
-  });
-
-  section.addEventListener('mousemove',e=>{
-    const rect=section.getBoundingClientRect();
-
-    const x=((e.clientX-rect.left)/rect.width)*100;
-    const y=((e.clientY-rect.top)/rect.height)*100;
-
-    glowActive=true;
-
-    trail.push({
-      x,
-      y,
-      time:Date.now()
-    });
-
-    if(trail.length>24){
-      trail.shift();
-    }
-  });
-
-  section.addEventListener('mouseleave',()=>{
-    glowActive=false;
-    gradDiv.style.background='';
-
-    setTimeout(()=>{
-      if(!glowActive){
-        trail=[];
-      }
-    },TRAIL_LIFE);
-  });
-
-  document.querySelectorAll('a, button, span[onclick], .btn1, .btn2, .nlink, .ncta, .fw-item, .wgi').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{
-      cursor.classList.add('is-hover');
-      ring.classList.add('is-hover');
-    });
-
-    el.addEventListener('mouseleave',()=>{
-      cursor.classList.remove('is-hover');
-      ring.classList.remove('is-hover');
-    });
-  });
-
-  function paintHeroGlow(){
-    const now=Date.now();
-
-    trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
-
-    if(glowActive || trail.length){
-      const t=(now % 3000) / 3000;
-      const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
-
-      const r=Math.round(106+(134-106)*mix);
-      const g=Math.round(79+(163-79)*mix);
-      const b=Math.round(122+(110-122)*mix);
-
-      const gradients=trail.map(p=>{
-        const age=now-p.time;
-        const life=1-age/TRAIL_LIFE;
-
-        const size=100+life*120;
-        const alpha1=0.18*life;
-        const alpha2=0.09*life;
-        const alpha3=0.03*life;
-
-        return `
-          radial-gradient(
-            circle ${size}px at ${p.x}% ${p.y}%,
-            rgba(${r},${g},${b},${alpha1}) 0%,
-            rgba(${r},${g},${b},${alpha2}) 42%,
-            rgba(${r},${g},${b},${alpha3}) 64%,
-            transparent 82%
-          )
-        `;
-      });
-
-      gradDiv.style.background=gradients.join(',');
+    if (!w) {
+      go('works');
+      return;
     }
 
-    requestAnimationFrame(paintHeroGlow);
+    renderWD(w);
+    document.getElementById('page-work-detail').classList.add('active');
+    window.scrollTo(0, 0);
+    return;
   }
 
-  paintHeroGlow();
+  if (p === 'works') {
+    document.getElementById('page-works').classList.add('active');
+    renderWorks();
+    window.scrollTo(0, 0);
+  }
+}
 
-  function animRing(){
-    rx+=(cx-rx)*0.1;
-    ry+=(cy-ry)*0.1;
+/* ===== NAV ===== */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (nav) {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }
+});
 
-    ring.style.left=rx+'px';
-    ring.style.top=ry+'px';
+let mopen = false;
 
-    requestAnimationFrame(animRing);
+function togMenu() {
+  mopen = !mopen;
+
+  const menu = document.getElementById('mm');
+  const spans = document.querySelectorAll('.nburger span');
+
+  if (menu) {
+    menu.classList.toggle('open', mopen);
   }
 
-  animRing();
+  if (spans[0]) {
+    spans[0].style.transform = mopen ? 'rotate(45deg) translate(4px,4px)' : '';
+  }
+
+  if (spans[1]) {
+    spans[1].style.transform = mopen ? 'rotate(-45deg) translate(4px,-4px)' : '';
+  }
 }
 
-/* ── HOME ───────────────────────────────────────── */
-function initHome(){
-  const ht=document.getElementById('heroTitle'),hd=document.getElementById('heroDesc');
-  if(ht)ht.innerHTML=hero.title;if(hd)hd.innerHTML=hero.desc;
-  const items=['Product Design','Branding','UI/UX Research','Design Systems','Web3','Art Direction','8+ Years','Hà Nội'];
-  const t=document.getElementById('mqt');
-  if(t)t.innerHTML=[...items,...items].map(x=>`<span class="mq-item"><span class="mq-dot"></span>${x}</span>`).join('');
-  const fw=document.getElementById('featW');
-  if(fw)fw.innerHTML=works.filter(w=>w.featured).slice(0,3).map((w,i)=>fwCardHTML(w,i)).join('');
-  initHeroMouse();
-}
+/* ===== WORKS LIST ===== */
+function renderWorks() {
+  const cats = ['all', ...new Set(works.map(w => w.category))];
+  const f = document.getElementById('wfilters');
 
-function fwCardHTML(w,i){
-  const th=w.cover?`<img src="${w.cover}" alt="${w.title}" loading="lazy">`:`<div class="fw-preview-inner" style="background:${w.color||'#f0eee9'}">${w.title.charAt(0)}</div>`;
-  return`<div class="fw-item" onclick="go('work-detail','${w.id}')">
-    <div class="fw-row">
-      <span class="fw-num">${String(i+1).padStart(2,'0')}</span>
-      <div class="fw-main">
-        <div class="fw-cat-row"><span class="fw-catbadge">${w.category}</span><span class="fw-yr">${w.year}</span></div>
-        <div class="fw-title">${w.title}</div>
-        <div class="fw-tags">${w.tags.slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      </div>
-      <div class="fw-arrow-wrap"><div class="fw-circle">↗</div></div>
-    </div>
-    <div class="fw-preview">${w.cover?`<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">`:`<div class="fw-preview-inner" style="background:${w.color||'#f0eee9'}">${w.title.split('—')[0].trim().charAt(0)}</div>`}</div>
-  </div>`;
-}
+  if (f) {
+    f.innerHTML = cats.map(c => {
+      const label = c === 'all' ? 'All' : c;
+      const active = c === filter ? ' active' : '';
 
-/* ── WORKS ──────────────────────────────────────── */
-function renderWorks(){
-  const cats=['all',...new Set(works.map(w=>w.category))];
-  const f=document.getElementById('wfilters');
-  if(f)f.innerHTML=cats.map(c=>`<button class="fbtn${c===filter?' active':''}" onclick="setFilter('${c}')">${c==='all'?'All':c}</button>`).join('');
+      return `<button class="fbtn${active}" onclick="setFilter('${c}')">${label}</button>`;
+    }).join('');
+  }
+
   renderGrid();
 }
-function setFilter(c){
-  filter=c;
-  document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===c||(c==='all'&&b.textContent==='All')));
-  renderGrid();
+
+function setFilter(c) {
+  filter = c;
+  renderWorks();
 }
-function renderGrid(){
-  const fl=filter==='all'?works:works.filter(w=>w.category===filter);
-  const g=document.getElementById('wgrid');if(!g)return;
-  g.innerHTML=fl.map((w,i)=>{
-    const th=w.cover?`<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`:`<div class="wgi-cover" style="background:${w.color||'#f0eee9'}">${w.title.charAt(0)}</div>`;
-    return`<div class="wgi" onclick="go('work-detail','${w.id}')">
-      <div class="wgi-num">${String(i+1).padStart(2,'0')}</div>
-      <div class="wgi-body">
-        <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
-        <div class="wgi-thumb">${th}</div>
-        <div class="wgi-title">${w.title}</div>
-        <div class="wgi-tags">${w.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+
+function renderGrid() {
+  const g = document.getElementById('wgrid');
+
+  if (!g) return;
+
+  const filteredWorks = filter === 'all'
+    ? works
+    : works.filter(w => w.category === filter);
+
+  g.innerHTML = filteredWorks.map((w, i) => {
+    const thumb = w.cover
+      ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
+      : `<div class="wgi-cover" style="background:${w.color || '#f0eee9'}">${w.title.charAt(0)}</div>`;
+
+    return `
+      <div class="wgi" onclick="go('work-detail','${w.id}')">
+        <div class="wgi-num">${String(i + 1).padStart(2, '0')}</div>
+
+        <div class="wgi-body">
+          <div class="wgi-top">
+            <span class="wgi-yr">${w.year}</span>
+            <div class="wgi-arr">↗</div>
+          </div>
+
+          <div class="wgi-thumb">${thumb}</div>
+
+          <div class="wgi-title">${w.title}</div>
+
+          <div class="wgi-tags">
+            ${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>
+        </div>
       </div>
-    </div>`;
+    `;
   }).join('');
 }
 
-/* ── WORK DETAIL ────────────────────────────────── */
-function renderWD(w){
-  const idx=works.findIndex(x=>x.id===w.id);
-  const prev=works[idx-1],next=works[idx+1];
-  const cv=w.cover?`<img src="${w.cover}" alt="${w.title}">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">${w.title.split('—')[0].trim()}</div>`;
-  const ps=w.description.split('\n\n').map(p=>`<p>${p}</p>`).join('');
-  const navL=prev?`<div class="wd-ni" onclick="go('work-detail','${prev.id}')"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-  const navR=next?`<div class="wd-ni nx" onclick="go('work-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-  document.getElementById('wdc').innerHTML=`
+/* ===== WORK DETAIL ===== */
+function renderWD(w) {
+  const idx = works.findIndex(x => x.id === w.id);
+  const prev = works[idx - 1];
+  const next = works[idx + 1];
+
+  const cover = w.cover
+    ? `<img src="${w.cover}" alt="${w.title}">`
+    : `
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">
+        ${w.title.split('—')[0].trim()}
+      </div>
+    `;
+
+  const paragraphs = w.description
+    .split('\n\n')
+    .map(p => `<p>${p}</p>`)
+    .join('');
+
+  const navL = prev
+    ? `
+      <div class="wd-ni" onclick="go('work-detail','${prev.id}')">
+        <div class="dir">← Previous</div>
+        <div class="ttl">${prev.title}</div>
+      </div>
+    `
+    : `<div style="background:var(--bg2)"></div>`;
+
+  const navR = next
+    ? `
+      <div class="wd-ni nx" onclick="go('work-detail','${next.id}')">
+        <div class="dir">Next →</div>
+        <div class="ttl">${next.title}</div>
+      </div>
+    `
+    : `<div style="background:var(--bg2)"></div>`;
+
+  document.title = `${w.title} — Châm Thanh Thanh`;
+
+  document.getElementById('wdc').innerHTML = `
     <div class="wd-hero">
       <div class="wd-back" onclick="go('works')">← Back to Works</div>
+
       <h1 class="wd-title">${w.title}</h1>
+
       <div class="wd-meta">
-        <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
-        <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
-        <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join(' · ')}</div></div>
+        <div>
+          <div class="wd-ml">Year</div>
+          <div class="wd-mv">${w.year}</div>
+        </div>
+
+        <div>
+          <div class="wd-ml">Category</div>
+          <div class="wd-mv" style="text-transform:capitalize">${w.category}</div>
+        </div>
+
+        <div>
+          <div class="wd-ml">Roles</div>
+          <div class="wd-mv">${w.tags.join(' · ')}</div>
+        </div>
       </div>
     </div>
-    <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color||'#f0eee9'}">${cv}</div></div>
+
+    <div class="wd-cover">
+      <div class="wd-cover-inner" style="background:${w.color || '#f0eee9'}">
+        ${cover}
+      </div>
+    </div>
+
     <div class="wd-body">
       <div class="wd-body-label">Overview</div>
-      <div class="wd-body-text">${ps}</div>
+      <div class="wd-body-text">${paragraphs}</div>
     </div>
-    <div class="wd-nav">${navL}${navR}</div>`;
-  setTimeout(initReveal,80);
-}
 
-/* ── ABOUT ──────────────────────────────────────── */
-function renderAbout(){
-  const tl=document.getElementById('tlCareer');if(!tl)return;
-  tl.innerHTML=career.map(c=>`<div class="tl-item reveal"><div class="tl-period">${c.current?'<span class="cbadge">Current</span><br>':''}${c.period}</div><div><div class="tl-role">${c.role}</div><div class="tl-co">${c.company}</div><div class="tl-url">${c.url}</div></div></div>`).join('');
-  setTimeout(initReveal,50);
-}
-
-/* ── QUIET ──────────────────────────────────────── */
-function renderQuiet(){
-  const list=document.getElementById('qList');if(!list)return;
-  list.innerHTML=posts.map((q,i)=>`
-  <div class="q-item" onclick="go('quiet-detail','${q.id}')">
-    <div class="q-num">${String(i+1).padStart(2,'0')}</div>
-    <div class="q-main">
-      <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
-      <div class="q-title">${q.title}</div>
-      <div class="q-excerpt">${q.excerpt}</div>
+    <div class="wd-nav">
+      ${navL}
+      ${navR}
     </div>
-    <div class="q-right">
-      <div class="q-reading">${q.reading}</div>
-      <div class="q-circle">↗</div>
-    </div>
-  </div>`).join('');
+  `;
+
+  setTimeout(initReveal, 80);
 }
 
-function renderQD(q){
-  const idx=posts.findIndex(x=>x.id===q.id);
-  const prev=posts[idx-1],next=posts[idx+1];
-  const navL=prev?`<div class="q-ni" onclick="go('quiet-detail','${prev.id}')"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-  const navR=next?`<div class="q-ni nx" onclick="go('quiet-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-  document.getElementById('qdc').innerHTML=`
-    <div class="qd-hero">
-      <div class="qd-back" onclick="go('quiet')">← Back to Quiet</div>
-      <div class="qd-meta-row">
-        <span class="qd-cat">${q.category}</span>
-        <span class="qd-date">${q.date}</span>
-        <span class="qd-reading">${q.reading}</span>
-      </div>
-      <h1 class="qd-title">${q.title}</h1>
-    </div>
-    <div class="qd-body">
-      <div class="qd-lead">${q.lead}</div>
-      <hr class="qd-divider">
-      <div class="qd-text">${q.content}</div>
-    </div>
-    <div class="q-nav">${navL}${navR}</div>`;
-  setTimeout(initReveal,80);
-}
+/* ===== REVEAL SAFE ===== */
+function initReveal() {
+  const items = document.querySelectorAll('.reveal:not(.visible)');
 
-/* ── CONTACT ────────────────────────────────────── */
-function subCon(e){e.preventDefault();toast('Message sent! I\'ll reply soon ✓');e.target.reset()}
+  if (!items.length) return;
 
-/* ── REVEAL ─────────────────────────────────────── */
-function initReveal(){
-  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
-}
-
-/* ── ADMIN ──────────────────────────────────────── */
-function initAdmin(){
-  const ok=sessionStorage.getItem(LA)==='1';
-  document.getElementById('aLogin').style.display=ok?'none':'flex';
-  document.getElementById('aDash').style.display=ok?'block':'none';
-  if(ok){renderAW();loadHA()}
-}
-function doLogin(){
-  const pw=document.getElementById('apw').value,er=document.getElementById('lerr');
-  if(pw===PWD){sessionStorage.setItem(LA,'1');document.getElementById('aLogin').style.display='none';document.getElementById('aDash').style.display='block';renderAW();loadHA();er.classList.remove('show')}
-  else er.classList.add('show');
-}
-function doLogout(){sessionStorage.removeItem(LA);go('home')}
-function swTab(t){
-  document.querySelectorAll('.a-sec').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.ani').forEach(i=>i.classList.remove('active'));
-  document.getElementById('admin-'+t).classList.add('active');
-  document.getElementById('tab-'+t).classList.add('active');
-  if(t==='career')renderAC();
-  if(t==='quiet')renderAQ();
-  if(t==='hero')loadHA();
-}
-function loadHA(){const t=document.getElementById('aHT'),d=document.getElementById('aHD');if(t)t.value=hero.title;if(d)d.value=hero.desc}
-
-/* Works Admin */
-function renderAW(){
-  const tb=document.getElementById('wtb');if(!tb)return;
-  tb.innerHTML=works.map((w,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:200px">${w.title}</td><td style="font-family:var(--fm);font-size:11px">${w.year}</td><td><span class="tag">${w.category}</span></td><td style="font-family:var(--fm);font-size:10px;color:${w.featured?'var(--ame)':'var(--muted)'}">${w.featured?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openWM(id){
-  const w=id?works.find(x=>x.id===id):null;
-  document.getElementById('wMT').textContent=w?'Edit Project':'Add Project';
-  document.getElementById('wId').value=w?.id||'';document.getElementById('wTi').value=w?.title||'';
-  document.getElementById('wYr').value=w?.year||'';document.getElementById('wCat').value=w?.category||'product';
-  document.getElementById('wTg').value=w?.tags?.join(', ')||'';document.getElementById('wDe').value=w?.description||'';
-  document.getElementById('wCo').value=w?.cover||'';document.getElementById('wCl').value=w?.color||'#eeecea';
-  document.getElementById('wFe').value=w?.featured?'true':'false';
-  document.getElementById('wModal').classList.add('open');
-}
-function closeWM(){document.getElementById('wModal').classList.remove('open')}
-function saveWork(){
-  const id=document.getElementById('wId').value||slugify(document.getElementById('wTi').value);
-  const d={id,title:document.getElementById('wTi').value,year:document.getElementById('wYr').value,category:document.getElementById('wCat').value,tags:document.getElementById('wTg').value.split(',').map(t=>t.trim()).filter(Boolean),description:document.getElementById('wDe').value,cover:document.getElementById('wCo').value,color:document.getElementById('wCl').value,featured:document.getElementById('wFe').value==='true',order:works.length+1};
-  const i=works.findIndex(w=>w.id===id);if(i>=0)works[i]=d;else works.push(d);
-  sv(LW,works);closeWM();renderAW();toast('Project saved ✓');
-}
-function delW(id){if(!confirm('Delete?'))return;works=works.filter(w=>w.id!==id);sv(LW,works);renderAW();toast('Deleted')}
-
-/* Quiet Admin */
-function renderAQ(){
-  const tb=document.getElementById('qtb');if(!tb)return;
-  tb.innerHTML=posts.map((q,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:220px">${q.title}</td><td style="font-family:var(--fm);font-size:11px">${q.date}</td><td><span class="tag">${q.category}</span></td><td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openQM(id){
-  const q=id?posts.find(x=>x.id===id):null;
-  document.getElementById('qMT').textContent=q?'Edit Post':'Add Post';
-  document.getElementById('qId').value=q?.id||'';document.getElementById('qTi').value=q?.title||'';
-  document.getElementById('qDt').value=q?.date||'';document.getElementById('qCt').value=q?.category||'Design Thoughts';
-  document.getElementById('qRt').value=q?.reading||'';document.getElementById('qEx').value=q?.excerpt||'';
-  document.getElementById('qLe').value=q?.lead||'';document.getElementById('qBo').value=q?.content||'';
-  document.getElementById('qModal').classList.add('open');
-}
-function closeQM(){document.getElementById('qModal').classList.remove('open')}
-function savePost(){
-  const id=document.getElementById('qId').value||slugify(document.getElementById('qTi').value)||'q'+Date.now();
-  const d={id,title:document.getElementById('qTi').value,date:document.getElementById('qDt').value,category:document.getElementById('qCt').value,reading:document.getElementById('qRt').value,excerpt:document.getElementById('qEx').value,lead:document.getElementById('qLe').value,content:document.getElementById('qBo').value};
-  const i=posts.findIndex(q=>q.id===id);if(i>=0)posts[i]=d;else posts.unshift(d);
-  sv(LQ,posts);closeQM();renderAQ();toast('Post saved ✓');
-}
-function delQ(id){if(!confirm('Delete post?'))return;posts=posts.filter(q=>q.id!==id);sv(LQ,posts);renderAQ();toast('Deleted')}
-
-/* Career Admin */
-function renderAC(){
-  const tb=document.getElementById('ctb');if(!tb)return;
-  tb.innerHTML=career.map(c=>`<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current?'var(--ame)':'var(--muted)'}"> ${c.current?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openCM(id){
-  const c=id?career.find(x=>x.id===id):null;
-  document.getElementById('cMT').textContent=c?'Edit Position':'Add Position';
-  document.getElementById('cId').value=c?.id||'';document.getElementById('cRo').value=c?.role||'';
-  document.getElementById('cCo').value=c?.company||'';document.getElementById('cUr').value=c?.url||'';
-  document.getElementById('cPe').value=c?.period||'';document.getElementById('cCu').value=c?.current?'true':'false';
-  document.getElementById('cModal').classList.add('open');
-}
-function closeCM(){document.getElementById('cModal').classList.remove('open')}
-function saveCareer(){
-  const id=document.getElementById('cId').value||'c'+Date.now();
-  const d={id,role:document.getElementById('cRo').value,company:document.getElementById('cCo').value,url:document.getElementById('cUr').value,period:document.getElementById('cPe').value,current:document.getElementById('cCu').value==='true'};
-  const i=career.findIndex(c=>c.id===id);if(i>=0)career[i]=d;else career.unshift(d);
-  sv(LC,career);closeCM();renderAC();toast('Saved ✓');
-}
-function delC(id){if(!confirm('Delete?'))return;career=career.filter(c=>c.id!==id);sv(LC,career);renderAC();toast('Deleted')}
-
-function saveHero(){hero.title=document.getElementById('aHT').value;hero.desc=document.getElementById('aHD').value;sv(LH,hero);toast('Hero saved ✓')}
-
-function slugify(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
-function toast(msg){const e=document.querySelector('.toast');if(e)e.remove();const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2700)}
-
-/* Close modals on bg click */
-['wModal','qModal','cModal'].forEach(id => {
-  const modal = document.getElementById(id);
-
-  if (modal) {
-    modal.addEventListener('click', e => {
-      if (e.target === e.currentTarget) {
-        modal.classList.remove('open');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
       }
     });
-  }
-});
-document.addEventListener('keydown',e=>{if(e.key==='?'&&page!=='admin')go('admin')});
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
+  });
 
-go('works');
+  items.forEach(el => obs.observe(el));
+}
+
+/* ===== INIT ===== */
+renderWorks();
 </script>
+
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
 <script>
-  const lenis = new Lenis({
-    duration: 1.2,
-    smoothWheel: true,
-    wheelMultiplier: 0.9,
-  });
+const lenis = new Lenis({
+  duration: 1.15,
+  smoothWheel: true,
+  wheelMultiplier: 0.85,
+  touchMultiplier: 1.2
+});
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
+function raf(time) {
+  lenis.raf(time);
   requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
 </script>
+
 </body>
 </html>
