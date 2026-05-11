@@ -88,5 +88,22 @@ const w = works.find(x => x.id === id);
 if (w) renderWD(w);
 else location.href = '/works/';
 </script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+<script>
+  const lenis = new Lenis({
+    duration: 1.15,
+    smoothWheel: true,
+    wheelMultiplier: 0.85,
+    touchMultiplier: 1.2,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script>
 </body>
 </html>
