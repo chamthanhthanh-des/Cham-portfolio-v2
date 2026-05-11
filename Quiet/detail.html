@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quiet — Châm Thanh Thanh</title>
-<meta name="description" content="Thoughts on design, process, and the things that make work feel meaningful.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -35,44 +34,53 @@
 </div>
 
 <main id="main">
-
-  <section class="subpage-hero" aria-labelledby="quiet-title">
-    <div class="subpage-hero__inner">
-      <h1 class="subpage-hero__title" id="quiet-title">Quiet</h1>
-      <p class="subpage-hero__description">Thoughts on design, process, and the things that make work feel meaningful.</p>
-    </div>
-  </section>
-
-  <div class="q-list" id="qList"></div>
+  <div id="qdc"></div>
 
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks">
-      <a class="flink" href="/about/">About</a>
-      <a class="flink" href="/contact/">Contact</a>
-    </div>
+    <div class="flinks"><a class="flink" href="/quiet/">← Back to Quiet</a></div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
-
 </main>
 
 <script src="/assets/data.js"></script>
 <script src="/assets/app.js"></script>
 <script>
-const list = document.getElementById('qList');
-if (list) list.innerHTML = posts.map((q,i) => `
-  <div class="q-item" onclick="location.href='/quiet/detail.html?id=${q.id}'">
-    <div class="q-num">${String(i+1).padStart(2,'0')}</div>
-    <div class="q-main">
-      <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
-      <div class="q-title">${q.title}</div>
-      <div class="q-excerpt">${q.excerpt}</div>
+function renderQD(q) {
+  const idx = posts.findIndex(x => x.id === q.id);
+  const prev = posts[idx-1], next = posts[idx+1];
+  const navL = prev
+    ? `<div class="q-ni" onclick="location.href='/quiet/detail.html?id=${prev.id}'"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`
+    : `<div style="background:var(--bg2)"></div>`;
+  const navR = next
+    ? `<div class="q-ni nx" onclick="location.href='/quiet/detail.html?id=${next.id}'"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
+    : `<div style="background:var(--bg2)"></div>`;
+
+  document.title = `${q.title} — Châm Thanh Thanh`;
+
+  document.getElementById('qdc').innerHTML = `
+    <div class="qd-hero">
+      <a class="qd-back" href="/quiet/">← Back to Quiet</a>
+      <div class="qd-meta-row">
+        <span class="qd-cat">${q.category}</span>
+        <span class="qd-date">${q.date}</span>
+        <span class="qd-reading">${q.reading}</span>
+      </div>
+      <h1 class="qd-title">${q.title}</h1>
     </div>
-    <div class="q-right">
-      <div class="q-reading">${q.reading}</div>
-      <div class="q-circle">↗</div>
+    <div class="qd-body">
+      <div class="qd-lead">${q.lead}</div>
+      <hr class="qd-divider">
+      <div class="qd-text">${q.content}</div>
     </div>
-  </div>`).join('');
+    <div class="q-nav">${navL}${navR}</div>`;
+  setTimeout(initReveal, 80);
+}
+
+const id = new URLSearchParams(window.location.search).get('id');
+const q = posts.find(x => x.id === id);
+if (q) renderQD(q);
+else location.href = '/quiet/';
 </script>
 </body>
 </html>
