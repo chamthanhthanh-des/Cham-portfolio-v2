@@ -1598,8 +1598,8 @@ body {
 
 .ab-skill-label {
   font-family: var(--fm);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--oli);
