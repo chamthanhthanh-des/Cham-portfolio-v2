@@ -1551,15 +1551,15 @@ body {
 .about-intro {
   font-family: var(--fd);
   font-style: italic;
-  font-size: clamp(20px, 1.8vw, 26px);
-  line-height: 1.75;
+  font-size: clamp(36px, 5vw, 80px);
+  line-height: 1.1;
   color: var(--text);
   margin-bottom: 24px;
 }
 
 .about-body {
-  font-size: 16px;
-  line-height: 2;
+  ffont-size: clamp(15px, 1.4vw, 20px);
+  line-height: 1.65;
   color: var(--muted);
   margin-bottom: 14px;
 }
