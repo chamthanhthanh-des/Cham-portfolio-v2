@@ -134,12 +134,13 @@ input:focus, textarea:focus, select:focus {
 }
 
 label {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
   display: block;
   margin-bottom: 6px;
+  margin-top: 8px;
   font-family: var(--fm);
 }
 
