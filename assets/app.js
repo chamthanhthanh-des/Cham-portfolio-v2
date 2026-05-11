@@ -41,13 +41,16 @@ function toast(msg) {
 
 /* ── HERO CUSTOM CURSOR ──────────────────────────── */
 function initHeroMouse() {
-  const cursor  = document.getElementById('hCursor');
-  const ring    = document.getElementById('hCursorRing');
+  const cursor = document.getElementById('hCursor');
+  const ring   = document.getElementById('hCursorRing');
   if (!cursor || !ring) return;
 
+  let cx = 0, cy = 0, rx = 0, ry = 0;
+
   document.addEventListener('mousemove', e => {
-    cursor.style.left    = e.clientX + 'px';
-    cursor.style.top     = e.clientY + 'px';
+    cx = e.clientX; cy = e.clientY;
+    cursor.style.left    = cx + 'px';
+    cursor.style.top     = cy + 'px';
     cursor.style.display = 'block';
     ring.style.display   = 'block';
   });
@@ -57,10 +60,18 @@ function initHeroMouse() {
     ring.style.display   = 'none';
   });
 
+  (function animRing() {
+    rx += (cx - rx) * 0.1;
+    ry += (cy - ry) * 0.1;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
   const section = document.getElementById('heroSection');
   const gradDiv = document.getElementById('heroCursorG');
   if (!section || !gradDiv) return;
-
+  
   let cx=0, cy=0, rx=0, ry=0, trail=[], glowActive=false;
   const TRAIL_LIFE = 900;
 
