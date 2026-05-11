@@ -306,12 +306,13 @@ label {
 /* ── PAGES ─────────────────────────────────────── */
 #app {
   min-height: 100vh;
+  padding-top: var(--nav-h);
 }
 
 .page {
   display: none;
   animation: pgIn .5s var(--ease) both;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--nav-h));
   position: relative;
 }
 
@@ -417,7 +418,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  HOME                                           */
 /* ═══════════════════════════════════════════════ */
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;cursor:none}
+.hero{height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;cursor:none}
 /* static background radials */
 .hero-bg-static{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 700px 500px at 80% 20%,rgba(122,112,186,.05),transparent 65%),radial-gradient(ellipse 500px 400px at 10% 80%,rgba(176,196,156,.06),transparent 65%)}
 /* mouse-follow gradient layer */
@@ -609,8 +610,8 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  WORKS PAGE                                     */
 /* ═══════════════════════════════════════════════ */
-.page-hero{height:100vh;padding:calc(var(--nav-h)+60px) var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
-.wpage-hero,.qpage-hero{height:100vh;padding:calc(var(--nav-h)+60px) var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
+.page-hero{height:calc(100vh - var(--nav-h));padding:60px var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
+.wpage-hero,.qpage-hero{height:calc(100vh - var(--nav-h));padding:60px var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
 .wpage-hero h1,.qpage-hero h1{font-family:var(--fd);font-size:clamp(72px,12vw,160px);font-weight:300;font-style:italic;line-height:.9;letter-spacing:-.04em}
 .wpage-sub{color:var(--muted);font-size:13px;text-align:right;max-width:300px;line-height:1.7}
 .wfilters{padding:28px var(--px);display:flex;gap:4px;border-bottom:1px solid var(--border);overflow-x:auto;background:var(--bg);max-width:1200px;margin:0 auto}
@@ -659,7 +660,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  ABOUT PAGE                                     */
 /* ═══════════════════════════════════════════════ */
-.about-page{height:100vh;padding:calc(var(--nav-h)+60px) var(--px) 60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,450px);align-items:center;gap:80px;max-width:1200px;margin:0 auto;position:relative}
+.about-page{height:calc(100vh - var(--nav-h));padding:60px var(--px) 60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,450px);align-items:center;gap:80px;max-width:1200px;margin:0 auto;position:relative}
 .about-left{display:flex;flex-direction:column;gap:28px}
 .about-kicker{font-family:var(--fm);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);opacity:.85}
 .about-title{font-family:var(--fd);font-size:clamp(64px,8vw,100px);font-weight:300;line-height:.95;letter-spacing:-.04em;margin:0}
@@ -699,7 +700,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  QUIET (Blog) PAGE                              */
 /* ═══════════════════════════════════════════════ */
-.qpage-hero{height:100vh;padding:calc(var(--nav-h)+60px) var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
+.qpage-hero{height:calc(100vh - var(--nav-h));padding:60px var(--px) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;width:100%;margin:0 auto}
 .qpage-hero h1{font-family:var(--fd);font-size:clamp(72px,12vw,160px);font-weight:300;font-style:italic;line-height:.9;letter-spacing:-.04em}
 .qpage-sub{text-align:right;max-width:320px}
 .qpage-sub p{color:var(--muted);font-size:13px;line-height:1.7;margin-top:8px}
@@ -745,7 +746,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  CONTACT PAGE                                   */
 /* ═══════════════════════════════════════════════ */
-.con-hero{height:100vh;padding:calc(var(--nav-h)+60px) var(--px) 80px;border-bottom:1px solid var(--border);max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.con-hero{height:calc(100vh - var(--nav-h));padding:60px var(--px) 80px;border-bottom:1px solid var(--border);max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}
 .con-title{font-family:var(--fd);font-size:clamp(50px,8vw,120px);font-weight:300;font-style:italic;line-height:.95;letter-spacing:-.03em;margin-bottom:48px}
 .con-info{display:flex;gap:56px;flex-wrap:wrap}
 .ci-lbl{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
