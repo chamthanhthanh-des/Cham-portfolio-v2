@@ -842,6 +842,29 @@ footer {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.about-hero__info h2 {
+  margin: 0;
+  font-family: var(--fd);
+  font-style: italic;
+  font-size: clamp(64px, 7vw, 112px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  background: linear-gradient(135deg, #6a4f7a, #86a36e, #6a4f7a);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
 .about-hero__info p {
   margin: 0;
   font-size: clamp(16px, 1vw, 24px); /* ← nhỏ hơn */
