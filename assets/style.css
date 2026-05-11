@@ -1397,40 +1397,55 @@ footer {
 /* ==== FILTER BUTTON HOVER FIX ==== */
 
 .fbtn {
+  position: relative;
   height: 40px;
   min-height: 40px;
   padding: 0 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--border);
   border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
   line-height: 1;
   overflow: hidden;
   box-sizing: border-box;
   transform: none;
+  box-shadow: none;
+  isolation: isolate;
+}
+
+.fbtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--grad);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .2s ease;
 }
 
 .fbtn:hover {
   transform: none;
+  border-color: var(--bordhi);
+  color: var(--text);
 }
 
-.fbtn.active {
-  height: 40px;
-  min-height: 40px;
-  padding: 0 28px;
-  border-radius: 999px;
-  overflow: hidden;
-  transform: none;
-  box-shadow: none;
-}
 .fbtn.active,
 .fbtn.active:hover {
-  background: transparent;
+  background: transparent !important;
   color: #fff;
   border-color: transparent;
   transform: none;
   box-shadow: none;
 }
+
+.fbtn.active::before {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .fbtn,
   .fbtn.active {
