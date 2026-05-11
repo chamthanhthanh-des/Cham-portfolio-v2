@@ -1566,7 +1566,7 @@ body {
 }
 
 .about-body {
-  ffont-size: clamp(15px, 1.4vw, 20px);
+  font-size: clamp(15px, 1.4vw, 20px);
   line-height: 1.65;
   color: var(--muted);
   margin-bottom: 14px;
