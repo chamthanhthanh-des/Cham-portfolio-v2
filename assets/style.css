@@ -1563,6 +1563,7 @@ body {
 .about-intro {
   font-family: var(--fd);
   font-style: italic;
+  font-weight: 500; 
   font-size: clamp(24px, 3.5vw, 64px);
   line-height: 1.1;
   color: var(--text);
