@@ -5,432 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Works — Châm Thanh Thanh</title>
 <meta name="description" content="Selected projects across product design, brand systems, and digital experiences.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>
-
 <body>
 
-<a href="#app" class="skip-link">Skip to main content</a>
-
-<div class="hero-cursor" id="hCursor"></div>
-<div class="hero-cursor-ring" id="hCursorRing"></div>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <nav id="nav">
-  <a class="nlogo" href="/">
-    <img class="brand-mark" src="/assets/favicon.svg" alt="Logo">Châm.
-  </a>
-
+  <a class="nlogo" href="/"><img class="brand-mark" src="/assets/favicon.svg" alt="Châm Thanh Thanh logo"></a>
   <div class="nlinks">
-    <a class="nlink active" href="/works/">Works</a>
+    <a class="nlink" href="/works/">Works</a>
     <a class="nlink" href="/about/">About</a>
     <a class="nlink" href="/quiet/">Quiet</a>
     <a class="nlink" href="/contact/">Contact</a>
-
-    <a
-      href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="nlink"
-    >
-      Resume ↗
-    </a>
-
-    <a class="ncta nav-outline-cta" href="/contact/">Let's Talk</a>
+    <a href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTO1Xr3Z5sx37n05/view" target="_blank" rel="noopener noreferrer" class="ncta nav-outline-cta">Let's Talk</a>
   </div>
-
-  <div class="nburger" id="nb" onclick="togMenu()">
-    <span></span>
-    <span></span>
-  </div>
+  <div class="nburger" id="nb" onclick="togMenu()"><span></span><span></span><span></span></div>
 </nav>
-
 <div class="mmenu" id="mm">
   <a class="mml" href="/">Home</a>
-  <a class="mml active" href="/works/">Works</a>
+  <a class="mml" href="/works/">Works</a>
   <a class="mml" href="/about/">About</a>
   <a class="mml" href="/quiet/">Quiet</a>
   <a class="mml" href="/contact/">Contact</a>
 </div>
 
-<main id="app" aria-label="Main content">
+<main id="main">
 
-  <div id="page-works" class="page active">
-    <section class="subpage-hero" aria-labelledby="works-title">
-      <div class="subpage-hero__inner">
-        <h1 class="subpage-hero__title" id="works-title">Works</h1>
-        <p class="subpage-hero__description">
-          Selected projects across product design, brand systems, and digital experiences.
-        </p>
-      </div>
-    </section>
+  <section class="subpage-hero" aria-labelledby="works-title">
+    <div class="subpage-hero__inner">
+      <h1 class="subpage-hero__title" id="works-title">Works</h1>
+      <p class="subpage-hero__description">Selected projects across product design, brand systems, and digital experiences.</p>
+    </div>
+  </section>
 
-    <section class="works-projects" aria-label="Selected work projects">
-      <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
-      <div class="wgrid" id="wgrid"></div>
-    </section>
+  <section class="works-projects" aria-label="Selected work projects">
+    <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
+    <div class="wgrid" id="wgrid"></div>
+  </section>
 
-    <footer>
-      <div class="flogo">Châm Thanh Thanh</div>
-      <div class="flinks">
-        <a class="flink" href="/about/">About</a>
-        <a class="flink" href="/contact/">Contact</a>
-      </div>
-      <div class="fcopy">©2026 Châm Thanh Thanh</div>
-    </footer>
-  </div>
-
-  <div id="page-work-detail" class="page">
-    <div id="wdc"></div>
-
-    <footer>
-      <div class="flogo">Châm Thanh Thanh</div>
-      <div class="flinks">
-        <span class="flink" onclick="go('works')">← All Works</span>
-      </div>
-      <div class="fcopy">©2026 Châm Thanh Thanh</div>
-    </footer>
-  </div>
+  <footer>
+    <div class="flogo">Châm Thanh Thanh</div>
+    <div class="flinks">
+      <a class="flink" href="/about/">About</a>
+      <a class="flink" href="/contact/">Contact</a>
+    </div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
+  </footer>
 
 </main>
 
+<script src="/assets/data.js"></script>
+<script src="/assets/app.js"></script>
 <script>
-/* ===== DATA ===== */
-const DW = [
-  {
-    id: 'selfchain',
-    title: 'SelfChain — Decentralized Identity for Web3',
-    year: '2023',
-    category: 'product',
-    tags: ['Product Design', 'Branding Design', 'Product Improvement'],
-    description: 'SelfChain is a Layer 1 blockchain focused on decentralized identity for Web3. I led the full product design and branding effort — from defining the visual identity to designing the core dApp experience.\n\nThe challenge was making complex Web3 concepts accessible to mainstream audiences while maintaining a cutting-edge aesthetic resonant with the crypto-native community.',
-    cover: '',
-    color: '#EDE9F7',
-    featured: true,
-    order: 1
-  },
-  {
-    id: 'self-design-system',
-    title: 'Self Design System',
-    year: '2023–2024',
-    category: 'product',
-    tags: ['Product Design', 'Design System'],
-    description: 'A comprehensive design system for the SelfChain product suite — covering components, tokens, documentation, and governance processes.\n\nDeep collaboration with engineering ensured seamless handoff and implementation consistency across all product surfaces.',
-    cover: '',
-    color: '#EBF0E9',
-    featured: true,
-    order: 2
-  },
-  {
-    id: 'hotcross',
-    title: 'Hot Cross — Multi-Chain Web3 Platform',
-    year: '2021–2023',
-    category: 'branding',
-    tags: ['Brand Development', 'Dapp Improvement', 'Marketing Design'],
-    description: 'Hot Cross is a multi-chain infrastructure and Web3 playground. As Senior Product & Branding Designer I led brand development, improved the core dApp experience, and created all marketing design assets.\n\nBuilt a cohesive visual system across product, social, and marketing channels over a 2-year engagement.',
-    cover: '',
-    color: '#F0EBE5',
-    featured: true,
-    order: 3
-  },
-  {
-    id: 'mill-3',
-    title: 'Mill 3 — DeFi Platform',
-    year: '2022',
-    category: 'product',
-    tags: ['Dapp Design', 'Brand Development', 'Product Research'],
-    description: 'A DeFi platform requiring a strong brand presence and intuitive product experience. Led the full design process from brand identity through to product UX — conducting user research, competitive analysis, and iterative design.',
-    cover: '',
-    color: '#EBF0EC',
-    featured: false,
-    order: 4
-  },
-  {
-    id: 'bocongann',
-    title: 'Bồ Công Anh — Creative Agency Web',
-    year: '2020',
-    category: 'web',
-    tags: ['Web Design', 'Development'],
-    description: 'Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.',
-    cover: '',
-    color: '#F5F0E8',
-    featured: false,
-    order: 5
-  },
-  {
-    id: 'artvr',
-    title: 'ArtVR — Virtual Reality Art Platform',
-    year: '2019',
-    category: 'web',
-    tags: ['Web Design', 'Development'],
-    description: 'ArtVR is a platform for experiencing art in virtual reality. I designed the web presence bridging physical art with immersive VR technology — an interface as novel as the medium itself.',
-    cover: '',
-    color: '#EEE9F5',
-    featured: false,
-    order: 6
-  }
-];
-
-const LW = 'ctw_w4';
-
-function ld(k, d) {
-  try {
-    const v = localStorage.getItem(k);
-    return v ? JSON.parse(v) : d;
-  } catch {
-    return d;
-  }
-}
-
-let works = ld(LW, DW);
 let filter = 'all';
-let page = 'works';
 
-/* ===== ROUTER ===== */
-function go(p, id) {
-  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-
-  page = p;
-
-  if (p === 'work-detail' && id) {
-    const w = works.find(item => item.id === id);
-
-    if (!w) {
-      go('works');
-      return;
-    }
-
-    renderWD(w);
-    document.getElementById('page-work-detail').classList.add('active');
-    window.scrollTo(0, 0);
-    return;
-  }
-
-  if (p === 'works') {
-    document.getElementById('page-works').classList.add('active');
-    renderWorks();
-    window.scrollTo(0, 0);
-  }
-}
-
-/* ===== NAV ===== */
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('nav');
-  if (nav) {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }
-});
-
-let mopen = false;
-
-function togMenu() {
-  mopen = !mopen;
-
-  const menu = document.getElementById('mm');
-  const spans = document.querySelectorAll('.nburger span');
-
-  if (menu) {
-    menu.classList.toggle('open', mopen);
-  }
-
-  if (spans[0]) {
-    spans[0].style.transform = mopen ? 'rotate(45deg) translate(4px,4px)' : '';
-  }
-
-  if (spans[1]) {
-    spans[1].style.transform = mopen ? 'rotate(-45deg) translate(4px,-4px)' : '';
-  }
-}
-
-/* ===== WORKS LIST ===== */
 function renderWorks() {
   const cats = ['all', ...new Set(works.map(w => w.category))];
   const f = document.getElementById('wfilters');
-
-  if (f) {
-    f.innerHTML = cats.map(c => {
-      const label = c === 'all' ? 'All' : c;
-      const active = c === filter ? ' active' : '';
-
-      return `<button class="fbtn${active}" onclick="setFilter('${c}')">${label}</button>`;
-    }).join('');
-  }
-
+  if (f) f.innerHTML = cats.map(c =>
+    `<button class="fbtn${c===filter?' active':''}" onclick="setFilter('${c}')">${c==='all'?'All':c}</button>`
+  ).join('');
   renderGrid();
 }
 
 function setFilter(c) {
   filter = c;
-  renderWorks();
+  document.querySelectorAll('.fbtn').forEach(b =>
+    b.classList.toggle('active', b.textContent.toLowerCase()===c||(c==='all'&&b.textContent==='All'))
+  );
+  renderGrid();
 }
 
 function renderGrid() {
-  const g = document.getElementById('wgrid');
-
-  if (!g) return;
-
-  const filteredWorks = filter === 'all'
-    ? works
-    : works.filter(w => w.category === filter);
-
-  g.innerHTML = filteredWorks.map((w, i) => {
-    const thumb = w.cover
+  const fl = filter==='all' ? works : works.filter(w => w.category===filter);
+  const g = document.getElementById('wgrid'); if (!g) return;
+  g.innerHTML = fl.map((w,i) => {
+    const th = w.cover
       ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
-      : `<div class="wgi-cover" style="background:${w.color || '#f0eee9'}">${w.title.charAt(0)}</div>`;
-
-    return `
-      <div class="wgi" onclick="go('work-detail','${w.id}')">
-        <div class="wgi-num">${String(i + 1).padStart(2, '0')}</div>
-
-        <div class="wgi-body">
-          <div class="wgi-top">
-            <span class="wgi-yr">${w.year}</span>
-            <div class="wgi-arr">↗</div>
-          </div>
-
-          <div class="wgi-thumb">${thumb}</div>
-
-          <div class="wgi-title">${w.title}</div>
-
-          <div class="wgi-tags">
-            ${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-          </div>
-        </div>
+      : `<div class="wgi-cover" style="background:${w.color||'#f0eee9'}">${w.title.charAt(0)}</div>`;
+    return `<div class="wgi" onclick="location.href='/works/detail.html?id=${w.id}'">
+      <div class="wgi-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="wgi-body">
+        <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
+        <div class="wgi-thumb">${th}</div>
+        <div class="wgi-title">${w.title}</div>
+        <div class="wgi-tags">${w.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       </div>
-    `;
+    </div>`;
   }).join('');
 }
 
-/* ===== WORK DETAIL ===== */
-function renderWD(w) {
-  const idx = works.findIndex(x => x.id === w.id);
-  const prev = works[idx - 1];
-  const next = works[idx + 1];
-
-  const cover = w.cover
-    ? `<img src="${w.cover}" alt="${w.title}">`
-    : `
-      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">
-        ${w.title.split('—')[0].trim()}
-      </div>
-    `;
-
-  const paragraphs = w.description
-    .split('\n\n')
-    .map(p => `<p>${p}</p>`)
-    .join('');
-
-  const navL = prev
-    ? `
-      <div class="wd-ni" onclick="go('work-detail','${prev.id}')">
-        <div class="dir">← Previous</div>
-        <div class="ttl">${prev.title}</div>
-      </div>
-    `
-    : `<div style="background:var(--bg2)"></div>`;
-
-  const navR = next
-    ? `
-      <div class="wd-ni nx" onclick="go('work-detail','${next.id}')">
-        <div class="dir">Next →</div>
-        <div class="ttl">${next.title}</div>
-      </div>
-    `
-    : `<div style="background:var(--bg2)"></div>`;
-
-  document.title = `${w.title} — Châm Thanh Thanh`;
-
-  document.getElementById('wdc').innerHTML = `
-    <div class="wd-hero">
-      <div class="wd-back" onclick="go('works')">← Back to Works</div>
-
-      <h1 class="wd-title">${w.title}</h1>
-
-      <div class="wd-meta">
-        <div>
-          <div class="wd-ml">Year</div>
-          <div class="wd-mv">${w.year}</div>
-        </div>
-
-        <div>
-          <div class="wd-ml">Category</div>
-          <div class="wd-mv" style="text-transform:capitalize">${w.category}</div>
-        </div>
-
-        <div>
-          <div class="wd-ml">Roles</div>
-          <div class="wd-mv">${w.tags.join(' · ')}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wd-cover">
-      <div class="wd-cover-inner" style="background:${w.color || '#f0eee9'}">
-        ${cover}
-      </div>
-    </div>
-
-    <div class="wd-body">
-      <div class="wd-body-label">Overview</div>
-      <div class="wd-body-text">${paragraphs}</div>
-    </div>
-
-    <div class="wd-nav">
-      ${navL}
-      ${navR}
-    </div>
-  `;
-
-  setTimeout(initReveal, 80);
-}
-
-/* ===== REVEAL SAFE ===== */
-function initReveal() {
-  const items = document.querySelectorAll('.reveal:not(.visible)');
-
-  if (!items.length) return;
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -30px 0px'
-  });
-
-  items.forEach(el => obs.observe(el));
-}
-
-/* ===== INIT ===== */
 renderWorks();
 </script>
-
-<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-
-<script>
-const lenis = new Lenis({
-  duration: 1.15,
-  smoothWheel: true,
-  wheelMultiplier: 0.85,
-  touchMultiplier: 1.2
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-</script>
-
 </body>
 </html>
