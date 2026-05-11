@@ -68,16 +68,7 @@ function initHeroMouse() {
     ring.style.top  = ry + 'px';
     requestAnimationFrame(animRing);
   })();
-  (function animRing() {
-    rx += (cx - rx) * 0.1;
-    ry += (cy - ry) * 0.1;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  // ✅ Thêm đoạn này vào đây 👇
-  document.querySelectorAll('a, button, .fw-item, .wgi, .ncta, .nlink').forEach(el => {
+   document.querySelectorAll('a, button, .fw-item, .wgi, .ncta, .nlink').forEach(el => {
     el.addEventListener('mouseenter', () => { 
       cursor.classList.add('is-hover'); 
       ring.classList.add('is-hover'); 
@@ -88,7 +79,6 @@ function initHeroMouse() {
     });
   });
 
-  const section = document.getElementById('heroSection'); // ← dòng này giữ nguyên
 
   const section = document.getElementById('heroSection');
   const gradDiv = document.getElementById('heroCursorG');
