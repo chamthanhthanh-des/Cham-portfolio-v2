@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Châm Thanh Thanh</title>
+<meta name="description" content="Senior UI/UX & Branding Designer with 8+ years experience. Born in Hà Nội.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="nav">
+  <a class="nlogo" href="/"><img class="brand-mark" src="/assets/favicon.svg" alt="Châm Thanh Thanh logo"></a>
+  <div class="nlinks">
+    <a class="nlink" href="/works/">Works</a>
+    <a class="nlink" href="/about/">About</a>
+    <a class="nlink" href="/quiet/">Quiet</a>
+    <a class="nlink" href="/contact/">Contact</a>
+    <a href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTO1Xr3Z5sx37n05/view" target="_blank" rel="noopener noreferrer" class="ncta nav-outline-cta">Let's Talk</a>
+  </div>
+  <div class="nburger" id="nb" onclick="togMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mmenu" id="mm">
+  <a class="mml" href="/">Home</a>
+  <a class="mml" href="/works/">Works</a>
+  <a class="mml" href="/about/">About</a>
+  <a class="mml" href="/quiet/">Quiet</a>
+  <a class="mml" href="/contact/">Contact</a>
+</div>
+
+<main id="main">
+
+  <section class="about-hero">
+    <div class="about-hero__inner">
+      <div class="about-hero__content">
+        <h1 class="about-hero__title">About me</h1>
+        <div class="about-hero__info">
+          <h2>Thanh Châm</h2>
+          <p>Senior Product · Branding Designer</p>
+          <p>1995 · Born in Ha Noi</p>
+        </div>
+      </div>
+      <div class="about-hero__image-wrap">
+        <img src="/images/thanh-cham.jpg" alt="Thanh Châm">
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-sec about-copy">
+    <div>
+      <p>Hi there! I'm a Designer with 5 years of experience in digital product design and 8 years in branding & graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural and meaningful way.</p>
+      <p>With a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right. I love simple ideas, smooth user flows, and building things that actually help people.</p>
+      <p>Let's connect and create something great together!</p>
+    </div>
+    <aside class="about-quote">
+      <p>"An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way."</p>
+      <span>Charles Bukowski</span>
+    </aside>
+  </section>
+
+  <section class="ab-sec">
+    <div class="ab-grid">
+      <div>
+        <div class="ab-lbl">I can help you</div>
+        <ul class="about-list">
+          <li>Web design</li>
+          <li>Branding design</li>
+          <li>Product design</li>
+          <li>Art direction</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ab-lbl">Tools</div>
+        <ul class="about-list">
+          <li>Figma</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe Illustrator</li>
+          <li>Notion</li>
+          <li>Framer</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ab-lbl">Skills</div>
+        <ul class="about-list">
+          <li>UI-Visual design</li>
+          <li>UX Research</li>
+          <li>Design system management</li>
+          <li>Wireframing & Prototyping</li>
+          <li>Interaction Design</li>
+          <li>Branding design</li>
+          <li>Branding development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-sec">
+    <div class="ab-lbl">Career</div>
+    <div class="tl-l" id="tlCareer"></div>
+  </section>
+
+  <footer>
+    <div class="flogo">Châm Thanh Thanh</div>
+    <div class="flinks">
+      <a class="flink" href="/works/">Works</a>
+      <a class="flink" href="/contact/">Contact</a>
+    </div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
+  </footer>
+
+</main>
+
+<script src="/assets/data.js"></script>
+<script src="/assets/app.js"></script>
+<script>
+const tl = document.getElementById('tlCareer');
+if (tl) tl.innerHTML = career.map(c =>
+  `<div class="tl-item reveal">
+    <div class="tl-period">${c.current ? '<span class="cbadge">Current</span><br>' : ''}${c.period}</div>
+    <div>
+      <div class="tl-role">${c.role}</div>
+      <div class="tl-co">${c.company}</div>
+      <div class="tl-url">${c.url}</div>
+    </div>
+  </div>`
+).join('');
+</script>
+</body>
+</html>
