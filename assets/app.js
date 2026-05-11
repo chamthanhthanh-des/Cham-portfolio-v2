@@ -136,3 +136,22 @@ function fwCardHTML(w, i) {
 function slugify(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 
 document.addEventListener('DOMContentLoaded', initHeroMouse);
+
+/* ── SMOOTH SCROLL (Lenis) ───────────────────────── */
+(function initLenis() {
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/lenis@1.1.20/dist/lenis.min.js';
+  script.onload = () => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  };
+  document.head.appendChild(script);
+})();
