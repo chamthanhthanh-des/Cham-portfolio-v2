@@ -40,6 +40,7 @@ function toast(msg) {
 }
 
 /* ── HERO CUSTOM CURSOR ──────────────────────────── */
+/* ── HERO CUSTOM CURSOR ──────────────────────────── */
 function initHeroMouse() {
   const cursor = document.getElementById('hCursor');
   const ring   = document.getElementById('hCursorRing');
@@ -71,16 +72,9 @@ function initHeroMouse() {
   const section = document.getElementById('heroSection');
   const gradDiv = document.getElementById('heroCursorG');
   if (!section || !gradDiv) return;
-  
-  let cx=0, cy=0, rx=0, ry=0, trail=[], glowActive=false;
-  const TRAIL_LIFE = 900;
 
-  document.addEventListener('mousemove', e => {
-    cx = e.clientX; cy = e.clientY;
-    cursor.style.left = cx+'px'; cursor.style.top = cy+'px';
-    cursor.style.display = 'block'; ring.style.display = 'block';
-  });
-  document.addEventListener('mouseleave', () => { cursor.style.display='none'; ring.style.display='none'; });
+  let trail = [], glowActive = false;
+  const TRAIL_LIFE = 900;
 
   section.addEventListener('mousemove', e => {
     const rect = section.getBoundingClientRect();
@@ -88,6 +82,7 @@ function initHeroMouse() {
     if (trail.length > 24) trail.shift();
     glowActive = true;
   });
+
   section.addEventListener('mouseleave', () => {
     glowActive = false; gradDiv.style.background = '';
     setTimeout(() => { if (!glowActive) trail = []; }, TRAIL_LIFE);
@@ -112,12 +107,6 @@ function initHeroMouse() {
     }
     requestAnimationFrame(paintHeroGlow);
   })();
-
-  (function animRing() {
-    rx += (cx-rx)*0.1; ry += (cy-ry)*0.1;
-    ring.style.left = rx+'px'; ring.style.top = ry+'px';
-    requestAnimationFrame(animRing);
-  })();
 }
 
 /* ── WORK CARD HTML (used on Home + Works) ───────── */
@@ -140,3 +129,5 @@ function fwCardHTML(w, i) {
 }
 
 function slugify(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+
+document.addEventListener('DOMContentLoaded', initHeroMouse); // ← thêm ở đây
