@@ -1553,7 +1553,7 @@ body {
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--muted);
-  padding-top: 20px;
+  padding-top: 8px;
 }
 
 .ab-row-content {
