@@ -140,7 +140,7 @@ label {
   color: var(--muted);
   display: block;
   margin-bottom: 6px;
-  margin-top: 8px;
+  margin-top: 4px;
   font-family: var(--fm);
 }
 
