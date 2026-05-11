@@ -40,7 +40,6 @@ function toast(msg) {
 }
 
 /* ── HERO CUSTOM CURSOR ──────────────────────────── */
-/* ── HERO CUSTOM CURSOR ──────────────────────────── */
 function initHeroMouse() {
   const cursor = document.getElementById('hCursor');
   const ring   = document.getElementById('hCursorRing');
@@ -68,17 +67,17 @@ function initHeroMouse() {
     ring.style.top  = ry + 'px';
     requestAnimationFrame(animRing);
   })();
-   document.querySelectorAll('a, button, .fw-item, .wgi, .ncta, .nlink').forEach(el => {
-    el.addEventListener('mouseenter', () => { 
-      cursor.classList.add('is-hover'); 
-      ring.classList.add('is-hover'); 
+
+  document.querySelectorAll('a, button, .fw-item, .wgi, .ncta, .nlink').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('is-hover');
+      ring.classList.add('is-hover');
     });
-    el.addEventListener('mouseleave', () => { 
-      cursor.classList.remove('is-hover'); 
-      ring.classList.remove('is-hover'); 
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-hover');
+      ring.classList.remove('is-hover');
     });
   });
-
 
   const section = document.getElementById('heroSection');
   const gradDiv = document.getElementById('heroCursorG');
@@ -115,7 +114,7 @@ function initHeroMouse() {
   })();
 }
 
-/* ── WORK CARD HTML (used on Home + Works) ───────── */
+/* ── WORK CARD HTML ──────────────────────────────── */
 function fwCardHTML(w, i) {
   const cv = w.cover
     ? `<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">`
@@ -136,4 +135,4 @@ function fwCardHTML(w, i) {
 
 function slugify(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 
-document.addEventListener('DOMContentLoaded', initHeroMouse); // ← thêm ở đây
+document.addEventListener('DOMContentLoaded', initHeroMouse);
