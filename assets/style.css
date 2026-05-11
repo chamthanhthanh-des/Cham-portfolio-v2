@@ -1548,25 +1548,24 @@ body {
   min-width: 0;
 }
 
-/* Bio text */
 .about-intro {
   font-family: var(--fd);
   font-style: italic;
-  font-size: clamp(16px, 1.4vw, 20px);
+  font-size: clamp(20px, 1.8vw, 26px);
   line-height: 1.75;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .about-body {
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 2;
   color: var(--muted);
   margin-bottom: 14px;
 }
 
 .about-quote-inline {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
   color: var(--muted2);
   font-style: italic;
@@ -1575,12 +1574,10 @@ body {
   border-top: 1px solid var(--border);
 }
 
-/* Highlights */
 .hi-ame { color: var(--ame); font-style: italic; }
 .hi-oli { color: var(--oli); font-style: italic; }
 .hi-bold { color: var(--text); font-weight: 500; }
 
-/* Skills */
 .ab-skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1597,12 +1594,11 @@ body {
 }
 
 .ab-skill-list {
-  font-size: 14px;
-  line-height: 2.1;
+  font-size: 15px;
+  line-height: 2.2;
   color: var(--muted);
 }
 
-/* Career revised */
 .tl-item {
   display: grid;
   grid-template-columns: 1fr 140px;
@@ -1616,7 +1612,7 @@ body {
 .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
 
 .tl-role {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--text);
   margin-bottom: 5px;
