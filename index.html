@@ -175,14 +175,10 @@
 
 <!-- ══════ WORKS LIST ══════ -->
 <div id="page-works" class="page">
-  <section class="wpage-hero" aria-labelledby="works-title">
-    <div class="wpage-hero-inner">
-      <h1 id="works-title">Works</h1>
-
-      <div class="wpage-sub">
-        <div class="ltag">2016 — 2026</div>
-        <p>Selected projects across product design, brand systems, and digital experiences.</p>
-      </div>
+  <section class="subpage-hero" aria-labelledby="works-title">
+    <div class="subpage-hero__inner">
+      <h1 class="subpage-hero__title" id="works-title">Works</h1>
+      <p class="subpage-hero__description">Selected projects across product design, brand systems, and digital experiences.</p>
     </div>
   </section>
 
@@ -209,19 +205,25 @@
 
 <!-- ══════ ABOUT ══════ -->
 <div id="page-about" class="page">
-  <div class="about-page">
-    <div class="about-left">
-      <div class="about-kicker">About me</div>
-      <h1 class="about-title">Thanh Châm</h1>
-      <p class="about-subtitle">Senior Product · Branding Designer</p>
+  <section class="subpage-hero" aria-labelledby="about-title">
+    <div class="subpage-hero__inner">
+      <h1 class="subpage-hero__title" id="about-title">About</h1>
+      <p class="subpage-hero__description">Senior Product Designer & Branding specialist based in Hà Nội with 8+ years of experience creating meaningful digital experiences.</p>
+    </div>
+  </section>
+
+  <section class="about-profile">
+    <div class="about-profile__content">
+      <div class="about-kicker">Thanh Châm</div>
+      <p class="about-role">Senior Product · Branding Designer</p>
       <p class="about-meta">1995 · Born in Ha Noi</p>
     </div>
-    <div class="about-right">
+    <div class="about-profile__photo">
       <div class="about-photo-wrapper">
         <img src="assets/about-photo.jpg" alt="Thanh Châm" class="about-photo">
       </div>
     </div>
-  </div>
+  </section>
 
   <section class="ab-sec about-copy">
     <div>
@@ -335,13 +337,12 @@
 
 <!-- ══════ QUIET (Blog) ══════ -->
 <div id="page-quiet" class="page">
-  <div class="qpage-hero">
-    <h1>Quiet</h1>
-    <div class="qpage-sub">
-      <div class="ltag">Writing</div>
-      <p>Thoughts on design, process, and the things that make work feel meaningful.</p>
+  <section class="subpage-hero" aria-labelledby="quiet-title">
+    <div class="subpage-hero__inner">
+      <h1 class="subpage-hero__title" id="quiet-title">Quiet</h1>
+      <p class="subpage-hero__description">Thoughts on design, process, and the things that make work feel meaningful.</p>
     </div>
-  </div>
+  </section>
   <div class="q-list" id="qList"></div>
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
@@ -352,7 +353,12 @@
 
 <!-- ══════ CONTACT ══════ -->
 <div id="page-contact" class="page">
-  <div class="con-hero"></div>
+  <section class="subpage-hero" aria-labelledby="contact-title">
+    <div class="subpage-hero__inner">
+      <h1 class="subpage-hero__title" id="contact-title">Let's talk</h1>
+      <p class="subpage-hero__description">Whether you have a project in mind or just want to say hi—I'd love to hear from you. Usually reply within 24 hours.</p>
+    </div>
+  </section>
   <div class="con-body">
     <div>
       <p class="text-muted" style="font-size:14px;margin-bottom:28px;line-height:1.85">Whether you have a project in mind, want to collaborate, or just want to say hi — I'd love to hear from you. I usually reply within 24 hours.</p>
