@@ -1731,11 +1731,13 @@ body {
 
 .con-info-label {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--oli);
   margin-bottom: 16px;
+  margin-top: 4px;
 }
 
 .con-info-val {
