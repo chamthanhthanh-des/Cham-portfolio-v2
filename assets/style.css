@@ -841,7 +841,7 @@ footer {
 
 .about-hero__info p {
   margin: 0;
-  font-size: clamp(14px, 1vw, 16px); /* ← nhỏ hơn */
+  font-size: clamp(16px, 1vw, 24px); /* ← nhỏ hơn */
   line-height: 1.4;
   color: var(--muted);               /* ← nhạt hơn */
 }
