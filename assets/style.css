@@ -1549,7 +1549,7 @@ body {
 
 .ab-row-label {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--muted);
