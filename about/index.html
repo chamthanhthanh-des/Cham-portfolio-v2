@@ -60,53 +60,66 @@
     </div>
   </section>
 
-  <section class="ab-sec about-copy">
-    <div>
-      <p>Hi there! I'm a Designer with 5 years of experience in digital product design and 8 years in branding & graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural and meaningful way.</p>
-      <p>With a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right. I love simple ideas, smooth user flows, and building things that actually help people.</p>
-      <p>Let's connect and create something great together!</p>
+<!-- BIO -->
+<section class="ab-sec">
+  <div class="ab-row">
+    <div class="ab-row-label">Story</div>
+    <div class="ab-row-content">
+      <p class="about-intro">
+        Hi there! I'm a Designer with
+        <span class="hi-ame"> 5 years in digital product design</span> and
+        <span class="hi-ame"> 8 years in branding & graphic design.</span>
+        I enjoy crafting
+        <span class="hi-oli"> clean, intuitive experiences</span>
+        that connect users with products in a
+        <span class="hi-bold"> natural and meaningful way.</span>
+      </p>
+      <p class="about-body">
+        With a background in both
+        <span class="hi-bold">user experience</span> and
+        <span class="hi-bold">visual identity,</span>
+        I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right.
+      </p>
+      <p class="about-body">
+        I love simple ideas, smooth user flows, and building things that actually help people. Let's connect and create something great together!
+      </p>
+      <p class="about-quote-inline">
+        "An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way." — Charles Bukowski
+      </p>
     </div>
-    <aside class="about-quote">
-      <p>"An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way."</p>
-      <span>Charles Bukowski</span>
-    </aside>
-  </section>
+  </div>
+</section>
 
-  <section class="ab-sec">
-    <div class="ab-grid">
+<!-- SKILLS -->
+<section class="ab-sec">
+  <div class="ab-row">
+    <div class="ab-row-label">Skills</div>
+    <div class="ab-skills-grid">
       <div>
-        <div class="ab-lbl">I can help you</div>
-        <ul class="about-list">
-          <li>Web design</li>
-          <li>Branding design</li>
-          <li>Product design</li>
-          <li>Art direction</li>
-        </ul>
+        <div class="ab-skill-label">I can help</div>
+        <p class="ab-skill-list">Web design<br>Branding design<br>Product design<br>Art direction</p>
       </div>
       <div>
-        <div class="ab-lbl">Tools</div>
-        <ul class="about-list">
-          <li>Figma</li>
-          <li>Adobe Photoshop</li>
-          <li>Adobe Illustrator</li>
-          <li>Notion</li>
-          <li>Framer</li>
-        </ul>
+        <div class="ab-skill-label">Tools</div>
+        <p class="ab-skill-list">Figma<br>Adobe Photoshop<br>Adobe Illustrator<br>Notion<br>Framer</p>
       </div>
       <div>
-        <div class="ab-lbl">Skills</div>
-        <ul class="about-list">
-          <li>UI-Visual design</li>
-          <li>UX Research</li>
-          <li>Design system management</li>
-          <li>Wireframing & Prototyping</li>
-          <li>Interaction Design</li>
-          <li>Branding design</li>
-          <li>Branding development</li>
-        </ul>
+        <div class="ab-skill-label">Skills</div>
+        <p class="ab-skill-list">UI Visual design<br>UX Research<br>Design system<br>Wireframing & Prototyping<br>Interaction Design</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="ab-sec">
+  <div class="ab-row">
+    <div class="ab-row-label">Career</div>
+    <div class="ab-row-content">
+      <div class="tl-l" id="tlCareer"></div>
+    </div>
+  </div>
+</section>
 
   <section class="ab-sec">
     <div class="ab-lbl">Career</div>
@@ -128,14 +141,13 @@
 <script src="/assets/app.js"></script>
 <script>
 const tl = document.getElementById('tlCareer');
-if (tl) tl.innerHTML = career.map(c =>
-  `<div class="tl-item reveal">
-    <div class="tl-period">${c.current ? '<span class="cbadge">Current</span><br>' : ''}${c.period}</div>
+if (tl) tl.innerHTML = career.map(c => `
+  <div class="tl-item reveal">
     <div>
       <div class="tl-role">${c.role}</div>
       <div class="tl-co">${c.company}</div>
-      <div class="tl-url">${c.url}</div>
     </div>
+    <div class="tl-period">${c.period}</div>
   </div>`
 ).join('');
 </script>

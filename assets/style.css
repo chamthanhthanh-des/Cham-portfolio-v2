@@ -1527,3 +1527,122 @@ html {
 body {
   overflow-x: hidden;
 }
+/* ── ABOUT PAGE REVISED ──────────────────────────── */
+.ab-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.ab-row-label {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.ab-row-content {
+  min-width: 0;
+}
+
+/* Bio text */
+.about-intro {
+  font-family: var(--fd);
+  font-style: italic;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.about-body {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.about-quote-inline {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted2);
+  font-style: italic;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Highlights */
+.hi-ame { color: var(--ame); font-style: italic; }
+.hi-oli { color: var(--oli); font-style: italic; }
+.hi-bold { color: var(--text); font-weight: 500; }
+
+/* Skills */
+.ab-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.ab-skill-label {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--oli);
+  margin-bottom: 18px;
+}
+
+.ab-skill-list {
+  font-size: 14px;
+  line-height: 2.1;
+  color: var(--muted);
+}
+
+/* Career revised */
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.tl-item:first-child { padding-top: 0; }
+.tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.tl-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.tl-co {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ame);
+}
+
+.tl-period {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.8;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .ab-row { grid-template-columns: 1fr; gap: 24px; }
+  .ab-skills-grid { grid-template-columns: 1fr; gap: 32px; }
+  .tl-item { grid-template-columns: 1fr; gap: 8px; }
+  .tl-period { text-align: left; }
+}
