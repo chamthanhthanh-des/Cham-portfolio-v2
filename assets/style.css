@@ -13,18 +13,31 @@
   --grad:    linear-gradient(135deg,#6a4f7a 0%,#96B0AC 55%,#B0C49C 100%);
   --gradt:   linear-gradient(135deg,#6a4f7a 0%,#7A9E9A 55%,#9AB488 100%);
   --danger:  #e05252;
+
   --fd: 'Cormorant Garamond',Georgia,serif;
   --fu: 'Syne',system-ui,sans-serif;
   --fm: 'Space Mono',monospace;
+
   --nav-h: 64px;
   --ease: cubic-bezier(0.16,1,0.3,1);
-  --px: 80px;   /* main horizontal padding from section 2 */
-  --page-padding-x: var(--px);
+
+  /* Global layout spacing */
+  --page-padding-x: clamp(24px, 4vw, 80px);
+  --px: var(--page-padding-x);
   --page-max-width: none;
 }
-@media (max-width: 1400px) { :root { --px: 64px } }
-@media (max-width: 768px) { :root { --px: 32px } }
-@media (max-width: 480px) { :root { --px: 20px } }
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding-x: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding-x: 20px;
+  }
+}
 
 /* ── RESET ──────────────────────────────────────── */
 *, *::before, *::after {
@@ -224,7 +237,20 @@ label {
 }
 
 /* ── NAV ───────────────────────────────────────── */
-#nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid transparent;transition:border-color .3s,background .3s,backdrop-filter .3s}
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--page-padding-x);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, background .3s, backdrop-filter .3s;
+}
 #nav.scrolled {
   border-color: var(--border);
   background: rgba(255, 255, 255, .9);
@@ -365,7 +391,7 @@ label {
 /* ── FOOTER ────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 40px var(--px);
+  padding: 0 var(--page-padding-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -420,7 +446,16 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  HOME                                           */
 /* ═══════════════════════════════════════════════ */
-.hero{height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;cursor:none}
+.hero {
+  height: calc(100vh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--page-padding-x) 80px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
 /* static background radials */
 .hero-bg-static{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 700px 500px at 80% 20%,rgba(122,112,186,.05),transparent 65%),radial-gradient(ellipse 500px 400px at 10% 80%,rgba(176,196,156,.06),transparent 65%)}
 /* mouse-follow gradient layer */
@@ -662,7 +697,11 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  SUBPAGE HERO (STANDARDIZED)                    */
 /* ═══════════════════════════════════════════════ */
-.subpage-hero{width:100%;padding:clamp(96px,10vw,140px) var(--px) clamp(56px,6vw,88px);border-bottom:1px solid var(--border)}
+.subpage-hero {
+  width: 100%;
+  padding: clamp(96px, 10vw, 140px) var(--page-padding-x) clamp(56px, 6vw, 88px);
+  border-bottom: 1px solid var(--border);
+}
 .subpage-hero__inner{width:100%;max-width:none;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,0.6fr);align-items:end;gap:clamp(40px,6vw,96px)}
 .subpage-hero__title{margin:0;font-family:var(--fd);font-size:clamp(64px,8vw,128px);font-weight:300;line-height:.95;letter-spacing:-.06em;color:var(--text)}
 .subpage-hero__description{margin:0;max-width:420px;font-family:var(--fu);font-size:clamp(16px,1.2vw,20px);line-height:1.45;color:var(--muted)}
@@ -683,7 +722,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 .about-hero {
   width: 100%;
-  padding: clamp(120px, 12vw, 180px) var(--px) clamp(80px, 8vw, 120px);
+  padding: clamp(120px, 12vw, 180px) var(--page-padding-x) clamp(80px, 8vw, 120px);
 }
 
 .about-hero__inner {
@@ -750,7 +789,7 @@ footer {
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 96px var(--px) 64px;
+    padding: 96px var(--page-padding-x) 64px;
   }
 
   .about-hero__inner {
@@ -1190,7 +1229,7 @@ footer {
 }
 
 .works-projects .wfilters {
-  padding: 28px clamp(24px, 4vw, 72px);
+  padding: 28px var(--page-padding-x);
   display: flex;
   gap: 6px;
   border-bottom: 1px solid var(--border);
