@@ -1503,3 +1503,15 @@ footer {
   }
 }
 
+.nlogo,
+.nlink,
+.mml,
+.ncta {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nlink,
+.mml {
+  cursor: pointer;
+}

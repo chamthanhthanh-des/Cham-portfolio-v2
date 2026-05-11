@@ -21,27 +21,42 @@
 <div class="hero-cursor-ring" id="hCursorRing"></div>
 
 <!-- NAV -->
+<!-- NAV -->
 <nav id="nav">
-  <div class="nlogo" onclick="go('home')"><img class="brand-mark" src="assets/favicon.svg" alt="Logo">Châm.</div>
+  <a class="nlogo" href="/">
+    <img class="brand-mark" src="/assets/favicon.svg" alt="Châm Thanh Thanh logo">
+  </a>
+
   <div class="nlinks">
-    <span class="nlink" data-p="works"   onclick="go('works')">Works</span>
-    <span class="nlink" data-p="about"   onclick="go('about')">About</span>
-    <span class="nlink" data-p="quiet"   onclick="go('quiet')">Quiet</span>
-    <span class="nlink" data-p="contact" onclick="go('contact')">Contact</span>
-    <a href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view" target="_blank" class="nlink">Resume ↗</a>
-    <span class="ncta nav-outline-cta" onclick="go('contact')">Let's Talk</span>
+    <a class="nlink" href="/works/">Works</a>
+    <a class="nlink" href="/about/">About</a>
+    <a class="nlink" href="/quiet/">Quiet</a>
+    <a class="nlink" href="/contact/">Contact</a>
+
+    <a
+      href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTO1Xr3Z5sx37n05/view"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="ncta nav-outline-cta"
+    >
+      Let's Talk
+    </a>
   </div>
-  <div class="nburger" id="nb" onclick="togMenu()"><span></span><span></span></div>
+
+  <div class="nburger" id="nb" onclick="togMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
 <div class="mmenu" id="mm">
-  <span class="mml" onclick="go('home');togMenu()">Home</span>
-  <span class="mml" onclick="go('works');togMenu()">Works</span>
-  <span class="mml" onclick="go('about');togMenu()">About</span>
-  <span class="mml" onclick="go('quiet');togMenu()">Quiet</span>
-  <span class="mml" onclick="go('contact');togMenu()">Contact</span>
+  <a class="mml" href="/">Home</a>
+  <a class="mml" href="/works/">Works</a>
+  <a class="mml" href="/about/">About</a>
+  <a class="mml" href="/quiet/">Quiet</a>
+  <a class="mml" href="/contact/">Contact</a>
 </div>
-
 <main id="app" aria-label="Main content">
 
 <!-- ══════ HOME ══════ -->
