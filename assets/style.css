@@ -292,9 +292,8 @@ label {
   transform: scaleX(1);
 }
 
-.nlink:focus {
-  outline: 2px solid rgba(106, 79, 122, 0.3);
-  outline-offset: 2px;
+.nlink:focus:not(:focus-visible) {
+  outline: none;
 }
 .ncta{
   height: 36px;
