@@ -390,8 +390,9 @@ label {
 
 /* ── FOOTER ────────────────────────────────────── */
 footer {
+  min-height: 300px;
   border-top: 1px solid var(--border);
-  padding: 0 var(--page-padding-x);
+  padding: 64px var(--page-padding-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -399,7 +400,15 @@ footer {
   gap: 20px;
   background: var(--bg2);
 }
-
+@media (max-width: 768px) {
+  footer {
+    min-height: 260px;
+    padding: 48px var(--page-padding-x);
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 .flogo {
   display: inline-flex;
   align-items: center;
@@ -650,7 +659,15 @@ footer {
 .page-hero{height:calc(100vh - var(--nav-h));padding:60px var(--page-padding-x) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;width:100%;max-width:none;margin:0 auto}
 .wpage-hero,
 .qpage-hero{height:calc(100vh - var(--nav-h));padding:60px var(--page-padding-x) 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;width:100%;max-width:none;margin:0 auto}
-.wpage-hero h1,.qpage-hero h1{font-family:var(--fd);font-size:clamp(72px,12vw,160px);font-weight:300;font-style:italic;line-height:.9;letter-spacing:-.04em}
+.wpage-hero h1,
+.qpage-hero h1 {
+  font-family: var(--fd);
+  font-size: clamp(72px, 12vw, 160px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: .9;
+  letter-spacing: -.04em;
+}
 .wpage-sub{color:var(--muted);font-size:13px;text-align:right;max-width:300px;line-height:1.7}
 .wfilters{padding:28px var(--page-padding-x);display:flex;gap:4px;border-bottom:1px solid var(--border);overflow-x:auto;background:var(--bg);width:100%;max-width:none;margin:0 auto}
 .fbtn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--border);padding:8px 18px;border-radius:100px;color:var(--muted);transition:all .2s;white-space:nowrap;cursor:pointer;background:white;line-height:1}
@@ -1015,7 +1032,10 @@ footer {
   .q-item{grid-template-columns:1fr;gap:16px}
   .q-num{display:none}
   .q-right{flex-direction:row;align-items:center}
-  .wd-nav,.q-nav{grid-template-columns:1fr}
+  .wd-nav,
+  .q-nav {
+    grid-template-columns: 1fr;
+  }  
   .fw-row{display:contents}
   .fw-num{display:none}
   .fw-preview{width:100%}
