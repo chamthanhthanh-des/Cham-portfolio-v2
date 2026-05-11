@@ -1702,8 +1702,8 @@ body {
 
 .con-row {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 48px;
+  grid-template-columns: 240px 1fr;
+  gap: 200px;
   align-items: start;
 }
 
