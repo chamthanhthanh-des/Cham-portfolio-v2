@@ -1650,3 +1650,7 @@ body {
   .tl-item { grid-template-columns: 1fr; gap: 8px; }
   .tl-period { text-align: left; }
 }
+.ab-sec > div {
+  max-width: none;
+  margin: 0;
+}
