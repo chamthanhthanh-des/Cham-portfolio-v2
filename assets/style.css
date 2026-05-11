@@ -1397,14 +1397,14 @@ footer {
 /* ==== FILTER BUTTON HOVER FIX ==== */
 
 .fbtn {
-  height: 44px;
-  min-height: 44px;
+  height: 40px;
+  min-height: 40px;
   padding: 0 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  line-height: 0.5;
+  line-height: 1;
   overflow: hidden;
   box-sizing: border-box;
   transform: none;
@@ -1415,8 +1415,8 @@ footer {
 }
 
 .fbtn.active {
-  height: 44px;
-  min-height: 44px;
+  height: 40px;
+  min-height: 40px;
   padding: 0 28px;
   border-radius: 999px;
   overflow: hidden;
@@ -1427,7 +1427,7 @@ footer {
 .fbtn.active:hover {
   background: transparent;
   color: #fff;
-  border-color: transparent;
+  border-color: none;
   transform: none;
   box-shadow: none;
 }
