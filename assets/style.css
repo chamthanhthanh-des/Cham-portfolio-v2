@@ -1425,7 +1425,7 @@ footer {
 }
 .fbtn.active,
 .fbtn.active:hover {
-  background: var(--grad);
+  background: transparent;
   color: #fff;
   border-color: transparent;
   transform: none;
