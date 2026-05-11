@@ -297,8 +297,8 @@ label {
   outline-offset: 2px;
 }
 .ncta{
-  height:40px;
-  padding:0 28px;
+  height: 36px;
+  padding:0 24px;
   border-radius:999px;
   border:1px solid var(--border);
   background:transparent;
