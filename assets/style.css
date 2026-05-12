@@ -967,7 +967,7 @@ footer {
 .tl-item{
   display:grid;
   grid-template-columns: 1fr 500px;
-  gap:32px;padding:28px 0;
+  gap:32px;padding:40px 0;
   border-bottom:1px solid var(--border)
 }
 .tl-item:first-child{padding-top:0}
