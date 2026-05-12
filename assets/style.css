@@ -312,7 +312,7 @@ label {
   align-items: center;
   justify-content: center;
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
