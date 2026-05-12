@@ -601,7 +601,7 @@ function fwCardHTML(w,i){
     <div class="fw-row">
       <span class="fw-num">${String(i+1).padStart(2,'0')}</span>
       <div class="fw-main">
-        <div class="fw-cat-row"><span class="fw-catbadge">${w.category}</span><span class="fw-yr">${w.year}</span></div>
+        <div class="fw-cat-row"><span class="fw-catbadge">${w.category}</span><div class="fw-cat-dot"></div><span class="fw-yr">${w.year}</span></div>
         <div class="fw-title">${w.title}</div>
         <div class="fw-tags">${w.tags.slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       </div>
