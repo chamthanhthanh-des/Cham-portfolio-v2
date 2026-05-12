@@ -760,7 +760,7 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  WORK DETAIL                                    */
 /* ═══════════════════════════════════════════════ */
-.wd-hero {padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 64px;border-bottom:1px solid var(--border)}
+.wd-hero {padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 80px;border-bottom:1px solid var(--border)}
 .wd-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:48px;transition:color .2s,gap .2s}
 .wd-back:hover{color:var(--ame);gap:12px}
 .wd-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:300;font-style:italic;line-height:1.05;letter-spacing:-.03em;max-width:900px;margin-bottom:48px;margin-bottom:16px}
