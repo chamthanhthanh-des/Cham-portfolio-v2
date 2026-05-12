@@ -971,7 +971,13 @@ footer {
   border-bottom:1px solid var(--border)
 }
 .tl-item:first-child{padding-top:0}
-.tl-period{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted);padding-top:3px;line-height:1.6}
+.tl-period{
+  font-family:var(--fm);
+  font-size:10px;
+  letter-spacing:0.5px;
+  color:var(--muted);
+  padding-top:3px;
+  line-height:1.6}
 .tl-role{
   font-size:20px;
   font-weight:500;
