@@ -617,7 +617,7 @@ footer {
 /* ── SECTION HEADER ─────────────────────────────── */
 .shd{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;padding-bottom:24px}
 .shd h2{font-family:var(--fd);font-size:44px;font-weight:300;font-style:italic}
-.la{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color .2s,gap .2s}
+.la{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:20px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color .2s,gap .2s}
 .la:hover{color:var(--text);gap:14px}
 
 /* ── FEATURED WORKS — card grid with featured images ─── */
