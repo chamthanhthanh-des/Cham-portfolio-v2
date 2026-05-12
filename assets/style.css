@@ -1375,6 +1375,8 @@ footer {
 }
 
 .works-projects .wgi:hover .wgi-arr {
+  outline: none;
+  box-shadow: none;
   transform: rotate(45deg);
 }
 
