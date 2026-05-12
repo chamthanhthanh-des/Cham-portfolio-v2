@@ -964,7 +964,12 @@ footer {
 .sk-bar{width:72px;height:2px;background:var(--border);border-radius:1px;overflow:hidden}
 .sk-fill{height:100%;border-radius:1px;background:var(--grad);transition:width 1.2s var(--ease)}
 .tl-l{display:flex;flex-direction:column}
-.tl-item{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--border)}
+.tl-item{
+  display:grid;
+  grid-template-columns: 1fr 200px;
+  gap:32px;padding:28px 0;
+  border-bottom:1px solid var(--border)
+}
 .tl-item:first-child{padding-top:0}
 .tl-period{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted);padding-top:3px;line-height:1.6}
 .tl-role{
@@ -1702,7 +1707,7 @@ body {
 
 .tl-co {
   font-family: var(--fm);
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--ame);
@@ -1710,7 +1715,7 @@ body {
 
 .tl-period {
   font-family: var(--fm);
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--muted);
