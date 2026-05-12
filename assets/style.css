@@ -1790,3 +1790,11 @@ body {
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
+
+.fdot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--muted2);
+  flex-shrink: 0;
+}
