@@ -606,7 +606,7 @@ function fwCardHTML(w,i){
           <div class="fw-cat-dot"></div>
           <span class="fw-yr">${w.year}</span>
           <div class="fw-cat-dot"></div>
-          ${w.tags.slice(0,2).map(t=>`<span class="fw-yr">${t}</span>`).join('<div class="fw-cat-dot"></div>')}
+          ${w.tags.slice(0,2).map(t=>`<span class="tag">${t}</span>`).join('')}
         </div>
         <div class="fw-title">${w.title}</div>
       </div>
