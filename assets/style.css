@@ -260,7 +260,7 @@ label {
 }
 .nlogo{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:20px;font-weight:400;font-style:italic;cursor:pointer;transition:opacity .2s}
 .nlogo:hover{opacity:.6}
-.nlinks{display:flex;align-items:center;gap:32px}
+.nlinks{display:flex;align-items:center;gap:32px;margin-left:auto;}
 .nlink {
   font-family: var(--fm);
   font-size: 10px;
