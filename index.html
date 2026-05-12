@@ -775,22 +775,22 @@ function renderWD(w){
   const ps=w.description.split('\n\n').map(p=>`<p>${p}</p>`).join('');
   const navL=prev?`<div class="wd-ni" onclick="go('work-detail','${prev.id}')"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
   const navR=next?`<div class="wd-ni nx" onclick="go('work-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-  document.getElementById('wdc').innerHTML=`
-      <div class="wd-hero">
-        <div class="wd-back" onclick="go('works')">← Back to Works</div>
-        <div class="wd-meta">
-          <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
-          <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
-          <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join(' · ')}</div></div>
-        </div>
-        <h1 class="wd-title">${w.title}</h1>
+document.getElementById('wdc').innerHTML=`
+    <div class="wd-hero">
+      <div class="wd-back" onclick="go('works')">← Back to Works</div>
+      <div class="wd-meta">
+        <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
+        <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
+        <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join(' · ')}</div></div>
       </div>
-      <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color||'#f0eee9'}">${cv}</div></div>
-      <div class="wd-body">
-        <div class="wd-body-label">Overview</div>
-        <div class="wd-body-text">${ps}</div>
-      </div>
-      <div class="wd-nav">${navL}${navR}</div>`;
+      <h1 class="wd-title">${w.title}</h1>
+    </div>
+    <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color||'#f0eee9'}">${cv}</div></div>
+    <div class="wd-body">
+      <div class="wd-body-label">Overview</div>
+      <div class="wd-body-text">${ps}</div>
+    </div>
+    <div class="wd-nav">${navL}${navR}</div>`;
       setTimeout(initReveal,80);
 }
 
