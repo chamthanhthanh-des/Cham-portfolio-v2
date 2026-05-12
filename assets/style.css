@@ -634,7 +634,7 @@ footer {
 .fw-yr{font-family:var(--fm);font-size:14px;color:var(--muted2)}
 .fw-title{font-family:var(--fd);font-size:clamp(32px,5vw,52px);font-style:italic;font-weight:300;line-height:1.15;color:var(--text);transition:color .3s;white-space:normal;overflow:visible;text-overflow:clip;margin-top:12px}
 .fw-item:hover .fw-title{color:var(--ame)}
-.fw-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.fw-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .fw-arrow-wrap{flex-shrink:0;display:none;align-items:center}
 .fw-circle{width:52px;height:52px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .35s var(--ease);color:var(--muted)}
 .fw-item:hover .fw-circle {
