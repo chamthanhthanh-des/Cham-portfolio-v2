@@ -1605,7 +1605,7 @@ body {
 }
 
 .about-quote-inline {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--muted2);
   font-style: italic;
@@ -1636,7 +1636,7 @@ body {
 }
 
 .ab-skill-list {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 2.2;
   color: var(--muted);
 }
