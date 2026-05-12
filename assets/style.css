@@ -966,7 +966,7 @@ footer {
 .tl-l{display:flex;flex-direction:column}
 .tl-item{
   display:grid;
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr 400px;
   gap:32px;padding:28px 0;
   border-bottom:1px solid var(--border)
 }
