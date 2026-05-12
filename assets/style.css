@@ -174,10 +174,10 @@ label {
   background: var(--grad);
   color: white;
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 14px 28px;
+  padding: 14px 32px;
   border-radius: 100px;
   font-weight: 700;
   transition: opacity .2s, transform .2s, box-shadow .2s;
