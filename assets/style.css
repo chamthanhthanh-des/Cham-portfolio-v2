@@ -1694,7 +1694,7 @@ body {
 .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
 
 .tl-role {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 500;
   color: var(--text);
   margin-bottom: 5px;
@@ -1702,7 +1702,7 @@ body {
 
 .tl-co {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 16px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--ame);
