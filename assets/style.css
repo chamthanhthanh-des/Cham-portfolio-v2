@@ -631,9 +631,23 @@ footer {
 .fw-cat-row{display:flex;align-items:center;gap:12px;margin-bottom:0}
 .fw-catbadge{font-family:var(--fm);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--ame)}
 .fw-yr{font-family:var(--fm);font-size:14px;color:var(--muted2)}
-.fw-title{font-family:var(--fd);font-size:clamp(32px,5vw,52px);font-style:italic;font-weight:300;line-height:1.15;color:var(--text);transition:color .3s;white-space:normal;overflow:visible;text-overflow:clip;margin-top:12px}
+.fw-title{
+  font-family:var(--fd);
+  font-size:clamp(32px,5vw,52px);
+  font-style:italic;
+  font-weight:300;
+  line-height:1.15;color:var(--text);
+  transition:color .3s;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+}
 .fw-item:hover .fw-title{color:var(--ame)}
-.fw-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.fw-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  }
 .fw-arrow-wrap{flex-shrink:0;display:none;align-items:center}
 .fw-circle{width:52px;height:52px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .35s var(--ease);color:var(--muted)}
 .fw-item:hover .fw-circle {
@@ -749,7 +763,7 @@ footer {
 .wd-hero {padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 64px;border-bottom:1px solid var(--border)}
 .wd-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:48px;transition:color .2s,gap .2s}
 .wd-back:hover{color:var(--ame);gap:12px}
-.wd-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:300;font-style:italic;line-height:1.05;letter-spacing:-.03em;max-width:900px;margin-bottom:16px}
+.wd-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:300;font-style:italic;line-height:1.05;letter-spacing:-.03em;max-width:900px;margin-bottom:48px;margin-bottom:16px}
 .wd-meta{display:flex;gap:56px;flex-wrap:wrap;margin-bottom:16px;}
 .wd-ml{font-family:var(--fm);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .wd-mv{font-size:20px;color:var(--text)}
