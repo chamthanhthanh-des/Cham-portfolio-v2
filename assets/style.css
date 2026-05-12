@@ -272,7 +272,7 @@ label {
 
 .nlink {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
