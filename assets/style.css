@@ -904,9 +904,8 @@ footer {
   font-size: 17px; transition: all .2s;
 }
 .wgi:hover .wgi-arr {
-  background: var(--grad); border-color: transparent; color: white; transform: rotate(45deg);
+  background: var(--grad); border: none; color: white; transform: rotate(45deg); filter: none;
 }
-
 .wgi-thumb { aspect-ratio: 16/9; overflow: hidden; margin-bottom: 24px; border-radius: 4px; flex-shrink: 0; }
 .wgi-cover {
   width: 100%; height: 100%;
