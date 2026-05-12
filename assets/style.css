@@ -1812,4 +1812,4 @@ body {
   background: var(--muted2);
   flex-shrink: 0;
   align-self: center;
-}
+}.wd-hero { padding-bottom: 80px !important; }
