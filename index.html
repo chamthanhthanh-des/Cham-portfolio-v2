@@ -15,28 +15,24 @@
 <div id="loader"><div class="loader-inner"></div></div>
 <div class="hero-cursor" id="hCursor"></div>
 <div class="hero-cursor-ring" id="hCursorRing"></div>
-<!-- Skip link for accessibility -->
 <a href="#app" class="skip-link">Skip to main content</a>
 
-<!-- NAV -->
-<!-- NAV -->
 <nav id="nav">
   <a class="nlogo" href="/">
     <img class="brand-mark" src="/assets/favicon.svg" alt="Châm Thanh Thanh logo">
   </a>
-
   <div class="nlinks">
     <a class="nlink" href="/works/">Works</a>
     <a class="nlink" href="/about/">About</a>
     <a class="nlink" href="/quiet/">Quiet</a>
     <a class="nlink" href="/contact/">Contact</a>
-    <a href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view" 
-      target="_blank" 
+    <a href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view"
+      target="_blank"
       rel="noopener noreferrer"
       class="ncta nav-outline-cta">
       Resume
-    </a>  </div>
-
+    </a>
+  </div>
   <div class="nburger" id="nb" onclick="togMenu()">
     <span></span>
     <span></span>
@@ -51,9 +47,10 @@
   <a class="mml" href="/quiet/">Quiet</a>
   <a class="mml" href="/contact/">Contact</a>
 </div>
+
 <main id="app" aria-label="Main content">
 
-<!-- ══════ HOME ══════ -->
+<!-- HOME -->
 <div id="page-home" class="page">
   <section class="hero" id="heroSection">
     <div class="hero-bg-static"></div>
@@ -77,49 +74,43 @@
 
   <div class="mq"><div class="mq-track" id="mqt"></div></div>
 
-  <!-- Section 2+: use --px padding -->
- <section class="about-lab" id="about">
-  <div class="about-lab-inner">
-
-    <div class="about-top-row">
-      <div class="about-label">About</div>
-      <div class="about-pill">
-        <span class="about-pill-dot"></span>
-        Open to work
+  <section class="about-lab" id="about">
+    <div class="about-lab-inner">
+      <div class="about-top-row">
+        <div class="about-label">About</div>
+        <div class="about-pill">
+          <span class="about-pill-dot"></span>
+          Open to work
+        </div>
+      </div>
+      <h2 class="about-lab-title">
+        I work as a multidisciplinary designer
+        <span>combining product thinking, brand systems,</span>
+        and visual direction to create meaningful digital experiences.
+      </h2>
+      <p class="about-lab-desc">
+        With 5 years in digital product design and 8 years in branding &amp; graphic design,
+        I bridge how products work, how they look, and how they feel across every touchpoint.
+      </p>
+      <div class="about-ways">
+        <div class="about-way">
+          <div class="about-way-num">01</div>
+          <h3>Product design</h3>
+          <p>User flows, interface design, dashboards, onboarding, and product experience.</p>
+        </div>
+        <div class="about-way">
+          <div class="about-way-num">02</div>
+          <h3>Brand systems</h3>
+          <p>Visual identity, design language, campaign direction, and scalable brand assets.</p>
+        </div>
+        <div class="about-way">
+          <div class="about-way-num">03</div>
+          <h3>Design systems</h3>
+          <p>Foundations, components, tokens, documentation, and design-to-dev handoff.</p>
+        </div>
       </div>
     </div>
-
-    <h2 class="about-lab-title">
-      I work as a multidisciplinary designer
-      <span>combining product thinking, brand systems,</span>
-      and visual direction to create meaningful digital experiences.
-    </h2>
-
-    <p class="about-lab-desc">
-      With 5 years in digital product design and 8 years in branding &amp; graphic design,
-      I bridge how products work, how they look, and how they feel across every touchpoint.
-    </p>
-
-    <div class="about-ways">
-      <div class="about-way">
-        <div class="about-way-num">01</div>
-        <h3>Product design</h3>
-        <p>User flows, interface design, dashboards, onboarding, and product experience.</p>
-      </div>
-      <div class="about-way">
-        <div class="about-way-num">02</div>
-        <h3>Brand systems</h3>
-        <p>Visual identity, design language, campaign direction, and scalable brand assets.</p>
-      </div>
-      <div class="about-way">
-        <div class="about-way-num">03</div>
-        <h3>Design systems</h3>
-        <p>Foundations, components, tokens, documentation, and design-to-dev handoff.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <hr class="divider" style="margin:0 var(--px)">
 
@@ -128,38 +119,7 @@
       <h2>Selected Works</h2>
       <span class="la" onclick="go('works')">All projects →</span>
     </div>
-    <div class="fw-list" id="featW">
-      <div class="fw-item">
-        <div class="fw-preview"><div class="fw-preview-inner">1</div></div>
-        <div class="fw-main">
-          <div class="fw-cat-row"><span class="fw-catbadge">Product Design</span><span class="fw-yr">2023</span></div>
-          <h3 class="fw-title">SelfChain — Decentralized Identity for Web3</h3>
-          <div class="fw-tags"><span class="text-small text-muted">Design • UX Research • Branding</span></div>
-          <p class="text-xs text-muted margin-top-8 line-height-16">First modular intent-centric blockchain for multi-chain interoperability.</p>
-        </div>
-        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
-      </div>
-      <div class="fw-item">
-        <div class="fw-preview"><div class="fw-preview-inner">2</div></div>
-        <div class="fw-main">
-          <div class="fw-cat-row"><span class="fw-catbadge">Design Systems</span><span class="fw-yr">2023–2024</span></div>
-          <h3 class="fw-title">Self Design System</h3>
-          <div class="fw-tags"><span class="text-small text-muted">Design System • Component Library</span></div>
-          <p class="text-xs text-muted margin-top-8 line-height-16">Comprehensive design system with tokens, components, and documentation.</p>
-        </div>
-        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
-      </div>
-      <div class="fw-item">
-        <div class="fw-preview"><div class="fw-preview-inner">3</div></div>
-        <div class="fw-main">
-          <div class="fw-cat-row"><span class="fw-catbadge">Branding</span><span class="fw-yr">2023–2025</span></div>
-          <h3 class="fw-title">Hot Cross — Multi-Chain Web3 Platform</h3>
-          <div class="fw-tags"><span class="text-small text-muted">Brand Development • Art Direction • Marketing</span></div>
-          <p class="text-xs text-muted margin-top-8 line-height-16">Visual identity and brand guidelines for a multi-chain DeFi platform.</p>
-        </div>
-        <div class="fw-arrow-wrap"><div class="fw-circle">→</div></div>
-      </div>
-    </div>
+    <div class="fw-list" id="featW"></div>
   </div>
 
   <div class="cstrip reveal">
@@ -174,14 +134,17 @@
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks">
-      <span class="flink" onclick="go('works')">Works</span>
-      <span class="flink" onclick="go('contact')">Contact</span>
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
     </div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
-<!-- ══════ WORKS LIST ══════ -->
+<!-- WORKS LIST -->
 <div id="page-works" class="page">
   <section class="subpage-hero" aria-labelledby="works-title">
     <div class="subpage-hero__inner">
@@ -189,39 +152,40 @@
       <p class="subpage-hero__description">Selected projects across product design, brand systems, and digital experiences.</p>
     </div>
   </section>
-
   <section class="works-projects" aria-label="Selected work projects">
     <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
     <div class="wgrid" id="wgrid"></div>
   </section>
-
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
     <div class="flinks">
-      <span class="flink" onclick="go('about')">About</span>
-      <span class="flink" onclick="go('contact')">Contact</span>
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
     </div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
-<!-- ══════ WORK DETAIL ══════ -->
+<!-- WORK DETAIL -->
 <div id="page-work-detail" class="page">
   <div id="wdc"></div>
-<footer>
-  <div class="flogo">Châm Thanh Thanh</div>
-  <div class="flinks">
-    <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
-    <div class="fdot"></div>
-    <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
-    <div class="fdot"></div>
-    <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
-  </div>
-  <div class="fcopy">©2026 Châm Thanh Thanh</div>
-</footer>
+  <footer>
+    <div class="flogo">Châm Thanh Thanh</div>
+    <div class="flinks">
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
+  </footer>
 </div>
 
-<!-- ══════ ABOUT ══════ -->
+<!-- ABOUT -->
 <div id="page-about" class="page">
   <section class="about-hero">
     <div class="about-hero__inner">
@@ -241,12 +205,12 @@
 
   <section class="ab-sec about-copy">
     <div>
-      <p>Hi there! I’m a Designer with 5 years of experience in digital product design and 8 years in branding & graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural and meaningful way.</p>
-      <p>With a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right. I love simple ideas, smooth user flows, and building things that actually help people.</p>
-      <p>Let’s connect and create something great together!</p>
+      <p>Hi there! I'm a Designer with 5 years of experience in digital product design and 8 years in branding & graphic design.</p>
+      <p>With a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right.</p>
+      <p>Let's connect and create something great together!</p>
     </div>
     <aside class="about-quote">
-      <p>“An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way.”</p>
+      <p>"An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way."</p>
       <span>Charles Bukowski</span>
     </aside>
   </section>
@@ -276,7 +240,7 @@
         <div class="ab-lbl">Skills</div>
         <ul class="about-list">
           <li>UI-Visual design</li>
-          <li>Ux research</li>
+          <li>UX research</li>
           <li>Design system management</li>
           <li>Wireframing & Prototyping</li>
           <li>Interaction Design</li>
@@ -289,67 +253,23 @@
 
   <section class="ab-sec">
     <div class="ab-lbl">Career</div>
-    <div class="tl-l" id="tlCareer">
-      <div class="tl-item">
-        <div class="tl-period">Hotcross Web3</div>
-        <div>
-          <div class="tl-role">Senior Product · Branding Designer</div>
-          <div class="tl-url">Oct 2023 — Feb 2025</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">SelfChain Web3</div>
-        <div>
-          <div class="tl-role">Senior Product · Branding Designer</div>
-          <div class="tl-url">Oct 2022 — Feb 2023</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Sapo Technology Jsc</div>
-        <div>
-          <div class="tl-role">Senior Product Designer</div>
-          <div class="tl-url">Jul 2021 — Nov 2022</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Bồ Công Anh Creative Agency</div>
-        <div>
-          <div class="tl-role">Multimedia · UI Designer</div>
-          <div class="tl-url">Apr 2020 — May 2021</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Fresh House & Partners</div>
-        <div>
-          <div class="tl-role">Senior Graphic Designer</div>
-          <div class="tl-url">Dec 2018 — Mar 2020</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Sonice Frontier Market Vietnam</div>
-        <div>
-          <div class="tl-role">Senior Graphic Designer</div>
-          <div class="tl-url">Jul 2017 — Nov 2017</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Topica Edtech Group — EduMall Platform E-commerce</div>
-        <div>
-          <div class="tl-role">Graphic Designer, Small team leader</div>
-          <div class="tl-url">Mar 2016 — Jun 2017</div>
-        </div>
-      </div>
-    </div>
+    <div class="tl-l" id="tlCareer"></div>
   </section>
 
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks"><span class="flink" onclick="go('works')">Works</span><span class="flink" onclick="go('contact')">Contact</span></div>
+    <div class="flinks">
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
+    </div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
-<!-- ══════ QUIET (Blog) ══════ -->
+<!-- QUIET -->
 <div id="page-quiet" class="page">
   <section class="subpage-hero" aria-labelledby="quiet-title">
     <div class="subpage-hero__inner">
@@ -360,21 +280,34 @@
   <div class="q-list" id="qList"></div>
   <footer>
     <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks"><span class="flink" onclick="go('about')">About</span><span class="flink" onclick="go('contact')">Contact</span></div>
-    <div class="fcopy">©2026 Châm Thanh Thanh</div>
-  </footer>
-</div>
-<!-- ══════ QUIET DETAIL ══════ -->
-<div id="page-quiet-detail" class="page">
-  <div id="qdc"></div>
-  <footer>
-    <div class="flogo">Châm Thanh Thanh</div>
-    <div class="flinks"><span class="flink" onclick="go('quiet')">← Back to Quiet</span></div>
+    <div class="flinks">
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
+    </div>
     <div class="fcopy">©2026 Châm Thanh Thanh</div>
   </footer>
 </div>
 
-<!-- ══════ CONTACT ══════ -->
+<!-- QUIET DETAIL -->
+<div id="page-quiet-detail" class="page">
+  <div id="qdc"></div>
+  <footer>
+    <div class="flogo">Châm Thanh Thanh</div>
+    <div class="flinks">
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
+  </footer>
+</div>
+
+<!-- CONTACT -->
 <div id="page-contact" class="page">
   <section class="subpage-hero" aria-labelledby="contact-title">
     <div class="subpage-hero__inner">
@@ -405,20 +338,20 @@
       </div>
     </div>
   </div>
-<footer>
-  <div class="flogo">Châm Thanh Thanh</div>
-  <div class="flinks">
-    <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
-    <div class="fdot"></div>
-    <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
-    <div class="fdot"></div>
-    <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
-  </div>
-  <div class="fcopy">©2026 Châm Thanh Thanh</div>
-</footer>
+  <footer>
+    <div class="flogo">Châm Thanh Thanh</div>
+    <div class="flinks">
+      <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+      <div class="fdot"></div>
+      <a class="flink" href="mailto:chamthanhthanh@gmail.com">chamthanhthanh@gmail.com</a>
+      <div class="fdot"></div>
+      <a class="flink" href="https://www.linkedin.com/in/chamthanhthanh/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="fcopy">©2026 Châm Thanh Thanh</div>
+  </footer>
 </div>
 
-<!-- ══════ ADMIN ══════ -->
+<!-- ADMIN -->
 <div id="page-admin" class="page">
   <div id="aLogin" class="a-login">
     <div class="a-box">
@@ -471,7 +404,7 @@
   </div>
 </div>
 
-</div><!-- /app -->
+</main>
 
 <!-- WORK MODAL -->
 <div class="mo" id="wModal">
@@ -531,7 +464,6 @@
 </div>
 
 <script>
-/* ── DATA ───────────────────────────────────────── */
 const PWD='cham2025',LW='ctw_w4',LQ='ctw_q1',LC='ctw_c4',LH='ctw_h4',LA='ctw_a4';
 
 const DW=[
@@ -558,23 +490,22 @@ const DC=[
   {id:'c6',role:'Senior Graphic Designer',company:'Sonice Frontier Market Vietnam',url:'sonice.vn',period:'Jul 2017 – Nov 2017',current:false},
   {id:'c7',role:'Graphic Designer · Team Leader',company:'Topica Edtech · Edumall',url:'edumall.vn',period:'Mar 2016 – Jun 2017',current:false}
 ];
+
 const DH={
- title:`<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e">products</span> <span class="f1">&</span> <span class="b" style="color:#86a36e">brands.</span>`,
- desc:`I work at the intersection of product experience and brand systems — turning ideas into clear, intuitive, and memorable digital experiences.`
+  title:`<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e">products</span> <span class="f1">&</span> <span class="b" style="color:#86a36e">brands.</span>`,
+  desc:`I work at the intersection of product experience and brand systems — turning ideas into clear, intuitive, and memorable digital experiences.`
 };
-  
+
 function ld(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}}
 function sv(k,v){localStorage.setItem(k,JSON.stringify(v))}
 
 let works=ld(LW,DW),posts=ld(LQ,DQ),career=ld(LC,DC),hero=ld(LH,DH);
 let page='home',filter='all';
 
-/* ── ROUTER ─────────────────────────────────────── */
 function go(p,id){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.nlink').forEach(x=>x.classList.remove('active'));
   page=p;
-
   if(p==='work-detail'&&id){
     const w=works.find(x=>x.id===id);if(!w){go('works');return}
     renderWD(w);document.getElementById('page-work-detail').classList.add('active');window.scrollTo(0,0);return;
@@ -583,7 +514,6 @@ function go(p,id){
     const q=posts.find(x=>x.id===id);if(!q){go('quiet');return}
     renderQD(q);document.getElementById('page-quiet-detail').classList.add('active');window.scrollTo(0,0);return;
   }
-
   const el=document.getElementById('page-'+p);if(!el)return;
   el.classList.add('active');
   const lk=document.querySelector(`.nlink[data-p="${p}"]`);if(lk)lk.classList.add('active');
@@ -596,7 +526,6 @@ function go(p,id){
   setTimeout(initReveal,80);
 }
 
-/* ── NAV ────────────────────────────────────────── */
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
 let mopen=false;
 function togMenu(){
@@ -606,132 +535,55 @@ function togMenu(){
   s[1].style.transform=mopen?'rotate(-45deg) translate(4px,-4px)':'';
 }
 
-/* ── HERO MOUSE GRADIENT ────────────────────────── */
 function initHeroMouse(){
   const section=document.getElementById('heroSection');
   const gradDiv=document.getElementById('heroCursorG');
   const cursor=document.getElementById('hCursor');
   const ring=document.getElementById('hCursorRing');
-
-  if(!section || !gradDiv || !cursor || !ring) return;
-
-  let cx=0,cy=0,rx=0,ry=0;
-  let trail=[];
+  if(!section||!gradDiv||!cursor||!ring)return;
+  let cx=0,cy=0,rx=0,ry=0,trail=[],glowActive=false;
   const TRAIL_LIFE=900;
-  let glowActive=false;
-
   document.addEventListener('mousemove',e=>{
-    cx=e.clientX;
-    cy=e.clientY;
-
-    cursor.style.left=cx+'px';
-    cursor.style.top=cy+'px';
-    cursor.style.display='block';
-    ring.style.display='block';
+    cx=e.clientX;cy=e.clientY;
+    cursor.style.left=cx+'px';cursor.style.top=cy+'px';
+    cursor.style.display='block';ring.style.display='block';
   });
-
-  document.addEventListener('mouseleave',()=>{
-    cursor.style.display='none';
-    ring.style.display='none';
-  });
-
+  document.addEventListener('mouseleave',()=>{cursor.style.display='none';ring.style.display='none';});
   section.addEventListener('mousemove',e=>{
     const rect=section.getBoundingClientRect();
-
     const x=((e.clientX-rect.left)/rect.width)*100;
     const y=((e.clientY-rect.top)/rect.height)*100;
-
     glowActive=true;
-
-    trail.push({
-      x,
-      y,
-      time:Date.now()
-    });
-
-    if(trail.length>24){
-      trail.shift();
-    }
+    trail.push({x,y,time:Date.now()});
+    if(trail.length>24)trail.shift();
   });
-
   section.addEventListener('mouseleave',()=>{
-    glowActive=false;
-    gradDiv.style.background='';
-
-    setTimeout(()=>{
-      if(!glowActive){
-        trail=[];
-      }
-    },TRAIL_LIFE);
+    glowActive=false;gradDiv.style.background='';
+    setTimeout(()=>{if(!glowActive)trail=[];},TRAIL_LIFE);
   });
-
   document.querySelectorAll('a, button, span[onclick], .btn1, .btn2, .nlink, .ncta, .fw-item, .wgi').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{
-      cursor.classList.add('is-hover');
-      ring.classList.add('is-hover');
-    });
-
-    el.addEventListener('mouseleave',()=>{
-      cursor.classList.remove('is-hover');
-      ring.classList.remove('is-hover');
-    });
+    el.addEventListener('mouseenter',()=>{cursor.classList.add('is-hover');ring.classList.add('is-hover');});
+    el.addEventListener('mouseleave',()=>{cursor.classList.remove('is-hover');ring.classList.remove('is-hover');});
   });
-
   function paintHeroGlow(){
     const now=Date.now();
-
     trail=trail.filter(p=>now-p.time<TRAIL_LIFE);
-
-    if(glowActive || trail.length){
-      const t=(now % 3000) / 3000;
-      const mix=Math.sin(t*Math.PI*2)*0.5+0.5;
-
-      const r=Math.round(106+(134-106)*mix);
-      const g=Math.round(79+(163-79)*mix);
-      const b=Math.round(122+(110-122)*mix);
-
+    if(glowActive||trail.length){
+      const t=(now%3000)/3000,mix=Math.sin(t*Math.PI*2)*0.5+0.5;
+      const r=Math.round(106+(134-106)*mix),g=Math.round(79+(163-79)*mix),b=Math.round(122+(110-122)*mix);
       const gradients=trail.map(p=>{
-        const age=now-p.time;
-        const life=1-age/TRAIL_LIFE;
-
-        const size=100+life*120;
-        const alpha1=0.18*life;
-        const alpha2=0.09*life;
-        const alpha3=0.03*life;
-
-        return `
-          radial-gradient(
-            circle ${size}px at ${p.x}% ${p.y}%,
-            rgba(${r},${g},${b},${alpha1}) 0%,
-            rgba(${r},${g},${b},${alpha2}) 42%,
-            rgba(${r},${g},${b},${alpha3}) 64%,
-            transparent 82%
-          )
-        `;
+        const age=now-p.time,life=1-age/TRAIL_LIFE,size=100+life*120;
+        return `radial-gradient(circle ${size}px at ${p.x}% ${p.y}%,rgba(${r},${g},${b},${0.18*life}) 0%,rgba(${r},${g},${b},${0.09*life}) 42%,rgba(${r},${g},${b},${0.03*life}) 64%,transparent 82%)`;
       });
-
       gradDiv.style.background=gradients.join(',');
     }
-
     requestAnimationFrame(paintHeroGlow);
   }
-
   paintHeroGlow();
-
-  function animRing(){
-    rx+=(cx-rx)*0.1;
-    ry+=(cy-ry)*0.1;
-
-    ring.style.left=rx+'px';
-    ring.style.top=ry+'px';
-
-    requestAnimationFrame(animRing);
-  }
-
+  function animRing(){rx+=(cx-rx)*0.1;ry+=(cy-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
   animRing();
 }
 
-/* ── HOME ───────────────────────────────────────── */
 function initHome(){
   const ht=document.getElementById('heroTitle'),hd=document.getElementById('heroDesc');
   if(ht)ht.innerHTML=hero.title;if(hd)hd.innerHTML=hero.desc;
@@ -759,7 +611,6 @@ function fwCardHTML(w,i){
   </div>`;
 }
 
-/* ── WORKS ──────────────────────────────────────── */
 function renderWorks(){
   const cats=['all',...new Set(works.map(w=>w.category))];
   const f=document.getElementById('wfilters');
@@ -788,7 +639,6 @@ function renderGrid(){
   }).join('');
 }
 
-/* ── WORK DETAIL ────────────────────────────────── */
 function renderWD(w){
   const idx=works.findIndex(x=>x.id===w.id);
   const prev=works[idx-1],next=works[idx+1];
@@ -796,7 +646,7 @@ function renderWD(w){
   const ps=w.description.split('\n\n').map(p=>`<p>${p}</p>`).join('');
   const navL=prev?`<div class="wd-ni" onclick="go('work-detail','${prev.id}')"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
   const navR=next?`<div class="wd-ni nx" onclick="go('work-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`:`<div style="background:var(--bg2)"></div>`;
-document.getElementById('wdc').innerHTML=`
+  document.getElementById('wdc').innerHTML=`
     <div class="wd-hero">
       <div class="wd-back" onclick="go('works')">← Back to Works</div>
       <div class="wd-meta">
@@ -812,17 +662,21 @@ document.getElementById('wdc').innerHTML=`
       <div class="wd-body-text">${ps}</div>
     </div>
     <div class="wd-nav">${navL}${navR}</div>`;
-      setTimeout(initReveal,80);
+  setTimeout(initReveal,80);
 }
 
-/* ── ABOUT ──────────────────────────────────────── */
 function renderAbout(){
   const tl=document.getElementById('tlCareer');if(!tl)return;
-  tl.innerHTML=career.map(c=>`<div class="tl-item reveal"><div class="tl-period">${c.current?'<span class="cbadge">Current</span><br>':''}${c.period}</div><div><div class="tl-role">${c.role}</div><div class="tl-co">${c.company}</div><div class="tl-url">${c.url}</div></div></div>`).join('');
+  tl.innerHTML=career.map(c=>`<div class="tl-item reveal">
+    <div>
+      <div class="tl-role">${c.role}</div>
+      <div class="tl-co">${c.company}</div>
+    </div>
+    <div class="tl-period">${c.period}</div>
+  </div>`).join('');
   setTimeout(initReveal,50);
 }
 
-/* ── QUIET ──────────────────────────────────────── */
 function renderQuiet(){
   const list=document.getElementById('qList');if(!list)return;
   list.innerHTML=posts.map((q,i)=>`
@@ -864,16 +718,13 @@ function renderQD(q){
   setTimeout(initReveal,80);
 }
 
-/* ── CONTACT ────────────────────────────────────── */
 function subCon(e){e.preventDefault();toast('Message sent! I\'ll reply soon ✓');e.target.reset()}
 
-/* ── REVEAL ─────────────────────────────────────── */
 function initReveal(){
   const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
 }
 
-/* ── ADMIN ──────────────────────────────────────── */
 function initAdmin(){
   const ok=sessionStorage.getItem(LA)==='1';
   document.getElementById('aLogin').style.display=ok?'none':'flex';
@@ -897,7 +748,6 @@ function swTab(t){
 }
 function loadHA(){const t=document.getElementById('aHT'),d=document.getElementById('aHD');if(t)t.value=hero.title;if(d)d.value=hero.desc}
 
-/* Works Admin */
 function renderAW(){
   const tb=document.getElementById('wtb');if(!tb)return;
   tb.innerHTML=works.map((w,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:200px">${w.title}</td><td style="font-family:var(--fm);font-size:11px">${w.year}</td><td><span class="tag">${w.category}</span></td><td style="font-family:var(--fm);font-size:10px;color:${w.featured?'var(--ame)':'var(--muted)'}">${w.featured?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td></tr>`).join('');
@@ -921,7 +771,6 @@ function saveWork(){
 }
 function delW(id){if(!confirm('Delete?'))return;works=works.filter(w=>w.id!==id);sv(LW,works);renderAW();toast('Deleted')}
 
-/* Quiet Admin */
 function renderAQ(){
   const tb=document.getElementById('qtb');if(!tb)return;
   tb.innerHTML=posts.map((q,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:220px">${q.title}</td><td style="font-family:var(--fm);font-size:11px">${q.date}</td><td><span class="tag">${q.category}</span></td><td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td></tr>`).join('');
@@ -944,7 +793,6 @@ function savePost(){
 }
 function delQ(id){if(!confirm('Delete post?'))return;posts=posts.filter(q=>q.id!==id);sv(LQ,posts);renderAQ();toast('Deleted')}
 
-/* Career Admin */
 function renderAC(){
   const tb=document.getElementById('ctb');if(!tb)return;
   tb.innerHTML=career.map(c=>`<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current?'var(--ame)':'var(--muted)'}"> ${c.current?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`).join('');
@@ -971,18 +819,14 @@ function saveHero(){hero.title=document.getElementById('aHT').value;hero.desc=do
 function slugify(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function toast(msg){const e=document.querySelector('.toast');if(e)e.remove();const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2700)}
 
-/* Close modals on bg click */
 ['wModal','qModal','cModal'].forEach(id=>{
   document.getElementById(id).addEventListener('click',e=>{if(e.target===e.currentTarget)document.getElementById(id).classList.remove('open')});
 });
 document.addEventListener('keydown',e=>{if(e.key==='?'&&page!=='admin')go('admin')});
 
 go('home');
-// Loader
-const loader = document.getElementById('loader');
-if (loader) {
-  setTimeout(() => loader.classList.add('hidden'), 800);
-}
+const loader=document.getElementById('loader');
+if(loader){setTimeout(()=>loader.classList.add('hidden'),800);}
 </script>
 </body>
 </html>
