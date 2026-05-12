@@ -622,7 +622,16 @@ footer {
 
 /* ── FEATURED WORKS — card grid with featured images ─── */
 .fw-list{display:grid;grid-template-columns:repeat(1,1fr);gap:120px;padding:0}
-.fw-item{position:relative;overflow:visible;border-bottom:none;cursor:pointer;transition:all .3s var(--ease);display:grid;grid-template-columns:1fr;gap:24px}
+.fw-item{
+  position:relative;
+  overflow:visible;
+  border-bottom:none;
+  cursor:pointer;
+  transition:all .3s var(--ease);
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px
+}
 .fw-item:hover{background:transparent;transform:none}
 .fw-row{display:contents;align-items:stretch;gap:0;padding:0;position:relative;z-index:1}
 .fw-item:hover .fw-row{padding-left:0}
@@ -761,7 +770,7 @@ footer {
 /*  WORK DETAIL                                    */
 /* ═══════════════════════════════════════════════ */
 .wd-hero {
-  padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 100px;
+  padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 80px;
   border-bottom:1px solid var(--border)}
 .wd-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:48px;transition:color .2s,gap .2s}
 .wd-back:hover{color:var(--ame);gap:12px}
@@ -1815,4 +1824,3 @@ body {
   flex-shrink: 0;
   align-self: center;
 }
-.wd-hero { padding-bottom: 200px !important; }
