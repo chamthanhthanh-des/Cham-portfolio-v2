@@ -746,11 +746,11 @@ footer {
 /* ═══════════════════════════════════════════════ */
 /*  WORK DETAIL                                    */
 /* ═══════════════════════════════════════════════ */
-.wd-hero {padding: calc(var(--nav-h) + 48px) var(--page-padding-x) 64px;border-bottom:1px solid var(--border)}
+.wd-hero {padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 64px;border-bottom:1px solid var(--border)}
 .wd-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:48px;transition:color .2s,gap .2s}
 .wd-back:hover{color:var(--ame);gap:12px}
-.wd-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:300;font-style:italic;line-height:1.05;letter-spacing:-.03em;max-width:900px;margin-bottom:48px}
-.wd-meta{display:flex;gap:56px;flex-wrap:wrap}
+.wd-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:300;font-style:italic;line-height:1.05;letter-spacing:-.03em;max-width:900px;margin-bottom:48px;margin-bottom:16px}
+.wd-meta{display:flex;gap:56px;flex-wrap:wrap;margin-bottom:16px;}
 .wd-ml{font-family:var(--fm);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .wd-mv{font-size:20px;color:var(--text)}
 .wd-cover {padding: 0 var(--page-padding-x);}
