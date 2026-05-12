@@ -155,3 +155,10 @@ document.addEventListener('DOMContentLoaded', initHeroMouse);
   };
   document.head.appendChild(script);
 })();
+/* ── LOADER ──────────────────────────────────────── */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    setTimeout(() => loader.classList.add('hidden'), 800);
+  }
+});
