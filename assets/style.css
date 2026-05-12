@@ -1694,7 +1694,7 @@ body {
 
 .tl-item {
   display: grid;
-  grid-template-columns: 1fr 140px;
+  grid-template-columns: 1fr 300px;
   gap: 24px;
   padding: 16px 0;
   border-bottom: 1px solid var(--border);
