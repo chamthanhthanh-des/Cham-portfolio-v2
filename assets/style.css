@@ -1379,8 +1379,9 @@ footer {
   box-shadow: none;
   transform: rotate(45deg);
   background: var(--grad); /* ← thêm */
-  border-color: transparent; /* ← thêm */
+  border: none; /* ← thêm */
   color: white; /* ← thêm */
+  filter: none; /* ← thêm dòng này */
 }
 
 .works-projects .wgi-thumb {
