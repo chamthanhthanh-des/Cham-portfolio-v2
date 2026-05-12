@@ -1797,4 +1797,5 @@ body {
   border-radius: 50%;
   background: var(--muted2);
   flex-shrink: 0;
+  align-self: center;
 }
