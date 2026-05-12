@@ -1824,3 +1824,16 @@ body {
   flex-shrink: 0;
   align-self: center;
 }
+.fw-cat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fw-cat-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--muted2);
+  flex-shrink: 0;
+}
