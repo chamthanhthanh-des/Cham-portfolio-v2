@@ -967,6 +967,11 @@ function toast(msg){const e=document.querySelector('.toast');if(e)e.remove();con
 document.addEventListener('keydown',e=>{if(e.key==='?'&&page!=='admin')go('admin')});
 
 go('home');
+// Loader
+const loader = document.getElementById('loader');
+if (loader) {
+  setTimeout(() => loader.classList.add('hidden'), 800);
+}
 </script>
 </body>
 </html>
