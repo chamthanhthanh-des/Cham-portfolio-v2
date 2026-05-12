@@ -1257,7 +1257,7 @@ footer {
 
 .about-way-num {
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 2px;
   color: var(--muted2);
   margin-bottom: 20px;
@@ -1266,7 +1266,7 @@ footer {
 .about-way h3 {
   margin: 0 0 14px;
   font-family: var(--fd);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   letter-spacing: -.03em;
   color: var(--text);
@@ -1274,7 +1274,7 @@ footer {
 
 .about-way p {
   margin: 0;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 1.75;
   color: var(--muted);
 }
