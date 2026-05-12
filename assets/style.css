@@ -315,15 +315,14 @@ label {
 }
 
 .ncta:hover {
-  border-color: #6a4f7a;
-  color: #6a4f7a;
-  background: rgba(106, 79, 122, .04);
+  border-color: var(--ame);
+  color: var(--ame);
+  background: transparent;
 }
 
-.ncta:focus {
-  outline: 2px solid rgba(106, 79, 122, 0.3);
-  outline-offset: 2px;
-}
+.ncta:focus:not(:focus-visible) {
+  outline: none;
+}}
 .nburger{display:none;width:24px;height:24px;flex-direction:column;justify-content:center;gap:5px;cursor:pointer}
 .nburger span{display:block;height:1px;background:var(--text);transition:all .3s var(--ease)}
 .mmenu{display:none;position:fixed;inset:0;z-index:99;background:var(--bg);flex-direction:column;padding:100px 48px 48px}
