@@ -1495,4 +1495,6 @@ footer {
 
   .fw-preview { display: block; border-radius: 0; margin: 0 calc(-1 * var(--page-padding-x)); width: 100vw; }
   .fw-tags    { margin-top: 12px; }
+
+  .shd { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
