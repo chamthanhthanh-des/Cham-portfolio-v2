@@ -894,7 +894,7 @@ footer {
 }
 
 .wgi-body { padding: 36px clamp(28px,4vw,56px); display: flex; flex-direction: column; }
-.wgi-top  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.wgi-top  { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 22px; }
 .wgi-yr   { font-family: var(--fm); font-size: 10px; color: var(--muted); letter-spacing: 1px; }
 
 .wgi-arr {
