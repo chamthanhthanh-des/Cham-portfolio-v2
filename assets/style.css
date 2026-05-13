@@ -816,7 +816,7 @@ footer {
 
 .fbtn {
   position: relative;
-  height: 32px;
+  height: 36px;
   padding: 0 24px;
   display: inline-flex;
   align-items: center;
@@ -1442,7 +1442,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .fbtn { height: 40px; min-height: 40px; padding: 0 20px; }
+  .fbtn { height: 36px; min-height: 36px; padding: 0 20px; }
 
   .ab-row         { grid-template-columns: 1fr; gap: 24px; }
   .ab-skills-grid { grid-template-columns: 1fr; gap: 32px; }
