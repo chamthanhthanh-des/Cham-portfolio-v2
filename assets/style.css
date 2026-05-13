@@ -352,7 +352,15 @@ label {
   gap: 5px;
   cursor: pointer;
 }
-.nburger span { display: block; height: 1px; background: var(--text); transition: all .3s var(--ease); }
+.nburger span { 
+  display: block; 
+  height: 1px; 
+  background: var(--text); 
+  transition: all .3s var(--ease);
+}
+.nburger span:nth-child(3) { 
+  transition: opacity .3s var(--ease); 
+}
 
 .mmenu {
   display: none;
@@ -1491,10 +1499,12 @@ footer {
   .cstrip-act .btn2 { width: 100%; justify-content: center; }
 
   .fw-preview { display: block; border-radius: 0; margin: 0 -20px; width: 100vw; }
-  .shd         { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .shd        { flex-direction: column; align-items: flex-start; gap: 16px; }
 
   .fw-cat-row { flex-wrap: wrap; align-items: center; gap: 8px; }
   .fw-tags    { flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .fw-circle  { display: none; }
   .fw-list .tag { font-size: 10px; padding: 2px 8px; }
+
+  .nburger      { gap: 6px; }
 }
