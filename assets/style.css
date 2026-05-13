@@ -1481,7 +1481,7 @@ footer {
 
   .content-container { padding: 40px 20px; }
 
-  footer      { flex-direction: column; align-items: flex-start; gap: 16px; }
+  footer      { flex-direction: column; align-items: flex-start; gap: 24px; }
   .flinks     { flex-direction: column; gap: 12px; }
   .fdot       { display: none; }
 }
