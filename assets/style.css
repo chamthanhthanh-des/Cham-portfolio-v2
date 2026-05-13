@@ -1412,6 +1412,7 @@ footer {
   .wgrid    { grid-template-columns: 1fr; }
   .wgi      { grid-template-columns: 42px 1fr; min-height: auto; }
   .wgi-body { padding: 28px 24px; }
+  .wgi-num  { padding-top: 28px; }
 
   .wd-body          { grid-template-columns: 1fr; gap: 24px; }
   .wd-nav, .q-nav   { grid-template-columns: 1fr; }
@@ -1469,6 +1470,7 @@ footer {
   .wpage-hero h1 { font-size: clamp(72px,22vw,110px); }
   .wgi           { grid-template-columns: 36px 1fr; }
   .wgi-body      { padding: 24px 20px; }
+  .wgi-num       { padding-top: 24px; }
   .wgi-arr       { width: 38px; height: 38px; }
   .wgi-title     { font-size: 26px; }
 
