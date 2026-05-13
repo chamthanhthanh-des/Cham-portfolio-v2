@@ -1497,7 +1497,7 @@ footer {
   .fw-cat-row  { flex-direction: column; align-items: flex-start; gap: 8px; }
   .fw-tags     { flex-wrap: wrap; margin-top: 12px; }
   .fw-circle   { display: none; }
-  .fw-title    { font-size: clamp(28px, 8vw, 40px); }
+  .fw-cat-row  { flex-wrap: wrap; align-items: flex-start; gap: 8px; }
   .fw-list .tag{ font-size: 10px; padding: 2px 8px; }
   .fw-cat-dot  { display: none; }
 }
