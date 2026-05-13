@@ -21,6 +21,7 @@ function togMenu() {
   const s = document.querySelectorAll('.nburger span');
   s[0].style.transform = mopen ? 'rotate(45deg) translate(4px,4px)' : '';
   s[1].style.transform = mopen ? 'rotate(-45deg) translate(4px,-4px)' : '';
+  s[2].style.opacity = mopen ? '0' : '';
 }
 
 /* ── REVEAL ON SCROLL ────────────────────────────── */
