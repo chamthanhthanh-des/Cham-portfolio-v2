@@ -1489,4 +1489,8 @@ footer {
     flex-wrap: wrap;
     gap: 8px;
   }
+  .cstrip { padding: 60px var(--page-padding-x); align-items: flex-start; }
+  .cstrip-act { flex-direction: column; width: 100%; }
+  .cstrip-act .btn1,
+  .cstrip-act .btn2 { width: 100%; justify-content: center; }
 }
