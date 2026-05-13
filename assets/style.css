@@ -1071,7 +1071,12 @@ footer {
 }
 
 .about-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 56px; }
-.about-label   { font-family: var(--fm); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+.about-label   { 
+  font-family: var(--fm); 
+  font-size: 12px; 
+  letter-spacing: 3px; 
+  text-transform: uppercase; 
+  color: var(--muted); }
 
 .about-pill {
   display: inline-flex; align-items: center; gap: 8px;
