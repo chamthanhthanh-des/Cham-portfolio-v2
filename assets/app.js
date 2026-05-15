@@ -8,7 +8,7 @@ window.addEventListener("scroll", () => {
 /* ── BACK TO TOP ─────────────────────────────────── */
 window.addEventListener("scroll", () => {
   const btt = document.getElementById("btt");
-  if (btt) btt.classList.toggle("show", window.scrollY > 400);
+  if (btt) btt.classList.toggle("show", window.scrollY > 100);
 });
 
 /* ── ACTIVE NAV LINK ─────────────────────────────── */
