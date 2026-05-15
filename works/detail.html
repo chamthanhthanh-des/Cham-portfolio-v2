@@ -114,10 +114,10 @@
         const gallery = (w.gallery || [])
           .map(
             (src) => `
-  <div style="width:100vw;margin-left:calc(50% - 50vw)">
-    <img src="${src}" alt="${w.title}" style="width:100%;height:auto;display:block">
-  </div>
-`,
+          <div style="padding: 0 var(--page-padding-x); box-sizing: border-box;">
+            <img src="${src}" style="width: 100%; display: block;">
+          </div>
+          `,
           )
           .join("");
         const navL = prev
