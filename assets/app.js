@@ -5,6 +5,13 @@ window.addEventListener("scroll", () => {
     .classList.toggle("scrolled", window.scrollY > 20);
 });
 
+/* ── BACK TO TOP ─────────────────────────────────── */
+window.addEventListener("scroll", () => {
+  document
+    .getElementById("btt")
+    ?.classList.toggle("show", window.scrollY > 400);
+});
+
 /* ── ACTIVE NAV LINK ─────────────────────────────── */
 (function highlightNav() {
   const path = window.location.pathname;
