@@ -1537,7 +1537,12 @@ footer {
   line-height: 1.9;
   color: var(--muted);
 }
-
+.wd-section-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 2px;
+}
 /* ══════════════════════════════════════════════════
    SUBPAGE HERO (SHARED)
 ══════════════════════════════════════════════════ */
