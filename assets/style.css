@@ -3270,8 +3270,8 @@ footer {
   position: fixed;
   bottom: 120px;
   right: 10px;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--bordhi);
   background: transparent;
