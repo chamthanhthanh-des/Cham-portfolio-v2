@@ -1378,7 +1378,6 @@ footer {
 ══════════════════════════════════════════════════ */
 .wd-hero {
   padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 80px;
-  border-bottom: 1px solid var(--border);
 }
 
 .wd-back {
