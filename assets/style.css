@@ -1522,7 +1522,7 @@ footer {
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--muted2);
+  color: var(--muted);
   margin-bottom: 4px;
 }
 .wd-section-heading {
