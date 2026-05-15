@@ -3279,6 +3279,9 @@ footer {
   font-size: 14px;
   font-family: var(--fm);
   letter-spacing: 2px;
+  text-align: center;
+  line-height: 1;
+  padding: 0;
   display: none;
   align-items: center;
   justify-content: center;
