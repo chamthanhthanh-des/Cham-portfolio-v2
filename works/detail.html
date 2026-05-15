@@ -97,6 +97,19 @@
           .split("\n\n")
           .map((p) => `<p>${p}</p>`)
           .join("");
+        const sections = (w.sections || [])
+          .map(
+            (s) => `
+  <div class="wd-section">
+    <div>
+      <div class="wd-section-label">${s.num} — ${s.label}</div>
+      <div class="wd-section-heading">${s.heading}</div>
+    </div>
+    <div class="wd-section-body">${s.body}</div>
+  </div>
+`,
+          )
+          .join("");
         const navL = prev
           ? `<div class="wd-ni" onclick="location.href='/works/detail.html?id=${prev.id}'"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`
           : `<div style="background:var(--bg2)"></div>`;
@@ -123,7 +136,7 @@
       <div class="wd-body-label">Overview</div>
       <div class="wd-body-text">${ps}</div>
     </div>
-    <div class="wd-nav">${navL}${navR}</div>`;
+${sections}<div class="wd-nav">${navL}${navR}</div>`;
         setTimeout(initReveal, 80);
       }
 
