@@ -3269,9 +3269,9 @@ footer {
 .btt {
   position: fixed;
   bottom: 120px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--bordhi);
   background: transparent;
