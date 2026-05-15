@@ -1162,25 +1162,25 @@
           ? `<img src="${w.cover}" alt="${w.title}" loading="lazy">`
           : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
         return `<div class="fw-item" onclick="go('work-detail','${w.id}')">
-    <div class="fw-row">
-      <span class="fw-num">${String(i + 1).padStart(2, "0")}</span>
-      <div class="fw-main">
-        <div class="fw-cat-row">
-          <span class="fw-catbadge">${w.category}</span>
-          <div class="fw-cat-dot"></div>
-          <span class="fw-yr">${w.year}</span>
-          <div class="fw-cat-dot"></div>
-          ${w.tags
-            .slice(0, 2)
-            .map((t) => `<span class="tag">${t}</span>`)
-            .join("")}
-        </div>
-        <div class="fw-title">${w.title}</div>
-      </div>
-      <div class="fw-arrow-wrap"><div class="fw-circle">↗</div></div>
-    </div>
-    <div class="fw-preview">${w.cover ? `<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">` : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.split("—")[0].trim().charAt(0)}</div>`}</div>
-  </div>`;
+          <div class="fw-row">
+            <span class="fw-num">${String(i + 1).padStart(2, "0")}</span>
+            <div class="fw-main">
+              <div class="fw-cat-row">
+                <span class="fw-catbadge">${w.category}</span>
+                <div class="fw-cat-dot"></div>
+                <span class="fw-yr">${w.year}</span>
+                <div class="fw-cat-dot"></div>
+                ${w.tags
+                  .slice(0, 2)
+                  .map((t) => `<span class="tag">${t}</span>`)
+                  .join("")}
+              </div>
+              <div class="fw-title">${w.title}</div>
+            </div>
+            <div class="fw-arrow-wrap"><div class="fw-circle">↗</div></div>
+          </div>
+          <div class="fw-preview">${w.cover ? `<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">` : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.split("—")[0].trim().charAt(0)}</div>`}</div>
+        </div>`;
       }
 
       function renderWorks() {
@@ -1219,14 +1219,14 @@
               ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
               : `<div class="wgi-cover" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
             return `<div class="wgi" onclick="go('work-detail','${w.id}')">
-      <div class="wgi-num">${String(i + 1).padStart(2, "0")}</div>
-      <div class="wgi-body">
-        <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
-        <div class="wgi-thumb">${th}</div>
-        <div class="wgi-title">${w.title}</div>
-        <div class="wgi-tags">${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
-      </div>
-    </div>`;
+            <div class="wgi-num">${String(i + 1).padStart(2, "0")}</div>
+            <div class="wgi-body">
+              <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
+              <div class="wgi-thumb">${th}</div>
+              <div class="wgi-title">${w.title}</div>
+              <div class="wgi-tags">${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+            </div>
+          </div>`;
           })
           .join("");
       }
@@ -1249,21 +1249,21 @@
           ? `<div class="wd-ni nx" onclick="go('work-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
           : `<div style="background:var(--bg2)"></div>`;
         document.getElementById("wdc").innerHTML = `
-    <div class="wd-hero">
-      <div class="wd-back" onclick="go('works')">← Back to Works</div>
-      <div class="wd-meta">
-        <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
-        <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
-        <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join(" · ")}</div></div>
-      </div>
-      <h1 class="wd-title">${w.title}</h1>
-    </div>
-    <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color || "#f0eee9"}">${cv}</div></div>
-    <div class="wd-body">
-      <div class="wd-body-label">Overview</div>
-      <div class="wd-body-text">${ps}</div>
-    </div>
-    <div class="wd-nav">${navL}${navR}</div>`;
+          <div class="wd-hero">
+            <div class="wd-back" onclick="go('works')">← Back to Works</div>
+            <div class="wd-meta">
+              <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
+              <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
+              <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join(" · ")}</div></div>
+            </div>
+            <h1 class="wd-title">${w.title}</h1>
+          </div>
+          <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color || "#f0eee9"}">${cv}</div></div>
+          <div class="wd-body">
+            <div class="wd-body-label">Overview</div>
+            <div class="wd-body-text">${ps}</div>
+          </div>
+          <div class="wd-nav">${navL}${navR}</div>`;
         setTimeout(initReveal, 80);
       }
 
@@ -1273,12 +1273,12 @@
         tl.innerHTML = career
           .map(
             (c) => `<div class="tl-item reveal">
-    <div>
-      <div class="tl-role">${c.role}</div>
-      <div class="tl-co">${c.company}</div>
-    </div>
-    <div class="tl-period">${c.period}</div>
-  </div>`,
+          <div>
+            <div class="tl-role">${c.role}</div>
+            <div class="tl-co">${c.company}</div>
+          </div>
+          <div class="tl-period">${c.period}</div>
+        </div>`,
           )
           .join("");
         setTimeout(initReveal, 50);
@@ -1290,18 +1290,18 @@
         list.innerHTML = posts
           .map(
             (q, i) => `
-  <div class="q-item" onclick="go('quiet-detail','${q.id}')">
-    <div class="q-num">${String(i + 1).padStart(2, "0")}</div>
-    <div class="q-main">
-      <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
-      <div class="q-title">${q.title}</div>
-      <div class="q-excerpt">${q.excerpt}</div>
-    </div>
-    <div class="q-right">
-      <div class="q-reading">${q.reading}</div>
-      <div class="q-circle">↗</div>
-    </div>
-  </div>`,
+        <div class="q-item" onclick="go('quiet-detail','${q.id}')">
+          <div class="q-num">${String(i + 1).padStart(2, "0")}</div>
+          <div class="q-main">
+            <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
+            <div class="q-title">${q.title}</div>
+            <div class="q-excerpt">${q.excerpt}</div>
+          </div>
+          <div class="q-right">
+            <div class="q-reading">${q.reading}</div>
+            <div class="q-circle">↗</div>
+          </div>
+        </div>`,
           )
           .join("");
       }
@@ -1317,21 +1317,21 @@
           ? `<div class="q-ni nx" onclick="go('quiet-detail','${next.id}')"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
           : `<div style="background:var(--bg2)"></div>`;
         document.getElementById("qdc").innerHTML = `
-    <div class="qd-hero">
-      <div class="qd-back" onclick="go('quiet')">← Back to Quiet</div>
-      <div class="qd-meta-row">
-        <span class="qd-cat">${q.category}</span>
-        <span class="qd-date">${q.date}</span>
-        <span class="qd-reading">${q.reading}</span>
-      </div>
-      <h1 class="qd-title">${q.title}</h1>
-    </div>
-    <div class="qd-body">
-      <div class="qd-lead">${q.lead}</div>
-      <hr class="qd-divider">
-      <div class="qd-text">${q.content}</div>
-    </div>
-    <div class="q-nav">${navL}${navR}</div>`;
+          <div class="qd-hero">
+            <div class="qd-back" onclick="go('quiet')">← Back to Quiet</div>
+            <div class="qd-meta-row">
+              <span class="qd-cat">${q.category}</span>
+              <span class="qd-date">${q.date}</span>
+              <span class="qd-reading">${q.reading}</span>
+            </div>
+            <h1 class="qd-title">${q.title}</h1>
+          </div>
+          <div class="qd-body">
+            <div class="qd-lead">${q.lead}</div>
+            <hr class="qd-divider">
+            <div class="qd-text">${q.content}</div>
+          </div>
+          <div class="q-nav">${navL}${navR}</div>`;
         setTimeout(initReveal, 80);
       }
 
@@ -1628,6 +1628,12 @@
             smoothWheel: true,
             wheelMultiplier: 0.9,
           });
+
+          lenis.on("scroll", ({ scroll }) => {
+            const btt = document.getElementById("btt");
+            if (btt) btt.classList.toggle("show", scroll > 400);
+          });
+
           function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
