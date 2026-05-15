@@ -11,7 +11,7 @@ const DW = [
   {
     id: "selfchain",
     client: "SelfChain",
-    title: "SelfChain — Decentralized Identity for Web3",
+    title: "SelfChain - Decentralized Identity for Web3",
     year: "2023",
     category: "product",
     tags: ["Product Design", "Branding Design", "Product Improvement"],
