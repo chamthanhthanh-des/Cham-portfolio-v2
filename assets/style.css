@@ -1530,6 +1530,7 @@ footer {
   font-size: 28px;
   font-style: italic;
   color: var(--text);
+  line-height: 1;
 }
 .wd-section-body {
   font-size: 16px;
