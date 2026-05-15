@@ -1420,14 +1420,14 @@ footer {
 }
 .wd-ml {
   font-family: var(--fm);
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 8px;
 }
 .wd-mv {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--text);
 }
 
