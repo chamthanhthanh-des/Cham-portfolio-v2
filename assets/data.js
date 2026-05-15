@@ -21,6 +21,32 @@ const DW = [
     color: "#EDE9F7",
     featured: true,
     order: 1,
+    sections: [
+      {
+        num: "01",
+        label: "Context",
+        heading: "Who",
+        body: "As Lead Designer, I owned the end-to-end design direction of the project, shaping how SelfChain looks, feels, and scales across products, from brand foundation to real-world usage.",
+      },
+      {
+        num: "02",
+        label: "The problem",
+        heading: "What",
+        body: "I defined SelfChain's visual language and translated complex blockchain concepts into clear, usable experiences. My work spanned brand identity, marketing website, and DApp UX.",
+      },
+      {
+        num: "03",
+        label: "Timeline",
+        heading: "When",
+        body: "2023–2025. An ongoing collaboration, continuously evolving alongside the product and ecosystem.",
+      },
+      {
+        num: "04",
+        label: "Design process",
+        heading: "Why",
+        body: "SelfChain is built to make Web3 approachable. The design focuses on reducing cognitive friction, replacing seed-phrase complexity with intuitive onboarding.",
+      },
+    ],
   },
   {
     id: "self-design-system",
