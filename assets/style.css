@@ -1838,7 +1838,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 24px;
-  padding: 24px 0;
+  padding: 40px 0;
   border-bottom: 1px solid var(--border);
   align-items: start;
 }
