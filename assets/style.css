@@ -1515,7 +1515,6 @@ footer {
   gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  border-top: 1px solid var(--border);
 }
 .wd-section-label {
   font-family: var(--fm);

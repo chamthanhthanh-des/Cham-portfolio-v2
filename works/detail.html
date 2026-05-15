@@ -100,14 +100,15 @@
         const sections = (w.sections || [])
           .map(
             (s) => `
-          <div class="wd-section">
-            <div class="wd-section-label">${s.num} — ${s.label}</div>
-            <div class="wd-section-right">
-              <div class="wd-section-heading">${s.heading}</div>
-              <div class="wd-section-body">${s.body}</div>
+          <hr class="divider" style="margin: 0 var(--page-padding-x)">
+            <div class="wd-section">
+              <div class="wd-section-label">${s.num} — ${s.label}</div>
+              <div class="wd-section-right">
+                <div class="wd-section-heading">${s.heading}</div>
+                <div class="wd-section-body">${s.body}</div>
+              </div>
             </div>
-          </div>
-`,
+            `,
           )
           .join("");
         const navL = prev
