@@ -47,6 +47,11 @@ const DW = [
         body: "SelfChain is built to make Web3 approachable. The design focuses on reducing cognitive friction, replacing seed-phrase complexity with intuitive onboarding.",
       },
     ],
+    gallery: [
+      "/images/selfchain-01.jpg",
+      "/images/selfchain-02.jpg",
+      "/images/selfchain-03.jpg",
+    ],
   },
   {
     id: "self-design-system",
