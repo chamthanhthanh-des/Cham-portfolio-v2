@@ -3266,3 +3266,32 @@ footer {
     gap: 6px;
   }
 }
+.btt {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--bordhi);
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.btt.show {
+  display: flex;
+}
+.btt:hover {
+  border-color: var(--ame);
+  color: var(--ame);
+  transform: translateY(-2px);
+}
