@@ -100,13 +100,13 @@
         const sections = (w.sections || [])
           .map(
             (s) => `
-  <div class="wd-section">
-    <div>
-      <div class="wd-section-label">${s.num} — ${s.label}</div>
-      <div class="wd-section-heading">${s.heading}</div>
-    </div>
-    <div class="wd-section-body">${s.body}</div>
-  </div>
+          <div class="wd-section">
+            <div class="wd-section-label">${s.num} — ${s.label}</div>
+            <div class="wd-section-right">
+              <div class="wd-section-heading">${s.heading}</div>
+              <div class="wd-section-body">${s.body}</div>
+            </div>
+          </div>
 `,
           )
           .join("");
