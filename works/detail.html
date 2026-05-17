@@ -86,71 +86,73 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-            function renderWD(w) {
-              const idx = works.findIndex((x) => x.id === w.id);
-              const prev = works[idx - 1],
-                next = works[idx + 1];
-              const cv = w.cover
-                ? `<img src="${w.cover}" alt="${w.title}">`
-                : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">${w.title.split("—")[0].trim()}</div>`;
-              const ps = `<p style="padding-bottom: 0;">${w.description.split("\n\n")[0]}</p>`;
-              const sections = (w.sections || [])
-                .map(
-                  (s) => `
-                <hr class="divider" style="margin: 0 var(--page-padding-x)">
-                  <div class="wd-section">
-                    <div class="wd-section-label">${s.num} — ${s.label}</div>
-                    <div class="wd-section-right">
-                      <div class="wd-section-heading">${s.heading}</div>
-                      <div class="wd-section-body">${s.body}</div>
-                    </div>
-                  </div>
-                  `,
-                )
-                .join("");
-              const gallery = (w.gallery || [])
-                .map(
-                  (src) => `
-                <div style="padding: 0 var(--page-padding-x); box-sizing: border-box;">
-                  <img src="${src}" style="width: 100%; display: block;">
-                </div>
-                `,
-                )
-                .join("");
-              const navL = prev
-                ? `<div class="wd-ni" onclick="location.href='/works/detail.html?id=${prev.id}'"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`
-                : `<div style="background:var(--bg2)"></div>`;
-              const navR = next
-                ? `<div class="wd-ni nx" onclick="location.href='/works/detail.html?id=${next.id}'"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
-                : `<div style="background:var(--bg2)"></div>`;
-
-              // Update page title
-              document.title = `${w.title} — Châm Thanh Thanh`;
-
-              document.getElementById("wdc").innerHTML = `
-          <div class="wd-hero">
-            <a class="wd-back" href="/works/">← Back to Works</a>
-            <h1 class="wd-title">${w.title}</h1>
-            <div class="wd-meta">
-              <div><div class="wd-ml">Client</div><div class="wd-mv">${w.client || "—"}</div></div>
-              <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
-              <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
-              <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join("<br>")}</div></div>
+      function renderWD(w) {
+        const idx = works.findIndex((x) => x.id === w.id);
+        const prev = works[idx - 1],
+          next = works[idx + 1];
+        const cv = w.cover
+          ? `<img src="${w.cover}" alt="${w.title}">`
+          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">${w.title.split("—")[0].trim()}</div>`;
+        const ps = `<p style="padding-bottom: 0;">${w.description.split("\n\n")[0]}</p>`;
+        const sections = (w.sections || [])
+          .map(
+            (s) => `
+          <hr class="divider" style="margin: 0 var(--page-padding-x)">
+            <div class="wd-section">
+              <div class="wd-section-label">${s.num} — ${s.label}</div>
+              <div class="wd-section-right">
+                <div class="wd-section-heading">${s.heading}</div>
+                <div class="wd-section-body">${s.body}</div>
+              </div>
             </div>
+            `,
+          )
+          .join("");
+        const gallery = (w.gallery || [])
+          .map(
+            (src) => `
+          <div style="padding: 0 var(--page-padding-x); box-sizing: border-box;">
+            <img src="${src}" style="width: 100%; display: block;">
           </div>
-          <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color || "#f0eee9"}">${cv}</div></div>
-          <div class="wd-body">
-            <div class="wd-body-label">Overview</div>
-            <div class="wd-body-text">${ps}</div>
-          </div>
-      ${sections}${gallery}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>        setTimeout(initReveal, 80);
-            }
+          `,
+          )
+          .join("");
+        const navL = prev
+          ? `<div class="wd-ni" onclick="location.href='/works/detail.html?id=${prev.id}'"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`
+          : `<div style="background:var(--bg2)"></div>`;
+        const navR = next
+          ? `<div class="wd-ni nx" onclick="location.href='/works/detail.html?id=${next.id}'"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
+          : `<div style="background:var(--bg2)"></div>`;
 
-            // Get ?id= from URL
-            const id = new URLSearchParams(window.location.search).get("id");
-            const w = works.find((x) => x.id === id);
-            if (w) renderWD(w);
-            else location.href = "/works/";
+        // Update page title
+        document.title = `${w.title} — Châm Thanh Thanh`;
+
+        document.getElementById("wdc").innerHTML = `
+    <div class="wd-hero">
+      <a class="wd-back" href="/works/">← Back to Works</a>
+      <h1 class="wd-title">${w.title}</h1>
+      <div class="wd-meta">
+        <div><div class="wd-ml">Client</div><div class="wd-mv">${w.client || "—"}</div></div>
+        <div><div class="wd-ml">Year</div><div class="wd-mv">${w.year}</div></div>
+        <div><div class="wd-ml">Category</div><div class="wd-mv" style="text-transform:capitalize">${w.category}</div></div>
+        <div><div class="wd-ml">Roles</div><div class="wd-mv">${w.tags.join("<br>")}</div></div>
+      </div>
+    </div>
+    <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color || "#f0eee9"}">${cv}</div></div>
+    <div class="wd-body">
+      <div class="wd-body-label">Overview</div>
+      <div class="wd-body-text">${ps}</div>
+    </div>
+  ${sections}${gallery}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>`;
+
+        setTimeout(initReveal, 80);
+      }
+
+      // Get ?id= from URL
+      const id = new URLSearchParams(window.location.search).get("id");
+      const w = works.find((x) => x.id === id);
+      if (w) renderWD(w);
+      else location.href = "/works/";
     </script>
   </body>
 </html>
