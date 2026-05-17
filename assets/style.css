@@ -3053,7 +3053,8 @@ footer {
     padding-top: 28px;
   }
 
-  .wd-body {
+  .wd-body,
+  .wd-section {
     grid-template-columns: 1fr;
     gap: 24px;
   }
