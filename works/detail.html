@@ -141,7 +141,12 @@
     <div class="wd-cover"><div class="wd-cover-inner" style="background:${w.color || "#f0eee9"}">${cv}</div></div>
     <div class="wd-body">
       <div class="wd-body-label">Overview</div>
-      <div class="wd-body-text">${ps}</div>
+      <div class="wd-body-text">
+  ${ps}
+ <a href="${w.link || '#'}" target="_blank" class="la" style="margin-top: 24px;">
+    Figma simple file →
+  </a>
+  </div>
     </div>
   ${sections}${gallery}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>`;
 

@@ -52,6 +52,7 @@ const DW = [
       "/images/selfchain-02.png",
       "/images/selfchain-03.png",
     ],
+    link: "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
   },
   {
     id: "self-design-system",
