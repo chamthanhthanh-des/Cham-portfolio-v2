@@ -143,9 +143,16 @@
       <div class="wd-body-label">Overview</div>
       <div class="wd-body-text">
   ${ps}
-<a href="${w.link || "#"}" target="_blank" class="la" style="margin-top: 24px; font-size: 12px; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s;" onmouseover="this.style.gap='14px'" onmouseout="this.style.gap='8px'">
-      Figma simple file →
-  </a>
+    <a 
+      href="${w.link || "#"}" 
+      target="_blank" 
+      class="la" 
+      style="margin-top: 24px; font-size: 12px; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s;"
+      onmouseover="this.style.gap='14px'" 
+      onmouseout="this.style.gap='8px'"
+    >
+      <span>Figma simple file</span><span>→</span>
+    </a>
   </div>
     </div>
   ${sections}${gallery}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>`;
