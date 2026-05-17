@@ -49,8 +49,8 @@ const DW = [
     ],
     gallery: [
       "/images/selfchain-01.jpg",
-      "/images/selfchain-02.jpg",
-      "/images/selfchain-03.jpg",
+      "/images/selfchain-02.png",
+      "/images/selfchain-03.png",
     ],
   },
   {
