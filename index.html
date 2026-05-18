@@ -1161,8 +1161,8 @@
         const th = w.cover
           ? `<img src="${w.cover}" alt="${w.title}" loading="lazy">`
           : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
-        return `<div class="fw-item" onclick="go('work-detail','${w.id}')">
-          <div class="fw-row">
+        return `<div class="fw-item" onclick="location.href='/works/detail.html?id=${w.id}'">
+            <div class="fw-row">
             <span class="fw-num">${String(i + 1).padStart(2, "0")}</span>
             <div class="fw-main">
               <div class="fw-cat-row">
