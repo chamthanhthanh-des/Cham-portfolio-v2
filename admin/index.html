@@ -282,6 +282,9 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
+      const PWD = "cham2025";
+      const LA = "admin_logged_in";
+
       /* ── AUTH ── */
       function initAdmin() {
         const ok = sessionStorage.getItem(LA) === "1";
@@ -522,8 +525,6 @@
             document.getElementById(id).classList.remove("open");
         });
       });
-      const PWD = "cham2025";
-      const LA = "admin_logged_in";
       initAdmin();
     </script>
   </body>
