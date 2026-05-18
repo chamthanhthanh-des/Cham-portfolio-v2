@@ -26,13 +26,37 @@
           <p>Enter your password to manage content.</p>
           <div class="a-form-in">
             <div class="fg">
-              <label>Password</label
-              ><input
-                type="password"
-                id="apw"
-                placeholder="••••••••"
-                onkeydown="if (event.key === 'Enter') doLogin();"
-              />
+              <label>Password</label>
+              <div style="position: relative">
+                <input
+                  type="password"
+                  id="apw"
+                  placeholder="••••••••"
+                  style="
+                    background: white;
+                    border-color: var(--border);
+                    padding-right: 40px;
+                  "
+                  onkeydown="if (event.key === 'Enter') doLogin();"
+                />
+                <span
+                  onclick="
+                    const i = document.getElementById('apw');
+                    i.type = i.type === 'password' ? 'text' : 'password';
+                    this.textContent = i.type === 'password' ? '👁' : '🙈';
+                  "
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    font-size: 14px;
+                  "
+                >
+                  👁
+                </span>
+              </div>
             </div>
             <div class="lerr" id="lerr">Incorrect password.</div>
             <button class="btn1" onclick="doLogin()">Sign In →</button>
