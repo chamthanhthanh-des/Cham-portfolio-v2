@@ -1001,7 +1001,9 @@ footer {
 }
 .fw-main {
   min-width: 0;
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .fw-cat-row {
