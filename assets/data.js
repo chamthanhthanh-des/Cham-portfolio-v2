@@ -17,7 +17,7 @@ const DW = [
     tags: ["Product Design", "Branding Design", "Product Improvement"],
     description:
       "SelfChain is a Layer 1 blockchain focused on decentralized identity for Web3. I led the full product design and branding effort — from defining the visual identity to designing the core dApp experience.\n\nThe challenge was making complex Web3 concepts accessible to mainstream audiences while maintaining a cutting-edge aesthetic resonant with the crypto-native community.",
-    cover: "",
+    cover: "/images/selfchain-cover.jpg",
     color: "#EDE9F7",
     featured: true,
     order: 1,
