@@ -1,243 +1,530 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — Châm Thanh Thanh</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-</head>
-<body>
-<div id="loader"><div class="loader-inner"></div></div>
-<div class="hero-cursor" id="hCursor"></div>
-<div class="hero-cursor-ring" id="hCursorRing"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Châm Thanh Thanh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div id="loader"><div class="loader-inner"></div></div>
+    <div class="hero-cursor" id="hCursor"></div>
+    <div class="hero-cursor-ring" id="hCursorRing"></div>
 
-<main id="main">
-
-<!-- LOGIN -->
-<div id="aLogin" class="a-login">
-  <div class="a-box">
-    <h2>Admin Panel</h2>
-    <p>Enter your password to manage content.</p>
-    <div class="a-form-in">
-      <div class="fg"><label>Password</label><input type="password" id="apw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-      <div class="lerr" id="lerr">Incorrect password.</div>
-      <button class="btn1" onclick="doLogin()">Sign In →</button>
-    </div>
-  </div>
-</div>
-
-<!-- DASHBOARD -->
-<div id="aDash" style="display:none">
-  <div class="a-layout">
-    <aside class="a-side">
-      <div class="a-side-ttl">Dashboard</div>
-      <div class="ani active" onclick="swTab('works')" id="tab-works">📁 Works</div>
-      <div class="ani" onclick="swTab('quiet')" id="tab-quiet">✍️ Quiet</div>
-      <div class="ani" onclick="swTab('hero')" id="tab-hero">🏠 Hero</div>
-      <div class="ani" onclick="swTab('career')" id="tab-career">💼 Career</div>
-      <div style="flex:1"></div>
-      <div class="a-logout" onclick="doLogout()">↩ Logout</div>
-    </aside>
-    <main class="a-cont">
-      <div id="admin-works" class="a-sec active">
-        <div class="a-ptl">Works</div><p class="a-psub">Manage portfolio projects.</p>
-        <button class="badd" onclick="openWM()">+ Add Project</button>
-        <table class="wtbl"><thead><tr><th>#</th><th>Title</th><th>Year</th><th>Category</th><th>Featured</th><th>Actions</th></tr></thead><tbody id="wtb"></tbody></table>
-      </div>
-      <div id="admin-quiet" class="a-sec">
-        <div class="a-ptl">Quiet</div><p class="a-psub">Manage blog posts.</p>
-        <button class="badd" onclick="openQM()">+ Add Post</button>
-        <table class="wtbl"><thead><tr><th>#</th><th>Title</th><th>Date</th><th>Category</th><th>Actions</th></tr></thead><tbody id="qtb"></tbody></table>
-      </div>
-      <div id="admin-hero" class="a-sec">
-        <div class="a-ptl">Hero Section</div><p class="a-psub">Edit homepage hero text.</p>
-        <div class="a-frm">
-          <div class="fg"><label>Hero Title (HTML)</label><textarea id="aHT" rows="5"></textarea></div>
-          <div class="fg"><label>Hero Description</label><textarea id="aHD" rows="3"></textarea></div>
-          <button class="bsave" onclick="saveHero()">Save Changes</button>
+    <main id="main">
+      <!-- LOGIN -->
+      <div id="aLogin" class="a-login">
+        <div class="a-box">
+          <h2>Admin Panel</h2>
+          <p>Enter your password to manage content.</p>
+          <div class="a-form-in">
+            <div class="fg">
+              <label>Password</label
+              ><input
+                type="password"
+                id="apw"
+                placeholder="••••••••"
+                onkeydown="if (event.key === 'Enter') doLogin();"
+              />
+            </div>
+            <div class="lerr" id="lerr">Incorrect password.</div>
+            <button class="btn1" onclick="doLogin()">Sign In →</button>
+          </div>
         </div>
       </div>
-      <div id="admin-career" class="a-sec">
-        <div class="a-ptl">Career</div><p class="a-psub">Manage career timeline.</p>
-        <button class="badd" onclick="openCM()">+ Add Position</button>
-        <table class="wtbl"><thead><tr><th>Role</th><th>Company</th><th>Period</th><th>Current</th><th>Actions</th></tr></thead><tbody id="ctb"></tbody></table>
+
+      <!-- DASHBOARD -->
+      <div id="aDash" style="display: none">
+        <div class="a-layout">
+          <aside class="a-side">
+            <div class="a-side-ttl">Dashboard</div>
+            <div class="ani active" onclick="swTab('works')" id="tab-works">
+              📁 Works
+            </div>
+            <div class="ani" onclick="swTab('quiet')" id="tab-quiet">
+              ✍️ Quiet
+            </div>
+            <div class="ani" onclick="swTab('hero')" id="tab-hero">🏠 Hero</div>
+            <div class="ani" onclick="swTab('career')" id="tab-career">
+              💼 Career
+            </div>
+            <div style="flex: 1"></div>
+            <div class="a-logout" onclick="doLogout()">↩ Logout</div>
+          </aside>
+          <main class="a-cont">
+            <div id="admin-works" class="a-sec active">
+              <div class="a-ptl">Works</div>
+              <p class="a-psub">Manage portfolio projects.</p>
+              <button class="badd" onclick="openWM()">+ Add Project</button>
+              <table class="wtbl">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Featured</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="wtb"></tbody>
+              </table>
+            </div>
+            <div id="admin-quiet" class="a-sec">
+              <div class="a-ptl">Quiet</div>
+              <p class="a-psub">Manage blog posts.</p>
+              <button class="badd" onclick="openQM()">+ Add Post</button>
+              <table class="wtbl">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="qtb"></tbody>
+              </table>
+            </div>
+            <div id="admin-hero" class="a-sec">
+              <div class="a-ptl">Hero Section</div>
+              <p class="a-psub">Edit homepage hero text.</p>
+              <div class="a-frm">
+                <div class="fg">
+                  <label>Hero Title (HTML)</label
+                  ><textarea id="aHT" rows="5"></textarea>
+                </div>
+                <div class="fg">
+                  <label>Hero Description</label
+                  ><textarea id="aHD" rows="3"></textarea>
+                </div>
+                <button class="bsave" onclick="saveHero()">Save Changes</button>
+              </div>
+            </div>
+            <div id="admin-career" class="a-sec">
+              <div class="a-ptl">Career</div>
+              <p class="a-psub">Manage career timeline.</p>
+              <button class="badd" onclick="openCM()">+ Add Position</button>
+              <table class="wtbl">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>Company</th>
+                    <th>Period</th>
+                    <th>Current</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="ctb"></tbody>
+              </table>
+            </div>
+          </main>
+        </div>
       </div>
     </main>
-  </div>
-</div>
 
-</main>
-
-<!-- WORK MODAL -->
-<div class="mo" id="wModal">
-  <div class="modal">
-    <div class="mhd"><div class="mttl" id="wMT">Add Project</div><span class="mcls" onclick="closeWM()">✕</span></div>
-    <div class="mform">
-      <input type="hidden" id="wId">
-      <div class="fg"><label>Title</label><input id="wTi"></div>
-      <div class="mrow">
-        <div class="fg"><label>Year</label><input id="wYr" placeholder="2024"></div>
-        <div class="fg"><label>Category</label><select id="wCat"><option value="product">Product Design</option><option value="branding">Branding</option><option value="web">Web Design</option></select></div>
+    <!-- WORK MODAL -->
+    <div class="mo" id="wModal">
+      <div class="modal">
+        <div class="mhd">
+          <div class="mttl" id="wMT">Add Project</div>
+          <span class="mcls" onclick="closeWM()">✕</span>
+        </div>
+        <div class="mform">
+          <input type="hidden" id="wId" />
+          <div class="fg"><label>Title</label><input id="wTi" /></div>
+          <div class="mrow">
+            <div class="fg">
+              <label>Year</label><input id="wYr" placeholder="2024" />
+            </div>
+            <div class="fg">
+              <label>Category</label
+              ><select id="wCat">
+                <option value="product">Product Design</option>
+                <option value="branding">Branding</option>
+                <option value="web">Web Design</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Tags (comma separated)</label><input id="wTg" />
+          </div>
+          <div class="fg">
+            <label>Description</label><textarea id="wDe" rows="4"></textarea>
+          </div>
+          <div class="fg">
+            <label>Cover Image URL</label
+            ><input id="wCo" placeholder="https://..." />
+          </div>
+          <div class="fg">
+            <label>BG Color</label
+            ><input
+              id="wCl"
+              type="color"
+              value="#eeecea"
+              style="
+                width: 60px;
+                height: 36px;
+                padding: 2px;
+                border-radius: 6px;
+              "
+            />
+          </div>
+          <div class="fg">
+            <label>Featured on Homepage</label
+            ><select id="wFe">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+          <div class="mact">
+            <button class="bcanc" onclick="closeWM()">Cancel</button
+            ><button class="bsave" onclick="saveWork()">Save</button>
+          </div>
+        </div>
       </div>
-      <div class="fg"><label>Tags (comma separated)</label><input id="wTg"></div>
-      <div class="fg"><label>Description</label><textarea id="wDe" rows="4"></textarea></div>
-      <div class="fg"><label>Cover Image URL</label><input id="wCo" placeholder="https://..."></div>
-      <div class="fg"><label>BG Color</label><input id="wCl" type="color" value="#eeecea" style="width:60px;height:36px;padding:2px;border-radius:6px"></div>
-      <div class="fg"><label>Featured on Homepage</label><select id="wFe"><option value="true">Yes</option><option value="false">No</option></select></div>
-      <div class="mact"><button class="bcanc" onclick="closeWM()">Cancel</button><button class="bsave" onclick="saveWork()">Save</button></div>
     </div>
-  </div>
-</div>
 
-<!-- QUIET MODAL -->
-<div class="mo" id="qModal">
-  <div class="modal">
-    <div class="mhd"><div class="mttl" id="qMT">Add Post</div><span class="mcls" onclick="closeQM()">✕</span></div>
-    <div class="mform">
-      <input type="hidden" id="qId">
-      <div class="fg"><label>Title</label><input id="qTi"></div>
-      <div class="mrow">
-        <div class="fg"><label>Date (e.g. Jan 2025)</label><input id="qDt" placeholder="May 2025"></div>
-        <div class="fg"><label>Category</label><select id="qCt"><option value="Design Thoughts">Design Thoughts</option><option value="Process">Process</option><option value="Inspiration">Inspiration</option><option value="Life">Life</option></select></div>
+    <!-- QUIET MODAL -->
+    <div class="mo" id="qModal">
+      <div class="modal">
+        <div class="mhd">
+          <div class="mttl" id="qMT">Add Post</div>
+          <span class="mcls" onclick="closeQM()">✕</span>
+        </div>
+        <div class="mform">
+          <input type="hidden" id="qId" />
+          <div class="fg"><label>Title</label><input id="qTi" /></div>
+          <div class="mrow">
+            <div class="fg">
+              <label>Date (e.g. Jan 2025)</label
+              ><input id="qDt" placeholder="May 2025" />
+            </div>
+            <div class="fg">
+              <label>Category</label
+              ><select id="qCt">
+                <option value="Design Thoughts">Design Thoughts</option>
+                <option value="Process">Process</option>
+                <option value="Inspiration">Inspiration</option>
+                <option value="Life">Life</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Reading Time (e.g. 5 min)</label
+            ><input id="qRt" placeholder="4 min read" />
+          </div>
+          <div class="fg">
+            <label>Excerpt (short preview)</label
+            ><textarea id="qEx" rows="3"></textarea>
+          </div>
+          <div class="fg">
+            <label>Lead paragraph (italic intro)</label
+            ><textarea id="qLe" rows="3"></textarea>
+          </div>
+          <div class="fg">
+            <label>Full Content (HTML supported)</label
+            ><textarea
+              id="qBo"
+              rows="8"
+              placeholder="&lt;p&gt;Your content...&lt;/p&gt;"
+            ></textarea>
+          </div>
+          <div class="mact">
+            <button class="bcanc" onclick="closeQM()">Cancel</button
+            ><button class="bsave" onclick="savePost()">Save Post</button>
+          </div>
+        </div>
       </div>
-      <div class="fg"><label>Reading Time (e.g. 5 min)</label><input id="qRt" placeholder="4 min read"></div>
-      <div class="fg"><label>Excerpt (short preview)</label><textarea id="qEx" rows="3"></textarea></div>
-      <div class="fg"><label>Lead paragraph (italic intro)</label><textarea id="qLe" rows="3"></textarea></div>
-      <div class="fg"><label>Full Content (HTML supported)</label><textarea id="qBo" rows="8" placeholder="&lt;p&gt;Your content...&lt;/p&gt;"></textarea></div>
-      <div class="mact"><button class="bcanc" onclick="closeQM()">Cancel</button><button class="bsave" onclick="savePost()">Save Post</button></div>
     </div>
-  </div>
-</div>
 
-<!-- CAREER MODAL -->
-<div class="mo" id="cModal">
-  <div class="modal">
-    <div class="mhd"><div class="mttl" id="cMT">Add Position</div><span class="mcls" onclick="closeCM()">✕</span></div>
-    <div class="mform">
-      <input type="hidden" id="cId">
-      <div class="fg"><label>Job Title</label><input id="cRo"></div>
-      <div class="fg"><label>Company</label><input id="cCo"></div>
-      <div class="fg"><label>Website</label><input id="cUr" placeholder="company.com"></div>
-      <div class="fg"><label>Period</label><input id="cPe" placeholder="Jan 2022 – Present"></div>
-      <div class="fg"><label>Current Position</label><select id="cCu"><option value="false">No</option><option value="true">Yes</option></select></div>
-      <div class="mact"><button class="bcanc" onclick="closeCM()">Cancel</button><button class="bsave" onclick="saveCareer()">Save</button></div>
+    <!-- CAREER MODAL -->
+    <div class="mo" id="cModal">
+      <div class="modal">
+        <div class="mhd">
+          <div class="mttl" id="cMT">Add Position</div>
+          <span class="mcls" onclick="closeCM()">✕</span>
+        </div>
+        <div class="mform">
+          <input type="hidden" id="cId" />
+          <div class="fg"><label>Job Title</label><input id="cRo" /></div>
+          <div class="fg"><label>Company</label><input id="cCo" /></div>
+          <div class="fg">
+            <label>Website</label><input id="cUr" placeholder="company.com" />
+          </div>
+          <div class="fg">
+            <label>Period</label
+            ><input id="cPe" placeholder="Jan 2022 – Present" />
+          </div>
+          <div class="fg">
+            <label>Current Position</label
+            ><select id="cCu">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+          <div class="mact">
+            <button class="bcanc" onclick="closeCM()">Cancel</button
+            ><button class="bsave" onclick="saveCareer()">Save</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script src="/assets/data.js"></script>
-<script src="/assets/app.js"></script>
-<script>
-/* ── AUTH ── */
-function initAdmin() {
-  const ok = sessionStorage.getItem(LA) === '1';
-  document.getElementById('aLogin').style.display = ok ? 'none' : 'flex';
-  document.getElementById('aDash').style.display  = ok ? 'block' : 'none';
-  if (ok) { renderAW(); loadHA(); }
-}
-function doLogin() {
-  const pw=document.getElementById('apw').value, er=document.getElementById('lerr');
-  if (pw===PWD) {
-    sessionStorage.setItem(LA,'1');
-    document.getElementById('aLogin').style.display='none';
-    document.getElementById('aDash').style.display='block';
-    renderAW(); loadHA(); er.classList.remove('show');
-  } else er.classList.add('show');
-}
-function doLogout() { sessionStorage.removeItem(LA); location.href='/'; }
+    <script src="/assets/data.js"></script>
+    <script src="/assets/app.js"></script>
+    <script>
+      /* ── AUTH ── */
+      function initAdmin() {
+        const ok = sessionStorage.getItem(LA) === "1";
+        document.getElementById("aLogin").style.display = ok ? "none" : "flex";
+        document.getElementById("aDash").style.display = ok ? "block" : "none";
+        if (ok) {
+          renderAW();
+          loadHA();
+        }
+      }
+      function doLogin() {
+        const pw = document.getElementById("apw").value,
+          er = document.getElementById("lerr");
+        if (pw === PWD) {
+          sessionStorage.setItem(LA, "1");
+          document.getElementById("aLogin").style.display = "none";
+          document.getElementById("aDash").style.display = "block";
+          renderAW();
+          loadHA();
+          er.classList.remove("show");
+        } else er.classList.add("show");
+      }
+      function doLogout() {
+        sessionStorage.removeItem(LA);
+        location.href = "/";
+      }
 
-function swTab(t) {
-  document.querySelectorAll('.a-sec').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.ani').forEach(i=>i.classList.remove('active'));
-  document.getElementById('admin-'+t).classList.add('active');
-  document.getElementById('tab-'+t).classList.add('active');
-  if(t==='career') renderAC();
-  if(t==='quiet')  renderAQ();
-  if(t==='hero')   loadHA();
-}
-function loadHA(){const t=document.getElementById('aHT'),d=document.getElementById('aHD');if(t)t.value=hero.title;if(d)d.value=hero.desc}
+      function swTab(t) {
+        document
+          .querySelectorAll(".a-sec")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".ani")
+          .forEach((i) => i.classList.remove("active"));
+        document.getElementById("admin-" + t).classList.add("active");
+        document.getElementById("tab-" + t).classList.add("active");
+        if (t === "career") renderAC();
+        if (t === "quiet") renderAQ();
+        if (t === "hero") loadHA();
+      }
+      function loadHA() {
+        const t = document.getElementById("aHT"),
+          d = document.getElementById("aHD");
+        if (t) t.value = hero.title;
+        if (d) d.value = hero.desc;
+      }
 
-/* ── WORKS ADMIN ── */
-function renderAW(){
-  const tb=document.getElementById('wtb');if(!tb)return;
-  tb.innerHTML=works.map((w,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:200px">${w.title}</td><td style="font-family:var(--fm);font-size:11px">${w.year}</td><td><span class="tag">${w.category}</span></td><td style="font-family:var(--fm);font-size:10px;color:${w.featured?'var(--ame)':'var(--muted)'}">${w.featured?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openWM(id){
-  const w=id?works.find(x=>x.id===id):null;
-  document.getElementById('wMT').textContent=w?'Edit Project':'Add Project';
-  document.getElementById('wId').value=w?.id||'';document.getElementById('wTi').value=w?.title||'';
-  document.getElementById('wYr').value=w?.year||'';document.getElementById('wCat').value=w?.category||'product';
-  document.getElementById('wTg').value=w?.tags?.join(', ')||'';document.getElementById('wDe').value=w?.description||'';
-  document.getElementById('wCo').value=w?.cover||'';document.getElementById('wCl').value=w?.color||'#eeecea';
-  document.getElementById('wFe').value=w?.featured?'true':'false';
-  document.getElementById('wModal').classList.add('open');
-}
-function closeWM(){document.getElementById('wModal').classList.remove('open')}
-function saveWork(){
-  const id=document.getElementById('wId').value||slugify(document.getElementById('wTi').value);
-  const d={id,title:document.getElementById('wTi').value,year:document.getElementById('wYr').value,category:document.getElementById('wCat').value,tags:document.getElementById('wTg').value.split(',').map(t=>t.trim()).filter(Boolean),description:document.getElementById('wDe').value,cover:document.getElementById('wCo').value,color:document.getElementById('wCl').value,featured:document.getElementById('wFe').value==='true',order:works.length+1};
-  const i=works.findIndex(w=>w.id===id);if(i>=0)works[i]=d;else works.push(d);
-  sv(LW,works);closeWM();renderAW();toast('Project saved ✓');
-}
-function delW(id){if(!confirm('Delete?'))return;works=works.filter(w=>w.id!==id);sv(LW,works);renderAW();toast('Deleted')}
+      /* ── WORKS ADMIN ── */
+      function renderAW() {
+        const tb = document.getElementById("wtb");
+        if (!tb) return;
+        tb.innerHTML = works
+          .map(
+            (w, i) =>
+              `<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i + 1).padStart(2, "0")}</td><td style="max-width:200px">${w.title}</td><td style="font-family:var(--fm);font-size:11px">${w.year}</td><td><span class="tag">${w.category}</span></td><td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "Yes" : "No"}</td><td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td></tr>`,
+          )
+          .join("");
+      }
+      function openWM(id) {
+        const w = id ? works.find((x) => x.id === id) : null;
+        document.getElementById("wMT").textContent = w
+          ? "Edit Project"
+          : "Add Project";
+        document.getElementById("wId").value = w?.id || "";
+        document.getElementById("wTi").value = w?.title || "";
+        document.getElementById("wYr").value = w?.year || "";
+        document.getElementById("wCat").value = w?.category || "product";
+        document.getElementById("wTg").value = w?.tags?.join(", ") || "";
+        document.getElementById("wDe").value = w?.description || "";
+        document.getElementById("wCo").value = w?.cover || "";
+        document.getElementById("wCl").value = w?.color || "#eeecea";
+        document.getElementById("wFe").value = w?.featured ? "true" : "false";
+        document.getElementById("wModal").classList.add("open");
+      }
+      function closeWM() {
+        document.getElementById("wModal").classList.remove("open");
+      }
+      function saveWork() {
+        const id =
+          document.getElementById("wId").value ||
+          slugify(document.getElementById("wTi").value);
+        const d = {
+          id,
+          title: document.getElementById("wTi").value,
+          year: document.getElementById("wYr").value,
+          category: document.getElementById("wCat").value,
+          tags: document
+            .getElementById("wTg")
+            .value.split(",")
+            .map((t) => t.trim())
+            .filter(Boolean),
+          description: document.getElementById("wDe").value,
+          cover: document.getElementById("wCo").value,
+          color: document.getElementById("wCl").value,
+          featured: document.getElementById("wFe").value === "true",
+          order: works.length + 1,
+        };
+        const i = works.findIndex((w) => w.id === id);
+        if (i >= 0) works[i] = d;
+        else works.push(d);
+        sv(LW, works);
+        closeWM();
+        renderAW();
+        toast("Project saved ✓");
+      }
+      function delW(id) {
+        if (!confirm("Delete?")) return;
+        works = works.filter((w) => w.id !== id);
+        sv(LW, works);
+        renderAW();
+        toast("Deleted");
+      }
 
-/* ── QUIET ADMIN ── */
-function renderAQ(){
-  const tb=document.getElementById('qtb');if(!tb)return;
-  tb.innerHTML=posts.map((q,i)=>`<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i+1).padStart(2,'0')}</td><td style="max-width:220px">${q.title}</td><td style="font-family:var(--fm);font-size:11px">${q.date}</td><td><span class="tag">${q.category}</span></td><td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openQM(id){
-  const q=id?posts.find(x=>x.id===id):null;
-  document.getElementById('qMT').textContent=q?'Edit Post':'Add Post';
-  document.getElementById('qId').value=q?.id||'';document.getElementById('qTi').value=q?.title||'';
-  document.getElementById('qDt').value=q?.date||'';document.getElementById('qCt').value=q?.category||'Design Thoughts';
-  document.getElementById('qRt').value=q?.reading||'';document.getElementById('qEx').value=q?.excerpt||'';
-  document.getElementById('qLe').value=q?.lead||'';document.getElementById('qBo').value=q?.content||'';
-  document.getElementById('qModal').classList.add('open');
-}
-function closeQM(){document.getElementById('qModal').classList.remove('open')}
-function savePost(){
-  const id=document.getElementById('qId').value||slugify(document.getElementById('qTi').value)||'q'+Date.now();
-  const d={id,title:document.getElementById('qTi').value,date:document.getElementById('qDt').value,category:document.getElementById('qCt').value,reading:document.getElementById('qRt').value,excerpt:document.getElementById('qEx').value,lead:document.getElementById('qLe').value,content:document.getElementById('qBo').value};
-  const i=posts.findIndex(q=>q.id===id);if(i>=0)posts[i]=d;else posts.unshift(d);
-  sv(LQ,posts);closeQM();renderAQ();toast('Post saved ✓');
-}
-function delQ(id){if(!confirm('Delete post?'))return;posts=posts.filter(q=>q.id!==id);sv(LQ,posts);renderAQ();toast('Deleted')}
+      /* ── QUIET ADMIN ── */
+      function renderAQ() {
+        const tb = document.getElementById("qtb");
+        if (!tb) return;
+        tb.innerHTML = posts
+          .map(
+            (q, i) =>
+              `<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i + 1).padStart(2, "0")}</td><td style="max-width:220px">${q.title}</td><td style="font-family:var(--fm);font-size:11px">${q.date}</td><td><span class="tag">${q.category}</span></td><td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td></tr>`,
+          )
+          .join("");
+      }
+      function openQM(id) {
+        const q = id ? posts.find((x) => x.id === id) : null;
+        document.getElementById("qMT").textContent = q
+          ? "Edit Post"
+          : "Add Post";
+        document.getElementById("qId").value = q?.id || "";
+        document.getElementById("qTi").value = q?.title || "";
+        document.getElementById("qDt").value = q?.date || "";
+        document.getElementById("qCt").value = q?.category || "Design Thoughts";
+        document.getElementById("qRt").value = q?.reading || "";
+        document.getElementById("qEx").value = q?.excerpt || "";
+        document.getElementById("qLe").value = q?.lead || "";
+        document.getElementById("qBo").value = q?.content || "";
+        document.getElementById("qModal").classList.add("open");
+      }
+      function closeQM() {
+        document.getElementById("qModal").classList.remove("open");
+      }
+      function savePost() {
+        const id =
+          document.getElementById("qId").value ||
+          slugify(document.getElementById("qTi").value) ||
+          "q" + Date.now();
+        const d = {
+          id,
+          title: document.getElementById("qTi").value,
+          date: document.getElementById("qDt").value,
+          category: document.getElementById("qCt").value,
+          reading: document.getElementById("qRt").value,
+          excerpt: document.getElementById("qEx").value,
+          lead: document.getElementById("qLe").value,
+          content: document.getElementById("qBo").value,
+        };
+        const i = posts.findIndex((q) => q.id === id);
+        if (i >= 0) posts[i] = d;
+        else posts.unshift(d);
+        sv(LQ, posts);
+        closeQM();
+        renderAQ();
+        toast("Post saved ✓");
+      }
+      function delQ(id) {
+        if (!confirm("Delete post?")) return;
+        posts = posts.filter((q) => q.id !== id);
+        sv(LQ, posts);
+        renderAQ();
+        toast("Deleted");
+      }
 
-/* ── CAREER ADMIN ── */
-function renderAC(){
-  const tb=document.getElementById('ctb');if(!tb)return;
-  tb.innerHTML=career.map(c=>`<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current?'var(--ame)':'var(--muted)'}"> ${c.current?'Yes':'No'}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`).join('');
-}
-function openCM(id){
-  const c=id?career.find(x=>x.id===id):null;
-  document.getElementById('cMT').textContent=c?'Edit Position':'Add Position';
-  document.getElementById('cId').value=c?.id||'';document.getElementById('cRo').value=c?.role||'';
-  document.getElementById('cCo').value=c?.company||'';document.getElementById('cUr').value=c?.url||'';
-  document.getElementById('cPe').value=c?.period||'';document.getElementById('cCu').value=c?.current?'true':'false';
-  document.getElementById('cModal').classList.add('open');
-}
-function closeCM(){document.getElementById('cModal').classList.remove('open')}
-function saveCareer(){
-  const id=document.getElementById('cId').value||'c'+Date.now();
-  const d={id,role:document.getElementById('cRo').value,company:document.getElementById('cCo').value,url:document.getElementById('cUr').value,period:document.getElementById('cPe').value,current:document.getElementById('cCu').value==='true'};
-  const i=career.findIndex(c=>c.id===id);if(i>=0)career[i]=d;else career.unshift(d);
-  sv(LC,career);closeCM();renderAC();toast('Saved ✓');
-}
-function delC(id){if(!confirm('Delete?'))return;career=career.filter(c=>c.id!==id);sv(LC,career);renderAC();toast('Deleted')}
+      /* ── CAREER ADMIN ── */
+      function renderAC() {
+        const tb = document.getElementById("ctb");
+        if (!tb) return;
+        tb.innerHTML = career
+          .map(
+            (c) =>
+              `<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current ? "var(--ame)" : "var(--muted)"}"> ${c.current ? "Yes" : "No"}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`,
+          )
+          .join("");
+      }
+      function openCM(id) {
+        const c = id ? career.find((x) => x.id === id) : null;
+        document.getElementById("cMT").textContent = c
+          ? "Edit Position"
+          : "Add Position";
+        document.getElementById("cId").value = c?.id || "";
+        document.getElementById("cRo").value = c?.role || "";
+        document.getElementById("cCo").value = c?.company || "";
+        document.getElementById("cUr").value = c?.url || "";
+        document.getElementById("cPe").value = c?.period || "";
+        document.getElementById("cCu").value = c?.current ? "true" : "false";
+        document.getElementById("cModal").classList.add("open");
+      }
+      function closeCM() {
+        document.getElementById("cModal").classList.remove("open");
+      }
+      function saveCareer() {
+        const id = document.getElementById("cId").value || "c" + Date.now();
+        const d = {
+          id,
+          role: document.getElementById("cRo").value,
+          company: document.getElementById("cCo").value,
+          url: document.getElementById("cUr").value,
+          period: document.getElementById("cPe").value,
+          current: document.getElementById("cCu").value === "true",
+        };
+        const i = career.findIndex((c) => c.id === id);
+        if (i >= 0) career[i] = d;
+        else career.unshift(d);
+        sv(LC, career);
+        closeCM();
+        renderAC();
+        toast("Saved ✓");
+      }
+      function delC(id) {
+        if (!confirm("Delete?")) return;
+        career = career.filter((c) => c.id !== id);
+        sv(LC, career);
+        renderAC();
+        toast("Deleted");
+      }
 
-function saveHero(){hero.title=document.getElementById('aHT').value;hero.desc=document.getElementById('aHD').value;sv(LH,hero);toast('Hero saved ✓')}
+      function saveHero() {
+        hero.title = document.getElementById("aHT").value;
+        hero.desc = document.getElementById("aHD").value;
+        sv(LH, hero);
+        toast("Hero saved ✓");
+      }
 
-/* Close modals on bg click */
-['wModal','qModal','cModal'].forEach(id=>{
-  document.getElementById(id).addEventListener('click',e=>{if(e.target===e.currentTarget)document.getElementById(id).classList.remove('open')});
-});
-
-initAdmin();
-</script>
-</body>
+      /* Close modals on bg click */
+      ["wModal", "qModal", "cModal"].forEach((id) => {
+        document.getElementById(id).addEventListener("click", (e) => {
+          if (e.target === e.currentTarget)
+            document.getElementById(id).classList.remove("open");
+        });
+      });
+      const PWD = "cham2025";
+      const LA = "admin_logged_in";
+      initAdmin();
+    </script>
+  </body>
 </html>
