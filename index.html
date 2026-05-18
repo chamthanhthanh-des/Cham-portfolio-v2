@@ -1159,7 +1159,7 @@
 
       function fwCardHTML(w, i) {
         const th = w.cover
-          ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`
+          ? `<img src="${w.cover}" alt="${w.title}" loading="lazy">`
           : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
         return `<div class="fw-item" onclick="location.href='/works/detail.html?id=${w.id}'">
             <div class="fw-row">
