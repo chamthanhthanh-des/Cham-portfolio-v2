@@ -1434,7 +1434,7 @@ footer {
   padding: 0 var(--page-padding-x);
 }
 .wd-cover-inner {
-  aspect-ratio: 16/7;
+  aspect-ratio: 16/9;
   overflow: hidden;
   border-radius: 6px;
   display: flex;
