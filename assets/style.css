@@ -3414,12 +3414,12 @@ footer {
 }
 @media (max-width: 768px) {
   .hero-desc {
-    max-width: 52vw;
+    max-width: 64vw;
   }
 }
 
 @media (max-width: 480px) {
   .hero-desc {
-    max-width: 48vw;
+    max-width: 56vw;
   }
 }
