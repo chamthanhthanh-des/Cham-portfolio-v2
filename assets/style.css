@@ -3339,3 +3339,10 @@ footer {
   color: var(--ame);
   transform: translateY(-2px);
 }
+#catImg {
+  width: 650px;
+  position: absolute;
+  right: -150px;
+  bottom: 100px;
+  pointer-events: none;
+}
