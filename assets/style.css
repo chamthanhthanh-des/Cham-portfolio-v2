@@ -3370,7 +3370,7 @@ footer {
   #catImg {
     width: 80vw;
     right: -42vw;
-    bottom: 28vh;
+    bottom: 0;
 
     position: absolute;
     z-index: 1;
@@ -3395,7 +3395,7 @@ footer {
   #catImg {
     width: 80vw;
     right: -48vw;
-    bottom: 30vh;
+    bottom: 0;
 
     position: absolute;
     z-index: 1;
