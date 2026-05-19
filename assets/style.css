@@ -3349,23 +3349,21 @@ footer {
   pointer-events: none;
 }
 
-/* Mobile: cat goes to background */
+/* Mobile */
 @media (max-width: 768px) {
   #catImg {
     width: 95vw;
-    max-width: none;
-
     right: -42vw;
-    top: 46vh;
-    bottom: auto;
+    bottom: 28vh;
 
-    opacity: 0.48;
     z-index: 0;
+    opacity: 1;
 
-    pointer-events: none;
     animation: none !important;
     transition: none !important;
     transform: none !important;
+
+    pointer-events: none;
   }
 
   .hero h1,
@@ -3384,8 +3382,22 @@ footer {
   #catImg {
     width: 100vw;
     right: -48vw;
-    top: 48vh;
-    bottom: auto;
-    opacity: 0.46;
+    bottom: 30vh;
+
+    z-index: 0;
+
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .hero h1,
+  .hero-title,
+  .hero-bot,
+  .hero-desc,
+  .hero-act,
+  .eyebrow {
+    position: relative;
+    z-index: 2;
   }
 }
