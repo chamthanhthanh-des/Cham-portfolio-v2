@@ -133,6 +133,7 @@ const DQ = [
     date: "May 2026",
     category: "Life",
     reading: "6 min read",
+    cover: "images/Blog-01.avif", // ← THÊM DÒNG NÀY
     excerpt:
       "Có những nỗi đau càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.",
     lead: "Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.",
@@ -202,6 +203,7 @@ const DQ = [
     date: "Mar 2026",
     category: "Life",
     reading: "3 min read",
+    cover: "images/Blog-02.avif", // ← THÊM DÒNG NÀY
     excerpt:
       "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
     lead: "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
@@ -245,6 +247,7 @@ const DQ = [
     date: "Jan 2026",
     category: "Life",
     reading: "5 min read",
+    cover: "images/Blog-03.avif", // ← THÊM DÒNG NÀY
     excerpt:
       "Với mình, nuôi mèo là một hành trình cần rất nhiều tình thương, lòng bao dung, và rất rất nhiều trách nhiệm.",
     lead: "Sáng nay mình đọc được bài của một bạn phát hiện mèo bị giảm bạch cầu nhưng không đủ tài chính để chữa, nên đã nghĩ tới việc an tử.",
