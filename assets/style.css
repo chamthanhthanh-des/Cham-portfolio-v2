@@ -3351,13 +3351,18 @@ footer {
 
 /* Mobile */
 @media (max-width: 768px) {
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+
   #catImg {
     width: 95vw;
     right: -42vw;
     bottom: 28vh;
 
-    z-index: 0;
-    opacity: 1;
+    position: absolute;
+    z-index: 1;
 
     animation: none !important;
     transition: none !important;
@@ -3366,12 +3371,7 @@ footer {
     pointer-events: none;
   }
 
-  .hero h1,
-  .hero-title,
-  .hero-bot,
-  .hero-desc,
-  .hero-act,
-  .eyebrow {
+  .hero > *:not(#catImg) {
     position: relative;
     z-index: 2;
   }
@@ -3384,19 +3384,15 @@ footer {
     right: -48vw;
     bottom: 30vh;
 
-    z-index: 0;
+    position: absolute;
+    z-index: 1;
 
     animation: none !important;
     transition: none !important;
     transform: none !important;
   }
 
-  .hero h1,
-  .hero-title,
-  .hero-bot,
-  .hero-desc,
-  .hero-act,
-  .eyebrow {
+  .hero > *:not(#catImg) {
     position: relative;
     z-index: 2;
   }
