@@ -128,40 +128,145 @@ const DW = [
 
 const DQ = [
   {
-    id: "q1",
-    title: "Khoảng lặng trong thiết kế",
-    date: "Apr 2025",
-    category: "Design Thoughts",
-    reading: "5 min read",
+    id: "doi-mat-voi-noi-dau",
+    title: "Đối mặt với nỗi đau",
+    date: "May 2026",
+    category: "Life",
+    reading: "6 min read",
     excerpt:
-      "Không gian trống không phải là sự thiếu vắng — đó là hơi thở của một layout. Mỗi khoảng trống đều mang ý nghĩa.",
-    lead: "Trong thiết kế, điều người ta hay bỏ qua nhất không phải là màu sắc hay typography — mà là khoảng lặng. Negative space. Sự im lặng có chủ đích.",
-    content:
-      "<p>Tôi thường nói với các designer trẻ rằng: một thiết kế tốt không phải là nhồi nhét mọi thứ vào một trang. Thiết kế tốt là biết khi nào cần dừng lại.</p><h2>Khoảng trống không phải là sự lãng phí</h2><p>Khi nhìn vào các sản phẩm của Apple, Muji, hay các brand Scandinavian, điều đập vào mắt bạn đầu tiên không phải là những gì có ở đó — mà là những gì không có. Khoảng trống đó không phải do họ không có gì để điền vào. Đó là một quyết định thiết kế có chủ đích.</p><blockquote>Whitespace is like air. You cannot see it, but without it, everything suffocates.</blockquote><p>Trong UX, khoảng lặng có vai trò tạo nhịp điệu cho người dùng. Nó cho họ thời gian để xử lý thông tin, quyết định hành động tiếp theo, và cảm thấy không bị áp lực.</p><h3>Áp dụng trong thực tế</h3><p>Lần tới khi bạn thiết kế một màn hình, hãy thử zoom out ra 50% và nhìn vào tổng thể. Nếu mắt bạn không biết phải nhìn vào đâu trước — đó là dấu hiệu cần thêm khoảng trống, không phải thêm nội dung.</p>",
+      "Có những nỗi đau càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.",
+    lead: "Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.",
+    content: `<p>Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.</p>
+
+<p>Nó không phải kiểu đau bất ngờ hoàn toàn. Thường thì trước khi cơn chuột rút thật sự xảy ra, tôi cảm nhận được nó đang đến. Một bên cơ bắt đầu căng lên. Chân có cảm giác sai sai. Và trong đầu tôi biết rất rõ:</p>
+
+<p>"Rồi, sắp tới rồi đó -_- ."</p>
+
+<p>Cái cảm giác đó rất khó chịu.</p>
+
+<p>Không chỉ vì đau. Mà vì mình biết nó sắp đến.</p>
+
+<p>Nó giống như có một cơn đau đang đứng ngay trước cửa, mình nhìn thấy nó rồi, nhưng vẫn chưa muốn mở cửa cho nó vào.</p>
+
+<p>Lúc đó tôi thường có hai lựa chọn.</p>
+
+<p>Một là để yên cho nó xảy ra. Đau thì đau. Cơn chuột rút kéo đến, đau vãi, rồi qua. Khó chịu thật, nhưng thường nhanh hết hơn.</p>
+
+<p>Hai là vì sợ đau nên tôi cố delay. Cố làm cái gì đó để nó đừng xảy ra ngay lúc này.</p>
+
+<p>Và gần như lần nào tôi làm vậy, kết quả cũng tệ hơn.</p>
+
+<p>Nó không biến mất. Nó chỉ chờ.</p>
+
+<p>Rồi khi nó đến thật, nó đau hơn. Lâu hơn. Kinh khủng gấp mấy lần và thường là còn để lại cảm giác đau cơ sau đó.</p>
+
+<blockquote>Kiểu như đáng lẽ chỉ cần chịu một cơn đau ngắn, thì vì tôi cố né, cuối cùng tôi phải chịu một phiên bản promax của chính nó.</blockquote>
+
+<p>Tôi thấy chuyện này giống nhiều thứ trong cuộc sống.</p>
+
+<p>Có những chuyện mình biết là nó sẽ xảy ra. Biết là một mối quan hệ đang đi đến đoạn cuối. Biết là một sự thật nào đó sớm muộn cũng phải nhìn thẳng. Biết là mình đang buồn, đang tổn thương, đang thất vọng, nhưng vẫn delay vẫn lờ đi :))) nghe quen chứ.</p>
+
+<p>Vì mình sợ cảm giác phải đối mặt với nó.</p>
+
+<p>Sợ cái khoảnh khắc phải thừa nhận: "Ừ, chuyện này thật sự đang xảy ra."</p>
+
+<p>Nên mình delay. Mình bận rộn hơn. Mình lướt điện thoại nhiều hơn. Mình cố nói là "chắc không sao đâu". Mình tự đánh lừa mình thêm vài ngày, vài tuần, thậm chí vài năm.</p>
+
+<p>Nhưng những thứ cần đau thì vẫn sẽ đau. Nó không biến mất chỉ vì mình chưa sẵn sàng. Và nhiều khi, càng cố né, nó càng tích lại. Đến lúc không né được nữa thì nó đập vào mình mạnh hơn rất nhiều.</p>
+
+<h2>Đối mặt không phải là cao siêu</h2>
+
+<p>Tôi không nghĩ đối mặt với nỗi đau là một thứ gì đó cao siêu. Nó không đẹp. Không nhẹ nhàng. Cũng không phải kiểu mình ngồi xuống, hít thở sâu vài cái là thành một con người trưởng thành.</p>
+
+<p>Không.</p>
+
+<p>Có những lúc đối mặt chỉ đơn giản là: "Ok, nó đến rồi. Mình biết. Mình không chạy nữa."</p>
+
+<p>Vẫn sợ. Vẫn đau. Vẫn muốn trốn. Nhưng không cố kéo dài nó thêm nữa.</p>
+
+<blockquote>Giống như lúc bị chuột rút. Nếu cơn đau đã đến, thì việc gồng lên chống lại nó nhiều khi chỉ làm mọi thứ tệ hơn. Cách tốt nhất đôi khi lại là thả lỏng, để nó đi qua, dù trong lúc đó mình thật sự rất muốn chửi thề.</blockquote>
+
+<p>Tôi nghĩ có những nỗi đau cũng vậy.</p>
+
+<p>Càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.</p>
+
+<p>Đối mặt không làm nó hết đau ngay. Nhưng ít nhất, nó không biến thành một con quái vật to hơn trong đầu mình.</p>
+
+<p>Có lẽ điều khó nhất không phải là chịu đau. Mà là cái khoảnh khắc trước đó — khi mình biết nó sắp đến, và phải quyết định: mình sẽ để nó xảy ra, hay tiếp tục chạy thêm một đoạn nữa.</p>
+
+<p>Dạo này tôi đang học cách chọn phương án đầu tiên. Không phải vì tôi can đảm hơn. Mà vì tôi đã thử né rồi. Và thật sự là nó đau hơn nhiều.</p>`,
   },
   {
-    id: "q2",
-    title: "Khi màu sắc nói thay ngôn ngữ",
-    date: "Mar 2025",
-    category: "Inspiration",
-    reading: "4 min read",
-    excerpt:
-      "Màu sắc không chỉ là thẩm mỹ. Đó là ngôn ngữ — và mỗi màu sắc đều mang một giọng điệu riêng.",
-    lead: "Tôi đã từng mất 3 ngày để chọn màu accent cho một dự án. Không phải vì tôi không biết — mà vì màu sắc có quá nhiều điều cần nói.",
-    content:
-      "<p>Trong thiết kế thương hiệu, màu sắc là quyết định chiến lược đầu tiên và quan trọng nhất. Trước cả typography, trước cả logo — màu sắc đặt ra tông cảm xúc cho toàn bộ trải nghiệm.</p><h2>Màu sắc mang ký ức</h2><p>Khi bạn nhìn vào màu xanh navy đậm của Hermès, hay màu cam năng động của ING — những màu đó không chỉ đẹp. Chúng chứa đựng cả một câu chuyện, một cá tính, một lời hứa với khách hàng.</p><blockquote>Color is the place where our brain and the universe meet.</blockquote><h3>Pastel và câu chuyện của sự mềm mại</h3><p>Trong dự án này tôi đang dùng Amethyst và Olivine — hai màu tưởng như không liên quan. Nhưng khi đặt cạnh nhau, chúng tạo nên một câu chuyện: sự sáng tạo (tím) gặp sự tự nhiên (xanh lá). Đó chính xác là những gì tôi muốn thể hiện.</p>",
-  },
-  {
-    id: "q3",
-    title: "Viết để hiểu, không phải để xuất bản",
-    date: "Feb 2025",
-    category: "Process",
+    id: "cuoc-doi-dau-ai-can-phai-xuat-chung",
+    title: "Cuộc đời đâu ai cần phải xuất chúng",
+    date: "Mar 2026",
+    category: "Life",
     reading: "3 min read",
     excerpt:
-      "Writing as thinking. Mỗi bài viết trong Quiet này đều bắt đầu từ một ghi chú rời rạc trong Notion lúc 2 giờ sáng.",
-    lead: "Tôi không tự nhận mình là writer. Nhưng tôi viết mỗi ngày — không để publish, mà để hiểu.",
-    content:
-      "<p>Có một khoảng thời gian tôi nghĩ rằng ghi chép là việc của nhà văn, của journalist. Designer thì cần sketch, wireframe, prototype. Viết là thứ xa xỉ.</p><h2>Sai hoàn toàn</h2><p>Sau 8 năm làm thiết kế, tôi nhận ra rằng viết — dù chỉ là ghi chú cho bản thân — là công cụ tư duy mạnh nhất mà tôi có. Khi tôi không thể giải thích một quyết định thiết kế bằng chữ, đó là dấu hiệu tôi chưa thực sự hiểu nó.</p><blockquote>If you cannot write it clearly, you do not think it clearly.</blockquote><h3>Quiet bắt đầu như thế nào</h3><p>Section này trên portfolio của tôi không phải là blog theo nghĩa truyền thống. Đây là nơi tôi chia sẻ những mảnh suy nghĩ — về design, về process, về cuộc sống của một designer. Không hoàn hảo. Không được edit nhiều. Nhưng thật.</p>",
+      "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
+    lead: "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
+    content: `<p>Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.</p>
+
+<p>Hồi trước mình cũng từng nghĩ phải "giỏi hơn", "khác biệt hơn", "được nhìn thấy nhiều hơn" thì mới có giá trị. Nhưng càng đi lâu, càng thấy… mấy cái đó chỉ là một lớp ngoài. Nó ồn ào, nhưng chưa chắc bền.</p>
+
+<p>Có những người không nổi bật gì cả. Nhưng họ chăm cây mỗi ngày. Làm việc của họ, đều đặn. Quan tâm những thứ nhỏ xíu mà người khác hay bỏ qua.</p>
+
+<p>Và bằng cách đó, họ giữ cho cuộc đời này không bị lệch đi.</p>
+
+<blockquote>Xuất chúng là một điểm sáng. Nhưng sống được một cuộc đời bình thường mà không đánh mất mình, cái đó khó hơn nhiều.</blockquote>
+
+<p>Nên nếu có lúc cảm thấy mình không "đủ giỏi", không "đủ đặc biệt"… thì cũng không sao.</p>
+
+<p>Có khi thứ đáng giữ nhất không phải là trở thành một ai đó lớn lao, mà là vẫn còn cảm được những điều rất nhỏ mà không cần ai phải công nhận.</p>
+
+<p>Sống là chính mình vẫn là tự do nhất.</p>
+
+<h2>No one really needs to be exceptional</h2>
+
+<p>Not everyone is born to be on a stage. Most of us are just… living, trying to do right by life.</p>
+
+<p>I used to think I had to be "better," "different," "more seen" to actually matter. But the longer I go, the more I realize… that's just surface stuff. Loud, sure, but not built to last.</p>
+
+<p>There are people who aren't remarkable at all. But they water their plants every day. Show up for their work, consistently. Care about the tiny things most people overlook.</p>
+
+<p>And in their own way, they keep life from falling out of place.</p>
+
+<blockquote>Being exceptional is a kind of spotlight. But living a simple life without losing yourself? That's way harder.</blockquote>
+
+<p>So if there are moments when you feel not "good enough" or not "special enough"… it's okay.</p>
+
+<p>Sometimes the thing worth holding onto isn't becoming someone big, but still being able to feel the smallest things without needing anyone else to notice.</p>
+
+<p>Just being yourself - that's the freest you'll ever be.</p>`,
+  },
+  {
+    id: "may-nho-meo-cua-toi",
+    title: "Mấy nhỏ mèo của tôi",
+    date: "Jan 2026",
+    category: "Life",
+    reading: "5 min read",
+    excerpt:
+      "Với mình, nuôi mèo là một hành trình cần rất nhiều tình thương, lòng bao dung, và rất rất nhiều trách nhiệm.",
+    lead: "Sáng nay mình đọc được bài của một bạn phát hiện mèo bị giảm bạch cầu nhưng không đủ tài chính để chữa, nên đã nghĩ tới việc an tử.",
+    content: `<p>Sáng nay mình đọc được bài của một bạn phát hiện mèo bị giảm bạch cầu nhưng không đủ tài chính để chữa, nên đã nghĩ tới việc an tử. Đọc xong, mình cũng chợt nghĩ về các bé nhà mình. Mình cũng từng đưa tụi nó đi viện và phải chi rất nhiều tiền để chạy chữa.</p>
+
+<p>Hồi đó, mình cũng từng giằng xé: nếu mình không đủ tiền thì sao? Nếu mình không làm ra nhiều tiền, chẳng lẽ phải nhìn các con thoi thóp... Nghĩ thôi đã không nỡ, cũng chẳng dám đối diện. Ai đã từng trải qua cảm giác mất mèo - một "đứa con" mà mình yêu thương, chăm sóc và gắn bó chắc sẽ hiểu nó đau đớn đến mức nào.</p>
+
+<p>Nếu vì tiền mà không cứu được tụi nó, thì với mình, đó có lẽ sẽ là điều hối tiếc nhất đời.</p>
+
+<blockquote>Đối với mình, những thứ mua được bằng tiền đôi khi lại là thứ "rẻ" nhất.</blockquote>
+
+<p>Hồi nhỏ, hay khi còn trẻ, mình từng nghĩ nuôi mèo rất đơn giản. Nhưng bây giờ thì không. Với mình, nuôi mèo là một hành trình cần rất nhiều tình thương, lòng bao dung, và rất rất nhiều trách nhiệm. Khi tụi nó khỏe mạnh, yêu thương, nũng nịu thì thật sự là may mắn. Nhưng đến một ngày tụi nó già đi, bệnh tật, thì thứ mình phải đối mặt không chỉ là tình thương hay sự kiên nhẫn, mà còn là rất nhiều thời gian và tiền bạc. Mình luôn coi tụi nó là gia đình.</p>
+
+<h2>Bài thực tập cho cuộc đời</h2>
+
+<p>Việc chăm sóc mèo giống như một "bài thực tập" trước khi mình thực sự phải chăm sóc cha mẹ và con cái sau này. Ai nhìn vào cũng nói mình chăm mèo quá chiều chuộng, cầu kỳ. Nhưng với mình, mình luôn muốn dành những điều tốt nhất trong khả năng cho tụi nó. Yêu thương tụi nó như thể mỗi ngày đều có thể là ngày cuối cùng mình còn được ở bên nhau. Vì mình biết, thời gian của tụi nó không dài như mình.</p>
+
+<p>Mỗi cái ôm, mỗi lần tụi nó nằm cuộn tròn bên cạnh, mỗi buổi sáng mở mắt ra thấy tụi nó vẫn còn đó - thật ra đều là những khoảnh khắc rất mong manh. Nên mình học cách chậm lại một chút. Ở bên tụi nó nhiều hơn một chút. Để ý nhiều hơn những điều nhỏ xíu mà trước đây mình từng vô thức bỏ qua - như tiếng thở nhẹ khi tụi nó ngủ, hay cách tụi nó dụi đầu vào tay mình mỗi khi cần cảm giác an toàn.</p>
+
+<blockquote>Có thể với người khác, đó chỉ là một con mèo. Nhưng với mình, đó là một phần của gia đình, là một sinh mệnh đang tin tưởng và dựa vào mình.</blockquote>
+
+<p>Và có lẽ, điều mình có thể làm tốt nhất... không phải là giữ tụi nó ở bên mình mãi mãi, vì điều đó là không thể, mà là ở bên tụi nó đủ đầy, đủ tử tế, đủ yêu thương... trong từng ngày còn có thể.</p>`,
   },
 ];
 
