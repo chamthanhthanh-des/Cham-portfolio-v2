@@ -113,9 +113,9 @@
 ${
   q.cover
     ? `
-    <div style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 48px; margin-bottom: 64px;">
+    <div style="padding: 0 var(--page-padding-x); margin: 48px 0;">
       <img src="../${q.cover}" alt="${q.title}" 
-           style="width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover;">
+           style="width: 100%; display: block; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover;">
     </div>
 `
     : ""
