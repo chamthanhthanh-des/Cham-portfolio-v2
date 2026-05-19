@@ -3354,7 +3354,7 @@ footer {
 #catImg {
   width: 650px;
   position: absolute;
-  right: -150px;
+  right: -200px;
   bottom: 100px;
   pointer-events: none;
   z-index: 1;
