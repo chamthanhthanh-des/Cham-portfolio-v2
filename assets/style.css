@@ -3354,6 +3354,7 @@ footer {
   .hero {
     position: relative;
     overflow: hidden;
+    isolation: isolate;
   }
 
   #catImg {
@@ -3363,37 +3364,55 @@ footer {
 
     position: absolute;
     z-index: 1;
+    opacity: 1;
 
+    pointer-events: none;
     animation: none !important;
     transition: none !important;
     transform: none !important;
-
-    pointer-events: none;
   }
 
-  .hero > *:not(#catImg) {
+  .hero .eyebrow,
+  .hero h1,
+  .hero .hero-title,
+  .hero .hero-bot,
+  .hero .hero-desc,
+  .hero .hero-act {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
+  .hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
   #catImg {
     width: 100vw;
     right: -48vw;
-    bottom: 30vh;
+    bottom: 22vh;
 
     position: absolute;
     z-index: 1;
+    opacity: 1;
 
+    pointer-events: none;
     animation: none !important;
     transition: none !important;
     transform: none !important;
   }
 
-  .hero > *:not(#catImg) {
+  .hero .eyebrow,
+  .hero h1,
+  .hero .hero-title,
+  .hero .hero-bot,
+  .hero .hero-desc,
+  .hero .hero-act {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 }
