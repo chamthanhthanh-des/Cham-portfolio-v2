@@ -3359,7 +3359,32 @@ footer {
   pointer-events: none;
   z-index: 1;
 }
+/* Desktop lớn: >= 1440px */
+@media (min-width: 1440px) {
+  #catImg {
+    width: 600px;
+    right: -150px;
+    bottom: 100px;
+  }
+}
 
+/* Laptop / tablet ngang: 1024px - 1439px */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  #catImg {
+    width: 560px;
+    right: -180px;
+    bottom: 120px;
+  }
+}
+
+/* Màn hẹp kiểu 900px - 1023px */
+@media (max-width: 1023px) and (min-width: 769px) {
+  #catImg {
+    width: 500px;
+    right: -220px;
+    bottom: 130px;
+  }
+}
 /* Mobile */
 @media (max-width: 768px) {
   .hero {
