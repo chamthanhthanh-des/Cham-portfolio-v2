@@ -3200,6 +3200,8 @@ footer {
   }
   .qd-body {
     padding: 48px var(--page-padding-x);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .wpage-hero h1 {
