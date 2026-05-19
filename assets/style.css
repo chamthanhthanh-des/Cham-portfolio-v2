@@ -2301,8 +2301,10 @@ footer {
 
 .qd-body {
   padding: 80px var(--page-padding-x);
-  max-width: 860px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 .qd-lead {
   font-family: var(--fd);
   font-size: 24px;
@@ -3197,11 +3199,6 @@ footer {
   }
   .con-info {
     gap: 24px;
-  }
-  .qd-body {
-    padding: 48px var(--page-padding-x);
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
   .wpage-hero h1 {
