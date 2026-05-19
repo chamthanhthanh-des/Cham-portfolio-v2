@@ -3353,14 +3353,14 @@ footer {
 @media (max-width: 768px) {
   #catImg {
     position: absolute;
-    width: 120vw;
+    width: 80vw;
     max-width: none;
 
-    right: -72vw;
+    right: -20vw;
     top: 30vh;
     bottom: auto;
 
-    opacity: 0.58;
+    opacity: 100%;
     z-index: 0;
 
     pointer-events: none;
