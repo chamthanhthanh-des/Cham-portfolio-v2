@@ -3351,50 +3351,28 @@ footer {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero {
-    position: relative !important;
-    overflow: hidden !important;
-  }
-
   #catImg {
-    position: absolute !important;
+    width: 95vw;
+    right: -42vw;
+    bottom: 28vh;
 
-    width: 95vw !important;
-    max-width: none !important;
-
-    right: -42vw !important;
-    top: 50% !important;
-    bottom: auto !important;
-
-    transform: translateY(-50%) !important;
-
-    z-index: 1 !important;
-    opacity: 1 !important;
-
-    pointer-events: none !important;
     animation: none !important;
     transition: none !important;
-  }
+    transform: none !important;
 
-  .hero .eyebrow,
-  .hero h1,
-  .hero .hero-title,
-  .hero .hero-bot,
-  .hero .hero-desc,
-  .hero .hero-act {
-    position: relative !important;
-    z-index: 3 !important;
+    pointer-events: none;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
   #catImg {
-    width: 100vw !important;
-    right: -48vw !important;
-    top: 50% !important;
-    bottom: auto !important;
+    width: 100vw;
+    right: -48vw;
+    bottom: 30vh;
 
-    transform: translateY(-50%) !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
