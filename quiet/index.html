@@ -67,7 +67,7 @@
     <main id="main">
       <section class="subpage-hero" aria-labelledby="quiet-title">
         <div class="subpage-hero__inner">
-          <h1 class="subpage-hero__title" id="quiet-title">Quiet</h1>
+          <h1 class="subpage-hero__title" id="quiet-title">Quiet thoughts</h1>
           <p class="subpage-hero__description">
             Thoughts on design, process, and the things that make work feel
             meaningful.
@@ -123,7 +123,11 @@
         list.innerHTML = posts
           .map(
             (q, i) => `
-  <div class="q-item" onclick="location.href='/quiet/detail.html?id=${q.id}'">
+<div
+  class="q-item"
+  style="--q-cover: url('${q.cover}')"
+  onclick="location.href='/quiet/detail.html?id=${q.id}'"
+>
     <div class="q-num">${String(i + 1).padStart(2, "0")}</div>
     <div class="q-main">
       <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>

@@ -1388,7 +1388,7 @@ footer {
   align-items: center;
   gap: 8px;
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
@@ -2155,8 +2155,50 @@ footer {
   position: relative;
   overflow: hidden;
 }
-.q-item:hover {
-  background: var(--bg2);
+
+/* ===== QUIET LIST: COVER IMAGE ON HOVER ===== */
+
+.q-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 50%;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    var(--q-cover, none);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  filter: grayscale(100%);
+  mix-blend-mode: normal;
+
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+
+.q-item:hover::before {
+  opacity: 0.3;
+}
+
+.q-num,
+.q-main,
+.q-right,
+.q-circle {
+  position: relative;
+  z-index: 1;
 }
 
 .q-num {
@@ -2236,7 +2278,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  transition: all 0.3s var(--ease);
+  transition: all 0.4s var(--ease);
   color: var(--muted);
 }
 .q-item:hover .q-circle {
@@ -2248,17 +2290,21 @@ footer {
 
 /* Quiet Detail */
 .qd-hero {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
   padding: calc(var(--nav-h) + 80px) var(--page-padding-x) 64px;
   border-bottom: 1px solid var(--border);
-  max-width: 1100px;
 }
-
 .qd-back {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
@@ -2281,7 +2327,7 @@ footer {
 }
 .qd-cat {
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   background: var(--grad);
@@ -2292,13 +2338,13 @@ footer {
 }
 .qd-date {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   letter-spacing: 1px;
 }
 .qd-reading {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted2);
 }
 
@@ -2320,8 +2366,8 @@ footer {
 
 .qd-lead {
   font-family: var(--fd);
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 32px;
+  font-weight: 600;
   line-height: 1.5;
   color: var(--text);
   margin-bottom: 48px;
@@ -2337,9 +2383,9 @@ footer {
 }
 .qd-text h2 {
   font-family: var(--fd);
-  font-size: 36px;
+  font-size: 28px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 600;
   margin: 48px 0 20px;
   color: var(--text);
 }
@@ -2358,7 +2404,8 @@ footer {
   font-family: var(--fd);
   font-size: 22px;
   font-style: italic;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--oli);
   line-height: 1.5;
 }
 .qd-divider {
@@ -3508,4 +3555,37 @@ footer {
 
   width: 56px;
   height: 56px;
+}
+/* Quiet list button: clean default outline, no stroke on hover */
+
+.q-list .q-circle {
+  border: none !important;
+  outline: none !important;
+
+  background: transparent;
+  color: var(--muted);
+
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+/* Hover cả item: giữ gradient hiện tại, bỏ stroke sạch */
+.q-list .q-item:hover .q-circle {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  background: var(--grad);
+  color: white;
+  transform: rotate(45deg);
+}
+
+/* Hover trực tiếp button */
+.q-list .q-circle:hover {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  background: var(--grad);
+  color: white;
+  transform: rotate(45deg);
 }
