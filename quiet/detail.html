@@ -109,6 +109,17 @@
       </div>
       <h1 class="qd-title">${q.title}</h1>
     </div>
+    </div>
+    
+    ${q.cover ? `
+    <div style="padding: 0 var(--page-padding-x); margin: 48px 0;">
+      <img src="../${q.cover}" alt="${q.title}" 
+           style="width: 100%; max-width: 1200px; margin: 0 auto; display: block; 
+                  border-radius: 8px; aspect-ratio: 16/9; object-fit: cover;">
+    </div>
+    ` : ''}
+    
+    <div class="qd-body">
     <div class="qd-body">
       <div class="qd-lead">${q.lead}</div>
       <hr class="qd-divider">
