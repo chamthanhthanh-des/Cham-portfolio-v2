@@ -3349,30 +3349,44 @@ footer {
   pointer-events: none;
 }
 
-/* Mobile */
+/* Mobile: cat as background */
 @media (max-width: 768px) {
   #catImg {
-    width: 95vw;
-    right: -42vw;
-    bottom: 28vh;
+    position: absolute;
+    width: 120vw;
+    max-width: none;
 
+    right: -72vw;
+    top: 30vh;
+    bottom: auto;
+
+    opacity: 0.58;
+    z-index: 0;
+
+    pointer-events: none;
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
 
-    pointer-events: none;
+  .hero h1,
+  .hero-title,
+  .hero-bot,
+  .hero-desc,
+  .hero-act,
+  .eyebrow {
+    position: relative;
+    z-index: 2;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
   #catImg {
-    width: 100vw;
-    right: -48vw;
-    bottom: 30vh;
-
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
+    width: 130vw;
+    right: -82vw;
+    top: 31vh;
+    bottom: auto;
+    opacity: 0.5;
   }
 }
