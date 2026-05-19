@@ -3349,33 +3349,18 @@ footer {
   pointer-events: none;
 }
 
-/* Mobile: keep cat ratio, send it to background */
+/* Mobile */
 @media (max-width: 768px) {
   #catImg {
     width: 95vw;
-    max-width: none;
+    right: -42vw;
+    bottom: 28vh;
 
-    right: -36vw;
-    top: 44vh;
-    bottom: auto;
-
-    opacity: 0.5;
-    z-index: 0;
-
-    pointer-events: none;
     animation: none !important;
     transition: none !important;
     transform: none !important;
-  }
 
-  .hero h1,
-  .hero-title,
-  .hero-bot,
-  .hero-desc,
-  .hero-act,
-  .eyebrow {
-    position: relative;
-    z-index: 2;
+    pointer-events: none;
   }
 }
 
@@ -3383,9 +3368,11 @@ footer {
 @media (max-width: 480px) {
   #catImg {
     width: 100vw;
-    right: -42vw;
-    top: 46vh;
-    bottom: auto;
-    opacity: 0.48;
+    right: -48vw;
+    bottom: 30vh;
+
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
