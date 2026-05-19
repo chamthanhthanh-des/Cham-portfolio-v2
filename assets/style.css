@@ -3412,3 +3412,14 @@ footer {
     z-index: 3;
   }
 }
+@media (max-width: 768px) {
+  .hero-desc {
+    max-width: 52vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-desc {
+    max-width: 48vw;
+  }
+}
