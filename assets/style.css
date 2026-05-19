@@ -2161,30 +2161,43 @@ footer {
 
 .q-num {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted2);
 }
 .q-catdate {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 10px;
 }
 .q-cat {
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--ame);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.q-cat::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--muted2);
+  opacity: 0.8;
+  display: inline-block;
 }
 .q-date {
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted2);
 }
 .q-title {
   font-family: var(--fd);
-  font-size: clamp(22px, 3.5vw, 44px);
+  font-size: clamp(32px, 4vw, 56px);
   font-style: italic;
   font-weight: 300;
   line-height: 1.1;
@@ -2195,7 +2208,7 @@ footer {
   color: var(--ame);
 }
 .q-excerpt {
-  font-size: 14px;
+  font-size: 20px;
   color: var(--muted);
   line-height: 1.7;
   max-width: 600px;
@@ -2228,7 +2241,7 @@ footer {
 }
 .q-item:hover .q-circle {
   background: var(--grad);
-  border-color: transparent;
+  border-color: none;
   color: white;
   transform: rotate(45deg);
 }
@@ -3446,4 +3459,53 @@ footer {
   .hero-desc {
     max-width: 60vw;
   }
+}
+
+/* ===== QUIET LIST: read time belongs to left content, button top right ===== */
+
+.q-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 72px;
+  align-items: start;
+  gap: 24px;
+}
+
+.q-num {
+  align-self: start;
+  padding-top: 02px;
+}
+
+.q-main {
+  align-self: start;
+}
+
+.q-right {
+  display: contents;
+}
+
+.q-reading {
+  grid-column: 2;
+  grid-row: auto;
+
+  justify-self: start;
+  align-self: start;
+
+  margin-top: 24px;
+
+  font-family: var(--fm);
+  font-size: 12px;
+  color: var(--muted2);
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.q-circle {
+  grid-column: 3;
+  grid-row: 1;
+
+  justify-self: end;
+  align-self: start;
+
+  width: 56px;
+  height: 56px;
 }
