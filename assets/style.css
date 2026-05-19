@@ -3352,25 +3352,28 @@ footer {
 /* Mobile */
 @media (max-width: 768px) {
   .hero {
-    position: relative;
-    overflow: hidden;
+    position: relative !important;
+    overflow: hidden !important;
   }
 
   #catImg {
-    width: 95vw;
-    right: -42vw;
-    top: 50%;
-    bottom: auto;
+    position: absolute !important;
 
-    position: absolute;
-    z-index: 1;
+    width: 95vw !important;
+    max-width: none !important;
+
+    right: -42vw !important;
+    top: 50% !important;
+    bottom: auto !important;
 
     transform: translateY(-50%) !important;
 
+    z-index: 1 !important;
+    opacity: 1 !important;
+
+    pointer-events: none !important;
     animation: none !important;
     transition: none !important;
-
-    pointer-events: none;
   }
 
   .hero .eyebrow,
@@ -3379,25 +3382,19 @@ footer {
   .hero .hero-bot,
   .hero .hero-desc,
   .hero .hero-act {
-    position: relative;
-    z-index: 3;
+    position: relative !important;
+    z-index: 3 !important;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
   #catImg {
-    width: 100vw;
-    right: -48vw;
-    top: 50%;
-    bottom: auto;
-
-    position: absolute;
-    z-index: 1;
+    width: 100vw !important;
+    right: -48vw !important;
+    top: 50% !important;
+    bottom: auto !important;
 
     transform: translateY(-50%) !important;
-
-    animation: none !important;
-    transition: none !important;
   }
 }
