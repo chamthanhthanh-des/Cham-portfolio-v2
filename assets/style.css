@@ -3354,22 +3354,23 @@ footer {
   .hero {
     position: relative;
     overflow: hidden;
-    isolation: isolate;
   }
 
   #catImg {
     width: 95vw;
     right: -42vw;
-    bottom: 28vh;
+    top: 50%;
+    bottom: auto;
 
     position: absolute;
     z-index: 1;
-    opacity: 1;
 
-    pointer-events: none;
+    transform: translateY(-50%) !important;
+
     animation: none !important;
     transition: none !important;
-    transform: none !important;
+
+    pointer-events: none;
   }
 
   .hero .eyebrow,
@@ -3385,34 +3386,18 @@ footer {
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .hero {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-
   #catImg {
     width: 100vw;
     right: -48vw;
-    bottom: 22vh;
+    top: 50%;
+    bottom: auto;
 
     position: absolute;
     z-index: 1;
-    opacity: 1;
 
-    pointer-events: none;
+    transform: translateY(-50%) !important;
+
     animation: none !important;
     transition: none !important;
-    transform: none !important;
-  }
-
-  .hero .eyebrow,
-  .hero h1,
-  .hero .hero-title,
-  .hero .hero-bot,
-  .hero .hero-desc,
-  .hero .hero-act {
-    position: relative;
-    z-index: 3;
   }
 }
