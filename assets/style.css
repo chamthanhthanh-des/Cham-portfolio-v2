@@ -3339,10 +3339,40 @@ footer {
   color: var(--ame);
   transform: translateY(-2px);
 }
+/* ===== CAT RESPONSIVE FIX ===== */
+
 #catImg {
   width: 650px;
   position: absolute;
   right: -150px;
   bottom: 100px;
   pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #catImg {
+    width: 95vw;
+    right: -42vw;
+    bottom: 28vh;
+
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+
+    pointer-events: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #catImg {
+    width: 100vw;
+    right: -48vw;
+    bottom: 30vh;
+
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }
