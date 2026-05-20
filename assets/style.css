@@ -770,7 +770,7 @@ footer {
   width: 8px;
   height: 8px;
   opacity: 0.9;
-  box-shadow: 0 0 20px rgba(134, 163, 110, 0.42);
+  box-shadow: 0 0 12px rgba(134, 163, 110, 0.2);
 }
 
 @keyframes cursorGradientSpin {
@@ -781,26 +781,27 @@ footer {
 
 @keyframes cursorRingColor {
   0% {
-    border-color: rgba(106, 79, 122, 0.65);
+    border-color: rgba(106, 79, 122, 0.2);
   }
+
   100% {
-    border-color: rgba(134, 163, 110, 0.65);
+    border-color: rgba(134, 163, 110, 0.2);
   }
 }
 
 @keyframes cursorRingGlow {
   0% {
     box-shadow:
-      0 0 28px 10px rgba(106, 79, 122, 0.2),
-      0 0 70px 22px rgba(106, 79, 122, 0.1);
+      0 0 12px 4px rgba(106, 79, 122, 0.16),
+      0 0 28px 8px rgba(106, 79, 122, 0.06);
   }
+
   100% {
     box-shadow:
-      0 0 28px 10px rgba(134, 163, 110, 0.22),
-      0 0 70px 22px rgba(134, 163, 110, 0.1);
+      0 0 12px 4px rgba(134, 163, 110, 0.16),
+      0 0 28px 8px rgba(134, 163, 110, 0.06);
   }
 }
-
 .hero-c {
   position: relative;
   z-index: 1;
