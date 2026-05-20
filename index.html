@@ -1615,23 +1615,48 @@
 
       go("home");
       const cat = document.getElementById("catImg");
+
       if (cat) {
-        cat.style.transition = "transform 1s cubic-bezier(0.16, 1, 0.3, 1)";
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let isAvoiding = false;
+
         document.addEventListener("mousemove", (e) => {
           const rect = cat.getBoundingClientRect();
           const cx = rect.left + rect.width / 2;
           const cy = rect.top + rect.height / 2;
+
           const dx = e.clientX - cx;
           const dy = e.clientY - cy;
           const dist = Math.sqrt(dx * dx + dy * dy);
           const maxDist = 300;
+
           if (dist < maxDist) {
             const force = (maxDist - dist) / maxDist;
-            cat.style.transform = `translate(${-dx * force * 0.6}px, ${-dy * force * 0.6}px)`;
+            targetX = -dx * force * 0.45;
+            targetY = -dy * force * 0.45;
+            isAvoiding = true;
           } else {
-            cat.style.transform = "translate(0, 0)";
+            targetX = 0;
+            targetY = 0;
+            isAvoiding = false;
           }
         });
+
+        function animateCat() {
+          currentX += (targetX - currentX) * 0.08;
+          currentY += (targetY - currentY) * 0.08;
+
+          const floatY = isAvoiding ? 0 : Math.sin(Date.now() / 900) * 8;
+
+          cat.style.transform = `translate(${currentX}px, ${currentY + floatY}px)`;
+
+          requestAnimationFrame(animateCat);
+        }
+
+        animateCat();
       }
       const loader = document.getElementById("loader");
       if (loader) {

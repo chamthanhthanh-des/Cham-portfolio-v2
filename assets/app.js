@@ -99,7 +99,9 @@ function initHeroMouse() {
   })();
 
   document
-    .querySelectorAll("a, button, .fw-item, .wgi, .ncta, .nlink")
+    .querySelectorAll(
+      "a, button, .fw-item, .wgi, .ncta, .nlink, .q-item, .q-circle, .qd-cover-img, .qd-back",
+    )
     .forEach((el) => {
       el.addEventListener("mouseenter", () => {
         cursor.classList.add("is-hover");
