@@ -17,7 +17,7 @@ const DW = [
     tags: ["Product Design", "Branding Design", "Product Improvement"],
     description:
       "SelfChain is a Layer 1 blockchain focused on decentralized identity for Web3. I led the full product design and branding effort — from defining the visual identity to designing the core dApp experience.\n\nThe challenge was making complex Web3 concepts accessible to mainstream audiences while maintaining a cutting-edge aesthetic resonant with the crypto-native community.",
-    cover: "/images/selfchain-cover.jpg",
+    cover: "/assets/images/works/selfchain/selfchain-cover.jpg",
     color: "#EDE9F7",
     featured: true,
     order: 1,
@@ -48,9 +48,9 @@ const DW = [
       },
     ],
     gallery: [
-      "/images/selfchain-01.jpg",
-      "/images/selfchain-02.png",
-      "/images/selfchain-03.png",
+      "/assets/images/works/selfchain/selfchain-01.jpeg",
+      "/assets/images/works/selfchain/selfchain-02.png",
+      "/assets/images/works/selfchain/selfchain-03.png",
     ],
     link: "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
   },
@@ -63,7 +63,7 @@ const DW = [
     tags: ["Product Design", "Design System"],
     description:
       "A comprehensive design system for the SelfChain product suite — covering components, tokens, documentation, and governance processes.\n\nDeep collaboration with engineering ensured seamless handoff and implementation consistency across all product surfaces.",
-    cover: "",
+    cover: "/assets/images/works/selfchain/selfchain-design-system.jpg",
     color: "#EBF0E9",
     featured: true,
     order: 2,
@@ -133,18 +133,21 @@ const DQ = [
     date: "May 2026",
     category: "Life",
     reading: "6 min read",
-    cover: "/images/Blog-01.avif", // ← THÊM DÒNG NÀY
+    cover: "assets/images/blog/Blog-01.avif",
     excerpt:
       "Có những nỗi đau càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.",
-    lead: "Sau lần phẫu thuật nối gân chân phải, tôi bị một chuyện khá phiền ((ᴗ_ ᴗ。)thực ra là rất phiền đấy nhá): thường xuyên bị chuột rút cả hai chân vào khoảng 5h sáng.",
+    lead: "Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.",
+    content: `<p>Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.</p>
 
-    content: `<p>Nó không phải kiểu đau bất ngờ hoàn toàn. Thường thì trước khi cơn chuột rút thật sự xảy ra, tôi cảm nhận được nó đang đến. Một bên cơ bắt đầu căng lên, chân có cảm giác sai sai. Và trong đầu tôi biết rất rõ: "Rồi, sắp tới rồi đó -_- ."
+<p>Nó không phải kiểu đau bất ngờ hoàn toàn. Thường thì trước khi cơn chuột rút thật sự xảy ra, tôi cảm nhận được nó đang đến. Một bên cơ bắt đầu căng lên. Chân có cảm giác sai sai. Và trong đầu tôi biết rất rõ:</p>
 
-</p>
+<p>"Rồi, sắp tới rồi đó -_- ."</p>
 
-<p>Cái cảm giác đó rất khó chịu. Không chỉ vì đau, mà vì mình biết nó sắp đến. Nó giống như có một cơn đau đang đứng ngay trước cửa, mình nhìn thấy nó rồi, nhưng vẫn chưa muốn mở cửa cho nó vào.</p>
+<p>Cái cảm giác đó rất khó chịu.</p>
 
-<h2>Khi cơn đau đang đến</h2>
+<p>Không chỉ vì đau. Mà vì mình biết nó sắp đến.</p>
+
+<p>Nó giống như có một cơn đau đang đứng ngay trước cửa, mình nhìn thấy nó rồi, nhưng vẫn chưa muốn mở cửa cho nó vào.</p>
 
 <p>Lúc đó tôi thường có hai lựa chọn.</p>
 
@@ -152,17 +155,21 @@ const DQ = [
 
 <p>Hai là vì sợ đau nên tôi cố delay. Cố làm cái gì đó để nó đừng xảy ra ngay lúc này.</p>
 
-<p>Và gần như lần nào tôi làm vậy, kết quả cũng tệ hơn. Nó không biến mất. Nó chỉ chờ. Rồi khi nó đến thật, nó đau hơn, lâu hơn, kinh khủng gấp mấy lần và thường còn để lại cảm giác đau cơ sau đó.</p>
+<p>Và gần như lần nào tôi làm vậy, kết quả cũng tệ hơn.</p>
+
+<p>Nó không biến mất. Nó chỉ chờ.</p>
+
+<p>Rồi khi nó đến thật, nó đau hơn. Lâu hơn. Kinh khủng gấp mấy lần và thường là còn để lại cảm giác đau cơ sau đó.</p>
 
 <blockquote>Kiểu như đáng lẽ chỉ cần chịu một cơn đau ngắn, thì vì tôi cố né, cuối cùng tôi phải chịu một phiên bản promax của chính nó.</blockquote>
 
-<h2>Những thứ mình cố né</h2>
-
 <p>Tôi thấy chuyện này giống nhiều thứ trong cuộc sống.</p>
 
-<p>Có những chuyện mình biết là nó sẽ xảy ra. Biết là một mối quan hệ đang đi đến đoạn cuối. Biết là một sự thật nào đó sớm muộn cũng phải nhìn thẳng. Biết là mình đang buồn, đang tổn thương, đang thất vọng, nhưng vẫn delay, vẫn lờ đi :))) nghe quen chứ.</p>
+<p>Có những chuyện mình biết là nó sẽ xảy ra. Biết là một mối quan hệ đang đi đến đoạn cuối. Biết là một sự thật nào đó sớm muộn cũng phải nhìn thẳng. Biết là mình đang buồn, đang tổn thương, đang thất vọng, nhưng vẫn delay vẫn lờ đi :))) nghe quen chứ.</p>
 
-<p>Vì mình sợ cảm giác phải đối mặt với nó. Sợ cái khoảnh khắc phải thừa nhận: "Ừ, chuyện này thật sự đang xảy ra."</p>
+<p>Vì mình sợ cảm giác phải đối mặt với nó.</p>
+
+<p>Sợ cái khoảnh khắc phải thừa nhận: "Ừ, chuyện này thật sự đang xảy ra."</p>
 
 <p>Nên mình delay. Mình bận rộn hơn. Mình lướt điện thoại nhiều hơn. Mình cố nói là "chắc không sao đâu". Mình tự đánh lừa mình thêm vài ngày, vài tuần, thậm chí vài năm.</p>
 
@@ -180,8 +187,6 @@ const DQ = [
 
 <blockquote>Giống như lúc bị chuột rút. Nếu cơn đau đã đến, thì việc gồng lên chống lại nó nhiều khi chỉ làm mọi thứ tệ hơn. Cách tốt nhất đôi khi lại là thả lỏng, để nó đi qua, dù trong lúc đó mình thật sự rất muốn chửi thề.</blockquote>
 
-<h2>Để nó đi qua</h2>
-
 <p>Tôi nghĩ có những nỗi đau cũng vậy.</p>
 
 <p>Càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.</p>
@@ -192,14 +197,13 @@ const DQ = [
 
 <p>Dạo này tôi đang học cách chọn phương án đầu tiên. Không phải vì tôi can đảm hơn. Mà vì tôi đã thử né rồi. Và thật sự là nó đau hơn nhiều.</p>`,
   },
-
   {
     id: "cuoc-doi-dau-ai-can-phai-xuat-chung",
     title: "Cuộc đời đâu ai cần phải xuất chúng",
     date: "Mar 2026",
     category: "Life",
     reading: "3 min read",
-    cover: "/images/Blog-02.avif", // ← THÊM DÒNG NÀY
+    cover: "/assets/images/blog/Blog-02.avif",
     excerpt:
       "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
     lead: "Không phải ai cũng sinh ra để đứng trên sân khấu. Phần lớn chúng ta chỉ đang sống và cố sống cho tử tế.",
@@ -243,7 +247,7 @@ const DQ = [
     date: "Jan 2026",
     category: "Life",
     reading: "5 min read",
-    cover: "/images/Blog-03.avif", // ← THÊM DÒNG NÀY
+    cover: "/assets/images/blog/Blog-03.avif",
     excerpt:
       "Với mình, nuôi mèo là một hành trình cần rất nhiều tình thương, lòng bao dung, và rất rất nhiều trách nhiệm.",
     lead: "Sáng nay mình đọc được bài của một bạn phát hiện mèo bị giảm bạch cầu nhưng không đủ tài chính để chữa, nên đã nghĩ tới việc an tử.",
