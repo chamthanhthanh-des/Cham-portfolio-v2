@@ -3943,3 +3943,21 @@ footer {
   animation: catFloat 5.2s ease-in-out infinite;
   will-change: margin-top;
 }
+
+/* ===== DISABLE CUSTOM CURSOR ON TOUCH / MOBILE ===== */
+
+@media (max-width: 768px), (pointer: coarse) {
+  body,
+  .hero {
+    cursor: auto !important;
+  }
+
+  .hero-cursor,
+  .hero-cursor-ring,
+  .hero-cursor-g {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}

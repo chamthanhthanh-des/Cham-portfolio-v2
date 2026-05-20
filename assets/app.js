@@ -67,6 +67,13 @@ function toast(msg) {
 
 /* ── HERO CUSTOM CURSOR ──────────────────────────── */
 function initHeroMouse() {
+  if (
+    window.matchMedia("(pointer: coarse)").matches ||
+    window.innerWidth <= 768
+  ) {
+    return;
+  }
+
   const cursor = document.getElementById("hCursor");
   const ring = document.getElementById("hCursorRing");
   if (!cursor || !ring) return;
