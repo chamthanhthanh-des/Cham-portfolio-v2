@@ -133,7 +133,7 @@ const DQ = [
     date: "May 2026",
     category: "Life",
     reading: "6 min read",
-    cover: "assets/images/blog/Blog-01.avif",
+    cover: "/assets/images/blog/Blog-01.avif",
     excerpt:
       "Có những nỗi đau càng chống, càng siết. Càng né, càng dai. Càng trì hoãn, càng mệt.",
     lead: "Sau lần phẫu thuật đứt gân chân phải, tôi bị một chuyện khá phiền: thường xuyên chuột rút cả hai chân.",
