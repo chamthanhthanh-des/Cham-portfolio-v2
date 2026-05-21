@@ -4056,8 +4056,8 @@ footer {
   left: 0;
   top: 0;
   z-index: 19;
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   max-width: none;
   pointer-events: none;
   will-change: transform;
