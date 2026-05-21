@@ -1082,7 +1082,7 @@ footer {
   aspect-ratio: 16/9;
   transition: all 0.4s var(--ease);
   pointer-events: auto;
-  border-radius: 8px;
+  border-radius: 4px;
   order: -1;
 }
 .fw-preview-inner {
