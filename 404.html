@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>404 — Page not found</title>
+
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body class="page-404">
+    <main class="notfound">
+      <section class="notfound-copy">
+        <div class="ltag">404 — Page not found</div>
+
+        <h1 class="notfound-title">Lost, but still <em>beautiful.</em></h1>
+
+        <p class="notfound-desc">
+          The page you're looking for doesn’t exist, was moved, or perhaps never
+          meant to be found.
+        </p>
+
+        <a class="btn1" href="/">Back to home</a>
+      </section>
+
+      <img
+        class="notfound-cat flying-cat"
+        src="/assets/images/homepage/Cat-2.svg"
+        alt="Cat illustration"
+      />
+      <img
+        class="float-item flower-1"
+        src="/assets/images/404/flower1.svg"
+        alt=""
+      />
+      <img
+        class="float-item flower-2"
+        src="/assets/images/404/flower2.svg"
+        alt=""
+      />
+      <img
+        class="float-item flower-3"
+        src="/assets/images/404/flower3.svg"
+        alt=""
+      />
+    </main>
+
+    <script>
+      const flyingItems = [
+        {
+          el: document.querySelector(".flying-cat"),
+          x: 80,
+          y: 120,
+          vx: 1.5,
+          vy: 1.2,
+          scale: 1,
+        },
+        {
+          el: document.querySelector(".flower-1"),
+          x: 320,
+          y: 80,
+          vx: 1.3,
+          vy: 1.6,
+          scale: 1,
+        },
+        {
+          el: document.querySelector(".flower-2"),
+          x: 520,
+          y: 180,
+          vx: -1.4,
+          vy: 1.1,
+          scale: 1,
+        },
+        {
+          el: document.querySelector(".flower-3"),
+          x: 760,
+          y: 320,
+          vx: 1.1,
+          vy: -1.5,
+          scale: 1,
+        },
+      ].filter((item) => item.el);
+
+      const mouse = { x: -9999, y: -9999 };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function randomBounce(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function animateItems() {
+        flyingItems.forEach((item) => {
+          const w = item.el.offsetWidth;
+          const h = item.el.offsetHeight;
+          const maxX = window.innerWidth - w;
+          const maxY = window.innerHeight - h;
+
+          const centerX = item.x + w / 2;
+          const centerY = item.y + h / 2;
+
+          const dx = centerX - mouse.x;
+          const dy = centerY - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const avoidRadius = item.el.classList.contains("flying-cat")
+            ? 220
+            : 120;
+
+          if (dist < avoidRadius) {
+            const force = (avoidRadius - dist) / avoidRadius;
+            item.vx += (dx / dist) * force * 0.3;
+            item.vy += (dy / dist) * force * 0.3;
+          }
+
+          item.x += item.vx;
+          item.y += item.vy;
+
+          item.vx *= 0.995;
+          item.vy *= 0.995;
+
+          let hit = false;
+
+          if (item.x <= 0) {
+            item.x = 0;
+            item.vx = randomBounce(1.0, 2.3);
+            hit = true;
+          } else if (item.x >= maxX) {
+            item.x = maxX;
+            item.vx = -randomBounce(1.0, 2.3);
+            hit = true;
+          }
+
+          if (item.y <= 0) {
+            item.y = 0;
+            item.vy = randomBounce(1.0, 2.2);
+            hit = true;
+          } else if (item.y >= maxY) {
+            item.y = maxY;
+            item.vy = -randomBounce(1.0, 2.2);
+            hit = true;
+          }
+
+          const targetScale = hit ? randomBounce(1.06, 1.14) : 1;
+          item.scale += (targetScale - item.scale) * 0.16;
+
+          item.el.style.transform = `translate(${item.x}px, ${item.y}px) scale(${item.scale})`;
+        });
+
+        requestAnimationFrame(animateItems);
+      }
+
+      animateItems();
+    </script>
+  </body>
+</html>
