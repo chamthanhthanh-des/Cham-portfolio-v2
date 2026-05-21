@@ -1701,7 +1701,7 @@ footer {
 }
 .about-label {
   font-family: var(--fm);
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1712,7 +1712,7 @@ footer {
   align-items: center;
   gap: 8px;
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--text);
@@ -1746,7 +1746,7 @@ footer {
 }
 
 .about-lab-desc {
-  max-width: 640px;
+  max-width: 800px;
   font-family: var(--fu);
   font-size: clamp(15px, 1.4vw, 20px);
   line-height: 1.65;
@@ -3502,7 +3502,7 @@ footer {
   width: 650px;
   position: absolute;
   right: -200px;
-  bottom: 100px;
+  bottom: 140px;
   pointer-events: none;
   z-index: 1;
 }
@@ -3511,14 +3511,14 @@ footer {
   #catImg {
     width: 600px;
     right: -150px;
-    bottom: 100px;
+    bottom: 120px;
   }
 }
 
 /* Laptop / tablet ngang: 1024px - 1439px */
 @media (max-width: 1439px) and (min-width: 1024px) {
   #catImg {
-    width: 560px;
+    width: 500px;
     right: -180px;
     bottom: 120px;
   }
@@ -3527,7 +3527,7 @@ footer {
 /* Màn hẹp kiểu 900px - 1023px */
 @media (max-width: 1023px) and (min-width: 769px) {
   #catImg {
-    width: 500px;
+    width: 480px;
     right: -220px;
     bottom: 130px;
   }
