@@ -3,7 +3,7 @@
   --bg: #ffffff;
   --bg2: #f7f6f4;
   --surface: #f0eeeb;
-  --border: #e5e3dd;
+  --border: #ebebea;
   --bordhi: #ccc9c0;
   --text: #111111;
   --muted: #888880;
@@ -157,8 +157,8 @@ select:focus {
 }
 
 label {
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--muted);
   display: block;
@@ -401,23 +401,6 @@ label {
   outline: none;
 }
 
-/* Force nav CTA to outline style */
-#nav .nlinks span.ncta.nav-outline-cta {
-  height: 44px !important;
-  padding: 0 28px !important;
-  border-radius: 999px !important;
-  background: none !important;
-  border: 1px solid rgba(17, 17, 17, 0.28) !important;
-  color: #111 !important;
-  box-shadow: none !important;
-}
-
-#nav .nlinks span.ncta.nav-outline-cta:hover {
-  background: rgba(106, 79, 122, 0.04) !important;
-  border-color: #6a4f7a !important;
-  color: #6a4f7a !important;
-  transform: translateY(-1px);
-}
 
 .nburger {
   display: none;
@@ -563,6 +546,15 @@ label {
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;
+}
+
+/* ── PAGE ENTRANCE ──────────────────────────────── */
+main#main {
+  opacity: 0;
+}
+main#main.ready {
+  opacity: 1;
+  transition: opacity 0.45s ease;
 }
 
 /* ── FOOTER ─────────────────────────────────────── */
@@ -753,7 +745,7 @@ footer {
 .hero-cursor-ring.is-hover {
   width: 78px;
   height: 78px;
-  border: 1px solid rgba(106, 79, 122, 0.45);
+  border: 0.5px solid rgba(106, 79, 122, 0.45);
   background: transparent;
   box-shadow: 0 0 18px rgba(106, 79, 122, 0.18);
   animation:
@@ -781,11 +773,11 @@ footer {
 
 @keyframes cursorRingColor {
   0% {
-    border-color: rgba(106, 79, 122, 0.2);
+    border-color: rgba(106, 79, 122, 0.38);
   }
 
   100% {
-    border-color: rgba(134, 163, 110, 0.2);
+    border-color: rgba(134, 163, 110, 0.38);
   }
 }
 
@@ -950,7 +942,7 @@ footer {
   align-items: center;
   gap: 8px;
   font-family: var(--fm);
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1110,7 +1102,6 @@ footer {
 /* ── HOME — CTA STRIP ───────────────────────────── */
 .cstrip {
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   padding: 80px var(--page-padding-x);
   display: flex;
   align-items: center;
@@ -1400,8 +1391,8 @@ footer {
     gap 0.2s;
 }
 .wd-back:hover {
-  color: var(--ame);
-  gap: 12px;
+  color: var(--text);
+  gap: 14px;
 }
 
 .wd-title {
@@ -1465,7 +1456,7 @@ footer {
 }
 .wd-body-label {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1476,7 +1467,6 @@ footer {
   font-size: 16px;
   line-height: 1.9;
   margin-bottom: 24px;
-  max-width: 680px;
 }
 
 .wd-nav {
@@ -1513,7 +1503,7 @@ footer {
 }
 
 .wd-section {
-  padding: 48px var(--page-padding-x);
+  padding: 64px var(--page-padding-x);
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 80px;
@@ -1522,28 +1512,35 @@ footer {
 }
 .wd-section-label {
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 4px;
+  padding-top: 6px;
 }
 .wd-section-heading {
   font-family: var(--fd);
   font-size: 28px;
   font-style: italic;
   color: var(--text);
-  line-height: 1;
+  line-height: 1.15;
 }
 .wd-section-body {
   font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
 }
+.wd-section-body p {
+  margin-bottom: 24px;
+}
+.wd-section-body p:last-child {
+  margin-bottom: 0;
+}
 .wd-section-right {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
   padding-top: 2px;
 }
 /* ══════════════════════════════════════════════════
@@ -2156,6 +2153,9 @@ footer {
   position: relative;
   overflow: hidden;
 }
+.q-item:last-child {
+  border-bottom: none;
+}
 
 /* ===== QUIET LIST: COVER IMAGE ON HOVER ===== */
 
@@ -2310,8 +2310,8 @@ footer {
     gap 0.2s;
 }
 .qd-back:hover {
-  color: var(--ame);
-  gap: 12px;
+  color: var(--text);
+  gap: 14px;
 }
 
 .qd-meta-row {
@@ -2355,7 +2355,7 @@ footer {
 
 .qd-body {
   padding: 80px var(--page-padding-x);
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -2724,7 +2724,6 @@ footer {
 .a-layout {
   display: flex;
   min-height: 100vh;
-  padding-top: var(--nav-h);
 }
 .a-side {
   width: 240px;
@@ -2733,13 +2732,13 @@ footer {
   border-right: 1px solid var(--border);
   padding: 40px 0;
   position: sticky;
-  top: var(--nav-h);
-  height: calc(100vh - var(--nav-h));
+  top: 0;
+  height: 100vh;
   overflow-y: auto;
 }
 .a-side-ttl {
   font-family: var(--fm);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -2753,7 +2752,7 @@ footer {
   gap: 12px;
   padding: 12px 24px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
   transition: all 0.15s;
   border-left: 2px solid transparent;
@@ -2771,7 +2770,7 @@ footer {
 .a-logout {
   padding: 12px 24px;
   font-family: var(--fm);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--danger);
@@ -2801,7 +2800,7 @@ footer {
 }
 .a-psub {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   margin-bottom: 40px;
 }
 
@@ -2815,19 +2814,19 @@ footer {
 }
 .wtbl th {
   font-family: var(--fm);
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--muted);
   text-align: left;
-  padding: 12px 16px;
+  padding: 13px 16px;
   border-bottom: 1px solid var(--border);
   background: var(--bg2);
 }
 .wtbl td {
-  padding: 14px 16px;
+  padding: 16px 16px;
   border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 15px;
   vertical-align: middle;
 }
 .wtbl tr:last-child td {
@@ -3927,21 +3926,9 @@ footer {
   }
 }
 
-/* Cat default floating motion */
-@keyframes catFloat {
-  0%,
-  100% {
-    margin-top: 0;
-  }
-
-  50% {
-    margin-top: -14px;
-  }
-}
-
+/* Cat animation handled by JS RAF loop in index.html */
 #catImg {
-  animation: catFloat 5.2s ease-in-out infinite;
-  will-change: margin-top;
+  will-change: transform;
 }
 
 /* ===== DISABLE CUSTOM CURSOR ON TOUCH / MOBILE ===== */

@@ -8,7 +8,7 @@ window.addEventListener("scroll", () => {
 /* ── BACK TO TOP ─────────────────────────────────── */
 window.addEventListener("scroll", () => {
   const btt = document.getElementById("btt");
-  if (btt) btt.classList.toggle("show", window.scrollY > 100);
+  if (btt) btt.classList.toggle("show", window.scrollY > 300);
 });
 
 /* ── ACTIVE NAV LINK ─────────────────────────────── */
@@ -52,7 +52,13 @@ function initReveal() {
     .querySelectorAll(".reveal:not(.visible)")
     .forEach((el) => obs.observe(el));
 }
-document.addEventListener("DOMContentLoaded", () => setTimeout(initReveal, 80));
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    const m = document.querySelector("main");
+    if (m) m.classList.add("ready");
+    initReveal();
+  }, 80);
+});
 
 /* ── TOAST ───────────────────────────────────────── */
 function toast(msg) {
@@ -97,13 +103,16 @@ function initHeroMouse() {
     ring.style.display = "none";
   });
 
-  (function animRing() {
+  /* Ring follows cursor with spring easing */
+  let ringRafId;
+  function runRing() {
     rx += (cx - rx) * 0.1;
     ry += (cy - ry) * 0.1;
     ring.style.left = rx + "px";
     ring.style.top = ry + "px";
-    requestAnimationFrame(animRing);
-  })();
+    ringRafId = requestAnimationFrame(runRing);
+  }
+  ringRafId = requestAnimationFrame(runRing);
 
   document
     .querySelectorAll(
@@ -120,6 +129,7 @@ function initHeroMouse() {
       });
     });
 
+  /* Hero gradient trail */
   const section = document.getElementById("heroSection");
   const gradDiv = document.getElementById("heroCursorG");
   if (!section || !gradDiv) return;
@@ -147,7 +157,8 @@ function initHeroMouse() {
     }, TRAIL_LIFE);
   });
 
-  (function paintHeroGlow() {
+  let glowRafId;
+  function runGlow() {
     const now = Date.now();
     trail = trail.filter((p) => now - p.time < TRAIL_LIFE);
     if (glowActive || trail.length) {
@@ -164,11 +175,23 @@ function initHeroMouse() {
       });
       gradDiv.style.background = gradients.join(",");
     }
-    requestAnimationFrame(paintHeroGlow);
-  })();
+    glowRafId = requestAnimationFrame(runGlow);
+  }
+  glowRafId = requestAnimationFrame(runGlow);
+
+  /* Pause RAF loops when tab is hidden to save CPU */
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelAnimationFrame(ringRafId);
+      cancelAnimationFrame(glowRafId);
+    } else {
+      ringRafId = requestAnimationFrame(runRing);
+      glowRafId = requestAnimationFrame(runGlow);
+    }
+  });
 }
 
-/* ── WORK CARD HTML ──────────────────────────────── */
+/* ── FEATURED WORK CARD HTML ─────────────────────── */
 function fwCardHTML(w, i) {
   const cv = w.cover
     ? `<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">`
@@ -177,12 +200,17 @@ function fwCardHTML(w, i) {
     <div class="fw-row">
       <span class="fw-num">${String(i + 1).padStart(2, "0")}</span>
       <div class="fw-main">
-        <div class="fw-cat-row"><span class="fw-catbadge">${w.category}</span><span class="fw-yr">${w.year}</span></div>
+        <div class="fw-cat-row">
+          <span class="fw-catbadge">${w.category}</span>
+          <div class="fw-cat-dot"></div>
+          <span class="fw-yr">${w.year}</span>
+          <div class="fw-cat-dot"></div>
+          ${w.tags
+            .slice(0, 2)
+            .map((t) => `<span class="tag">${t}</span>`)
+            .join("")}
+        </div>
         <div class="fw-title">${w.title}</div>
-        <div class="fw-tags">${w.tags
-          .slice(0, 3)
-          .map((t) => `<span class="tag">${t}</span>`)
-          .join("")}</div>
       </div>
       <div class="fw-arrow-wrap"><div class="fw-circle">↗</div></div>
     </div>
@@ -190,6 +218,7 @@ function fwCardHTML(w, i) {
   </div>`;
 }
 
+/* ── SLUGIFY ─────────────────────────────────────── */
 function slugify(s) {
   return (s || "")
     .toLowerCase()
@@ -217,16 +246,9 @@ document.addEventListener("DOMContentLoaded", initHeroMouse);
   };
   document.head.appendChild(script);
 })();
+
 /* ── LOADER ──────────────────────────────────────── */
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  if (loader) {
-    setTimeout(() => loader.classList.add("hidden"), 800);
-  }
+  if (loader) setTimeout(() => loader.classList.add("hidden"), 800);
 });
-
-/* ── LOADER ──────────────────────────────────────── */
-const loader = document.getElementById("loader");
-if (loader) {
-  setTimeout(() => loader.classList.add("hidden"), 1000);
-}
