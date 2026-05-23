@@ -11,15 +11,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-192.png"
+      type="image/png"
+      sizes="192x192"
+    />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <div id="loader"><div class="loader-inner"></div></div>
-    <div class="hero-cursor" id="hCursor"></div>
-    <div class="hero-cursor-ring" id="hCursorRing"></div>
+    <style>
+      * {
+        cursor: auto !important;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none !important;
+        border-color: var(--text) !important;
+        box-shadow: none !important;
+      }
+    </style>
 
     <main id="main">
       <!-- LOGIN -->
@@ -72,13 +92,21 @@
         <div class="a-layout">
           <aside class="a-side">
             <div class="a-side-ttl">Dashboard</div>
-            <div class="ani active" onclick="swTab('works')" id="tab-works">
+            <div class="ani active" onclick="swTab('hero')" id="tab-hero">
+              🏠 Hero
+            </div>
+            <div class="ani" onclick="swTab('works')" id="tab-works">
               📁 Works
+            </div>
+            <div class="ani" onclick="swTab('about')" id="tab-about">
+              👤 About
             </div>
             <div class="ani" onclick="swTab('quiet')" id="tab-quiet">
               ✍️ Quiet
             </div>
-            <div class="ani" onclick="swTab('hero')" id="tab-hero">🏠 Hero</div>
+            <div class="ani" onclick="swTab('contact')" id="tab-contact">
+              📬 Contact
+            </div>
             <div class="ani" onclick="swTab('career')" id="tab-career">
               💼 Career
             </div>
@@ -86,7 +114,7 @@
             <div class="a-logout" onclick="doLogout()">↩ Logout</div>
           </aside>
           <main class="a-cont">
-            <div id="admin-works" class="a-sec active">
+            <div id="admin-works" class="a-sec">
               <div class="a-ptl">Works</div>
               <p class="a-psub">Manage portfolio projects.</p>
               <button class="badd" onclick="openWM()">+ Add Project</button>
@@ -125,17 +153,334 @@
               <div class="a-ptl">Hero Section</div>
               <p class="a-psub">Edit homepage hero text.</p>
               <div class="a-frm">
+                <!-- TITLE EDITOR -->
                 <div class="fg">
-                  <label>Hero Title (HTML)</label
-                  ><textarea id="aHT" rows="5"></textarea>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <label style="margin: 0">Hero Title</label>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap">
+                      <span
+                        style="
+                          font-family: var(--fm);
+                          font-size: 10px;
+                          letter-spacing: 0.8px;
+                          padding: 3px 10px;
+                          background: var(--bg2);
+                          border: 1px solid var(--border);
+                          border-radius: 20px;
+                          color: var(--muted);
+                        "
+                        >class="b" → đậm</span
+                      >
+                      <span
+                        style="
+                          font-family: var(--fm);
+                          font-size: 10px;
+                          letter-spacing: 0.8px;
+                          padding: 3px 10px;
+                          background: var(--bg2);
+                          border: 1px solid var(--border);
+                          border-radius: 20px;
+                          color: var(--muted);
+                        "
+                        >class="f1" → nhẹ</span
+                      >
+                      <span
+                        style="
+                          font-family: var(--fm);
+                          font-size: 10px;
+                          letter-spacing: 0.8px;
+                          padding: 3px 10px;
+                          background: var(--bg2);
+                          border: 1px solid var(--border);
+                          border-radius: 20px;
+                          color: var(--muted);
+                          font-style: italic;
+                        "
+                        >&lt;em&gt; → nghiêng</span
+                      >
+                      <span
+                        style="
+                          font-family: var(--fm);
+                          font-size: 10px;
+                          letter-spacing: 0.8px;
+                          padding: 3px 10px;
+                          background: var(--bg2);
+                          border: 1px solid var(--border);
+                          border-radius: 20px;
+                          color: var(--muted);
+                        "
+                        >&lt;br&gt; → xuống dòng</span
+                      >
+                    </div>
+                  </div>
+                  <textarea
+                    id="aHT"
+                    style="
+                      resize: vertical;
+                      min-height: 180px;
+                      font-family: monospace;
+                      font-size: 14px;
+                      line-height: 1.8;
+                      overflow-y: auto;
+                      color: var(--text);
+                    "
+                    oninput="updateHeroPreview(this.value)"
+                  ></textarea>
                 </div>
+
+                <!-- PREVIEW -->
                 <div class="fg">
-                  <label>Hero Description</label
-                  ><textarea id="aHD" rows="3"></textarea>
+                  <label>Preview</label>
+                  <div
+                    id="heroPreview"
+                    style="
+                      padding: 32px 36px;
+                      background: var(--bg2);
+                      border: 1px solid var(--border);
+                      border-radius: 10px;
+                      font-family: &quot;Cormorant Garamond&quot;, serif;
+                      font-size: 36px;
+                      line-height: 1.25;
+                      color: var(--text);
+                      min-height: 120px;
+                    "
+                  ></div>
                 </div>
+
+                <!-- DESCRIPTION EDITOR -->
+                <div class="fg">
+                  <label>Hero Description</label>
+                  <textarea
+                    id="aHD"
+                    style="
+                      resize: none;
+                      overflow: hidden;
+                      font-size: 15px;
+                      line-height: 1.8;
+                    "
+                    rows="3"
+                    oninput="autoResize(this)"
+                  ></textarea>
+                </div>
+
+                <!-- RESUME LINK -->
+                <div class="fg">
+                  <label>Resume Link</label>
+                  <input
+                    id="aHR"
+                    placeholder="https://drive.google.com/..."
+                    style="font-size: 14px"
+                  />
+                </div>
+
+                <!-- CAT IMAGE -->
+                <div class="fg">
+                  <label>Cat Image</label>
+                  <div style="display: flex; gap: 10px; align-items: center">
+                    <img
+                      id="aHCatPrev"
+                      src=""
+                      alt=""
+                      style="
+                        height: 64px;
+                        width: 64px;
+                        object-fit: contain;
+                        border-radius: 8px;
+                        border: 1px solid var(--border);
+                        flex-shrink: 0;
+                        display: none;
+                        background: var(--bg2);
+                      "
+                      onerror="this.style.display = 'none'"
+                      onload="this.style.display = 'block'"
+                    />
+                    <input
+                      id="aHCat"
+                      placeholder="/assets/images/homepage/Cat.svg"
+                      style="flex: 1"
+                      oninput="setImgPrev('aHCatPrev', this.value)"
+                    />
+                    <label
+                      style="
+                        font-family: var(--fm);
+                        font-size: 11px;
+                        letter-spacing: 1px;
+                        padding: 6px 14px;
+                        background: var(--text);
+                        color: var(--bg);
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                      "
+                    >
+                      + Upload
+                      <input
+                        type="file"
+                        accept="image/*"
+                        style="display: none"
+                        onchange="
+                          pickImg(this, 'aHCat', 'aHCatPrev', 'homepage')
+                        "
+                      />
+                    </label>
+                  </div>
+                </div>
+
                 <button class="bsave" onclick="saveHero()">Save Changes</button>
               </div>
             </div>
+            <!-- CONTACT EDITOR -->
+            <div id="admin-contact" class="a-sec">
+              <div class="a-ptl">Contact Page</div>
+              <p class="a-psub">Edit contact info, socials, and page text.</p>
+              <div class="a-frm">
+                <!-- PAGE TEXT -->
+                <div class="fg">
+                  <label>Page Title</label>
+                  <input id="ctTi" placeholder="Let's talk" />
+                </div>
+                <div class="fg">
+                  <label>Page Description</label>
+                  <textarea
+                    id="ctDesc"
+                    rows="3"
+                    style="
+                      resize: none;
+                      overflow: hidden;
+                      font-size: 15px;
+                      line-height: 1.8;
+                    "
+                    oninput="autoResize(this)"
+                  ></textarea>
+                </div>
+                <div class="fg">
+                  <label>"Say hi" section — description</label>
+                  <textarea
+                    id="ctSayHi"
+                    rows="2"
+                    style="
+                      resize: none;
+                      overflow: hidden;
+                      font-size: 15px;
+                      line-height: 1.8;
+                    "
+                    oninput="autoResize(this)"
+                  ></textarea>
+                </div>
+
+                <!-- CONTACT INFO -->
+                <div
+                  style="border-top: 1px solid var(--border); padding-top: 20px"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      margin-bottom: 14px;
+                    "
+                  >
+                    <label
+                      style="font-size: 13px; letter-spacing: 1.5px; margin: 0"
+                      >CONTACT INFO</label
+                    >
+                    <button
+                      onclick="addCtContact()"
+                      style="
+                        font-family: var(--fm);
+                        font-size: 11px;
+                        letter-spacing: 1px;
+                        padding: 6px 14px;
+                        background: var(--text);
+                        color: var(--bg);
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                      "
+                    >
+                      + Add Contact
+                    </button>
+                  </div>
+                  <div
+                    style="
+                      font-family: var(--fm);
+                      font-size: 11px;
+                      color: var(--muted);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Label · Value (email, phone number, ...)
+                  </div>
+                  <div
+                    id="ctContactList"
+                    style="display: flex; flex-direction: column; gap: 8px"
+                  ></div>
+                </div>
+
+                <!-- SOCIALS -->
+                <div
+                  style="border-top: 1px solid var(--border); padding-top: 20px"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      margin-bottom: 14px;
+                    "
+                  >
+                    <label
+                      style="font-size: 13px; letter-spacing: 1.5px; margin: 0"
+                      >SOCIALS</label
+                    >
+                    <button
+                      onclick="addCtSocial()"
+                      style="
+                        font-family: var(--fm);
+                        font-size: 11px;
+                        letter-spacing: 1px;
+                        padding: 6px 14px;
+                        background: var(--text);
+                        color: var(--bg);
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                      "
+                    >
+                      + Add Social
+                    </button>
+                  </div>
+                  <div
+                    style="
+                      font-family: var(--fm);
+                      font-size: 11px;
+                      color: var(--muted);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Name · URL
+                  </div>
+                  <div
+                    id="ctSocialList"
+                    style="display: flex; flex-direction: column; gap: 8px"
+                  ></div>
+                </div>
+
+                <button class="bsave" onclick="saveContact()">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+
             <div id="admin-career" class="a-sec">
               <div class="a-ptl">Career</div>
               <p class="a-psub">Manage career timeline.</p>
@@ -153,6 +498,225 @@
                 <tbody id="ctb"></tbody>
               </table>
             </div>
+
+            <!-- ABOUT EDITOR -->
+            <div id="admin-about" class="a-sec">
+              <div class="a-ptl">About Page</div>
+              <p class="a-psub">Edit profile photo, bio, and skills.</p>
+              <div
+                id="uploadHintAb"
+                style="
+                  display: none;
+                  margin-bottom: 16px;
+                  padding: 10px 14px;
+                  background: #fffbe6;
+                  border: 1px solid #f0d060;
+                  border-radius: 6px;
+                  font-family: var(--fm);
+                  font-size: 12px;
+                  color: #7a6000;
+                "
+              ></div>
+              <div class="a-frm">
+                <!-- PHOTO -->
+                <div class="fg">
+                  <label>Profile Photo</label>
+                  <div
+                    style="display: flex; gap: 18px; align-items: flex-start"
+                  >
+                    <img
+                      id="abPhotoPrev"
+                      src=""
+                      alt="Profile photo"
+                      style="
+                        width: 90px;
+                        height: 120px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                        border: 1px solid var(--border);
+                        flex-shrink: 0;
+                        display: none;
+                      "
+                      onerror="this.style.display = 'none'"
+                      onload="this.style.display = 'block'"
+                    />
+                    <div
+                      style="
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding-top: 6px;
+                      "
+                    >
+                      <input
+                        id="abPhoto"
+                        placeholder="/assets/images/about/thanh-cham.png"
+                        oninput="setImgPrev('abPhotoPrev', this.value)"
+                      />
+                      <label
+                        style="
+                          font-family: var(--fm);
+                          font-size: 11px;
+                          letter-spacing: 1px;
+                          padding: 6px 14px;
+                          background: var(--text);
+                          color: var(--bg);
+                          border: none;
+                          border-radius: 4px;
+                          cursor: pointer;
+                          white-space: nowrap;
+                          width: fit-content;
+                        "
+                      >
+                        + Upload Photo
+                        <input
+                          type="file"
+                          accept="image/*"
+                          style="display: none"
+                          onchange="pickImgAbout(this)"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- HERO INFO -->
+                <div class="fg"><label>Name</label><input id="abName" /></div>
+                <div class="fg">
+                  <label>Role / Title</label><input id="abRole" />
+                </div>
+                <div class="fg">
+                  <label>Birth / Location</label
+                  ><input id="abBirth" placeholder="1995 · Born in Ha Noi" />
+                </div>
+
+                <!-- BIO -->
+                <div class="fg">
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <label style="margin: 0">Story / Bio</label>
+                    <span
+                      style="
+                        font-family: var(--fm);
+                        font-size: 11px;
+                        color: var(--muted);
+                        letter-spacing: 0.4px;
+                      "
+                      >Enter×2 = đoạn mới</span
+                    >
+                  </div>
+                  <textarea
+                    id="abBio"
+                    style="
+                      resize: vertical;
+                      min-height: 240px;
+                      font-size: 16px;
+                      line-height: 1.9;
+                      overflow-y: auto;
+                      scrollbar-width: thin;
+                      scrollbar-color: var(--border) transparent;
+                    "
+                  ></textarea>
+                </div>
+
+                <!-- QUOTE -->
+                <div class="fg">
+                  <label>Quote</label>
+                  <textarea
+                    id="abQuote"
+                    rows="3"
+                    style="
+                      resize: none;
+                      overflow: hidden;
+                      font-style: italic;
+                      font-size: 16px;
+                      line-height: 1.7;
+                    "
+                    oninput="autoResize(this)"
+                  ></textarea>
+                </div>
+
+                <!-- SKILLS -->
+                <div>
+                  <label
+                    style="
+                      font-size: 13px;
+                      letter-spacing: 1.5px;
+                      display: block;
+                      margin-bottom: 14px;
+                    "
+                    >SKILLS</label
+                  >
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr 1fr;
+                      gap: 16px;
+                    "
+                  >
+                    <div class="fg" style="margin: 0">
+                      <label>I can help</label>
+                      <textarea
+                        id="abSkH"
+                        style="
+                          resize: vertical;
+                          min-height: 160px;
+                          font-size: 15px;
+                          line-height: 1.9;
+                          overflow-y: auto;
+                          scrollbar-width: thin;
+                          scrollbar-color: var(--border) transparent;
+                        "
+                        placeholder="Web design&#10;Branding design&#10;..."
+                      ></textarea>
+                    </div>
+                    <div class="fg" style="margin: 0">
+                      <label>Tools</label>
+                      <textarea
+                        id="abSkT"
+                        style="
+                          resize: vertical;
+                          min-height: 160px;
+                          font-size: 15px;
+                          line-height: 1.9;
+                          overflow-y: auto;
+                          scrollbar-width: thin;
+                          scrollbar-color: var(--border) transparent;
+                        "
+                        placeholder="Figma&#10;Adobe Photoshop&#10;..."
+                      ></textarea>
+                    </div>
+                    <div class="fg" style="margin: 0">
+                      <label>Skills</label>
+                      <textarea
+                        id="abSkS"
+                        style="
+                          resize: vertical;
+                          min-height: 160px;
+                          font-size: 15px;
+                          line-height: 1.9;
+                          overflow-y: auto;
+                          scrollbar-width: thin;
+                          scrollbar-color: var(--border) transparent;
+                        "
+                        placeholder="UI Visual design&#10;UX Research&#10;..."
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="bsave" onclick="saveAbout()">
+                  Save Changes
+                </button>
+              </div>
+            </div>
           </main>
         </div>
       </div>
@@ -165,19 +729,45 @@
           <div class="mttl" id="wMT">Add Project</div>
           <span class="mcls" onclick="closeWM()">✕</span>
         </div>
+        <div
+          id="uploadHint"
+          style="
+            display: none;
+            margin: 0 48px;
+            padding: 10px 14px;
+            background: #fffbe6;
+            border: 1px solid #f0d060;
+            border-radius: 6px;
+            font-family: var(--fm);
+            font-size: 12px;
+            color: #7a6000;
+          "
+        ></div>
         <div class="mform">
           <input type="hidden" id="wId" />
           <div class="fg"><label>Title</label><input id="wTi" /></div>
           <div class="mrow">
             <div class="fg">
-              <label>Year</label><input id="wYr" placeholder="2024" />
+              <label>Client</label><input id="wCli" placeholder="Client name" />
             </div>
             <div class="fg">
-              <label>Category</label
-              ><select id="wCat">
+              <label>Year</label><input id="wYr" placeholder="2024" />
+            </div>
+          </div>
+          <div class="mrow">
+            <div class="fg">
+              <label>Category</label>
+              <select id="wCat">
                 <option value="product">Product Design</option>
                 <option value="branding">Branding</option>
                 <option value="web">Web Design</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Featured</label>
+              <select id="wFe">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
               </select>
             </div>
           </div>
@@ -185,36 +775,119 @@
             <label>Tags (comma separated)</label><input id="wTg" />
           </div>
           <div class="fg">
-            <label>Description</label><textarea id="wDe" rows="4"></textarea>
+            <label>Description (use blank line to separate paragraphs)</label>
+            <textarea id="wDe" rows="5"></textarea>
+          </div>
+          <div class="mrow">
+            <div class="fg">
+              <label>Cover Image URL</label>
+              <div style="display: flex; gap: 10px; align-items: center">
+                <img
+                  id="wCoPrev"
+                  src=""
+                  alt=""
+                  style="
+                    height: 52px;
+                    width: 80px;
+                    object-fit: cover;
+                    border-radius: 6px;
+                    border: 1px solid var(--border);
+                    flex-shrink: 0;
+                    display: none;
+                  "
+                  onerror="this.style.display = 'none'"
+                  onload="this.style.display = 'block'"
+                />
+                <input
+                  id="wCo"
+                  placeholder="/assets/images/..."
+                  style="flex: 1"
+                  oninput="setImgPrev('wCoPrev', this.value)"
+                />
+                <label
+                  style="
+                    font-family: var(--fm);
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    padding: 6px 14px;
+                    background: var(--text);
+                    color: var(--bg);
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    flex-shrink: 0;
+                  "
+                >
+                  + Upload
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style="display: none"
+                    onchange="pickImg(this, 'wCo', 'wCoPrev', 'works')"
+                  />
+                </label>
+              </div>
+            </div>
+            <div class="fg">
+              <label>BG Color</label>
+              <input
+                id="wCl"
+                type="color"
+                value="#eeecea"
+                style="
+                  width: 60px;
+                  height: 36px;
+                  padding: 2px;
+                  border-radius: 6px;
+                "
+              />
+            </div>
           </div>
           <div class="fg">
-            <label>Cover Image URL</label
-            ><input id="wCo" placeholder="https://..." />
+            <label>Design Preview Link</label
+            ><input id="wLk" placeholder="https://figma.com/..." />
           </div>
-          <div class="fg">
-            <label>BG Color</label
-            ><input
-              id="wCl"
-              type="color"
-              value="#eeecea"
+
+          <!-- SECTIONS -->
+          <div style="margin-top: 8px">
+            <div
               style="
-                width: 60px;
-                height: 36px;
-                padding: 2px;
-                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
               "
-            />
+            >
+              <label style="margin: 0; font-size: 13px; letter-spacing: 1.5px"
+                >SECTIONS</label
+              >
+              <button
+                onclick="addWSection()"
+                style="
+                  font-family: var(--fm);
+                  font-size: 11px;
+                  letter-spacing: 1px;
+                  padding: 6px 14px;
+                  background: var(--text);
+                  color: var(--bg);
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                "
+              >
+                + Add Section
+              </button>
+            </div>
+            <div
+              id="wSections"
+              style="display: flex; flex-direction: column; gap: 10px"
+            ></div>
           </div>
-          <div class="fg">
-            <label>Featured on Homepage</label
-            ><select id="wFe">
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
+
           <div class="mact">
-            <button class="bcanc" onclick="closeWM()">Cancel</button
-            ><button class="bsave" onclick="saveWork()">Save</button>
+            <button class="bcanc" onclick="closeWM()">Cancel</button>
+            <button class="bsave" onclick="saveWork()">Save</button>
           </div>
         </div>
       </div>
@@ -227,6 +900,20 @@
           <div class="mttl" id="qMT">Add Post</div>
           <span class="mcls" onclick="closeQM()">✕</span>
         </div>
+        <div
+          id="uploadHintQ"
+          style="
+            display: none;
+            margin: 0 48px;
+            padding: 10px 14px;
+            background: #fffbe6;
+            border: 1px solid #f0d060;
+            border-radius: 6px;
+            font-family: var(--fm);
+            font-size: 12px;
+            color: #7a6000;
+          "
+        ></div>
         <div class="mform">
           <input type="hidden" id="qId" />
           <div class="fg"><label>Title</label><input id="qTi" /></div>
@@ -246,25 +933,113 @@
             </div>
           </div>
           <div class="fg">
-            <label>Reading Time (e.g. 5 min)</label
-            ><input id="qRt" placeholder="4 min read" />
+            <label>Reading Time (e.g. 5 min)</label>
+            <input id="qRt" placeholder="4 min read" />
           </div>
           <div class="fg">
-            <label>Excerpt (short preview)</label
-            ><textarea id="qEx" rows="3"></textarea>
+            <label>Cover Image URL</label>
+            <div style="display: flex; gap: 10px; align-items: center">
+              <img
+                id="qCoPrev"
+                src=""
+                alt=""
+                style="
+                  height: 52px;
+                  width: 80px;
+                  object-fit: cover;
+                  border-radius: 6px;
+                  border: 1px solid var(--border);
+                  flex-shrink: 0;
+                  display: none;
+                "
+                onerror="this.style.display = 'none'"
+                onload="this.style.display = 'block'"
+              />
+              <input
+                id="qCo"
+                placeholder="/assets/images/quiet/..."
+                style="flex: 1"
+                oninput="setImgPrev('qCoPrev', this.value)"
+              />
+              <label
+                style="
+                  font-family: var(--fm);
+                  font-size: 11px;
+                  letter-spacing: 1px;
+                  padding: 6px 14px;
+                  background: var(--text);
+                  color: var(--bg);
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  white-space: nowrap;
+                  flex-shrink: 0;
+                "
+              >
+                + Upload
+                <input
+                  type="file"
+                  accept="image/*"
+                  style="display: none"
+                  onchange="pickImg(this, 'qCo', 'qCoPrev', 'quiet')"
+                />
+              </label>
+            </div>
           </div>
           <div class="fg">
-            <label>Lead paragraph (italic intro)</label
-            ><textarea id="qLe" rows="3"></textarea>
-          </div>
-          <div class="fg">
-            <label>Full Content (HTML supported)</label
-            ><textarea
-              id="qBo"
-              rows="8"
-              placeholder="&lt;p&gt;Your content...&lt;/p&gt;"
+            <label>Excerpt (short preview)</label>
+            <textarea
+              id="qEx"
+              rows="3"
+              style="resize: none; overflow: hidden"
+              oninput="autoResize(this)"
             ></textarea>
           </div>
+          <div class="fg">
+            <label>Lead paragraph (italic intro)</label>
+            <textarea
+              id="qLe"
+              rows="3"
+              style="resize: none; overflow: hidden; font-style: italic"
+              oninput="autoResize(this)"
+            ></textarea>
+          </div>
+          <!-- CONTENT BLOCKS -->
+          <div style="margin-top: 4px">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 12px;
+              "
+            >
+              <label style="margin: 0; font-size: 13px; letter-spacing: 1.5px"
+                >CONTENT</label
+              >
+              <button
+                onclick="addQBlock()"
+                style="
+                  font-family: var(--fm);
+                  font-size: 12px;
+                  letter-spacing: 1px;
+                  padding: 8px 18px;
+                  background: var(--text);
+                  color: var(--bg);
+                  border: none;
+                  border-radius: 6px;
+                  cursor: pointer;
+                "
+              >
+                + Thêm đoạn
+              </button>
+            </div>
+            <div
+              id="qBlocks"
+              style="display: flex; flex-direction: column; gap: 12px"
+            ></div>
+          </div>
+
           <div class="mact">
             <button class="bcanc" onclick="closeQM()">Cancel</button
             ><button class="bsave" onclick="savePost()">Save Post</button>
@@ -315,8 +1090,7 @@
         document.getElementById("aLogin").style.display = ok ? "none" : "flex";
         document.getElementById("aDash").style.display = ok ? "block" : "none";
         if (ok) {
-          renderAW();
-          loadHA();
+          swTab("hero");
         }
       }
       function doLogin() {
@@ -326,8 +1100,7 @@
           sessionStorage.setItem(LA, "1");
           document.getElementById("aLogin").style.display = "none";
           document.getElementById("aDash").style.display = "block";
-          renderAW();
-          loadHA();
+          swTab("hero");
           er.classList.remove("show");
         } else er.classList.add("show");
       }
@@ -345,15 +1118,38 @@
           .forEach((i) => i.classList.remove("active"));
         document.getElementById("admin-" + t).classList.add("active");
         document.getElementById("tab-" + t).classList.add("active");
+        if (t === "works") renderAW();
         if (t === "career") renderAC();
         if (t === "quiet") renderAQ();
         if (t === "hero") loadHA();
+        if (t === "about") loadAboutAdmin();
+        if (t === "contact") loadContactAdmin();
       }
       function loadHA() {
         const t = document.getElementById("aHT"),
           d = document.getElementById("aHD");
-        if (t) t.value = hero.title;
-        if (d) d.value = hero.desc;
+        if (t) {
+          t.value = hero.title;
+          updateHeroPreview(hero.title);
+        }
+        if (d) {
+          d.value = hero.desc;
+          setTimeout(() => autoResize(d), 0);
+        }
+        const r = document.getElementById("aHR");
+        if (r) r.value = hero.resume || "";
+        const c = document.getElementById("aHCat");
+        if (c) {
+          c.value = hero.cat || "";
+          setImgPrev("aHCatPrev", hero.cat || "");
+        }
+      }
+      function updateHeroPreview(html) {
+        const p = document.getElementById("heroPreview");
+        if (p)
+          p.innerHTML =
+            html ||
+            '<span style="color:var(--muted);font-size:14px;font-family:var(--fm);">Preview sẽ hiện ở đây...</span>';
       }
 
       /* ── WORKS ADMIN ── */
@@ -367,6 +1163,195 @@
           )
           .join("");
       }
+      let _editSections = [];
+
+      function renderWSections() {
+        const el = document.getElementById("wSections");
+        if (!el) return;
+        if (_editSections.length === 0) {
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:12px 0;">No sections yet.</div>`;
+          return;
+        }
+        el.innerHTML = _editSections
+          .map(
+            (s, i) => /* html */ `
+          <div style="border:1px solid var(--border);border-radius:6px;padding:14px;background:var(--bg2);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <span id="wshead_${i}" style="font-family:var(--fm);font-size:11px;letter-spacing:1.5px;color:var(--muted);">${String(i + 1).padStart(2, "0")} — ${(s.label || "Section").toUpperCase()}</span>
+              <button onclick="removeWSection(${i})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:14px;padding:0 4px;">✕</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+              <div class="fg" style="margin:0;"><label>Label</label><input value="${s.label || ""}" oninput="_editSections[${i}].label=this.value; const h=document.getElementById('wshead_${i}'); if(h) h.textContent='${String(i + 1).padStart(2, "0")} — '+(this.value||'Section').toUpperCase();" /></div>
+              <div class="fg" style="margin:0;"><label>Heading</label><input value="${s.heading || ""}" oninput="_editSections[${i}].heading=this.value" /></div>
+            </div>
+            <div class="fg" style="margin:0 0 10px;"><label>Body (Enter = xuống đoạn, Enter×2 = đoạn mới)</label><textarea rows="6" style="resize:vertical;overflow-y:auto;max-height:320px;min-height:120px;font-size:15px;line-height:1.75;" oninput="_editSections[${i}].body=this.value;" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();const p=this.selectionStart,v=this.value,nl=v.slice(0,p).endsWith('\n')?'\n':'\n\n';this.value=v.slice(0,p)+nl+v.slice(p);this.selectionStart=this.selectionEnd=p+nl.length;_editSections[${i}].body=this.value;}">${s.body || ""}</textarea></div>
+            <div style="margin-top:2px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                <label style="margin:0;">Images</label>
+                <button onclick="addWImg(${i})" style="font-family:var(--fm);font-size:10px;letter-spacing:1px;padding:4px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;">+ Add Image</button>
+              </div>
+              <div id="wImgs_${i}" style="display:flex;flex-direction:column;gap:6px;">
+                ${(s.images || [])
+                  .map(
+                    (img, j) => `
+                  <div data-imgrow style="display:flex;gap:8px;align-items:center;">
+                    ${imgPrevHtml(img, 64, 44)}
+                    <input type="text" value="${img}" placeholder="/assets/images/..." style="flex:1;"
+                      oninput="_editSections[${i}].images[${j}]=this.value; const p=this.previousElementSibling; if(this.value){p.src=this.value;}else{p.src='';p.style.display='none';}" />
+                    <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+                      + Upload
+                      <input type="file" accept="image/*" style="display:none;" onchange="pickSectionImg(this,${i},${j})" />
+                    </label>
+                    <button onclick="removeWImg(${i},${j})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:16px;flex-shrink:0;line-height:1;">✕</button>
+                  </div>`,
+                  )
+                  .join("")}
+                ${(s.images || []).length === 0 ? `<div style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:4px 0;">No images</div>` : ""}
+              </div>
+            </div>
+          </div>
+        `,
+          )
+          .join("");
+        // auto-resize all body textareas after render
+        el.querySelectorAll("textarea").forEach((t) => autoResize(t));
+      }
+
+      function addWSection() {
+        _editSections.push({ label: "", heading: "", body: "", images: [] });
+        renderWSections();
+      }
+
+      function removeWSection(i) {
+        _editSections.splice(i, 1);
+        renderWSections();
+      }
+
+      function addWImg(si) {
+        if (!_editSections[si].images) _editSections[si].images = [];
+        _editSections[si].images.push("");
+        renderWSections();
+      }
+
+      function removeWImg(si, ji) {
+        _editSections[si].images.splice(ji, 1);
+        renderWSections();
+      }
+
+      function lockBody() {
+        document.body.style.overflow = "hidden";
+      }
+      function unlockBody() {
+        document.body.style.overflow = "";
+      }
+
+      /* ── IMAGE PREVIEW & UPLOAD ── */
+      const _blobs = {};
+
+      function setImgPrev(id, src) {
+        const img = document.getElementById(id);
+        if (!img) return;
+        if (src && src.trim()) {
+          img.src = src.trim();
+        } else {
+          img.src = "";
+          img.style.display = "none";
+        }
+      }
+
+      function imgPrevHtml(src, w, h) {
+        const show = src ? "" : "display:none;";
+        return `<img src="${src || ""}" alt="" style="height:${h || 48}px;width:${w || 72}px;object-fit:cover;border-radius:6px;border:1px solid var(--border);flex-shrink:0;${show}" onerror="this.style.display='none'" onload="this.style.display='block'" />`;
+      }
+
+      const uploadBtnStyle = `display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;`;
+
+      /* Upload cho input có ID cố định (cover image) */
+      function pickImg(fileInput, urlId, prevId, subfolder) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        if (_blobs[urlId]) URL.revokeObjectURL(_blobs[urlId]);
+        const blob = URL.createObjectURL(file);
+        _blobs[urlId] = blob;
+        const prev = document.getElementById(prevId);
+        if (prev) {
+          prev.src = blob;
+          prev.style.display = "block";
+        }
+        const path = `/assets/images/${subfolder || "works"}/${file.name}`;
+        const inp = document.getElementById(urlId);
+        if (inp) {
+          inp.value = path;
+          inp.dispatchEvent(new Event("input"));
+        }
+        showUploadHint(file.name, subfolder || "works");
+      }
+
+      /* Upload cho section images (không có ID cố định) */
+      function pickSectionImg(fileInput, si, ji) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const blob = URL.createObjectURL(file);
+        const path = `/assets/images/works/${file.name}`;
+        _editSections[si].images[ji] = path;
+        const row = fileInput.closest("[data-imgrow]");
+        if (row) {
+          const inp = row.querySelector("input[type=text]");
+          const img = row.querySelector("img");
+          if (inp) inp.value = path;
+          if (img) {
+            img.src = blob;
+            img.style.display = "block";
+          }
+        }
+        showUploadHint(file.name, "works");
+      }
+
+      function showUploadHint(filename, folder) {
+        const hintId = document
+          .getElementById("qModal")
+          ?.classList.contains("open")
+          ? "uploadHintQ"
+          : "uploadHint";
+        const hint = document.getElementById(hintId);
+        if (!hint) return;
+        hint.textContent = `📁 Lưu file vào: assets/images/${folder}/${filename}`;
+        hint.style.display = "block";
+        clearTimeout(hint._t);
+        hint._t = setTimeout(() => (hint.style.display = "none"), 6000);
+      }
+
+      /* ── HTML ↔ PLAIN TEXT for section body ── */
+      function htmlToPlain(html) {
+        return (html || "")
+          .replace(/<\/p>\s*<p>/gi, "\n\n")
+          .replace(/<p>/gi, "")
+          .replace(/<\/p>/gi, "")
+          .replace(/<br\s*\/?>/gi, "\n")
+          .trim();
+      }
+      function plainToHtml(text) {
+        if (!text.trim()) return "";
+        return text
+          .split(/\n\n+/)
+          .map((p) => `<p>${p.replace(/\n/g, "<br>")}</p>`)
+          .join("");
+      }
+      function autoResize(el) {
+        el.style.height = "auto";
+        el.style.height = el.scrollHeight + "px";
+      }
+
+      /* ── UNSAVED CHANGES TRACKING ── */
+      let _dirty = false;
+      function markDirty() {
+        _dirty = true;
+      }
+      function confirmClose() {
+        if (!_dirty) return true;
+        return confirm("Bạn có thay đổi chưa lưu. Thoát không?");
+      }
+
       function openWM(id) {
         const w = id ? works.find((x) => x.id === id) : null;
         document.getElementById("wMT").textContent = w
@@ -374,24 +1359,43 @@
           : "Add Project";
         document.getElementById("wId").value = w?.id || "";
         document.getElementById("wTi").value = w?.title || "";
+        document.getElementById("wCli").value = w?.client || "";
         document.getElementById("wYr").value = w?.year || "";
         document.getElementById("wCat").value = w?.category || "product";
         document.getElementById("wTg").value = w?.tags?.join(", ") || "";
         document.getElementById("wDe").value = w?.description || "";
         document.getElementById("wCo").value = w?.cover || "";
+        setImgPrev("wCoPrev", w?.cover || "");
         document.getElementById("wCl").value = w?.color || "#eeecea";
         document.getElementById("wFe").value = w?.featured ? "true" : "false";
+        document.getElementById("wLk").value = w?.link || "";
+        _editSections = JSON.parse(JSON.stringify(w?.sections || [])).map(
+          (s) => ({
+            ...s,
+            body: htmlToPlain(s.body),
+            images: s.images || (s.image ? [s.image] : []),
+          }),
+        );
+        renderWSections();
+        _dirty = false;
         document.getElementById("wModal").classList.add("open");
+        lockBody();
       }
       function closeWM() {
+        if (!confirmClose()) return;
         document.getElementById("wModal").classList.remove("open");
+        _editSections = [];
+        _dirty = false;
+        unlockBody();
       }
       function saveWork() {
         const id =
           document.getElementById("wId").value ||
           slugify(document.getElementById("wTi").value);
+        const existing = works.find((w) => w.id === id);
         const d = {
           id,
+          client: document.getElementById("wCli").value,
           title: document.getElementById("wTi").value,
           year: document.getElementById("wYr").value,
           category: document.getElementById("wCat").value,
@@ -404,12 +1408,22 @@
           cover: document.getElementById("wCo").value,
           color: document.getElementById("wCl").value,
           featured: document.getElementById("wFe").value === "true",
-          order: works.length + 1,
+          link: document.getElementById("wLk").value,
+          order: existing?.order ?? works.length + 1,
+          sections: _editSections.map((s, i) => ({
+            num: String(i + 1).padStart(2, "0"),
+            label: s.label,
+            heading: s.heading,
+            body: plainToHtml(s.body),
+            images: (s.images || []).filter(Boolean),
+          })),
+          gallery: existing?.gallery || [],
         };
         const i = works.findIndex((w) => w.id === id);
         if (i >= 0) works[i] = d;
         else works.push(d);
         sv(LW, works);
+        _dirty = false;
         closeWM();
         renderAW();
         toast("Project saved ✓");
@@ -420,6 +1434,146 @@
         sv(LW, works);
         renderAW();
         toast("Deleted");
+      }
+
+      /* ── QUIET CONTENT BLOCKS ── */
+      let _editBlocks = [];
+
+      const Q_LABELS = { p: "Nội dung", h3: "Tiêu đề", blockquote: "Quote" };
+      const Q_STYLES = {
+        p: "",
+        h3: "font-family:var(--fd);font-size:17px;font-style:italic;",
+        blockquote:
+          "font-style:italic;border-left:3px solid var(--border);padding-left:12px;color:var(--muted);",
+      };
+      const Q_PLACEHOLDER = {
+        p: "Nội dung đoạn văn...",
+        h3: "Tiêu đề mục...",
+        blockquote: "Trích dẫn...",
+      };
+
+      function parseContentToBlocks(html) {
+        if (!html || !html.trim()) return [];
+        const blocks = [];
+        const regex = /<(p|h3|blockquote)[^>]*>([\s\S]*?)<\/\1>/gi;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          const text = match[2]
+            .replace(/<br\s*\/?>/gi, "\n")
+            .replace(/<[^>]+>/g, "")
+            .trim();
+          if (text) blocks.push({ type: match[1].toLowerCase(), text });
+        }
+        // fallback: no tags found, split plain text by double newline
+        if (blocks.length === 0 && html.trim()) {
+          const plain = html.replace(/<[^>]+>/g, "").trim();
+          plain.split(/\n\n+/).forEach((p) => {
+            if (p.trim()) blocks.push({ type: "p", text: p.trim() });
+          });
+        }
+        return blocks;
+      }
+
+      function blocksToHtml(blocks) {
+        return blocks
+          .filter((b) => b.text.trim())
+          .map((b) => `<${b.type}>${b.text.replace(/\n/g, "<br>")}</${b.type}>`)
+          .join("");
+      }
+
+      function qBlockHtml(b, i, last) {
+        const mbtn = `background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;color:var(--muted);font-size:13px;padding:5px 11px;font-family:var(--fm);line-height:1;`;
+        const pills = Object.entries(Q_LABELS)
+          .map(([v, l]) => {
+            const active = b.type === v;
+            return `<button onclick="changeQBlockType(${i},'${v}')" style="font-family:var(--fm);font-size:12px;letter-spacing:.5px;padding:6px 16px;border-radius:20px;border:1.5px solid ${active ? "var(--text)" : "var(--border)"};background:${active ? "var(--text)" : "transparent"};color:${active ? "var(--bg)" : "var(--muted)"};cursor:pointer;">${l}</button>`;
+          })
+          .join("");
+        const taStyle = `width:100%;box-sizing:border-box;resize:vertical;overflow-y:auto;border:none;background:transparent;padding:20px 20px;font-size:17px;line-height:1.9;color:var(--text);min-height:140px;max-height:320px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;${Q_STYLES[b.type] || ""}`;
+        return `
+          <div id="qblock_${i}" style="border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg2);margin-bottom:2px;">
+            <div style="display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg);">
+              <div style="display:flex;gap:6px;">${pills}</div>
+              <div style="flex:1;"></div>
+              <button onclick="moveQBlock(${i},-1)" style="${mbtn}" ${i === 0 ? "disabled" : ""} title="Lên">↑</button>
+              <button onclick="moveQBlock(${i},1)"  style="${mbtn}" ${i === last ? "disabled" : ""} title="Xuống">↓</button>
+              <button onclick="removeQBlock(${i})"  style="${mbtn}border-color:#f5c6c6;color:#c0392b;" title="Xóa">✕</button>
+            </div>
+            <textarea id="qbta_${i}"
+              style="${taStyle}"
+              placeholder="${Q_PLACEHOLDER[b.type] || ""}"
+              oninput="_editBlocks[${i}].text=this.value;"
+            >${b.text}</textarea>
+          </div>`;
+      }
+
+      function renderQBlocks() {
+        const el = document.getElementById("qBlocks");
+        if (!el) return;
+        if (_editBlocks.length === 0) {
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:12px 0;">Chưa có nội dung. Nhấn "+ Thêm đoạn" để bắt đầu.</div>`;
+          return;
+        }
+        const last = _editBlocks.length - 1;
+        el.innerHTML = _editBlocks
+          .map((b, i) => qBlockHtml(b, i, last))
+          .join("");
+      }
+
+      function changeQBlockType(i, type) {
+        // sync current textarea value before updating
+        const ta = document.getElementById(`qbta_${i}`);
+        if (ta) _editBlocks[i].text = ta.value;
+        _editBlocks[i].type = type;
+        // re-render only this block (no scroll jump, no focus loss)
+        const blockEl = document.getElementById(`qblock_${i}`);
+        const last = _editBlocks.length - 1;
+        if (blockEl) {
+          const focused =
+            document.activeElement === blockEl.querySelector("textarea");
+          const cursorPos = ta ? ta.selectionStart : 0;
+          blockEl.outerHTML = qBlockHtml(_editBlocks[i], i, last);
+          // restore focus & cursor
+          if (focused) {
+            const newTa = document.getElementById(`qbta_${i}`);
+            if (newTa) {
+              newTa.focus();
+              newTa.selectionStart = newTa.selectionEnd = cursorPos;
+              autoResize(newTa);
+            }
+          } else {
+            const newTa = document.getElementById(`qbta_${i}`);
+            if (newTa) autoResize(newTa);
+          }
+        }
+        // also refresh move buttons on neighbours (first/last may have changed)
+        renderQBlocks();
+      }
+
+      function addQBlock() {
+        _editBlocks.push({ type: "p", text: "" });
+        renderQBlocks();
+        const el = document.getElementById("qBlocks");
+        if (el)
+          el.lastElementChild?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
+        // focus the new textarea
+        const textareas = el?.querySelectorAll("textarea");
+        if (textareas?.length) textareas[textareas.length - 1].focus();
+      }
+
+      function removeQBlock(i) {
+        _editBlocks.splice(i, 1);
+        renderQBlocks();
+      }
+
+      function moveQBlock(i, dir) {
+        const j = i + dir;
+        if (j < 0 || j >= _editBlocks.length) return;
+        [_editBlocks[i], _editBlocks[j]] = [_editBlocks[j], _editBlocks[i]];
+        renderQBlocks();
       }
 
       /* ── QUIET ADMIN ── */
@@ -443,13 +1597,26 @@
         document.getElementById("qDt").value = q?.date || "";
         document.getElementById("qCt").value = q?.category || "Design Thoughts";
         document.getElementById("qRt").value = q?.reading || "";
+        document.getElementById("qCo").value = q?.cover || "";
+        setImgPrev("qCoPrev", q?.cover || "");
         document.getElementById("qEx").value = q?.excerpt || "";
         document.getElementById("qLe").value = q?.lead || "";
-        document.getElementById("qBo").value = q?.content || "";
+        _editBlocks = parseContentToBlocks(q?.content || "");
+        renderQBlocks();
+        setTimeout(() => {
+          autoResize(document.getElementById("qEx"));
+          autoResize(document.getElementById("qLe"));
+        }, 0);
+        _dirty = false;
         document.getElementById("qModal").classList.add("open");
+        lockBody();
       }
       function closeQM() {
+        if (!confirmClose()) return;
         document.getElementById("qModal").classList.remove("open");
+        _editBlocks = [];
+        _dirty = false;
+        unlockBody();
       }
       function savePost() {
         const id =
@@ -462,14 +1629,16 @@
           date: document.getElementById("qDt").value,
           category: document.getElementById("qCt").value,
           reading: document.getElementById("qRt").value,
+          cover: document.getElementById("qCo").value,
           excerpt: document.getElementById("qEx").value,
           lead: document.getElementById("qLe").value,
-          content: document.getElementById("qBo").value,
+          content: blocksToHtml(_editBlocks),
         };
         const i = posts.findIndex((q) => q.id === id);
         if (i >= 0) posts[i] = d;
         else posts.unshift(d);
         sv(LQ, posts);
+        _dirty = false;
         closeQM();
         renderAQ();
         toast("Post saved ✓");
@@ -504,10 +1673,15 @@
         document.getElementById("cUr").value = c?.url || "";
         document.getElementById("cPe").value = c?.period || "";
         document.getElementById("cCu").value = c?.current ? "true" : "false";
+        _dirty = false;
         document.getElementById("cModal").classList.add("open");
+        lockBody();
       }
       function closeCM() {
+        if (!confirmClose()) return;
         document.getElementById("cModal").classList.remove("open");
+        _dirty = false;
+        unlockBody();
       }
       function saveCareer() {
         const id = document.getElementById("cId").value || "c" + Date.now();
@@ -523,6 +1697,7 @@
         if (i >= 0) career[i] = d;
         else career.unshift(d);
         sv(LC, career);
+        _dirty = false;
         closeCM();
         renderAC();
         toast("Saved ✓");
@@ -538,15 +1713,188 @@
       function saveHero() {
         hero.title = document.getElementById("aHT").value;
         hero.desc = document.getElementById("aHD").value;
+        hero.resume = document.getElementById("aHR").value;
+        hero.cat = document.getElementById("aHCat").value;
         sv(LH, hero);
         toast("Hero saved ✓");
       }
 
+      /* ── CONTACT ADMIN ── */
+      let _ctContacts = [],
+        _ctSocials = [];
+
+      const _rowStyle = `display:flex;gap:8px;align-items:center;`;
+      const _delBtn = (fn) =>
+        `<button onclick="${fn}" style="background:none;border:1px solid #f5c6c6;border-radius:4px;cursor:pointer;color:#c0392b;font-size:14px;padding:4px 10px;flex-shrink:0;line-height:1;">✕</button>`;
+
+      function renderCtContacts() {
+        const el = document.getElementById("ctContactList");
+        if (!el) return;
+        if (!_ctContacts.length) {
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">Chưa có contact. Nhấn "+ Add Contact".</div>`;
+          return;
+        }
+        el.innerHTML = _ctContacts
+          .map(
+            (c, i) => `
+          <div style="${_rowStyle}">
+            <input value="${c.label || ""}" placeholder="Label (Email, Phone...)"
+              style="width:150px;flex-shrink:0;"
+              oninput="_ctContacts[${i}].label=this.value" />
+            <input value="${c.value || ""}" placeholder="chamthanhthanh@gmail.com"
+              style="flex:1;"
+              oninput="_ctContacts[${i}].value=this.value" />
+            ${_delBtn(`removeCtContact(${i})`)}
+          </div>`,
+          )
+          .join("");
+      }
+
+      function renderCtSocials() {
+        const el = document.getElementById("ctSocialList");
+        if (!el) return;
+        if (!_ctSocials.length) {
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">Chưa có social. Nhấn "+ Add Social".</div>`;
+          return;
+        }
+        el.innerHTML = _ctSocials
+          .map(
+            (s, i) => `
+          <div style="${_rowStyle}">
+            <input value="${s.name || ""}" placeholder="LinkedIn, Instagram..."
+              style="width:150px;flex-shrink:0;"
+              oninput="_ctSocials[${i}].name=this.value" />
+            <input value="${s.url || ""}" placeholder="https://..."
+              style="flex:1;"
+              oninput="_ctSocials[${i}].url=this.value" />
+            ${_delBtn(`removeCtSocial(${i})`)}
+          </div>`,
+          )
+          .join("");
+      }
+
+      function addCtContact() {
+        _ctContacts.push({ label: "", value: "" });
+        renderCtContacts();
+        document
+          .getElementById("ctContactList")
+          ?.querySelectorAll("input")
+          [(_ctContacts.length - 1) * 2]?.focus();
+      }
+      function removeCtContact(i) {
+        _ctContacts.splice(i, 1);
+        renderCtContacts();
+      }
+
+      function addCtSocial() {
+        _ctSocials.push({ name: "", url: "" });
+        renderCtSocials();
+        document
+          .getElementById("ctSocialList")
+          ?.querySelectorAll("input")
+          [(_ctSocials.length - 1) * 2]?.focus();
+      }
+      function removeCtSocial(i) {
+        _ctSocials.splice(i, 1);
+        renderCtSocials();
+      }
+
+      function loadContactAdmin() {
+        document.getElementById("ctTi").value = contact.title || "";
+        document.getElementById("ctDesc").value = contact.desc || "";
+        document.getElementById("ctSayHi").value = contact.sayHiDesc || "";
+        _ctContacts = JSON.parse(JSON.stringify(contact.contacts || []));
+        _ctSocials = JSON.parse(JSON.stringify(contact.socials || []));
+        renderCtContacts();
+        renderCtSocials();
+        setTimeout(() => {
+          autoResize(document.getElementById("ctDesc"));
+          autoResize(document.getElementById("ctSayHi"));
+        }, 0);
+      }
+
+      function saveContact() {
+        contact.title = document.getElementById("ctTi").value;
+        contact.desc = document.getElementById("ctDesc").value;
+        contact.sayHiDesc = document.getElementById("ctSayHi").value;
+        contact.contacts = _ctContacts.filter((c) => c.value.trim());
+        contact.socials = _ctSocials.filter((s) => s.url.trim());
+        sv(LCT, contact);
+        toast("Contact saved ✓");
+      }
+
+      /* ── ABOUT ADMIN ── */
+      function loadAboutAdmin() {
+        document.getElementById("abPhoto").value = about.photo || "";
+        setImgPrev("abPhotoPrev", about.photo || "");
+        document.getElementById("abName").value = about.name || "";
+        document.getElementById("abRole").value = about.role || "";
+        document.getElementById("abBirth").value = about.birth || "";
+        document.getElementById("abBio").value = about.bio || "";
+        document.getElementById("abQuote").value = about.quote || "";
+        document.getElementById("abSkH").value = about.skills?.help || "";
+        document.getElementById("abSkT").value = about.skills?.tools || "";
+        document.getElementById("abSkS").value = about.skills?.skills || "";
+        setTimeout(() => autoResize(document.getElementById("abQuote")), 0);
+      }
+
+      function saveAbout() {
+        about.photo = document.getElementById("abPhoto").value;
+        about.name = document.getElementById("abName").value;
+        about.role = document.getElementById("abRole").value;
+        about.birth = document.getElementById("abBirth").value;
+        about.bio = document.getElementById("abBio").value;
+        about.quote = document.getElementById("abQuote").value;
+        about.skills = {
+          help: document.getElementById("abSkH").value,
+          tools: document.getElementById("abSkT").value,
+          skills: document.getElementById("abSkS").value,
+        };
+        sv(LA_AB, about);
+        toast("About saved ✓");
+      }
+
+      function pickImgAbout(fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        if (_blobs["abPhoto"]) URL.revokeObjectURL(_blobs["abPhoto"]);
+        const blob = URL.createObjectURL(file);
+        _blobs["abPhoto"] = blob;
+        const prev = document.getElementById("abPhotoPrev");
+        if (prev) {
+          prev.src = blob;
+          prev.style.display = "block";
+        }
+        const path = `/assets/images/about/${file.name}`;
+        const inp = document.getElementById("abPhoto");
+        if (inp) inp.value = path;
+        const hint = document.getElementById("uploadHintAb");
+        if (hint) {
+          hint.textContent = `📁 Lưu file vào: assets/images/about/${file.name}`;
+          hint.style.display = "block";
+          clearTimeout(hint._t);
+          hint._t = setTimeout(() => (hint.style.display = "none"), 6000);
+        }
+      }
+
       /* Close modals on bg click */
+      document.getElementById("wModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeWM();
+      });
+      document.getElementById("qModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeQM();
+      });
+      document.getElementById("cModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeCM();
+      });
+
+      /* Mark dirty on any input inside modals */
       ["wModal", "qModal", "cModal"].forEach((id) => {
-        document.getElementById(id).addEventListener("click", (e) => {
-          if (e.target === e.currentTarget)
-            document.getElementById(id).classList.remove("open");
+        document.getElementById(id).addEventListener("input", () => {
+          _dirty = true;
+        });
+        document.getElementById(id).addEventListener("change", () => {
+          _dirty = true;
         });
       });
       initAdmin();

@@ -15,8 +15,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-192.png"
+      type="image/png"
+      sizes="192x192"
+    />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
   </head>
@@ -47,6 +57,7 @@
         <a class="nlink" href="/quiet/">Quiet</a>
         <a class="nlink" href="/contact/">Contact</a>
         <a
+          id="navResume"
           href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view"
           target="_blank"
           rel="noopener noreferrer"
@@ -70,9 +81,9 @@
     <main id="main">
       <section class="subpage-hero" aria-labelledby="contact-title">
         <div class="subpage-hero__inner">
-          <h1 class="subpage-hero__title" id="contact-title">Let's talk</h1>
-          <p class="subpage-hero__description">
-            Whether you have a project in mind or just want to say hi — I'd love
+          <h1 class="subpage-hero__title" id="contact-title">Let’s talk</h1>
+          <p class="subpage-hero__description" id="conDesc">
+            Whether you have a project in mind or just want to say hi — I’d love
             to hear from you.
           </p>
         </div>
@@ -82,7 +93,7 @@
         <div class="con-row">
           <div class="con-row-label">
             <span>Say hi</span>
-            <p>
+            <p id="conSayHi">
               Tell me a little about your project, idea, or the thing you’re
               building.
             </p>
@@ -115,21 +126,21 @@
             <span>Connect</span>
             <p>A few ways to reach me, follow my work, or just say hello.</p>
           </div>
-          <div class="con-info-grid">
+          <div class="con-info-grid" id="conInfoGrid">
             <div>
               <div class="con-info-label">Contact</div>
               <p class="con-info-val">
-                <a href="mailto:chamthanhthanh@gmail.com"
+                <a id="conEmail" href="mailto:chamthanhthanh@gmail.com"
                   >chamthanhthanh@gmail.com</a
                 >
               </p>
               <p class="con-info-val">
-                <a href="tel:+84336009451">+84 336 009 451</a>
+                <a id="conPhone" href="tel:+84336009451">+84 336 009 451</a>
               </p>
             </div>
             <div>
               <div class="con-info-label">Socials</div>
-              <div class="soc-l">
+              <div class="soc-l" id="conSocials">
                 <a
                   href="https://www.linkedin.com/in/chamthanhthanh/"
                   target="_blank"
@@ -153,14 +164,17 @@
       <footer>
         <div class="flogo">Châm Thanh Thanh</div>
         <div class="flinks">
-          <a class="flink" href="tel:+84336009451">+84 336 009 451</a>
+          <a class="flink" id="ftPhone" href="tel:+84336009451"
+            >+84 336 009 451</a
+          >
           <div class="fdot"></div>
-          <a class="flink" href="mailto:chamthanhthanh@gmail.com"
+          <a class="flink" id="ftEmail" href="mailto:chamthanhthanh@gmail.com"
             >chamthanhthanh@gmail.com</a
           >
           <div class="fdot"></div>
           <a
             class="flink"
+            id="ftLinkedIn"
             href="https://www.linkedin.com/in/chamthanhthanh/"
             target="_blank"
             >LinkedIn</a
@@ -178,6 +192,82 @@
         toast("Message sent! I'll reply soon ✓");
         e.target.reset();
       }
+
+      /* ── Resume link ── */
+      if (hero.resume) {
+        const navR = document.getElementById("navResume");
+        if (navR) navR.href = hero.resume;
+      }
+
+      /* ── Contact dynamic content ── */
+      (function renderContact() {
+        const el = (id) => document.getElementById(id);
+
+        // Hero text
+        const title = el("contact-title");
+        if (title && contact.title) title.textContent = contact.title;
+        const desc = el("conDesc");
+        if (desc && contact.desc) desc.textContent = contact.desc;
+        const sayHi = el("conSayHi");
+        if (sayHi && contact.sayHiDesc) sayHi.textContent = contact.sayHiDesc;
+
+        // Helper: detect href type from value
+        function toHref(val) {
+          if (!val) return "#";
+          if (val.includes("@")) return "mailto:" + val;
+          if (/^[\+\d][\d\s\-\(\)]+$/.test(val.trim()))
+            return "tel:" + val.replace(/\s/g, "");
+          return val.startsWith("http") ? val : "https://" + val;
+        }
+
+        // Contact info block
+        const infoGrid = el("conInfoGrid");
+        if (infoGrid && contact.contacts?.length) {
+          infoGrid.innerHTML = `
+            <div>
+              <div class="con-info-label">Contact</div>
+              ${contact.contacts
+                .map(
+                  (c) =>
+                    `<p class="con-info-val"><a href="${toHref(c.value)}">${c.value}</a></p>`,
+                )
+                .join("")}
+            </div>
+            <div>
+              <div class="con-info-label">Socials</div>
+              <div class="soc-l" id="conSocials"></div>
+            </div>`;
+        }
+
+        // Socials
+        const socDiv = el("conSocials");
+        if (socDiv && contact.socials?.length) {
+          socDiv.innerHTML = contact.socials
+            .map(
+              (s) =>
+                `<a href="${s.url}" target="_blank" class="soc-a"><span class="soc-name">${s.name}</span><span class="soc-arr">↗</span></a>`,
+            )
+            .join("");
+        }
+
+        // Footer — first contact becomes phone/email links
+        const ftPh = el("ftPhone"),
+          ftEm = el("ftEmail"),
+          ftLI = el("ftLinkedIn");
+        contact.contacts?.forEach((c) => {
+          if (c.value.includes("@") && ftEm) {
+            ftEm.href = "mailto:" + c.value;
+            ftEm.textContent = c.value;
+          } else if (/^[\+\d]/.test(c.value.trim()) && ftPh) {
+            ftPh.href = "tel:" + c.value.replace(/\s/g, "");
+            ftPh.textContent = c.value;
+          }
+        });
+        const liSoc = contact.socials?.find((s) =>
+          s.name.toLowerCase().includes("linkedin"),
+        );
+        if (liSoc && ftLI) ftLI.href = liSoc.url;
+      })();
     </script>
   </body>
 </html>

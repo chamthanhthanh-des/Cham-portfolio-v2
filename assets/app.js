@@ -230,6 +230,7 @@ document.addEventListener("DOMContentLoaded", initHeroMouse);
 
 /* ── SMOOTH SCROLL (Lenis) ───────────────────────── */
 (function initLenis() {
+  if (window.location.pathname.startsWith("/admin")) return;
   const script = document.createElement("script");
   script.src = "https://unpkg.com/lenis@1.1.20/dist/lenis.min.js";
   script.onload = () => {

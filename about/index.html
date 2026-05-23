@@ -15,8 +15,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/style.css" />
-    <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/assets/images/favicon-192.png"
+      type="image/png"
+      sizes="192x192"
+    />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
   </head>
@@ -47,6 +57,7 @@
         <a class="nlink" href="/quiet/">Quiet</a>
         <a class="nlink" href="/contact/">Contact</a>
         <a
+          id="navResume"
           href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view"
           target="_blank"
           rel="noopener noreferrer"
@@ -181,6 +192,7 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
+      /* ── Career timeline ── */
       const tl = document.getElementById("tlCareer");
       if (tl)
         tl.innerHTML = career
@@ -195,6 +207,62 @@
   </div>`,
           )
           .join("");
+
+      /* ── Resume link ── */
+      if (hero.resume) {
+        const navR = document.getElementById("navResume");
+        if (navR) navR.href = hero.resume;
+      }
+
+      /* ── About page dynamic content (only if admin has saved edits) ── */
+      if (localStorage.getItem(LA_AB)) {
+        // Photo
+        const photoEl = document.querySelector(".about-hero__image-wrap img");
+        if (photoEl && about.photo) photoEl.src = about.photo;
+
+        // Hero info
+        const infoEl = document.querySelector(".about-hero__info");
+        if (infoEl) {
+          infoEl.innerHTML = `<h2>${about.name}</h2><p>${about.role}</p><p>${about.birth}</p>`;
+        }
+
+        // Bio paragraphs + quote
+        const bioEl = document.querySelector(".ab-row-content");
+        if (bioEl) {
+          const paras = (about.bio || "")
+            .split(/\n\n+/)
+            .filter((p) => p.trim());
+          const parasHtml = paras
+            .map(
+              (p, i) =>
+                `<p class="${i === 0 ? "about-intro" : "about-body"}">${p.replace(/\n/g, "<br>")}</p>`,
+            )
+            .join("");
+          const quoteHtml = about.quote
+            ? `<p class="about-quote-inline">${about.quote}</p>`
+            : "";
+          bioEl.innerHTML = parasHtml + quoteHtml;
+        }
+
+        // Skills grid
+        const skillsGrid = document.querySelector(".ab-skills-grid");
+        if (skillsGrid) {
+          const cols = [
+            { label: "I can help", key: "help" },
+            { label: "Tools", key: "tools" },
+            { label: "Skills", key: "skills" },
+          ];
+          skillsGrid.innerHTML = cols
+            .map(
+              (c) => `
+            <div>
+              <div class="ab-skill-label">${c.label}</div>
+              <p class="ab-skill-list">${(about.skills[c.key] || "").split("\n").join("<br />")}</p>
+            </div>`,
+            )
+            .join("");
+        }
+      }
     </script>
   </body>
 </html>

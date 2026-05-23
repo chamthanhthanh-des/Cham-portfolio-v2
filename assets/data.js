@@ -457,6 +457,41 @@ const DC = [
 const DH = {
   title: `<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e"><em>products</em></span> <span class="f1">&</span> <span class="b" style="color:#86a36e"><em>brands.</em></span>`,
   desc: `I design where product clarity meets brand soul — creating digital experiences that feel intuitive, intentional, and emotionally alive.`,
+  resume: `https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view`,
+  cat: `/assets/images/homepage/Cat.svg`,
+};
+
+const LCT = "ctw_ct1";
+const DCT = {
+  title: "Let's talk",
+  desc: "Whether you have a project in mind or just want to say hi — I'd love to hear from you.",
+  sayHiDesc:
+    "Tell me a little about your project, idea, or the thing you're building.",
+  contacts: [
+    { label: "Email", value: "chamthanhthanh@gmail.com" },
+    { label: "Phone", value: "+84 336 009 451" },
+  ],
+  socials: [
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/chamthanhthanh/" },
+    { name: "Facebook", url: "https://www.facebook.com/chamthanhthanh.imc/" },
+  ],
+};
+
+const LA_AB = "ctw_ab1";
+const DA = {
+  photo: "/assets/images/about/thanh-cham.png",
+  name: "Thanh Châm",
+  role: "Senior Product · Branding Designer",
+  birth: "1995 · Born in Ha Noi",
+  bio: "Hi there! I'm a Designer with 5 years in digital product design and 8 years in branding & graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural and meaningful way.\n\nWith a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right.\n\nI love simple ideas, smooth user flows, and building things that actually help people. Let's connect and create something great together!",
+  quote:
+    '"An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way." — Charles Bukowski',
+  skills: {
+    help: "Web design\nBranding design\nProduct design\nArt direction",
+    tools: "Figma\nAdobe Photoshop\nAdobe Illustrator\nNotion\nFramer",
+    skills:
+      "UI Visual design\nUX Research\nDesign system\nWireframing & Prototyping\nInteraction Design",
+  },
 };
 
 /* ── STORAGE UTILS ───────────────────────────────── */
@@ -476,4 +511,6 @@ function sv(k, v) {
 let works = ld(LW, DW),
   posts = ld(LQ, DQ),
   career = ld(LC, DC),
-  hero = ld(LH, DH);
+  hero = ld(LH, DH),
+  about = ld(LA_AB, DA),
+  contact = ld(LCT, DCT);

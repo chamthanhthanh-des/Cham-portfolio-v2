@@ -148,6 +148,12 @@ select {
   width: 100%;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted2);
+  opacity: 0.55;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -2905,7 +2911,8 @@ footer {
   -webkit-backdrop-filter: blur(8px);
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 .mo.open {
   display: flex;
@@ -2915,10 +2922,11 @@ footer {
   border: 1px solid var(--border);
   border-radius: 12px;
   width: 100%;
-  max-width: 600px;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 40px;
+  max-width: 880px;
+  max-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   animation: moIn 0.3s var(--ease);
 }
@@ -2937,7 +2945,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 28px;
+  flex-shrink: 0;
+  padding: 32px 48px 24px;
+  border-bottom: 1px solid var(--border);
 }
 .mttl {
   font-family: var(--fd);
@@ -2957,6 +2967,22 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  overflow-y: auto;
+  flex: 1;
+  padding: 28px 48px 40px;
+  scrollbar-width: thick;
+  scrollbar-color: var(--border) transparent;
+}
+.mform::-webkit-scrollbar {
+  width: 10px;
+}
+.mform::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mform::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+  border: 2px solid white;
 }
 .mrow {
   display: grid;
@@ -3007,7 +3033,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 .toast {
