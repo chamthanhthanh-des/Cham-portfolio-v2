@@ -16,7 +16,7 @@ const DW = [
     category: "product",
     tags: ["Product Design", "Branding Design", "Product Improvement"],
     description:
-      "SelfChain is not simply a rebrand of Frontier, but the foundation of a new Layer 1 blockchain built around decentralized identity, keyless access, and AI-ready infrastructure. As Lead Designer, I shaped the end-to-end design direction — from brand identity and visual systems to product UX and ecosystem communication.",
+      "SelfChain is a Layer 1 blockchain ecosystem designed around keyless Web3 access, intent-centric interactions, and AI-ready infrastructure.\n\nThe project was not simply a rebrand from Frontier, but a strategic transformation from a multi-chain wallet ecosystem into a broader blockchain platform built for users, developers, and future agents.\n\nAs Lead Designer, I shaped the design direction across brand identity, product UX, design system, migration flows, website communication, and ecosystem touchpoints — helping turn a complex Web3 transition into a clearer, more trusted, and more scalable experience.",
     cover: "/assets/images/works/selfchain/selfchain-cover.jpg",
     color: "#EDE9F7",
     featured: true,
@@ -26,8 +26,8 @@ const DW = [
         num: "01",
         label: "Context",
         heading: "Where it started",
-        body: "<p>SelfChain is not simply a rebrand of Frontier, but the foundation of a new Layer 1 blockchain built around decentralized identity, keyless access, and AI-ready infrastructure.</p><p>The project evolved from Frontier's existing ecosystem and user base, expanding beyond a multi-chain wallet into a broader blockchain platform focused on accessibility, scalability, and future digital interactions.</p><p>This transformation required not only a new visual identity, but a complete redesign of how users understand, access, and transition into the SelfChain ecosystem.</p>",
-        image: "/assets/images/works/selfchain/selfchain-cover.jpg",
+        body: "<p>SelfChain is not simply a rebrand of Frontier, but the foundation of a new Modular Intent-Centric Access Layer1 built around decentralized identity, keyless access, and AI-ready infrastructure.</p><p>The project evolved from Frontier's existing ecosystem and user base, expanding beyond a multi-chain wallet into a broader blockchain platform focused on accessibility, scalability, and future digital interactions.</p><p>This transformation required not only a new visual identity, but a complete redesign of how users understand, access, and transition into the SelfChain ecosystem.</p>",
+        image: "",
       },
       {
         num: "02",
@@ -87,17 +87,20 @@ const DW = [
       },
       {
         num: "10",
+        label: "Impact",
+        heading: "Numbers that matter",
+        body: "<p>SelfChain successfully launched its mainnet through a structured three-stage rollout supported by strong validator participation and ecosystem engagement.</p><p>As the first Modular Intent-Centric Access Layer1 focused on keyless Web3 access, the ecosystem continued expanding through validator growth, infrastructure partnerships, and active community participation.</p><p>During incentivized testnet phases, the network attracted over 366 validator applications and maintained 100 active validators across the ecosystem. The infrastructure processed more than 3 million blocks while maintaining approximately 99.7% validator uptime.</p><p>Community participation also expanded significantly, with over 19,000 active staking users and more than 191 million bonded tokens following the progression of mainnet rollout.</p>",
+        image: "/assets/images/works/selfchain/selfchain-cover.jpg",
+      },
+      {
+        num: "11",
         label: "Reflection",
         heading: "What I learned",
         body: "<p>SelfChain became a defining project in shaping how I approach system thinking across branding, UX, and emerging technologies.</p><p>The experience reinforced the importance of designing continuity during moments of transformation — especially when users are transitioning between familiar systems and entirely new ecosystems.</p><p>More than building interfaces, the project was about creating trust, clarity, and emotional accessibility within a rapidly evolving Web3 environment.</p>",
         image: "/assets/images/works/selfchain/selfchain-cover.jpg",
       },
     ],
-    gallery: [
-      "/assets/images/works/selfchain/selfchain-01.jpg",
-      "/assets/images/works/selfchain/selfchain-02.png",
-      "/assets/images/works/selfchain/selfchain-03.png",
-    ],
+    gallery: [],
     link: "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
   },
   {
@@ -452,7 +455,7 @@ const DC = [
 ];
 
 const DH = {
-  title: `<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e">products</span> <span class="f1">&</span> <span class="b" style="color:#86a36e">brands.</span>`,
+  title: `<span class="b">Hi, I'm <em>Châm.</em></span><br><span class="b">Designer</span> <span class="f1">who</span><br><span class="f1">connects</span> <span class="b" style="color:#6a4f7a"><em>people,</em></span><br><span class="b" style="color:#86a36e"><em>products</em></span> <span class="f1">&</span> <span class="b" style="color:#86a36e"><em>brands.</em></span>`,
   desc: `I design where product clarity meets brand soul — creating digital experiences that feel intuitive, intentional, and emotionally alive.`,
 };
 
