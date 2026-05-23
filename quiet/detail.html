@@ -43,6 +43,7 @@
         <a class="nlink" href="/quiet/">Quiet</a>
         <a class="nlink" href="/contact/">Contact</a>
         <a
+          id="navResume"
           href="https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view"
           target="_blank"
           rel="noopener noreferrer"
@@ -89,6 +90,8 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
+      if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
+
       function renderQD(q) {
         const idx = posts.findIndex((x) => x.id === q.id);
         const prev = posts[idx - 1],
@@ -118,7 +121,7 @@ ${
     ? `
     <div style="padding: 0 var(--page-padding-x); margin: 48px 0;">
       <img src="../${q.cover}" alt="${q.title}" 
-           style="width: 100%; display: block; border-radius: 4px; aspect-ratio: 16/9; object-fit: cover;">
+           style="width: 100%; display: block; border-radius: var(--img-radius); aspect-ratio: 16/9; object-fit: cover;">
     </div>
 `
     : ""

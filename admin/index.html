@@ -113,7 +113,17 @@
             <div style="flex: 1"></div>
             <div class="a-logout" onclick="doLogout()">↩ Logout</div>
           </aside>
-          <main class="a-cont">
+          <div class="a-right">
+            <div class="a-topbar">
+              <div class="a-topbar-brand">
+                <img src="/assets/images/favicon.svg" style="width:20px;height:20px;opacity:0.6;" />
+                <span>Admin Panel</span>
+              </div>
+              <button class="a-export-btn" onclick="exportDataJS()" title="Download data.js với toàn bộ data hiện tại">
+                ⬇ Export data.js
+              </button>
+            </div>
+            <main class="a-cont">
             <div id="admin-works" class="a-sec">
               <div class="a-ptl">Works</div>
               <p class="a-psub">Manage portfolio projects.</p>
@@ -718,8 +728,9 @@
               </div>
             </div>
           </main>
-        </div>
-      </div>
+          </div><!-- /.a-right -->
+        </div><!-- /.a-layout -->
+      </div><!-- /#aDash -->
     </main>
 
     <!-- WORK MODAL -->
@@ -1153,15 +1164,60 @@
       }
 
       /* ── WORKS ADMIN ── */
+      let _dragSrcId = null;
+
       function renderAW() {
         const tb = document.getElementById("wtb");
         if (!tb) return;
         tb.innerHTML = works
           .map(
             (w, i) =>
-              `<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i + 1).padStart(2, "0")}</td><td style="max-width:200px">${w.title}</td><td style="font-family:var(--fm);font-size:11px">${w.year}</td><td><span class="tag">${w.category}</span></td><td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "Yes" : "No"}</td><td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td></tr>`,
+              `<tr draggable="true" data-id="${w.id}"
+                ondragstart="onWDragStart(event,'${w.id}')"
+                ondragover="onWDragOver(event)"
+                ondrop="onWDrop(event,'${w.id}')"
+                ondragend="onWDragEnd(event)"
+                style="cursor:grab;transition:opacity 0.15s;"
+              >
+                <td style="font-family:var(--fm);font-size:10px;color:var(--muted2);user-select:none;">
+                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Kéo để sắp xếp">⠿</span>${String(i + 1).padStart(2, "0")}
+                </td>
+                <td style="max-width:200px">${w.title}</td>
+                <td style="font-family:var(--fm);font-size:11px">${w.year}</td>
+                <td><span class="tag">${w.category}</span></td>
+                <td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "Yes" : "No"}</td>
+                <td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td>
+              </tr>`,
           )
           .join("");
+      }
+
+      function onWDragStart(e, id) {
+        _dragSrcId = id;
+        e.currentTarget.style.opacity = "0.4";
+        e.dataTransfer.effectAllowed = "move";
+      }
+      function onWDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        e.currentTarget.style.borderTop = "2px solid var(--ame)";
+      }
+      function onWDrop(e, targetId) {
+        e.preventDefault();
+        e.currentTarget.style.borderTop = "";
+        if (_dragSrcId === targetId) return;
+        const fromIdx = works.findIndex(w => w.id === _dragSrcId);
+        const toIdx   = works.findIndex(w => w.id === targetId);
+        if (fromIdx < 0 || toIdx < 0) return;
+        const [moved] = works.splice(fromIdx, 1);
+        works.splice(toIdx, 0, moved);
+        sv(LW, works);
+        renderAW();
+        toast("Thứ tự đã cập nhật ✓");
+      }
+      function onWDragEnd(e) {
+        e.currentTarget.style.opacity = "";
+        document.querySelectorAll("#wtb tr").forEach(r => r.style.borderTop = "");
       }
       let _editSections = [];
 
@@ -1577,15 +1633,59 @@
       }
 
       /* ── QUIET ADMIN ── */
+      let _dragSrcQId = null;
+
       function renderAQ() {
         const tb = document.getElementById("qtb");
         if (!tb) return;
         tb.innerHTML = posts
           .map(
             (q, i) =>
-              `<tr><td style="font-family:var(--fm);font-size:10px;color:var(--muted2)">${String(i + 1).padStart(2, "0")}</td><td style="max-width:220px">${q.title}</td><td style="font-family:var(--fm);font-size:11px">${q.date}</td><td><span class="tag">${q.category}</span></td><td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td></tr>`,
+              `<tr draggable="true" data-id="${q.id}"
+                ondragstart="onQDragStart(event,'${q.id}')"
+                ondragover="onQDragOver(event)"
+                ondrop="onQDrop(event,'${q.id}')"
+                ondragend="onQDragEnd(event)"
+                style="cursor:grab;transition:opacity 0.15s;"
+              >
+                <td style="font-family:var(--fm);font-size:10px;color:var(--muted2);user-select:none;">
+                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Kéo để sắp xếp">⠿</span>${String(i + 1).padStart(2, "0")}
+                </td>
+                <td style="max-width:220px">${q.title}</td>
+                <td style="font-family:var(--fm);font-size:11px">${q.date}</td>
+                <td><span class="tag">${q.category}</span></td>
+                <td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td>
+              </tr>`,
           )
           .join("");
+      }
+
+      function onQDragStart(e, id) {
+        _dragSrcQId = id;
+        e.currentTarget.style.opacity = "0.4";
+        e.dataTransfer.effectAllowed = "move";
+      }
+      function onQDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        e.currentTarget.style.borderTop = "2px solid var(--ame)";
+      }
+      function onQDrop(e, targetId) {
+        e.preventDefault();
+        e.currentTarget.style.borderTop = "";
+        if (_dragSrcQId === targetId) return;
+        const fromIdx = posts.findIndex(q => q.id === _dragSrcQId);
+        const toIdx   = posts.findIndex(q => q.id === targetId);
+        if (fromIdx < 0 || toIdx < 0) return;
+        const [moved] = posts.splice(fromIdx, 1);
+        posts.splice(toIdx, 0, moved);
+        sv(LQ, posts);
+        renderAQ();
+        toast("Thứ tự đã cập nhật ✓");
+      }
+      function onQDragEnd(e) {
+        e.currentTarget.style.opacity = "";
+        document.querySelectorAll("#qtb tr").forEach(r => r.style.borderTop = "");
       }
       function openQM(id) {
         const q = id ? posts.find((x) => x.id === id) : null;
@@ -1875,6 +1975,64 @@
           clearTimeout(hint._t);
           hint._t = setTimeout(() => (hint.style.display = "none"), 6000);
         }
+      }
+
+      /* ── EXPORT DATA.JS ── */
+      function exportDataJS() {
+        const content = `/* ── KEYS & AUTH ─────────────────────────────────── */
+const PWD = "cham2025",
+  LW = "ctw_w4",
+  LQ = "ctw_q1",
+  LC = "ctw_c4",
+  LH = "ctw_h4",
+  LA = "ctw_a4";
+
+/* ── DEFAULT DATA ────────────────────────────────── */
+const DW = ${JSON.stringify(works, null, 2)};
+
+const DQ = ${JSON.stringify(posts, null, 2)};
+
+const DC = ${JSON.stringify(career, null, 2)};
+
+const DH = ${JSON.stringify(hero, null, 2)};
+
+const LCT = "ctw_ct1";
+const DCT = ${JSON.stringify(contact, null, 2)};
+
+const LA_AB = "ctw_ab1";
+const DA = ${JSON.stringify(about, null, 2)};
+
+/* ── STORAGE UTILS ───────────────────────────────── */
+function ld(k, d) {
+  try {
+    const v = localStorage.getItem(k);
+    return v ? JSON.parse(v) : d;
+  } catch {
+    return d;
+  }
+}
+function sv(k, v) {
+  localStorage.setItem(k, JSON.stringify(v));
+}
+
+/* ── LIVE DATA ───────────────────────────────────── */
+let works = ld(LW, DW),
+  posts = ld(LQ, DQ),
+  career = ld(LC, DC),
+  hero = ld(LH, DH),
+  about = ld(LA_AB, DA),
+  contact = ld(LCT, DCT);
+`;
+        const blob = new Blob([content], { type: "text/javascript" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "data.js";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        toast("data.js exported ✓ — Replace assets/data.js với file vừa tải");
       }
 
       /* Close modals on bg click */
