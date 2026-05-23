@@ -93,25 +93,27 @@
           <aside class="a-side">
             <div class="a-side-ttl">Dashboard</div>
             <div class="ani active" onclick="swTab('hero')" id="tab-hero">
-              🏠 Hero
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Hero
             </div>
             <div class="ani" onclick="swTab('works')" id="tab-works">
-              📁 Works
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Works
             </div>
             <div class="ani" onclick="swTab('about')" id="tab-about">
-              👤 About
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> About
             </div>
             <div class="ani" onclick="swTab('quiet')" id="tab-quiet">
-              ✍️ Quiet
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Quiet
             </div>
             <div class="ani" onclick="swTab('contact')" id="tab-contact">
-              📬 Contact
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contact
             </div>
             <div class="ani" onclick="swTab('career')" id="tab-career">
-              💼 Career
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Career
             </div>
             <div style="flex: 1"></div>
-            <div class="a-logout" onclick="doLogout()">↩ Logout</div>
+            <div class="a-logout" onclick="doLogout()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout
+            </div>
           </aside>
           <div class="a-right">
             <div class="a-topbar">
@@ -119,9 +121,16 @@
                 <img src="/assets/images/favicon.svg" style="width:20px;height:20px;opacity:0.6;" />
                 <span>Admin Panel</span>
               </div>
-              <button class="a-export-btn" onclick="exportDataJS()" title="Download data.js với toàn bộ data hiện tại">
-                ⬇ Export data.js
-              </button>
+              <div style="display:flex;gap:10px;align-items:center;">
+                <button onclick="resetFromDataJS()" title="Xóa localStorage, load lại từ data.js gốc"
+                  style="display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;border:none;box-shadow:inset 0 0 0 1.5px var(--text);background:transparent;color:var(--text);cursor:pointer;transition:opacity 0.2s;"
+                  onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Reset from data.js
+                </button>
+                <button class="a-export-btn" onclick="exportDataJS()" title="Download data.js với toàn bộ data hiện tại">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export data.js
+                </button>
+              </div>
             </div>
             <main class="a-cont">
             <div id="admin-works" class="a-sec">
@@ -789,71 +798,30 @@
             <label>Description (use blank line to separate paragraphs)</label>
             <textarea id="wDe" rows="5"></textarea>
           </div>
-          <div class="mrow">
-            <div class="fg">
-              <label>Cover Image URL</label>
-              <div style="display: flex; gap: 10px; align-items: center">
-                <img
-                  id="wCoPrev"
-                  src=""
-                  alt=""
-                  style="
-                    height: 52px;
-                    width: 80px;
-                    object-fit: cover;
-                    border-radius: 6px;
-                    border: 1px solid var(--border);
-                    flex-shrink: 0;
-                    display: none;
-                  "
-                  onerror="this.style.display = 'none'"
-                  onload="this.style.display = 'block'"
-                />
-                <input
-                  id="wCo"
-                  placeholder="/assets/images/..."
-                  style="flex: 1"
-                  oninput="setImgPrev('wCoPrev', this.value)"
-                />
-                <label
-                  style="
-                    font-family: var(--fm);
-                    font-size: 11px;
-                    letter-spacing: 1px;
-                    padding: 6px 14px;
-                    background: var(--text);
-                    color: var(--bg);
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    white-space: nowrap;
-                    flex-shrink: 0;
-                  "
-                >
-                  + Upload
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style="display: none"
-                    onchange="pickImg(this, 'wCo', 'wCoPrev', 'works')"
-                  />
-                </label>
+          <div class="fg">
+            <label>Cover Image</label>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <input
+                id="wCo"
+                placeholder="/assets/images/..."
+                style="flex:1"
+                oninput="setImgPrev('wCoPrev', this.value)"
+              />
+              <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+                + Upload
+                <input type="file" accept="image/*" style="display:none" onchange="pickImg(this, 'wCo', 'wCoPrev', 'works')" />
+              </label>
+            </div>
+            <div id="wCoPrevWrap" style="display:none;border-radius:6px;overflow:hidden;border:1px solid var(--border);aspect-ratio:16/9;background:var(--bg2);position:relative;">
+              <img id="wCoPrev" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;"
+                onerror="this.style.display='none'; document.getElementById('wCoPrevErr').style.display='flex';"
+                onload="this.style.display='block'; document.getElementById('wCoPrevErr').style.display='none';" />
+              <div id="wCoPrevErr" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:6px;">
+                <span style="font-size:20px;">🖼️</span>
+                <span style="font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted);">Image not found</span>
               </div>
             </div>
-            <div class="fg">
-              <label>BG Color</label>
-              <input
-                id="wCl"
-                type="color"
-                value="#eeecea"
-                style="
-                  width: 60px;
-                  height: 36px;
-                  padding: 2px;
-                  border-radius: 6px;
-                "
-              />
-            </div>
+            <input id="wCl" type="hidden" value="#eeecea" />
           </div>
           <div class="fg">
             <label>Design Preview Link</label
@@ -873,22 +841,28 @@
               <label style="margin: 0; font-size: 13px; letter-spacing: 1.5px"
                 >SECTIONS</label
               >
-              <button
-                onclick="addWSection()"
-                style="
-                  font-family: var(--fm);
-                  font-size: 11px;
-                  letter-spacing: 1px;
-                  padding: 6px 14px;
-                  background: var(--text);
-                  color: var(--bg);
-                  border: none;
-                  border-radius: 4px;
-                  cursor: pointer;
-                "
-              >
-                + Add Section
-              </button>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);" title="Import sections từ PDF (format: 01 — LABEL / Heading / Body)">
+                  📄 Import PDF
+                  <input type="file" accept="application/pdf" onchange="importPDFSections(this)" style="display:none;" />
+                </label>
+                <button
+                  onclick="addWSection()"
+                  style="
+                    font-family: var(--fm);
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    padding: 6px 14px;
+                    background: var(--text);
+                    color: var(--bg);
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                  "
+                >
+                  + Add Section
+                </button>
+              </div>
             </div>
             <div
               id="wSections"
@@ -1219,6 +1193,101 @@
         e.currentTarget.style.opacity = "";
         document.querySelectorAll("#wtb tr").forEach(r => r.style.borderTop = "");
       }
+      /* ── PDF IMPORT ── */
+      function importPDFSections(input) {
+        const file = input.files[0];
+        if (!file) return;
+        input.value = "";
+
+        const loadPDFJS = () => new Promise((resolve) => {
+          if (window.pdfjsLib) return resolve();
+          const s = document.createElement("script");
+          s.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+          s.onload = () => {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+              "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            resolve();
+          };
+          document.head.appendChild(s);
+        });
+
+        loadPDFJS().then(() => {
+          const reader = new FileReader();
+          reader.onload = async (e) => {
+            try {
+              const pdf = await pdfjsLib.getDocument({ data: e.target.result }).promise;
+              let fullText = "";
+              for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                const lines = content.items.map(item => item.str).join("\n");
+                fullText += lines + "\n";
+              }
+              const parsed = parsePDFToSections(fullText);
+              if (!parsed.length) {
+                toast("Không tìm thấy section nào. Kiểm tra format: 01 — LABEL");
+                return;
+              }
+              if (_editSections.length > 0) {
+                if (!confirm(`Tìm thấy ${parsed.length} sections. Thay thế sections hiện tại?`)) return;
+              }
+              _editSections = parsed;
+              renderWSections();
+              toast(`Đã import ${parsed.length} sections từ PDF ✓`);
+            } catch (err) {
+              toast("Lỗi đọc PDF: " + err.message);
+            }
+          };
+          reader.readAsArrayBuffer(file);
+        });
+      }
+
+      function parsePDFToSections(text) {
+        const sections = [];
+        // Match pattern: "01 — CONTEXT" or "01 — CONTEXT\n"
+        const markerRx = /^(\d{2})\s*[—\-–]\s*([A-Z][A-Z\s\/&]+)$/gm;
+        const markers = [];
+        let m;
+        while ((m = markerRx.exec(text)) !== null) {
+          markers.push({ num: m[1], label: m[2].trim(), pos: m.index, end: m.index + m[0].length });
+        }
+        for (let i = 0; i < markers.length; i++) {
+          const start = markers[i].end;
+          const end = i + 1 < markers.length ? markers[i + 1].pos : text.length;
+          const chunk = text.slice(start, end).trim();
+          const lines = chunk.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+          if (!lines.length) continue;
+          const heading = lines[0];
+          const bodyLines = lines.slice(1);
+          // Group lines into paragraphs — merge short continuation lines
+          const paragraphs = [];
+          let current = "";
+          for (const line of bodyLines) {
+            if (line.length < 60 && current && !current.endsWith(".")) {
+              current += " " + line;
+            } else if (current) {
+              paragraphs.push(current.trim());
+              current = line;
+            } else {
+              current = line;
+            }
+          }
+          if (current) paragraphs.push(current.trim());
+
+          const body = paragraphs.filter(p => p).map(p => `<p>${p}</p>`).join("");
+          const labelFormatted = markers[i].label.charAt(0) + markers[i].label.slice(1).toLowerCase();
+
+          sections.push({
+            num: markers[i].num,
+            label: labelFormatted,
+            heading,
+            body,
+            images: [],
+          });
+        }
+        return sections;
+      }
+
       let _editSections = [];
 
       function renderWSections() {
@@ -1228,9 +1297,23 @@
           el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:12px 0;">No sections yet.</div>`;
           return;
         }
-        el.innerHTML = _editSections
-          .map(
-            (s, i) => /* html */ `
+        const insertZone = (idx) => `
+          <div onclick="insertWDivider(${idx})"
+               style="display:flex;align-items:center;gap:8px;padding:2px 0;cursor:pointer;opacity:0.22;transition:opacity 0.15s;"
+               onmouseover="this.style.opacity='0.8'"
+               onmouseout="this.style.opacity='0.22'">
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+            <span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;color:var(--muted);white-space:nowrap;">+ divider</span>
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+          </div>`;
+
+        const sectionBlock = (s, i) => s.type === "divider" ? `
+          <div style="border:1px dashed var(--border);border-radius:6px;padding:8px 14px;background:var(--bg2);display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+            <span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;color:var(--muted);white-space:nowrap;">DIVIDER</span>
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+            <button onclick="removeWSection(${i})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:13px;padding:0 2px;line-height:1;">✕</button>
+          </div>` : `
           <div style="border:1px solid var(--border);border-radius:6px;padding:14px;background:var(--bg2);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
               <span id="wshead_${i}" style="font-family:var(--fm);font-size:11px;letter-spacing:1.5px;color:var(--muted);">${String(i + 1).padStart(2, "0")} — ${(s.label || "Section").toUpperCase()}</span>
@@ -1248,8 +1331,7 @@
               </div>
               <div id="wImgs_${i}" style="display:flex;flex-direction:column;gap:6px;">
                 ${(s.images || [])
-                  .map(
-                    (img, j) => `
+                  .map((img, j) => `
                   <div data-imgrow style="display:flex;gap:8px;align-items:center;">
                     ${imgPrevHtml(img, 64, 44)}
                     <input type="text" value="${img}" placeholder="/assets/images/..." style="flex:1;"
@@ -1259,18 +1341,27 @@
                       <input type="file" accept="image/*" style="display:none;" onchange="pickSectionImg(this,${i},${j})" />
                     </label>
                     <button onclick="removeWImg(${i},${j})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:16px;flex-shrink:0;line-height:1;">✕</button>
-                  </div>`,
-                  )
+                  </div>`)
                   .join("")}
                 ${(s.images || []).length === 0 ? `<div style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:4px 0;">No images</div>` : ""}
               </div>
             </div>
-          </div>
-        `,
-          )
-          .join("");
+          </div>`;
+
+        let html = "";
+        _editSections.forEach((s, i) => {
+          html += insertZone(i);
+          html += sectionBlock(s, i);
+        });
+        html += insertZone(_editSections.length);
+        el.innerHTML = html;
         // auto-resize all body textareas after render
         el.querySelectorAll("textarea").forEach((t) => autoResize(t));
+      }
+
+      function insertWDivider(index) {
+        _editSections.splice(index, 0, { type: "divider" });
+        renderWSections();
       }
 
       function addWSection() {
@@ -1307,11 +1398,14 @@
       function setImgPrev(id, src) {
         const img = document.getElementById(id);
         if (!img) return;
+        const wrap = document.getElementById(id + "Wrap");
         if (src && src.trim()) {
-          img.src = src.trim();
+          // encode spaces/special chars but keep slashes
+          img.src = src.trim().split("/").map(s => encodeURIComponent(s)).join("/");
+          if (wrap) wrap.style.display = "block";
         } else {
           img.src = "";
-          img.style.display = "none";
+          if (wrap) wrap.style.display = "none";
         }
       }
 
@@ -1466,13 +1560,20 @@
           featured: document.getElementById("wFe").value === "true",
           link: document.getElementById("wLk").value,
           order: existing?.order ?? works.length + 1,
-          sections: _editSections.map((s, i) => ({
-            num: String(i + 1).padStart(2, "0"),
-            label: s.label,
-            heading: s.heading,
-            body: plainToHtml(s.body),
-            images: (s.images || []).filter(Boolean),
-          })),
+          sections: (() => {
+            let sectionNum = 0;
+            return _editSections.map((s) => {
+              if (s.type === "divider") return { type: "divider" };
+              sectionNum++;
+              return {
+                num: String(sectionNum).padStart(2, "0"),
+                label: s.label,
+                heading: s.heading,
+                body: plainToHtml(s.body || ""),
+                images: (s.images || []).filter(Boolean),
+              };
+            });
+          })(),
           gallery: existing?.gallery || [],
         };
         const i = works.findIndex((w) => w.id === id);
@@ -1978,6 +2079,12 @@
       }
 
       /* ── EXPORT DATA.JS ── */
+      function resetFromDataJS() {
+        if (!confirm("Reset toàn bộ data về data.js gốc?\nMọi thay đổi chưa export sẽ bị mất.")) return;
+        [LW, LQ, LC, LH, LCT, LA_AB].forEach(k => localStorage.removeItem(k));
+        location.reload();
+      }
+
       function exportDataJS() {
         const content = `/* ── KEYS & AUTH ─────────────────────────────────── */
 const PWD = "cham2025",

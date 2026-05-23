@@ -2846,6 +2846,9 @@ footer {
 
 
 .a-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 12px 24px;
   font-family: var(--fm);
   font-size: 12px;

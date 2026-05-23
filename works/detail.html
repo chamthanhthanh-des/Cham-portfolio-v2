@@ -118,7 +118,9 @@
           .join("");
         const sections = (w.sections || [])
           .map(
-            (s) => `
+            (s) => s.type === "divider"
+              ? `<hr class="divider" style="margin: 0 var(--page-padding-x);">`
+              : `
             <div class="wd-section">
               <div class="wd-section-label">${s.num} — ${s.label}</div>
               <div class="wd-section-right">
