@@ -870,10 +870,10 @@
             ></div>
           </div>
 
-          <div class="mact">
-            <button class="bcanc" onclick="closeWM()">Cancel</button>
-            <button class="bsave" onclick="saveWork()">Save</button>
-          </div>
+        </div>
+        <div class="mact">
+          <button class="bcanc" onclick="closeWM()">Cancel</button>
+          <button class="bsave" onclick="saveWork()">Save</button>
         </div>
       </div>
     </div>
@@ -1025,10 +1025,10 @@
             ></div>
           </div>
 
-          <div class="mact">
-            <button class="bcanc" onclick="closeQM()">Cancel</button
-            ><button class="bsave" onclick="savePost()">Save Post</button>
-          </div>
+        </div>
+        <div class="mact">
+          <button class="bcanc" onclick="closeQM()">Cancel</button>
+          <button class="bsave" onclick="savePost()">Save Post</button>
         </div>
       </div>
     </div>
@@ -1058,10 +1058,10 @@
               <option value="true">Yes</option>
             </select>
           </div>
-          <div class="mact">
-            <button class="bcanc" onclick="closeCM()">Cancel</button
-            ><button class="bsave" onclick="saveCareer()">Save</button>
-          </div>
+        </div>
+        <div class="mact">
+          <button class="bcanc" onclick="closeCM()">Cancel</button>
+          <button class="bsave" onclick="saveCareer()">Save</button>
         </div>
       </div>
     </div>
@@ -1307,8 +1307,20 @@
             <div style="flex:1;height:1px;background:var(--border);"></div>
           </div>`;
 
+        const n = _editSections.length;
+        const orderBtns = (i) => `
+          <div style="display:flex;gap:2px;flex-shrink:0;">
+            <button onclick="moveWSection(${i},-1)" ${i===0?'disabled':''} style="background:none;border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--muted);width:26px;height:26px;display:flex;align-items:center;justify-content:center;opacity:${i===0?'0.3':'1'};transition:border-color 0.15s,color 0.15s;" onmouseover="if(!this.disabled){this.style.borderColor='var(--text)';this.style.color='var(--text)'}" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <button onclick="moveWSection(${i},1)" ${i===n-1?'disabled':''} style="background:none;border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--muted);width:26px;height:26px;display:flex;align-items:center;justify-content:center;opacity:${i===n-1?'0.3':'1'};transition:border-color 0.15s,color 0.15s;" onmouseover="if(!this.disabled){this.style.borderColor='var(--text)';this.style.color='var(--text)'}" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>`;
+
         const sectionBlock = (s, i) => s.type === "divider" ? `
           <div style="border:1px dashed var(--border);border-radius:6px;padding:8px 14px;background:var(--bg2);display:flex;align-items:center;gap:10px;">
+            ${orderBtns(i)}
             <div style="flex:1;height:1px;background:var(--border);"></div>
             <span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;color:var(--muted);white-space:nowrap;">DIVIDER</span>
             <div style="flex:1;height:1px;background:var(--border);"></div>
@@ -1316,7 +1328,10 @@
           </div>` : `
           <div style="border:1px solid var(--border);border-radius:6px;padding:14px;background:var(--bg2);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-              <span id="wshead_${i}" style="font-family:var(--fm);font-size:11px;letter-spacing:1.5px;color:var(--muted);">${String(i + 1).padStart(2, "0")} — ${(s.label || "Section").toUpperCase()}</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                ${orderBtns(i)}
+                <span id="wshead_${i}" style="font-family:var(--fm);font-size:11px;letter-spacing:1.5px;color:var(--muted);">${String(i + 1).padStart(2, "0")} — ${(s.label || "Section").toUpperCase()}</span>
+              </div>
               <button onclick="removeWSection(${i})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:14px;padding:0 4px;">✕</button>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
@@ -1379,6 +1394,13 @@
 
       function addWSection() {
         _editSections.push({ label: "", heading: "", body: "", images: [] });
+        renderWSections();
+      }
+
+      function moveWSection(i, dir) {
+        const j = i + dir;
+        if (j < 0 || j >= _editSections.length) return;
+        [_editSections[i], _editSections[j]] = [_editSections[j], _editSections[i]];
         renderWSections();
       }
 

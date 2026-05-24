@@ -3044,7 +3044,7 @@ footer {
   gap: 18px;
   overflow-y: auto;
   flex: 1;
-  padding: 28px 48px 40px;
+  padding: 28px 48px 24px;
   scrollbar-width: thick;
   scrollbar-color: var(--border) transparent;
 }
@@ -3068,7 +3068,10 @@ footer {
   display: flex;
   gap: 12px;
   justify-content: flex-end;
-  margin-top: 8px;
+  flex-shrink: 0;
+  padding: 16px 48px;
+  border-top: 1px solid var(--border);
+  background: white;
 }
 
 .bsave {
