@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/style.css" />
@@ -117,20 +117,26 @@
           )
           .join("");
         const sections = (w.sections || [])
-          .map(
-            (s) => s.type === "divider"
-              ? `<hr class="divider" style="margin: 0 var(--page-padding-x);">`
-              : `
+          .map((s) => {
+            if (s.type === "divider")
+              return `<hr class="divider" style="margin: 0 var(--page-padding-x);">`;
+            if (s.type === "image") {
+              const srcs = s.images?.length ? s.images : s.src ? [s.src] : [];
+              const imgs = srcs.map((src) => `
+              <div style="padding: 0 var(--page-padding-x); box-sizing: border-box;">
+                <img src="${src}" alt="" style="width:100%;display:block;border-radius:var(--img-radius);background:var(--bg2);">
+              </div>`).join("");
+              return `<div style="display:flex;flex-direction:column;gap:24px;margin-bottom:80px;">${imgs}</div>`;
+            }
+            return `
             <div class="wd-section">
               <div class="wd-section-label">${s.num} — ${s.label}</div>
               <div class="wd-section-right">
                 <div class="wd-section-heading">${s.heading}</div>
                 <div class="wd-section-body">${s.body}</div>
               </div>
-            </div>
-            ${(s.images?.length ? s.images : s.image ? [s.image] : []).map((src) => `<div style="padding: 0 var(--page-padding-x); box-sizing: border-box;"><img src="${src}" alt="${s.label}" style="width:100%;display:block;border-radius:var(--img-radius);background:var(--bg2);"></div>`).join("")}
-`,
-          )
+            </div>`;
+          })
           .join("");
         const gallery = (w.gallery || [])
           .map(

@@ -1547,6 +1547,7 @@ footer {
   font-family: var(--fd);
   font-size: 28px;
   font-style: italic;
+  font-weight: 500;
   color: var(--text);
   line-height: 1.15;
 }
@@ -1560,6 +1561,32 @@ footer {
 }
 .wd-section-body p:last-child {
   margin-bottom: 0;
+}
+.wd-section-body ul {
+  margin: 0 0 24px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wd-section-body ul:last-child {
+  margin-bottom: 0;
+}
+.wd-section-body ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.wd-section-body ul li::before {
+  content: "•";
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.4;
+  flex-shrink: 0;
 }
 .wd-section-right {
   display: flex;

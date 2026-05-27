@@ -1573,13 +1573,29 @@
         document.getElementById("wCl").value = w?.color || "#eeecea";
         document.getElementById("wFe").value = w?.featured ? "true" : "false";
         document.getElementById("wLk").value = w?.link || "";
-        _editSections = JSON.parse(JSON.stringify(w?.sections || [])).map(
-          (s) => ({
-            ...s,
-            body: htmlToPlain(s.body),
-            images: s.images || (s.image ? [s.image] : []),
-          }),
-        );
+        // Merge standalone type:"image" sections back into their content sections
+        const _rawSections = JSON.parse(JSON.stringify(w?.sections || []));
+        const _imgMap = {};
+        _rawSections.forEach((s) => {
+          if (s.type === "image") {
+            const key = s.label || s.num || "";
+            if (!_imgMap[key]) _imgMap[key] = [];
+            const imgs = s.images?.length ? s.images : s.src ? [s.src] : [];
+            _imgMap[key].push(...imgs);
+          }
+        });
+        _editSections = _rawSections
+          .filter((s) => s.type !== "image")
+          .map((s) => {
+            const key = s.label || s.num || "";
+            const extraImgs = _imgMap[key] || [];
+            const baseImgs = s.images || (s.image ? [s.image] : []);
+            return {
+              ...s,
+              body: htmlToPlain(s.body),
+              images: [...baseImgs, ...extraImgs],
+            };
+          });
         renderWSections();
         _dirty = false;
         document.getElementById("wModal").classList.add("open");
@@ -1616,17 +1632,23 @@
           order: existing?.order ?? works.length + 1,
           sections: (() => {
             let sectionNum = 0;
-            return _editSections.map((s) => {
-              if (s.type === "divider") return { type: "divider" };
+            const result = [];
+            _editSections.forEach((s) => {
+              if (s.type === "divider") { result.push({ type: "divider" }); return; }
               sectionNum++;
-              return {
-                num: String(sectionNum).padStart(2, "0"),
+              const num = String(sectionNum).padStart(2, "0");
+              result.push({
+                num,
                 label: s.label,
                 heading: s.heading,
                 body: plainToHtml(s.body || ""),
-                images: (s.images || []).filter(Boolean),
-              };
+              });
+              const imgs = (s.images || []).filter(Boolean);
+              if (imgs.length > 0) {
+                result.push({ type: "image", num, label: s.label, images: imgs });
+              }
             });
+            return result;
           })(),
           gallery: existing?.gallery || [],
         };
