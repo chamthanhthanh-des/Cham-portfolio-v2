@@ -39,6 +39,23 @@
         border-color: var(--text) !important;
         box-shadow: none !important;
       }
+      [contenteditable]:not(#heroEditor) { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable]:not(#heroEditor) * { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable] p { margin: 0 0 10px; }
+      [contenteditable] p:last-child { margin-bottom: 0; }
+      [contenteditable] ul { margin: 6px 0 10px; padding-left: 20px; }
+      [contenteditable] li { margin-bottom: 4px; }
+      /* Hero visual editor — mirrors .hero-title rules from style.css exactly */
+      #heroEditor {
+        font-family: "Cormorant Garamond", Georgia, serif !important;
+        font-weight: 300;
+        line-height: 0.97;
+        letter-spacing: -0.04em;
+      }
+      #heroEditor .b  { color: #111111; }
+      #heroEditor .f1 { color: rgba(17,17,17,0.28); }
+      #heroEditor .f2 { color: rgba(17,17,17,0.13); }
+      #heroEditor em  { font-style: italic; }
     </style>
 
     <main id="main">
@@ -132,7 +149,7 @@
                 </button>
               </div>
             </div>
-            <main class="a-cont">
+            <div class="a-cont">
             <div id="admin-works" class="a-sec">
               <div class="a-ptl">Works</div>
               <p class="a-psub">Manage portfolio projects.</p>
@@ -172,105 +189,51 @@
               <div class="a-ptl">Hero Section</div>
               <p class="a-psub">Edit homepage hero text.</p>
               <div class="a-frm">
-                <!-- TITLE EDITOR -->
+                <!-- TITLE EDITOR — visual (editor = preview) -->
                 <div class="fg">
-                  <div
-                    style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                      margin-bottom: 10px;
-                    "
-                  >
-                    <label style="margin: 0">Hero Title</label>
-                    <div style="display: flex; gap: 6px; flex-wrap: wrap">
-                      <span
-                        style="
-                          font-family: var(--fm);
-                          font-size: 10px;
-                          letter-spacing: 0.8px;
-                          padding: 3px 10px;
-                          background: var(--bg2);
-                          border: 1px solid var(--border);
-                          border-radius: 20px;
-                          color: var(--muted);
-                        "
-                        >class="b" → đậm</span
-                      >
-                      <span
-                        style="
-                          font-family: var(--fm);
-                          font-size: 10px;
-                          letter-spacing: 0.8px;
-                          padding: 3px 10px;
-                          background: var(--bg2);
-                          border: 1px solid var(--border);
-                          border-radius: 20px;
-                          color: var(--muted);
-                        "
-                        >class="f1" → nhẹ</span
-                      >
-                      <span
-                        style="
-                          font-family: var(--fm);
-                          font-size: 10px;
-                          letter-spacing: 0.8px;
-                          padding: 3px 10px;
-                          background: var(--bg2);
-                          border: 1px solid var(--border);
-                          border-radius: 20px;
-                          color: var(--muted);
-                          font-style: italic;
-                        "
-                        >&lt;em&gt; → nghiêng</span
-                      >
-                      <span
-                        style="
-                          font-family: var(--fm);
-                          font-size: 10px;
-                          letter-spacing: 0.8px;
-                          padding: 3px 10px;
-                          background: var(--bg2);
-                          border: 1px solid var(--border);
-                          border-radius: 20px;
-                          color: var(--muted);
-                        "
-                        >&lt;br&gt; → xuống dòng</span
-                      >
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                    <label style="margin:0">Hero Title</label>
+                    <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center;">
+                      <!-- Text thường: xoá định dạng vùng chọn -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('plain')" title="Text thường — xoá định dạng"
+                        style="font-family:var(--fm);font-weight:400;font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">T</button>
+                      <!-- Text nghiêng -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('em')" title="Text nghiêng"
+                        style="font-family:var(--fm);font-style:italic;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>I</em></button>
+                      <!-- Màu đậm: full black text -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('b')" title="Màu đậm — full color"
+                        style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:15px;padding:2px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#111;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
+                      <!-- Màu nhạt: muted/low opacity text -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('f1')" title="Màu nhạt — muted"
+                        style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:15px;padding:2px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:rgba(17,17,17,0.32);line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
+                      <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
+                      <!-- Màu tím -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('purple')" title="Màu tím — italic"
+                        style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:15px;padding:2px 11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#6a4f7a;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#6a4f7a'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>A</em></button>
+                      <!-- Màu xanh -->
+                      <button type="button" onmousedown="event.preventDefault();heroFormat('green')" title="Màu xanh — italic"
+                        style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:15px;padding:2px 11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#86a36e;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#86a36e'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>A</em></button>
                     </div>
                   </div>
-                  <textarea
-                    id="aHT"
-                    style="
-                      resize: vertical;
-                      min-height: 180px;
-                      font-family: monospace;
-                      font-size: 14px;
-                      line-height: 1.8;
-                      overflow-y: auto;
-                      color: var(--text);
-                    "
-                    oninput="updateHeroPreview(this.value)"
-                  ></textarea>
-                </div>
-
-                <!-- PREVIEW -->
-                <div class="fg">
-                  <label>Preview</label>
+                  <!-- Visual editor: bạn nhìn thấy kết quả ngay khi edit -->
                   <div
-                    id="heroPreview"
-                    style="
-                      padding: 32px 36px;
-                      background: var(--bg2);
-                      border: 1px solid var(--border);
-                      border-radius: 10px;
-                      font-family: &quot;Cormorant Garamond&quot;, serif;
-                      font-size: 36px;
-                      line-height: 1.25;
-                      color: var(--text);
-                      min-height: 120px;
-                    "
+                    id="heroEditor"
+                    contenteditable="true"
+                    oninput="syncHeroFromEditor()"
+                    onkeydown="if(event.key==='Enter'){event.preventDefault();document.execCommand('insertHTML',false,'<br>');syncHeroFromEditor();}"
+                    onfocus="this.style.borderColor='var(--text)'"
+                    onblur="this.style.borderColor='var(--border)'"
+                    style="padding:32px 36px;background:#ffffff;border:1px solid var(--border);border-radius:10px;font-size:clamp(32px, 4.5vw, 60px);color:#111111;min-height:130px;outline:none;transition:border-color .15s;word-break:break-word;"
                   ></div>
+                  <div style="margin-top:6px;font-size:11px;color:var(--text);opacity:.4;text-align:right;">Enter → xuống dòng</div>
+                  <!-- Hidden sync target — dùng bởi saveHero() -->
+                  <textarea id="aHT" style="display:none;"></textarea>
                 </div>
 
                 <!-- DESCRIPTION EDITOR -->
@@ -736,7 +699,7 @@
                 </button>
               </div>
             </div>
-          </main>
+          </div><!-- /.a-cont -->
           </div><!-- /.a-right -->
         </div><!-- /.a-layout -->
       </div><!-- /#aDash -->
@@ -1111,30 +1074,16 @@
         if (t === "contact") loadContactAdmin();
       }
       function loadHA() {
-        const t = document.getElementById("aHT"),
-          d = document.getElementById("aHD");
-        if (t) {
-          t.value = hero.title;
-          updateHeroPreview(hero.title);
-        }
-        if (d) {
-          d.value = hero.desc;
-          setTimeout(() => autoResize(d), 0);
-        }
+        const editor = document.getElementById("heroEditor");
+        if (editor) editor.innerHTML = hero.title || "";
+        const t = document.getElementById("aHT");
+        if (t) t.value = hero.title || "";
+        const d = document.getElementById("aHD");
+        if (d) { d.value = hero.desc; setTimeout(() => autoResize(d), 0); }
         const r = document.getElementById("aHR");
         if (r) r.value = hero.resume || "";
         const c = document.getElementById("aHCat");
-        if (c) {
-          c.value = hero.cat || "";
-          setImgPrev("aHCatPrev", hero.cat || "");
-        }
-      }
-      function updateHeroPreview(html) {
-        const p = document.getElementById("heroPreview");
-        if (p)
-          p.innerHTML =
-            html ||
-            '<span style="color:var(--muted);font-size:14px;font-family:var(--fm);">Preview sẽ hiện ở đây...</span>';
+        if (c) { c.value = hero.cat || ""; setImgPrev("aHCatPrev", hero.cat || ""); }
       }
 
       /* ── WORKS ADMIN ── */
@@ -1338,7 +1287,26 @@
               <div class="fg" style="margin:0;"><label>Label</label><input value="${s.label || ""}" oninput="_editSections[${i}].label=this.value; const h=document.getElementById('wshead_${i}'); if(h) h.textContent='${String(i + 1).padStart(2, "0")} — '+(this.value||'Section').toUpperCase();" /></div>
               <div class="fg" style="margin:0;"><label>Heading</label><input value="${s.heading || ""}" oninput="_editSections[${i}].heading=this.value" /></div>
             </div>
-            <div class="fg" style="margin:0 0 10px;"><label>Body (Enter = xuống đoạn, Enter×2 = đoạn mới)</label><textarea rows="6" style="resize:vertical;overflow-y:auto;max-height:320px;min-height:120px;font-size:15px;line-height:1.75;" oninput="_editSections[${i}].body=this.value;" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();const p=this.selectionStart,v=this.value,nl=v.slice(0,p).endsWith('\n')?'\n':'\n\n';this.value=v.slice(0,p)+nl+v.slice(p);this.selectionStart=this.selectionEnd=p+nl.length;_editSections[${i}].body=this.value;}">${s.body || ""}</textarea></div>
+            <div class="fg" style="margin:0 0 10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                <label style="margin:0;">Body</label>
+                <div style="display:flex;gap:4px;flex-shrink:0;">
+                  <button type="button" id="wfmt_bold_${i}" onmousedown="event.preventDefault();formatBodyText(${i},'bold')" title="Bold — click lại để bỏ" style="font-family:var(--fm);font-weight:700;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s,color .15s;" onmouseover="if(!this.dataset.on)this.style.background='var(--bg2)'" onmouseout="if(!this.dataset.on)this.style.background='var(--bg)'">B</button>
+                  <button type="button" id="wfmt_italic_${i}" onmousedown="event.preventDefault();formatBodyText(${i},'italic')" title="Italic — click lại để bỏ" style="font-family:var(--fm);font-style:italic;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s,color .15s;" onmouseover="if(!this.dataset.on)this.style.background='var(--bg2)'" onmouseout="if(!this.dataset.on)this.style.background='var(--bg)'">I</button>
+                  <button type="button" onmousedown="event.preventDefault();formatBodyText(${i},'insertUnorderedList')" title="Bullet list" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">• List</button>
+                </div>
+              </div>
+              <div
+                id="wbody_${i}"
+                contenteditable="true"
+                oninput="_editSections[${i}].body=this.innerHTML;"
+                onfocus="this.style.borderColor='var(--text)'"
+                onblur="this.style.borderColor='var(--border)';updateFormatBtns(${i},true)"
+                onkeyup="updateFormatBtns(${i})"
+                onmouseup="updateFormatBtns(${i})"
+                style="min-height:120px;max-height:600px;overflow-y:auto;resize:vertical;font-family:var(--fu);font-size:15px;line-height:1.75;border:1px solid var(--border);border-radius:6px;padding:10px 14px;background:var(--bg);outline:none;transition:border-color .15s;word-break:break-word;"
+              >${s.body || ""}</div>
+            </div>
             <div style="margin-top:2px;">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
                 <label style="margin:0;">Images</label>
@@ -1383,21 +1351,59 @@
         });
         html += insertZone(_editSections.length);
         el.innerHTML = html;
-        // auto-resize all body textareas after render
-        el.querySelectorAll("textarea").forEach((t) => autoResize(t));
       }
 
       function insertWDivider(index) {
+        syncAllBodies();
         _editSections.splice(index, 0, { type: "divider" });
         renderWSections();
       }
 
       function addWSection() {
+        syncAllBodies();
         _editSections.push({ label: "", heading: "", body: "", images: [] });
         renderWSections();
       }
 
+      function formatBodyText(i, cmd) {
+        const el = document.getElementById('wbody_' + i);
+        if (!el) return;
+        // execCommand handles toggle natively: bold→unbold, italic→unitalic
+        const execCmd = cmd === 'bold' ? 'bold' : cmd === 'italic' ? 'italic' : 'insertUnorderedList';
+        document.execCommand(execCmd, false, null);
+        _editSections[i].body = el.innerHTML;
+        updateFormatBtns(i);
+      }
+
+      function updateFormatBtns(i, reset) {
+        ['bold', 'italic'].forEach(cmd => {
+          const btn = document.getElementById(`wfmt_${cmd}_${i}`);
+          if (!btn) return;
+          const on = reset ? false : document.queryCommandState(cmd);
+          if (on) {
+            btn.dataset.on = '1';
+            btn.style.background = 'var(--text)';
+            btn.style.color = 'var(--bg)';
+            btn.style.borderColor = 'var(--text)';
+          } else {
+            delete btn.dataset.on;
+            btn.style.background = 'var(--bg)';
+            btn.style.color = 'var(--text)';
+            btn.style.borderColor = 'var(--border)';
+          }
+        });
+      }
+
+      function syncAllBodies() {
+        _editSections.forEach((s, i) => {
+          if (s.type === "divider") return;
+          const el = document.getElementById('wbody_' + i);
+          if (el) s.body = el.innerHTML;
+        });
+      }
+
       function moveWSection(i, dir) {
+        syncAllBodies();
         const j = i + dir;
         if (j < 0 || j >= _editSections.length) return;
         [_editSections[i], _editSections[j]] = [_editSections[j], _editSections[i]];
@@ -1405,22 +1411,26 @@
       }
 
       function removeWSection(i) {
+        syncAllBodies();
         _editSections.splice(i, 1);
         renderWSections();
       }
 
       function addWImg(si) {
+        syncAllBodies();
         if (!_editSections[si].images) _editSections[si].images = [];
         _editSections[si].images.push("");
         renderWSections();
       }
 
       function removeWImg(si, ji) {
+        syncAllBodies();
         _editSections[si].images.splice(ji, 1);
         renderWSections();
       }
 
       function moveWImg(fromSec, imgIdx, toSec) {
+        syncAllBodies();
         const img = _editSections[fromSec].images.splice(imgIdx, 1)[0];
         _editSections[toSec].images.push(img);
         renderWSections();
@@ -1548,9 +1558,6 @@
 
       /* ── UNSAVED CHANGES TRACKING ── */
       let _dirty = false;
-      function markDirty() {
-        _dirty = true;
-      }
       function confirmClose() {
         if (!_dirty) return true;
         return confirm("Bạn có thay đổi chưa lưu. Thoát không?");
@@ -1592,7 +1599,7 @@
             const baseImgs = s.images || (s.image ? [s.image] : []);
             return {
               ...s,
-              body: htmlToPlain(s.body),
+              body: s.body || "",
               images: [...baseImgs, ...extraImgs],
             };
           });
@@ -1609,6 +1616,7 @@
         unlockBody();
       }
       function saveWork() {
+        syncAllBodies();
         const id =
           document.getElementById("wId").value ||
           slugify(document.getElementById("wTi").value);
@@ -1641,7 +1649,7 @@
                 num,
                 label: s.label,
                 heading: s.heading,
-                body: plainToHtml(s.body || ""),
+                body: s.body || "",
               });
               const imgs = (s.images || []).filter(Boolean);
               if (imgs.length > 0) {
@@ -1758,29 +1766,14 @@
         const ta = document.getElementById(`qbta_${i}`);
         if (ta) _editBlocks[i].text = ta.value;
         _editBlocks[i].type = type;
-        // re-render only this block (no scroll jump, no focus loss)
-        const blockEl = document.getElementById(`qblock_${i}`);
-        const last = _editBlocks.length - 1;
-        if (blockEl) {
-          const focused =
-            document.activeElement === blockEl.querySelector("textarea");
-          const cursorPos = ta ? ta.selectionStart : 0;
-          blockEl.outerHTML = qBlockHtml(_editBlocks[i], i, last);
-          // restore focus & cursor
-          if (focused) {
-            const newTa = document.getElementById(`qbta_${i}`);
-            if (newTa) {
-              newTa.focus();
-              newTa.selectionStart = newTa.selectionEnd = cursorPos;
-              autoResize(newTa);
-            }
-          } else {
-            const newTa = document.getElementById(`qbta_${i}`);
-            if (newTa) autoResize(newTa);
-          }
-        }
-        // also refresh move buttons on neighbours (first/last may have changed)
+        // full re-render (keeps move buttons on neighbours correct)
         renderQBlocks();
+        // restore focus & cursor on the new textarea
+        const newTa = document.getElementById(`qbta_${i}`);
+        if (newTa) {
+          newTa.focus();
+          autoResize(newTa);
+        }
       }
 
       function addQBlock() {
@@ -1987,7 +1980,81 @@
         toast("Deleted");
       }
 
+      /* ── HERO VISUAL EDITOR ── */
+      function syncHeroFromEditor() {
+        const editor = document.getElementById("heroEditor");
+        const ta = document.getElementById("aHT");
+        if (!editor || !ta) return;
+        // Normalize browser-injected <div>/<p> (from paste/enter) → <br>
+        let html = editor.innerHTML;
+        html = html
+          .replace(/<div><br\s*\/?><\/div>/gi, "<br>")
+          .replace(/<div>([\s\S]*?)<\/div>/gi, "<br>$1")
+          .replace(/<p><br\s*\/?><\/p>/gi, "<br>")
+          .replace(/<p>([\s\S]*?)<\/p>/gi, "<br>$1")
+          .replace(/^<br>/i, "");
+        ta.value = html;
+      }
+
+      function heroFormat(type) {
+        const editor = document.getElementById("heroEditor");
+        if (!editor) return;
+
+        if (type === "br") {
+          document.execCommand("insertHTML", false, "<br>");
+          syncHeroFromEditor();
+          return;
+        }
+
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount || sel.isCollapsed) return;
+        const range = sel.getRangeAt(0);
+
+        // Text thường: strip all formatting — replace selection with plain text
+        if (type === "plain") {
+          const plain = range.toString();
+          range.deleteContents();
+          const textNode = document.createTextNode(plain);
+          range.insertNode(textNode);
+          const newR = document.createRange();
+          newR.setStartAfter(textNode);
+          newR.collapse(true);
+          sel.removeAllRanges();
+          sel.addRange(newR);
+          syncHeroFromEditor();
+          return;
+        }
+
+        let wrapper;
+        if (type === "b")      { wrapper = document.createElement("span"); wrapper.className = "b"; }
+        else if (type === "f1"){ wrapper = document.createElement("span"); wrapper.className = "f1"; }
+        else if (type === "em"){ wrapper = document.createElement("em"); }
+        else if (type === "purple") { wrapper = document.createElement("span"); wrapper.className = "b"; wrapper.style.color = "#6a4f7a"; }
+        else if (type === "green")  { wrapper = document.createElement("span"); wrapper.className = "b"; wrapper.style.color = "#86a36e"; }
+        if (!wrapper) return;
+
+        try { range.surroundContents(wrapper); }
+        catch (e) { const frag = range.extractContents(); wrapper.appendChild(frag); range.insertNode(wrapper); }
+
+        // Colors: also wrap inner content in <em>
+        if (type === "purple" || type === "green") {
+          const em = document.createElement("em");
+          while (wrapper.firstChild) em.appendChild(wrapper.firstChild);
+          wrapper.appendChild(em);
+        }
+
+        // Move cursor to after wrapper
+        const newRange = document.createRange();
+        newRange.setStartAfter(wrapper);
+        newRange.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+
+        syncHeroFromEditor();
+      }
+
       function saveHero() {
+        syncHeroFromEditor();
         hero.title = document.getElementById("aHT").value;
         hero.desc = document.getElementById("aHD").value;
         hero.resume = document.getElementById("aHR").value;
@@ -2163,12 +2230,12 @@
 
       function exportDataJS() {
         const content = `/* ── KEYS & AUTH ─────────────────────────────────── */
-const PWD = "cham2025",
-  LW = "ctw_w4",
-  LQ = "ctw_q1",
-  LC = "ctw_c4",
-  LH = "ctw_h4",
-  LA = "ctw_a4";
+const PWD = ${JSON.stringify(PWD)},
+  LW = ${JSON.stringify(LW)},
+  LQ = ${JSON.stringify(LQ)},
+  LC = ${JSON.stringify(LC)},
+  LH = ${JSON.stringify(LH)},
+  LA = ${JSON.stringify(LA)};
 
 /* ── DEFAULT DATA ────────────────────────────────── */
 const DW = ${JSON.stringify(works, null, 2)};
@@ -2179,10 +2246,10 @@ const DC = ${JSON.stringify(career, null, 2)};
 
 const DH = ${JSON.stringify(hero, null, 2)};
 
-const LCT = "ctw_ct1";
+const LCT = ${JSON.stringify(LCT)};
 const DCT = ${JSON.stringify(contact, null, 2)};
 
-const LA_AB = "ctw_ab1";
+const LA_AB = ${JSON.stringify(LA_AB)};
 const DA = ${JSON.stringify(about, null, 2)};
 
 /* ── STORAGE UTILS ───────────────────────────────── */

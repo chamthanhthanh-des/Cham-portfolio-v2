@@ -1588,6 +1588,10 @@ footer {
   opacity: 0.4;
   flex-shrink: 0;
 }
+.wd-section-body b,
+.wd-section-body strong { font-family: inherit; font-weight: 600; font-style: normal; color: var(--text); }
+.wd-section-body i,
+.wd-section-body em { font-family: inherit; font-style: italic; }
 .wd-section-right {
   display: flex;
   flex-direction: column;
