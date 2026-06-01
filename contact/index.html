@@ -184,6 +184,7 @@
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
@@ -193,6 +194,7 @@
         e.target.reset();
       }
 
+      window._dataReady.then(() => {
       /* ── Resume link ── */
       if (hero.resume) {
         const navR = document.getElementById("navResume");
@@ -268,6 +270,7 @@
         );
         if (liSoc && ftLI) ftLI.href = liSoc.url;
       })();
+      }); // end _dataReady
     </script>
   </body>
 </html>

@@ -189,15 +189,17 @@
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      /* ── Career timeline ── */
-      const tl = document.getElementById("tlCareer");
-      if (tl)
-        tl.innerHTML = career
-          .map(
-            (c) => `
+      window._dataReady.then(() => {
+        /* ── Career timeline ── */
+        const tl = document.getElementById("tlCareer");
+        if (tl)
+          tl.innerHTML = career
+            .map(
+              (c) => `
   <div class="tl-item reveal">
     <div>
       <div class="tl-role">${c.role}</div>
@@ -205,17 +207,16 @@
     </div>
     <div class="tl-period">${c.period}</div>
   </div>`,
-          )
-          .join("");
+            )
+            .join("");
 
-      /* ── Resume link ── */
-      if (hero.resume) {
-        const navR = document.getElementById("navResume");
-        if (navR) navR.href = hero.resume;
-      }
+        /* ── Resume link ── */
+        if (hero.resume) {
+          const navR = document.getElementById("navResume");
+          if (navR) navR.href = hero.resume;
+        }
 
-      /* ── About page dynamic content (only if admin has saved edits) ── */
-      if (localStorage.getItem(LA_AB)) {
+        /* ── About page dynamic content ── */
         // Photo
         const photoEl = document.querySelector(".about-hero__image-wrap img");
         if (photoEl && about.photo) photoEl.src = about.photo;
@@ -262,7 +263,7 @@
             )
             .join("");
         }
-      }
+      });
     </script>
   </body>
 </html>

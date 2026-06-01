@@ -87,11 +87,10 @@
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
-
       function renderQD(q) {
         const idx = posts.findIndex((x) => x.id === q.id);
         const prev = posts[idx - 1],
@@ -136,10 +135,13 @@ ${
         setTimeout(initReveal, 80);
       }
 
-      const id = new URLSearchParams(window.location.search).get("id");
-      const q = posts.find((x) => x.id === id);
-      if (q) renderQD(q);
-      else location.href = "/quiet/";
+      window._dataReady.then(() => {
+        if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
+        const id = new URLSearchParams(window.location.search).get("id");
+        const q = posts.find((x) => x.id === id);
+        if (q) renderQD(q);
+        else location.href = "/quiet/";
+      });
     </script>
   </body>
 </html>

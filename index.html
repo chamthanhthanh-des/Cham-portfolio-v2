@@ -218,10 +218,12 @@
       </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
       /* ── HOMEPAGE INIT ───────────────────────────────── */
+      window._dataReady.then(() => {
 
       // Populate hero text from stored/custom data
       const ht = document.getElementById("heroTitle"),
@@ -275,6 +277,8 @@
           .slice(0, 3)
           .map((w, i) => fwCardHTML(w, i))
           .join("");
+
+      }); // end _dataReady
 
       /* ── CAT ANIMATION ───────────────────────────────── */
       const cat = document.getElementById("catImg");

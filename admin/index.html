@@ -25,6 +25,7 @@
     />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   </head>
   <body>
     <div id="loader"><div class="loader-inner"></div></div>
@@ -1134,7 +1135,7 @@
         if (fromIdx < 0 || toIdx < 0) return;
         const [moved] = works.splice(fromIdx, 1);
         works.splice(toIdx, 0, moved);
-        sv(LW, works);
+        sv(LW, works); sbSave('works', works);
         renderAW();
         toast("Thứ tự đã cập nhật ✓");
       }
@@ -1663,7 +1664,7 @@
         const i = works.findIndex((w) => w.id === id);
         if (i >= 0) works[i] = d;
         else works.push(d);
-        sv(LW, works);
+        sv(LW, works); sbSave('works', works);
         _dirty = false;
         closeWM();
         renderAW();
@@ -1672,7 +1673,7 @@
       function delW(id) {
         if (!confirm("Delete?")) return;
         works = works.filter((w) => w.id !== id);
-        sv(LW, works);
+        sv(LW, works); sbSave('works', works);
         renderAW();
         toast("Deleted");
       }
@@ -1849,7 +1850,7 @@
         if (fromIdx < 0 || toIdx < 0) return;
         const [moved] = posts.splice(fromIdx, 1);
         posts.splice(toIdx, 0, moved);
-        sv(LQ, posts);
+        sv(LQ, posts); sbSave('posts', posts);
         renderAQ();
         toast("Thứ tự đã cập nhật ✓");
       }
@@ -1907,7 +1908,7 @@
         const i = posts.findIndex((q) => q.id === id);
         if (i >= 0) posts[i] = d;
         else posts.unshift(d);
-        sv(LQ, posts);
+        sv(LQ, posts); sbSave('posts', posts);
         _dirty = false;
         closeQM();
         renderAQ();
@@ -1916,7 +1917,7 @@
       function delQ(id) {
         if (!confirm("Delete post?")) return;
         posts = posts.filter((q) => q.id !== id);
-        sv(LQ, posts);
+        sv(LQ, posts); sbSave('posts', posts);
         renderAQ();
         toast("Deleted");
       }
@@ -1966,7 +1967,7 @@
         const i = career.findIndex((c) => c.id === id);
         if (i >= 0) career[i] = d;
         else career.unshift(d);
-        sv(LC, career);
+        sv(LC, career); sbSave('career', career);
         _dirty = false;
         closeCM();
         renderAC();
@@ -1975,7 +1976,7 @@
       function delC(id) {
         if (!confirm("Delete?")) return;
         career = career.filter((c) => c.id !== id);
-        sv(LC, career);
+        sv(LC, career); sbSave('career', career);
         renderAC();
         toast("Deleted");
       }
@@ -2059,7 +2060,7 @@
         hero.desc = document.getElementById("aHD").value;
         hero.resume = document.getElementById("aHR").value;
         hero.cat = document.getElementById("aHCat").value;
-        sv(LH, hero);
+        sv(LH, hero); sbSave('hero', hero);
         toast("Hero saved ✓");
       }
 
@@ -2163,7 +2164,7 @@
         contact.sayHiDesc = document.getElementById("ctSayHi").value;
         contact.contacts = _ctContacts.filter((c) => c.value.trim());
         contact.socials = _ctSocials.filter((s) => s.url.trim());
-        sv(LCT, contact);
+        sv(LCT, contact); sbSave('contact', contact);
         toast("Contact saved ✓");
       }
 
@@ -2194,7 +2195,7 @@
           tools: document.getElementById("abSkT").value,
           skills: document.getElementById("abSkS").value,
         };
-        sv(LA_AB, about);
+        sv(LA_AB, about); sbSave('about', about);
         toast("About saved ✓");
       }
 
@@ -2283,6 +2284,21 @@ let works = ld(LW, DW),
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
         toast("data.js exported ✓ — Replace assets/data.js với file vừa tải");
+      }
+
+      /* ── SUPABASE SAVE HELPER ── */
+      async function sbSave(key, value) {
+        const sb = window._sb;
+        if (!sb) return;
+        try {
+          const { error } = await sb.from("site_data").upsert(
+            { key, value, updated_at: new Date().toISOString() },
+            { onConflict: "key" }
+          );
+          if (error) console.warn("[admin] Supabase save error:", error);
+        } catch (e) {
+          console.warn("[admin] Supabase save failed:", e);
+        }
       }
 
       /* Close modals on bg click */

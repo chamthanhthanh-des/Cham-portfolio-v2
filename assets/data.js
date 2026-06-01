@@ -560,6 +560,12 @@ const DA = {
   },
 };
 
+/* ── SUPABASE CONFIG ─────────────────────────────── */
+// Thay YOUR_SUPABASE_URL và YOUR_SUPABASE_ANON_KEY bằng credentials của bạn
+// Lấy tại: Supabase Dashboard → Project Settings → API
+const SB_URL = "https://lqnhafqbqnniyzglsofu.supabase.co";
+const SB_KEY = "sb_publishable_AtWYRDc3MM6Zs4_yaLOYxQ_waumWHSA";
+
 /* ── STORAGE UTILS ───────────────────────────────── */
 function ld(k, d) {
   try {
@@ -573,10 +579,36 @@ function sv(k, v) {
   localStorage.setItem(k, JSON.stringify(v));
 }
 
-/* ── LIVE DATA ───────────────────────────────────── */
+/* ── LIVE DATA (defaults từ localStorage / data.js) ── */
 let works = ld(LW, DW),
   posts = ld(LQ, DQ),
   career = ld(LC, DC),
   hero = ld(LH, DH),
   about = ld(LA_AB, DA),
   contact = ld(LCT, DCT);
+
+/* ── SUPABASE LOADER ─────────────────────────────── */
+async function _loadFromSupabase() {
+  try {
+    if (!SB_URL || SB_URL === "YOUR_SUPABASE_URL") return false;
+    const sb = window.supabase?.createClient(SB_URL, SB_KEY);
+    if (!sb) return false;
+    window._sb = sb;
+    const { data, error } = await sb.from("site_data").select("key, value");
+    if (error || !data?.length) return false;
+    const map = Object.fromEntries(data.map((r) => [r.key, r.value]));
+    if (map.works?.length)   { works   = map.works;   sv(LW,    works);   }
+    if (map.posts?.length)   { posts   = map.posts;   sv(LQ,    posts);   }
+    if (map.career?.length)  { career  = map.career;  sv(LC,    career);  }
+    if (map.hero && Object.keys(map.hero).length)    { hero    = map.hero;    sv(LH,    hero);    }
+    if (map.about && Object.keys(map.about).length)  { about   = map.about;   sv(LA_AB, about);   }
+    if (map.contact && Object.keys(map.contact).length) { contact = map.contact; sv(LCT,  contact); }
+    return true;
+  } catch (e) {
+    console.warn("[data] Supabase load failed, using localStorage fallback:", e);
+    return false;
+  }
+}
+
+// Tất cả pages đợi promise này trước khi render
+window._dataReady = _loadFromSupabase();

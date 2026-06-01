@@ -97,11 +97,10 @@
       </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
-
       function renderWD(w) {
         const idx = works.findIndex((x) => x.id === w.id);
         const prev = works[idx - 1],
@@ -193,11 +192,13 @@
         setTimeout(initReveal, 80);
       }
 
-      // Get ?id= from URL
-      const id = new URLSearchParams(window.location.search).get("id");
-      const w = works.find((x) => x.id === id);
-      if (w) renderWD(w);
-      else location.href = "/works/";
+      window._dataReady.then(() => {
+        if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
+        const id = new URLSearchParams(window.location.search).get("id");
+        const w = works.find((x) => x.id === id);
+        if (w) renderWD(w);
+        else location.href = "/works/";
+      });
     </script>
   </body>
 </html>
