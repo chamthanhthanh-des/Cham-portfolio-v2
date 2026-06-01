@@ -1481,60 +1481,70 @@
 
       const uploadBtnStyle = `display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;`;
 
+      /* ── CLOUDINARY CONFIG ── */
+      const CLD_CLOUD = "dfaqife6i";
+      const CLD_PRESET = "web-portfolio";
+
+      async function uploadToCloudinary(file) {
+        const fd = new FormData();
+        fd.append("file", file);
+        fd.append("upload_preset", CLD_PRESET);
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${CLD_CLOUD}/image/upload`, {
+          method: "POST", body: fd
+        });
+        const data = await res.json();
+        if (!data.secure_url) throw new Error(data.error?.message || "Upload failed");
+        return data.secure_url;
+      }
+
       /* Upload cho input có ID cố định (cover image) */
-      function pickImg(fileInput, urlId, prevId, subfolder) {
+      async function pickImg(fileInput, urlId, prevId, subfolder) {
         const file = fileInput.files[0];
         if (!file) return;
-        if (_blobs[urlId]) URL.revokeObjectURL(_blobs[urlId]);
-        const blob = URL.createObjectURL(file);
-        _blobs[urlId] = blob;
-        const prev = document.getElementById(prevId);
-        if (prev) {
-          prev.src = blob;
-          prev.style.display = "block";
-        }
-        const path = `/assets/images/${subfolder || "works"}/${file.name}`;
         const inp = document.getElementById(urlId);
-        if (inp) {
-          inp.value = path;
-          inp.dispatchEvent(new Event("input"));
+        const prev = document.getElementById(prevId);
+        // Show preview ngay lập tức
+        const blob = URL.createObjectURL(file);
+        if (prev) { prev.src = blob; prev.style.display = "block"; }
+        if (inp) { inp.value = "Đang upload..."; }
+        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        try {
+          const url = await uploadToCloudinary(file);
+          if (inp) { inp.value = url; inp.dispatchEvent(new Event("input")); }
+          if (prev) { prev.src = url; }
+          URL.revokeObjectURL(blob);
+          toast("✓ Upload thành công!");
+        } catch(e) {
+          if (inp) inp.value = "";
+          toast("❌ Upload thất bại: " + e.message);
         }
-        showUploadHint(file.name, subfolder || "works");
       }
 
       /* Upload cho section images (không có ID cố định) */
-      function pickSectionImg(fileInput, si, ji) {
+      async function pickSectionImg(fileInput, si, ji) {
         const file = fileInput.files[0];
         if (!file) return;
         const blob = URL.createObjectURL(file);
-        const path = `/assets/images/works/${file.name}`;
-        _editSections[si].images[ji] = path;
         const row = fileInput.closest("[data-imgrow]");
-        if (row) {
-          const inp = row.querySelector("input[type=text]");
-          const img = row.querySelector("img");
-          if (inp) inp.value = path;
-          if (img) {
-            img.src = blob;
-            img.style.display = "block";
-          }
+        const inp = row?.querySelector("input[type=text]");
+        const img = row?.querySelector("img");
+        if (img) { img.src = blob; img.style.display = "block"; }
+        if (inp) inp.value = "Đang upload...";
+        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        try {
+          const url = await uploadToCloudinary(file);
+          _editSections[si].images[ji] = url;
+          if (inp) inp.value = url;
+          if (img) img.src = url;
+          URL.revokeObjectURL(blob);
+          toast("✓ Upload thành công!");
+        } catch(e) {
+          if (inp) inp.value = "";
+          toast("❌ Upload thất bại: " + e.message);
         }
-        showUploadHint(file.name, "works");
       }
 
-      function showUploadHint(filename, folder) {
-        const hintId = document
-          .getElementById("qModal")
-          ?.classList.contains("open")
-          ? "uploadHintQ"
-          : "uploadHint";
-        const hint = document.getElementById(hintId);
-        if (!hint) return;
-        hint.textContent = `📁 Lưu file vào: assets/images/${folder}/${filename}`;
-        hint.style.display = "block";
-        clearTimeout(hint._t);
-        hint._t = setTimeout(() => (hint.style.display = "none"), 6000);
-      }
+      function showUploadHint() {} // không cần nữa
 
       /* ── HTML ↔ PLAIN TEXT for section body ── */
       function htmlToPlain(html) {
@@ -2199,26 +2209,24 @@
         toast("About saved ✓");
       }
 
-      function pickImgAbout(fileInput) {
+      async function pickImgAbout(fileInput) {
         const file = fileInput.files[0];
         if (!file) return;
-        if (_blobs["abPhoto"]) URL.revokeObjectURL(_blobs["abPhoto"]);
         const blob = URL.createObjectURL(file);
-        _blobs["abPhoto"] = blob;
         const prev = document.getElementById("abPhotoPrev");
-        if (prev) {
-          prev.src = blob;
-          prev.style.display = "block";
-        }
-        const path = `/assets/images/about/${file.name}`;
         const inp = document.getElementById("abPhoto");
-        if (inp) inp.value = path;
-        const hint = document.getElementById("uploadHintAb");
-        if (hint) {
-          hint.textContent = `📁 Lưu file vào: assets/images/about/${file.name}`;
-          hint.style.display = "block";
-          clearTimeout(hint._t);
-          hint._t = setTimeout(() => (hint.style.display = "none"), 6000);
+        if (prev) { prev.src = blob; prev.style.display = "block"; }
+        if (inp) inp.value = "Đang upload...";
+        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        try {
+          const url = await uploadToCloudinary(file);
+          if (inp) inp.value = url;
+          if (prev) prev.src = url;
+          URL.revokeObjectURL(blob);
+          toast("✓ Upload thành công!");
+        } catch(e) {
+          if (inp) inp.value = "";
+          toast("❌ Upload thất bại: " + e.message);
         }
       }
 
