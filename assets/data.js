@@ -213,7 +213,7 @@ const DW = [
     tags: ["Product Design", "Branding Design", "AI × Design"],
     description:
       "Mill3 is an experimental AI-native content platform designed specifically for the fast-moving nature of Web3 communication.\n\nCreated during the transition period between Frontier and SelfChain, the project explored how AI could support blockchain creators, marketers, and ecosystem teams through faster, more adaptive content workflows across Twitter, blogs, newsletters, campaigns, and ecosystem storytelling.\n\nRather than positioning AI as a standalone writing tool, Mill3 envisioned a more connected creator ecosystem where strategy, generation, editing, and publishing could exist inside a single intelligent workflow.",
-    cover: "",
+    cover: "/assets/images/works/mill3/mill3-cover.png",
     color: "#EBF0EC",
     featured: false,
     order: 4,
