@@ -40,8 +40,10 @@
         border-color: var(--text) !important;
         box-shadow: none !important;
       }
-      [contenteditable]:not(#heroEditor) { font-family: "Syne", system-ui, sans-serif !important; }
-      [contenteditable]:not(#heroEditor) * { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable]:not(#heroEditor):not(#abBioEditor) { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable]:not(#heroEditor):not(#abBioEditor) * { font-family: "Syne", system-ui, sans-serif !important; }
+      #abBioEditor { font-family: "Cormorant Garamond", serif !important; font-style: italic !important; font-weight: 500 !important; }
+      #abBioEditor * { font-family: "Cormorant Garamond", serif !important; }
       [contenteditable] p { margin: 0 0 10px; }
       [contenteditable] p:last-child { margin-bottom: 0; }
       [contenteditable] ul { margin: 6px 0 10px; padding-left: 20px; }
@@ -62,6 +64,15 @@
     <main id="main">
       <!-- LOGIN -->
       <div id="aLogin" class="a-login">
+        <a href="/" style="
+          position:fixed;top:24px;left:32px;
+          display:inline-flex;align-items:center;gap:7px;
+          font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+          color:var(--muted);text-decoration:none;
+          transition:color 0.2s;
+        " onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
+          ← Back to site
+        </a>
         <div class="a-box">
           <h2>Admin Panel</h2>
           <p>Enter your password to manage content.</p>
@@ -130,7 +141,7 @@
             </div>
             <div style="flex: 1"></div>
             <div class="a-logout" onclick="doLogout()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Leave dashboard
             </div>
           </aside>
           <div class="a-right">
@@ -141,7 +152,7 @@
               </div>
               <div style="display:flex;gap:10px;align-items:center;">
                 <button onclick="resetFromDataJS()" title="Xóa localStorage, load lại từ data.js gốc"
-                  style="display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;border:none;box-shadow:inset 0 0 0 1.5px var(--text);background:transparent;color:var(--text);cursor:pointer;transition:opacity 0.2s;"
+                  style="display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border-radius:100px;border:none;box-shadow:inset 0 0 0 1.5px var(--text);background:transparent;color:var(--text);cursor:pointer;transition:opacity 0.2s;"
                   onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Reset from data.js
                 </button>
@@ -226,7 +237,7 @@
                   <div
                     id="heroEditor"
                     contenteditable="true"
-                    oninput="syncHeroFromEditor()"
+                    oninput="syncHeroFromEditor();setFooterDirty()"
                     onkeydown="if(event.key==='Enter'){event.preventDefault();document.execCommand('insertHTML',false,'<br>');syncHeroFromEditor();}"
                     onfocus="this.style.borderColor='var(--text)'"
                     onblur="this.style.borderColor='var(--border)'"
@@ -249,7 +260,7 @@
                       line-height: 1.8;
                     "
                     rows="3"
-                    oninput="autoResize(this)"
+                    oninput="autoResize(this);setFooterDirty()"
                   ></textarea>
                 </div>
 
@@ -260,6 +271,7 @@
                     id="aHR"
                     placeholder="https://drive.google.com/..."
                     style="font-size: 14px"
+                    oninput="setFooterDirty()"
                   />
                 </div>
 
@@ -318,7 +330,6 @@
                   </div>
                 </div>
 
-                <button class="bsave" onclick="saveHero()">Save Changes</button>
               </div>
             </div>
             <!-- CONTACT EDITOR -->
@@ -458,9 +469,6 @@
                   ></div>
                 </div>
 
-                <button class="bsave" onclick="saveContact()">
-                  Save Changes
-                </button>
               </div>
             </div>
 
@@ -485,222 +493,163 @@
             <!-- ABOUT EDITOR -->
             <div id="admin-about" class="a-sec">
               <div class="a-ptl">About Page</div>
-              <p class="a-psub">Edit profile photo, bio, and skills.</p>
-              <div
-                id="uploadHintAb"
-                style="
-                  display: none;
-                  margin-bottom: 16px;
-                  padding: 10px 14px;
-                  background: #fffbe6;
-                  border: 1px solid #f0d060;
-                  border-radius: 6px;
-                  font-family: var(--fm);
-                  font-size: 12px;
-                  color: #7a6000;
-                "
-              ></div>
+              <p class="a-psub">Edit profile photo, bio, skills and links.</p>
               <div class="a-frm">
+
                 <!-- PHOTO -->
                 <div class="fg">
                   <label>Profile Photo</label>
-                  <div
-                    style="display: flex; gap: 18px; align-items: flex-start"
-                  >
-                    <img
-                      id="abPhotoPrev"
-                      src=""
-                      alt="Profile photo"
-                      style="
-                        width: 90px;
-                        height: 120px;
-                        object-fit: cover;
-                        border-radius: 8px;
-                        border: 1px solid var(--border);
-                        flex-shrink: 0;
-                        display: none;
-                      "
-                      onerror="this.style.display = 'none'"
-                      onload="this.style.display = 'block'"
-                    />
-                    <div
-                      style="
-                        flex: 1;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 10px;
-                        padding-top: 6px;
-                      "
-                    >
-                      <input
-                        id="abPhoto"
-                        placeholder="/assets/images/about/thanh-cham.png"
-                        oninput="setImgPrev('abPhotoPrev', this.value)"
-                      />
-                      <label
-                        style="
-                          font-family: var(--fm);
-                          font-size: 11px;
-                          letter-spacing: 1px;
-                          padding: 6px 14px;
-                          background: var(--text);
-                          color: var(--bg);
-                          border: none;
-                          border-radius: 4px;
-                          cursor: pointer;
-                          white-space: nowrap;
-                          width: fit-content;
-                        "
-                      >
-                        + Upload Photo
-                        <input
-                          type="file"
-                          accept="image/*"
-                          style="display: none"
-                          onchange="pickImgAbout(this)"
-                        />
-                      </label>
+                  <div style="display:flex;gap:18px;align-items:flex-start;">
+                    <img id="abPhotoPrev" src="" alt="Profile photo"
+                      style="width:90px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);flex-shrink:0;display:none;"
+                      onerror="this.style.display='none'" onload="this.style.display='block'" />
+                    <div style="flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px;">
+                      <div id="abPhotoUrlWrap">
+                        <input id="abPhoto" placeholder="/assets/images/about/thanh-cham.png"
+                          oninput="setImgPrev('abPhotoPrev',this.value)" />
+                      </div>
+                      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                        <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;">
+                          + Upload Photo
+                          <input type="file" accept="image/*" style="display:none" onchange="pickImgAbout(this)" />
+                        </label>
+                        <span style="font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:.5px;">Recommended: 3:4 ratio · min 600px</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- HERO INFO -->
+                <div style="border-top:1px solid var(--border);margin:4px 0;"></div>
+
+                <!-- IDENTITY -->
                 <div class="fg"><label>Name</label><input id="abName" /></div>
-                <div class="fg">
-                  <label>Role / Title</label><input id="abRole" />
-                </div>
-                <div class="fg">
-                  <label>Birth / Location</label
-                  ><input id="abBirth" placeholder="1995 · Born in Ha Noi" />
-                </div>
+                <div class="fg"><label>Role / Title</label><input id="abRole" /></div>
+                <div class="fg"><label>Birth / Location</label><input id="abBirth" placeholder="1995 · Born in Ha Noi" /></div>
+                <!-- hidden inputs để không break saveAbout -->
+                <input id="abResume" type="hidden" />
+                <input id="abAvail" type="hidden" />
+                <input id="abSocLI" type="hidden" />
+                <input id="abSocBe" type="hidden" />
+                <input id="abSocDr" type="hidden" />
+
+                <div style="border-top:1px solid var(--border);margin:4px 0;"></div>
 
                 <!-- BIO -->
                 <div class="fg">
-                  <div
-                    style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                      margin-bottom: 8px;
-                    "
-                  >
-                    <label style="margin: 0">Story / Bio</label>
-                    <span
-                      style="
-                        font-family: var(--fm);
-                        font-size: 11px;
-                        color: var(--muted);
-                        letter-spacing: 0.4px;
-                      "
-                      >Enter×2 = đoạn mới</span
-                    >
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+                    <label style="margin:0;">Story / Bio</label>
+                    <div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap;">
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('plain')" title="Plain text"
+                        style="font-family:var(--fm);font-weight:400;font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">T</button>
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('em')" title="Italic"
+                        style="font-family:var(--fm);font-style:italic;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>I</em></button>
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('bold')" title="Bold"
+                        style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;padding:2px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#111;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">B</button>
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('muted')" title="Muted color"
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;padding:2px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:rgba(17,17,17,0.32);line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>A</em></button>
+                      <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('purple')" title="Purple italic"
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;padding:2px 11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#6a4f7a;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#6a4f7a'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>A</em></button>
+                      <button type="button" onmousedown="event.preventDefault();bioFormat('green')" title="Green italic"
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;padding:2px 11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#86a36e;line-height:1;transition:background .15s,border-color .15s;"
+                        onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#86a36e'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'"><em>A</em></button>
+                    </div>
                   </div>
-                  <textarea
-                    id="abBio"
-                    style="
-                      resize: vertical;
-                      min-height: 240px;
-                      font-size: 16px;
-                      line-height: 1.9;
-                      overflow-y: auto;
-                      scrollbar-width: thin;
-                      scrollbar-color: var(--border) transparent;
-                    "
-                  ></textarea>
+                  <div id="abBioEditor" contenteditable="true"
+                    oninput="syncBioFromEditor();setFooterDirty()"
+                    onfocus="this.style.borderColor='var(--text)'"
+                    onblur="this.style.borderColor='var(--border)'"
+                    style="padding:24px 28px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(24px,3.5vw,48px);line-height:1.15;min-height:120px;outline:none;transition:border-color .15s;word-break:break-word;">
+                  </div>
+                  <textarea id="abBio" style="display:none;"></textarea>
+                </div>
+
+                <!-- BIO BODY -->
+                <div class="fg">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                    <label style="margin:0;">Body paragraphs</label>
+                    <span style="font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:.5px;">Double Enter = new paragraph</span>
+                  </div>
+                  <textarea id="abBioBody"
+                    oninput="setFooterDirty()"
+                    style="resize:vertical;min-height:120px;font-size:16px;line-height:1.9;overflow-y:auto;scrollbar-width:thin;"
+                    placeholder="With a background in both user experience...&#10;&#10;I love simple ideas, smooth user flows..."></textarea>
                 </div>
 
                 <!-- QUOTE -->
                 <div class="fg">
                   <label>Quote</label>
-                  <textarea
-                    id="abQuote"
-                    rows="3"
-                    style="
-                      resize: none;
-                      overflow: hidden;
-                      font-style: italic;
-                      font-size: 16px;
-                      line-height: 1.7;
-                    "
-                    oninput="autoResize(this)"
-                  ></textarea>
+                  <textarea id="abQuote" rows="3" style="resize:none;overflow:hidden;font-style:italic;font-size:16px;line-height:1.7;" oninput="autoResize(this)"></textarea>
                 </div>
+
+                <div style="border-top:1px solid var(--border);margin:4px 0;"></div>
 
                 <!-- SKILLS -->
                 <div>
-                  <label
-                    style="
-                      font-size: 13px;
-                      letter-spacing: 1.5px;
-                      display: block;
-                      margin-bottom: 14px;
-                    "
-                    >SKILLS</label
-                  >
-                  <div
-                    style="
-                      display: grid;
-                      grid-template-columns: 1fr 1fr 1fr;
-                      gap: 16px;
-                    "
-                  >
-                    <div class="fg" style="margin: 0">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                    <label style="font-size:13px;letter-spacing:1.5px;margin:0;">SKILLS</label>
+                    <span style="font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:.5px;">One item per line</span>
+                  </div>
+                  <div class="ab-skills-grid">
+                    <div class="fg" style="margin:0;">
                       <label>I can help</label>
-                      <textarea
-                        id="abSkH"
-                        style="
-                          resize: vertical;
-                          min-height: 160px;
-                          font-size: 15px;
-                          line-height: 1.9;
-                          overflow-y: auto;
-                          scrollbar-width: thin;
-                          scrollbar-color: var(--border) transparent;
-                        "
-                        placeholder="Web design&#10;Branding design&#10;..."
-                      ></textarea>
+                      <textarea id="abSkH" style="resize:vertical;min-height:160px;font-size:15px;line-height:1.9;overflow-y:auto;scrollbar-width:thin;" placeholder="Web design&#10;Branding design&#10;..."></textarea>
                     </div>
-                    <div class="fg" style="margin: 0">
+                    <div class="fg" style="margin:0;">
                       <label>Tools</label>
-                      <textarea
-                        id="abSkT"
-                        style="
-                          resize: vertical;
-                          min-height: 160px;
-                          font-size: 15px;
-                          line-height: 1.9;
-                          overflow-y: auto;
-                          scrollbar-width: thin;
-                          scrollbar-color: var(--border) transparent;
-                        "
-                        placeholder="Figma&#10;Adobe Photoshop&#10;..."
-                      ></textarea>
+                      <textarea id="abSkT" style="resize:vertical;min-height:160px;font-size:15px;line-height:1.9;overflow-y:auto;scrollbar-width:thin;" placeholder="Figma&#10;Adobe Photoshop&#10;..."></textarea>
                     </div>
-                    <div class="fg" style="margin: 0">
+                    <div class="fg" style="margin:0;">
                       <label>Skills</label>
-                      <textarea
-                        id="abSkS"
-                        style="
-                          resize: vertical;
-                          min-height: 160px;
-                          font-size: 15px;
-                          line-height: 1.9;
-                          overflow-y: auto;
-                          scrollbar-width: thin;
-                          scrollbar-color: var(--border) transparent;
-                        "
-                        placeholder="UI Visual design&#10;UX Research&#10;..."
-                      ></textarea>
+                      <textarea id="abSkS" style="resize:vertical;min-height:160px;font-size:15px;line-height:1.9;overflow-y:auto;scrollbar-width:thin;" placeholder="UI Visual design&#10;UX Research&#10;..."></textarea>
                     </div>
                   </div>
                 </div>
 
-                <button class="bsave" onclick="saveAbout()">
-                  Save Changes
-                </button>
               </div>
             </div>
           </div><!-- /.a-cont -->
+
+          <!-- FIXED SAVE FOOTER (chỉ hiện cho tabs edit trực tiếp) -->
+          <div id="aFooter" style="
+            position: sticky;
+            bottom: 0;
+            z-index: 200;
+            height: 56px;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+          ">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;letter-spacing:1.5px;color:var(--muted);">
+              <span id="aFooterDot" style="width:6px;height:6px;border-radius:50%;background:var(--muted);transition:background 0.3s;flex-shrink:0;"></span>
+              <span id="aFooterLabel">Unsaved changes</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <button id="aDiscardBtn" onclick="footerDiscard()" disabled style="
+                display:inline-flex;align-items:center;
+                padding:10px 22px;border-radius:100px;cursor:not-allowed;
+                font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+                background:transparent;color:var(--border);border:1.5px solid var(--border);
+                transition:border-color 0.2s,color 0.2s,opacity 0.2s;opacity:0.4;
+              "
+              onmouseover="if(!this.disabled){this.style.borderColor='var(--text)';this.style.color='var(--text)'}"
+              onmouseout="this.style.borderColor='var(--border)';this.style.color=this.disabled?'var(--border)':'var(--muted)'">
+                Discard
+              </button>
+              <button id="aFooterBtn" class="badd" onclick="footerSave()" style="margin-bottom:0;border-radius:100px;">
+                Save Changes →
+              </button>
+            </div>
+          </div>
+
           </div><!-- /.a-right -->
         </div><!-- /.a-layout -->
       </div><!-- /#aDash -->
@@ -729,30 +678,36 @@
         ></div>
         <div class="mform">
           <input type="hidden" id="wId" />
-          <div class="fg"><label>Title</label><input id="wTi" /></div>
+          <div class="fg"><label>Title</label><input id="wTi" oninput="_dirty=true" /></div>
           <div class="mrow">
             <div class="fg">
-              <label>Client</label><input id="wCli" placeholder="Client name" />
+              <label>Client</label><input id="wCli" placeholder="Client name" oninput="_dirty=true" />
             </div>
             <div class="fg">
-              <label>Year</label><input id="wYr" placeholder="2024" />
+              <label>Year</label><input id="wYr" placeholder="2024" oninput="_dirty=true" />
             </div>
           </div>
           <div class="mrow">
             <div class="fg">
               <label>Category</label>
-              <select id="wCat">
-                <option value="product">Product Design</option>
-                <option value="branding">Branding</option>
-                <option value="web">Web Design</option>
-              </select>
+              <input id="wCat" placeholder="product / branding / web..." oninput="_dirty=true" />
             </div>
             <div class="fg">
               <label>Featured</label>
-              <select id="wFe">
+              <select id="wFe" onchange="_dirty=true">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
+            </div>
+          </div>
+          <div class="mrow">
+            <div class="fg">
+              <label>My Role</label>
+              <input id="wRo" placeholder="Lead Product Designer" oninput="_dirty=true" />
+            </div>
+            <div class="fg">
+              <label>Duration</label>
+              <input id="wDu" placeholder="3 months · Q1 2024" oninput="_dirty=true" />
             </div>
           </div>
           <div class="fg">
@@ -865,74 +820,65 @@
         ></div>
         <div class="mform">
           <input type="hidden" id="qId" />
-          <div class="fg"><label>Title</label><input id="qTi" /></div>
+          <div class="fg">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <label style="margin:0;">Title</label>
+              <label style="display:flex;align-items:center;gap:8px;font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted);cursor:pointer;">
+                <input type="checkbox" id="qDraft" style="accent-color:var(--ame);" />
+                DRAFT
+              </label>
+            </div>
+            <input id="qTi" oninput="qAutoSlug()" />
+          </div>
+          <div class="fg">
+            <label>Slug (URL)</label>
+            <div style="display:flex;align-items:center;gap:0;">
+              <span style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:10px 10px;background:var(--bg2);border:1px solid var(--border);border-right:none;border-radius:6px 0 0 6px;white-space:nowrap;">/quiet/</span>
+              <input id="qSlug" style="border-radius:0 6px 6px 0;flex:1;" placeholder="auto-generated-from-title" />
+            </div>
+          </div>
           <div class="mrow">
             <div class="fg">
-              <label>Date (e.g. Jan 2025)</label
-              ><input id="qDt" placeholder="May 2025" />
+              <label>Date (e.g. Jan 2025)</label>
+              <input id="qDt" placeholder="May 2025" />
             </div>
             <div class="fg">
-              <label>Category</label
-              ><select id="qCt">
-                <option value="Design Thoughts">Design Thoughts</option>
-                <option value="Process">Process</option>
-                <option value="Inspiration">Inspiration</option>
-                <option value="Life">Life</option>
-              </select>
+              <label>Category</label>
+              <input id="qCt" placeholder="Design Thoughts, Process..." list="qCtList" />
+              <datalist id="qCtList">
+                <option value="Design Thoughts">
+                <option value="Process">
+                <option value="Inspiration">
+                <option value="Life">
+              </datalist>
             </div>
           </div>
           <div class="fg">
-            <label>Reading Time (e.g. 5 min)</label>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <label style="margin:0;">Reading Time</label>
+              <button type="button" onclick="qCalcReading()" style="font-family:var(--fm);font-size:10px;letter-spacing:1px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--muted);"
+                onmouseover="this.style.color='var(--text)';this.style.borderColor='var(--text)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">⟳ Auto-calculate</button>
+            </div>
             <input id="qRt" placeholder="4 min read" />
           </div>
           <div class="fg">
-            <label>Cover Image URL</label>
-            <div style="display: flex; gap: 10px; align-items: center">
-              <img
-                id="qCoPrev"
-                src=""
-                alt=""
-                style="
-                  height: 52px;
-                  width: 80px;
-                  object-fit: cover;
-                  border-radius: 6px;
-                  border: 1px solid var(--border);
-                  flex-shrink: 0;
-                  display: none;
-                "
-                onerror="this.style.display = 'none'"
-                onload="this.style.display = 'block'"
-              />
-              <input
-                id="qCo"
-                placeholder="/assets/images/quiet/..."
-                style="flex: 1"
-                oninput="setImgPrev('qCoPrev', this.value)"
-              />
-              <label
-                style="
-                  font-family: var(--fm);
-                  font-size: 11px;
-                  letter-spacing: 1px;
-                  padding: 6px 14px;
-                  background: var(--text);
-                  color: var(--bg);
-                  border: none;
-                  border-radius: 4px;
-                  cursor: pointer;
-                  white-space: nowrap;
-                  flex-shrink: 0;
-                "
-              >
-                + Upload
-                <input
-                  type="file"
-                  accept="image/*"
-                  style="display: none"
-                  onchange="pickImg(this, 'qCo', 'qCoPrev', 'quiet')"
-                />
-              </label>
+            <label>Cover Image</label>
+            <div style="display:flex;gap:10px;align-items:flex-start;flex-direction:column;">
+              <div style="display:flex;gap:10px;align-items:center;width:100%;">
+                <div style="position:relative;flex-shrink:0;">
+                  <img id="qCoPrev" src="" alt="" style="height:52px;width:80px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:none;"
+                    onerror="this.style.display='none';document.getElementById('qCoPrevErr').style.display='flex';"
+                    onload="this.style.display='block';document.getElementById('qCoPrevErr').style.display='none';" />
+                  <div id="qCoPrevErr" style="display:none;height:52px;width:80px;border-radius:6px;border:1px solid var(--border);align-items:center;justify-content:center;flex-direction:column;gap:2px;background:var(--bg2);">
+                    <span style="font-size:16px;">🖼️</span>
+                    <span style="font-family:var(--fm);font-size:8px;color:var(--muted);">Not found</span>
+                  </div>
+                </div>
+                <input id="qCo" placeholder="/assets/images/blog/..." style="flex:1;" oninput="setImgPrev('qCoPrev',this.value);document.getElementById('qCoPrevErr').style.display='none';" />
+                <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+                  + Upload<input type="file" accept="image/*" style="display:none" onchange="pickImg(this,'qCo','qCoPrev','quiet')" />
+                </label>
+              </div>
             </div>
           </div>
           <div class="fg">
@@ -966,21 +912,8 @@
               <label style="margin: 0; font-size: 13px; letter-spacing: 1.5px"
                 >CONTENT</label
               >
-              <button
-                onclick="addQBlock()"
-                style="
-                  font-family: var(--fm);
-                  font-size: 12px;
-                  letter-spacing: 1px;
-                  padding: 8px 18px;
-                  background: var(--text);
-                  color: var(--bg);
-                  border: none;
-                  border-radius: 6px;
-                  cursor: pointer;
-                "
-              >
-                + Thêm đoạn
+              <button class="badd" onclick="addQBlock()" style="margin-bottom:0;">
+                + Add block
               </button>
             </div>
             <div
@@ -1058,6 +991,66 @@
         location.href = "/";
       }
 
+      /* ── SAVE FOOTER ── */
+      const _footerTabs = { hero: saveHero, about: saveAbout, contact: saveContact };
+      let _activeTab = "hero";
+      let _footerDirty = false;
+
+      function showFooter(tab) {
+        const f = document.getElementById("aFooter");
+        if (_footerTabs[tab]) {
+          f.style.display = "flex";
+          setFooterClean();
+        } else {
+          f.style.display = "none";
+        }
+      }
+
+      function setFooterDirty() {
+        _footerDirty = true;
+        const dot = document.getElementById("aFooterDot");
+        const lbl = document.getElementById("aFooterLabel");
+        const dis = document.getElementById("aDiscardBtn");
+        if (dot) dot.style.background = "#e8a838";
+        if (lbl) lbl.textContent = "Unsaved changes";
+        if (dis) {
+          dis.disabled = false;
+          dis.style.opacity = "1";
+          dis.style.cursor = "pointer";
+          dis.style.color = "var(--muted)";
+        }
+      }
+
+      function setFooterClean() {
+        _footerDirty = false;
+        const dot = document.getElementById("aFooterDot");
+        const lbl = document.getElementById("aFooterLabel");
+        const dis = document.getElementById("aDiscardBtn");
+        if (dot) dot.style.background = "var(--muted)";
+        if (lbl) lbl.textContent = "Saved";
+        if (dis) {
+          dis.disabled = true;
+          dis.style.opacity = "0.4";
+          dis.style.cursor = "not-allowed";
+          dis.style.color = "var(--border)";
+        }
+      }
+
+      function footerSave() {
+        const fn = _footerTabs[_activeTab];
+        if (fn) fn();
+        setFooterClean();
+      }
+
+      function footerDiscard() {
+        if (!_footerDirty) return;
+        if (!confirm("Discard all unsaved changes?")) return;
+        if (_activeTab === "hero") loadHA();
+        if (_activeTab === "about") loadAboutAdmin();
+        if (_activeTab === "contact") loadContactAdmin();
+        setFooterClean();
+      }
+
       function swTab(t) {
         document
           .querySelectorAll(".a-sec")
@@ -1067,6 +1060,8 @@
           .forEach((i) => i.classList.remove("active"));
         document.getElementById("admin-" + t).classList.add("active");
         document.getElementById("tab-" + t).classList.add("active");
+        _activeTab = t;
+        showFooter(t);
         if (t === "works") renderAW();
         if (t === "career") renderAC();
         if (t === "quiet") renderAQ();
@@ -1093,10 +1088,17 @@
       function renderAW() {
         const tb = document.getElementById("wtb");
         if (!tb) return;
+        if (!works.length) {
+          tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:48px;font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:1px;">No projects yet — click "+ Add Project" to get started.</td></tr>`;
+          return;
+        }
         tb.innerHTML = works
           .map(
-            (w, i) =>
-              `<tr draggable="true" data-id="${w.id}"
+            (w, i) => {
+              const thumb = w.cover
+                ? `<img src="${w.cover}" style="width:48px;height:32px;object-fit:cover;border-radius:4px;display:block;flex-shrink:0;" onerror="this.style.display='none'">`
+                : `<div style="width:48px;height:32px;border-radius:4px;background:${w.color||'var(--bg2)'};flex-shrink:0;"></div>`;
+              return `<tr draggable="true" data-id="${w.id}"
                 ondragstart="onWDragStart(event,'${w.id}')"
                 ondragover="onWDragOver(event)"
                 ondrop="onWDrop(event,'${w.id}')"
@@ -1104,14 +1106,15 @@
                 style="cursor:grab;transition:opacity 0.15s;"
               >
                 <td style="font-family:var(--fm);font-size:10px;color:var(--muted2);user-select:none;">
-                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Kéo để sắp xếp">⠿</span>${String(i + 1).padStart(2, "0")}
+                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Drag to reorder">⠿</span>${String(i + 1).padStart(2, "0")}
                 </td>
-                <td style="max-width:200px">${w.title}</td>
+                <td><div style="display:flex;align-items:center;gap:12px;">${thumb}<span style="max-width:180px;">${w.title}</span></div></td>
                 <td style="font-family:var(--fm);font-size:11px">${w.year}</td>
                 <td><span class="tag">${w.category}</span></td>
-                <td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "Yes" : "No"}</td>
+                <td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "● Yes" : "No"}</td>
                 <td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td>
-              </tr>`,
+              </tr>`;
+            }
           )
           .join("");
       }
@@ -1137,7 +1140,7 @@
         works.splice(toIdx, 0, moved);
         sv(LW, works); sbSave('works', works);
         renderAW();
-        toast("Thứ tự đã cập nhật ✓");
+        toast("Order updated ✓");
       }
       function onWDragEnd(e) {
         e.currentTarget.style.opacity = "";
@@ -1175,15 +1178,15 @@
               }
               const parsed = parsePDFToSections(fullText);
               if (!parsed.length) {
-                toast("Không tìm thấy section nào. Kiểm tra format: 01 — LABEL");
+                toast("No sections found. Check format: 01 — LABEL");
                 return;
               }
               if (_editSections.length > 0) {
-                if (!confirm(`Tìm thấy ${parsed.length} sections. Thay thế sections hiện tại?`)) return;
+                if (!confirm(`Tìm thấy ${parsed.length} sections found. Replace current sections?`)) return;
               }
               _editSections = parsed;
               renderWSections();
-              toast(`Đã import ${parsed.length} sections từ PDF ✓`);
+              toast(`Imported ${parsed.length} sections from PDF ✓`);
             } catch (err) {
               toast("Lỗi đọc PDF: " + err.message);
             }
@@ -1295,6 +1298,10 @@
                   <button type="button" id="wfmt_bold_${i}" onmousedown="event.preventDefault();formatBodyText(${i},'bold')" title="Bold — click lại để bỏ" style="font-family:var(--fm);font-weight:700;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s,color .15s;" onmouseover="if(!this.dataset.on)this.style.background='var(--bg2)'" onmouseout="if(!this.dataset.on)this.style.background='var(--bg)'">B</button>
                   <button type="button" id="wfmt_italic_${i}" onmousedown="event.preventDefault();formatBodyText(${i},'italic')" title="Italic — click lại để bỏ" style="font-family:var(--fm);font-style:italic;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s,color .15s;" onmouseover="if(!this.dataset.on)this.style.background='var(--bg2)'" onmouseout="if(!this.dataset.on)this.style.background='var(--bg)'">I</button>
                   <button type="button" onmousedown="event.preventDefault();formatBodyText(${i},'insertUnorderedList')" title="Bullet list" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">• List</button>
+                  <button type="button" onmousedown="event.preventDefault();formatBodyText(${i},'insertOrderedList')" title="Numbered list" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">1. List</button>
+                  <button type="button" onmousedown="event.preventDefault();insertWLink(${i})" title="Insert link" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">🔗</button>
+                  <button type="button" onmousedown="event.preventDefault();formatBodyText(${i},'formatBlock','h2')" title="Heading H2" style="font-family:var(--fu);font-weight:700;font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">H2</button>
+                  <button type="button" onmousedown="event.preventDefault();formatBodyText(${i},'formatBlock','h3')" title="Heading H3" style="font-family:var(--fu);font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:background .15s,border-color .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='var(--text)'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">H3</button>
                 </div>
               </div>
               <div
@@ -1309,21 +1316,27 @@
               >${s.body || ""}</div>
             </div>
             <div style="margin-top:2px;">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:12px;">
                 <label style="margin:0;">Images</label>
                 <button onclick="addWImg(${i})" style="font-family:var(--fm);font-size:10px;letter-spacing:1px;padding:4px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;">+ Add Image</button>
               </div>
               <div id="wImgs_${i}" style="display:flex;flex-direction:column;gap:6px;">
                 ${(s.images || [])
-                  .map((img, j) => `
+                  .map((img, j) => {
+                    const nImgs = (s.images||[]).length;
+                    return `
                   <div data-imgrow style="display:flex;gap:8px;align-items:center;position:relative;">
-                    ${imgPrevHtml(img, 64, 44)}
+                    ${imgPrevHtml(img, 96, 64)}
                     <input type="text" value="${img}" placeholder="/assets/images/..." style="flex:1;"
-                      oninput="_editSections[${i}].images[${j}]=this.value; const p=this.previousElementSibling; if(this.value){p.src=this.value;}else{p.src='';p.style.display='none';}" />
+                      oninput="_editSections[${i}].images[${j}]=this.value;_dirty=true; const p=this.previousElementSibling; if(this.value){p.src=this.value;p.style.display='block';}else{p.src='';p.style.display='none';}" />
                     <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
                       + Upload
                       <input type="file" accept="image/*" style="display:none;" onchange="pickSectionImg(this,${i},${j})" />
                     </label>
+                    <div style="display:flex;flex-direction:column;gap:2px;flex-shrink:0;">
+                      <button onclick="moveWImgOrder(${i},${j},-1)" ${j===0?'disabled':''} style="background:none;border:1px solid var(--border);border-radius:3px;cursor:pointer;color:var(--muted);width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:10px;opacity:${j===0?'0.3':'1'};" title="Move up">↑</button>
+                      <button onclick="moveWImgOrder(${i},${j},1)" ${j===nImgs-1?'disabled':''} style="background:none;border:1px solid var(--border);border-radius:3px;cursor:pointer;color:var(--muted);width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:10px;opacity:${j===nImgs-1?'0.3':'1'};" title="Move down">↓</button>
+                    </div>
                     <div style="position:relative;flex-shrink:0;">
                       <button onclick="toggleMoveMenu(${i},${j},event)"
                         title="Move to another section"
@@ -1338,9 +1351,9 @@
                       </div>
                     </div>
                     <button onclick="removeWImg(${i},${j})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:16px;flex-shrink:0;line-height:1;">✕</button>
-                  </div>`)
+                  </div>`;})
                   .join("")}
-                ${(s.images || []).length === 0 ? `<div style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:4px 0;">No images</div>` : ""}
+                ${(s.images || []).length === 0 ? `<div style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:4px 0;">No images — click "+ Add Image" to add.</div>` : ""}
               </div>
             </div>
           </div>`;
@@ -1366,14 +1379,32 @@
         renderWSections();
       }
 
-      function formatBodyText(i, cmd) {
+      function formatBodyText(i, cmd, val) {
         const el = document.getElementById('wbody_' + i);
         if (!el) return;
-        // execCommand handles toggle natively: bold→unbold, italic→unitalic
-        const execCmd = cmd === 'bold' ? 'bold' : cmd === 'italic' ? 'italic' : 'insertUnorderedList';
-        document.execCommand(execCmd, false, null);
+        el.focus();
+        document.execCommand(cmd, false, val || null);
         _editSections[i].body = el.innerHTML;
+        _dirty = true;
         updateFormatBtns(i);
+      }
+
+      function insertWLink(i) {
+        const el = document.getElementById('wbody_' + i);
+        if (!el) return;
+        el.focus();
+        const sel = window.getSelection();
+        const selectedText = sel?.toString() || "";
+        const url = prompt("Enter URL:", "https://");
+        if (!url) return;
+        if (selectedText) {
+          document.execCommand('createLink', false, url);
+        } else {
+          const text = prompt("Link text:", url) || url;
+          document.execCommand('insertHTML', false, `<a href="${url}" target="_blank">${text}</a>`);
+        }
+        _editSections[i].body = el.innerHTML;
+        _dirty = true;
       }
 
       function updateFormatBtns(i, reset) {
@@ -1412,28 +1443,66 @@
       }
 
       function removeWSection(i) {
+        const s = _editSections[i];
+        const label = s.type === "divider" ? "divider" : (s.label || "this section");
+        if (!confirm(`Remove "${label}"?`)) return;
         syncAllBodies();
         _editSections.splice(i, 1);
+        _dirty = true;
         renderWSections();
       }
 
       function addWImg(si) {
-        syncAllBodies();
         if (!_editSections[si].images) _editSections[si].images = [];
         _editSections[si].images.push("");
-        renderWSections();
+        _dirty = true;
+        renderWImgsOnly(si);
       }
 
       function removeWImg(si, ji) {
-        syncAllBodies();
         _editSections[si].images.splice(ji, 1);
-        renderWSections();
+        _dirty = true;
+        renderWImgsOnly(si);
+      }
+
+      // Re-render chỉ phần images của 1 section — không làm mất focus body editor
+      function renderWImgsOnly(si) {
+        const s = _editSections[si];
+        const container = document.getElementById('wImgs_' + si);
+        if (!container) { renderWSections(); return; }
+        const nImgs = (s.images||[]).length;
+        const btnStyle = 'background:none;border:1px solid var(--border);border-radius:3px;cursor:pointer;color:var(--muted);width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:10px;';
+        container.innerHTML = (s.images||[]).map((img, j) => `
+          <div data-imgrow style="display:flex;gap:8px;align-items:center;position:relative;">
+            ${imgPrevHtml(img, 96, 64)}
+            <input type="text" value="${img}" placeholder="/assets/images/..." style="flex:1;"
+              oninput="_editSections[${si}].images[${j}]=this.value;_dirty=true; const p=this.previousElementSibling; if(this.value){p.src=this.value;p.style.display='block';}else{p.src='';p.style.display='none';}" />
+            <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 14px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+              + Upload<input type="file" accept="image/*" style="display:none;" onchange="pickSectionImg(this,${si},${j})" />
+            </label>
+            <div style="display:flex;flex-direction:column;gap:2px;flex-shrink:0;">
+              <button onclick="moveWImgOrder(${si},${j},-1)" ${j===0?'disabled':''} style="${btnStyle}opacity:${j===0?'0.3':'1'};" title="Move up">↑</button>
+              <button onclick="moveWImgOrder(${si},${j},1)" ${j===nImgs-1?'disabled':''} style="${btnStyle}opacity:${j===nImgs-1?'0.3':'1'};" title="Move down">↓</button>
+            </div>
+            <button onclick="removeWImg(${si},${j})" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:16px;flex-shrink:0;line-height:1;">✕</button>
+          </div>`).join('') || `<div style="font-family:var(--fm);font-size:11px;color:var(--muted);padding:4px 0;">No images — click "+ Add Image" to add.</div>`;
       }
 
       function moveWImg(fromSec, imgIdx, toSec) {
         syncAllBodies();
         const img = _editSections[fromSec].images.splice(imgIdx, 1)[0];
         _editSections[toSec].images.push(img);
+        _dirty = true;
+        renderWSections();
+      }
+
+      function moveWImgOrder(si, ji, dir) {
+        syncAllBodies();
+        const imgs = _editSections[si].images;
+        const newIdx = ji + dir;
+        if (newIdx < 0 || newIdx >= imgs.length) return;
+        [imgs[ji], imgs[newIdx]] = [imgs[newIdx], imgs[ji]];
+        _dirty = true;
         renderWSections();
       }
 
@@ -1506,17 +1575,17 @@
         // Show preview ngay lập tức
         const blob = URL.createObjectURL(file);
         if (prev) { prev.src = blob; prev.style.display = "block"; }
-        if (inp) { inp.value = "Đang upload..."; }
-        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        if (inp) { inp.value = "Uploading..."; }
+        toast("⏳ Uploading to Cloudinary...");
         try {
           const url = await uploadToCloudinary(file);
           if (inp) { inp.value = url; inp.dispatchEvent(new Event("input")); }
           if (prev) { prev.src = url; }
           URL.revokeObjectURL(blob);
-          toast("✓ Upload thành công!");
+          toast("✓ Uploaded!");
         } catch(e) {
           if (inp) inp.value = "";
-          toast("❌ Upload thất bại: " + e.message);
+          toast("❌ Upload failed: " + e.message);
         }
       }
 
@@ -1529,18 +1598,20 @@
         const inp = row?.querySelector("input[type=text]");
         const img = row?.querySelector("img");
         if (img) { img.src = blob; img.style.display = "block"; }
-        if (inp) inp.value = "Đang upload...";
-        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        if (inp) inp.value = "Uploading...";
+        toast("⏳ Uploading to Cloudinary...");
         try {
           const url = await uploadToCloudinary(file);
           _editSections[si].images[ji] = url;
           if (inp) inp.value = url;
           if (img) img.src = url;
           URL.revokeObjectURL(blob);
-          toast("✓ Upload thành công!");
+          toast("✓ Uploaded!");
         } catch(e) {
           if (inp) inp.value = "";
-          toast("❌ Upload thất bại: " + e.message);
+          if (img) { img.src = ""; img.style.display = "none"; }
+          URL.revokeObjectURL(blob);
+          toast("❌ Upload failed: " + e.message);
         }
       }
 
@@ -1571,7 +1642,7 @@
       let _dirty = false;
       function confirmClose() {
         if (!_dirty) return true;
-        return confirm("Bạn có thay đổi chưa lưu. Thoát không?");
+        return confirm("You have unsaved changes. Leave anyway?");
       }
 
       function openWM(id) {
@@ -1583,7 +1654,9 @@
         document.getElementById("wTi").value = w?.title || "";
         document.getElementById("wCli").value = w?.client || "";
         document.getElementById("wYr").value = w?.year || "";
-        document.getElementById("wCat").value = w?.category || "product";
+        document.getElementById("wCat").value = w?.category || "";
+        document.getElementById("wRo").value = w?.role || "";
+        document.getElementById("wDu").value = w?.duration || "";
         document.getElementById("wTg").value = w?.tags?.join(", ") || "";
         document.getElementById("wDe").value = w?.description || "";
         document.getElementById("wCo").value = w?.cover || "";
@@ -1617,6 +1690,8 @@
         renderWSections();
         _dirty = false;
         document.getElementById("wModal").classList.add("open");
+        const mf = document.querySelector("#wModal .mform");
+        if (mf) mf.scrollTop = 0;
         lockBody();
       }
       function closeWM() {
@@ -1638,6 +1713,8 @@
           title: document.getElementById("wTi").value,
           year: document.getElementById("wYr").value,
           category: document.getElementById("wCat").value,
+          role: document.getElementById("wRo").value,
+          duration: document.getElementById("wDu").value,
           tags: document
             .getElementById("wTg")
             .value.split(",")
@@ -1691,32 +1768,66 @@
       /* ── QUIET CONTENT BLOCKS ── */
       let _editBlocks = [];
 
-      const Q_LABELS = { p: "Nội dung", h3: "Tiêu đề", blockquote: "Quote" };
+      const Q_LABELS = { p: "Paragraph", h3: "Heading", blockquote: "Quote", img: "Image" };
       const Q_STYLES = {
         p: "",
         h3: "font-family:var(--fd);font-size:17px;font-style:italic;",
-        blockquote:
-          "font-style:italic;border-left:3px solid var(--border);padding-left:12px;color:var(--muted);",
+        blockquote: "font-style:italic;border-left:3px solid var(--border);padding-left:12px;color:var(--muted);",
+        img: "font-family:var(--fm);font-size:12px;",
       };
       const Q_PLACEHOLDER = {
-        p: "Nội dung đoạn văn...",
-        h3: "Tiêu đề mục...",
-        blockquote: "Trích dẫn...",
+        p: "Paragraph content...",
+        h3: "Section heading...",
+        blockquote: "Quote text...",
+        img: "https://... or /assets/images/...",
       };
+
+      /* ── Auto-slug từ title ── */
+      function qAutoSlug() {
+        const idEl = document.getElementById("qId");
+        if (idEl?.value) return; // editing existing — don't overwrite slug
+        const title = document.getElementById("qTi").value;
+        document.getElementById("qSlug").value = slugify(title);
+      }
+
+      /* ── Auto-calculate reading time ── */
+      function qCalcReading() {
+        syncQBlocks();
+        const words = _editBlocks
+          .filter(b => b.type !== "img")
+          .map(b => b.text.trim())
+          .join(" ")
+          .split(/\s+/)
+          .filter(Boolean).length;
+        const mins = Math.max(1, Math.round(words / 200));
+        document.getElementById("qRt").value = `${mins} min read`;
+      }
+
+      /* ── Sync tất cả textarea vào _editBlocks ── */
+      function syncQBlocks() {
+        document.querySelectorAll("#qBlocks textarea").forEach((ta, i) => {
+          if (_editBlocks[i]) _editBlocks[i].text = ta.value;
+        });
+      }
 
       function parseContentToBlocks(html) {
         if (!html || !html.trim()) return [];
         const blocks = [];
-        const regex = /<(p|h3|blockquote)[^>]*>([\s\S]*?)<\/\1>/gi;
+        const regex = /<(p|h3|blockquote|img)[^>]*(?:>([\s\S]*?)<\/\1>|\s*\/>)/gi;
         let match;
         while ((match = regex.exec(html)) !== null) {
-          const text = match[2]
-            .replace(/<br\s*\/?>/gi, "\n")
-            .replace(/<[^>]+>/g, "")
-            .trim();
-          if (text) blocks.push({ type: match[1].toLowerCase(), text });
+          const tag = match[1].toLowerCase();
+          if (tag === "img") {
+            const srcMatch = match[0].match(/src=["']([^"']*)["']/i);
+            if (srcMatch?.[1]) blocks.push({ type: "img", text: srcMatch[1] });
+          } else {
+            const text = (match[2] || "")
+              .replace(/<br\s*\/?>/gi, "\n")
+              .replace(/<[^>]+>/g, "")
+              .trim();
+            if (text) blocks.push({ type: tag, text });
+          }
         }
-        // fallback: no tags found, split plain text by double newline
         if (blocks.length === 0 && html.trim()) {
           const plain = html.replace(/<[^>]+>/g, "").trim();
           plain.split(/\n\n+/).forEach((p) => {
@@ -1729,33 +1840,46 @@
       function blocksToHtml(blocks) {
         return blocks
           .filter((b) => b.text.trim())
-          .map((b) => `<${b.type}>${b.text.replace(/\n/g, "<br>")}</${b.type}>`)
+          .map((b) => {
+            if (b.type === "img") return `<img src="${b.text}" alt="" style="width:100%;display:block;border-radius:var(--img-radius);" />`;
+            return `<${b.type}>${b.text.replace(/\n/g, "<br>")}</${b.type}>`;
+          })
           .join("");
       }
 
       function qBlockHtml(b, i, last) {
-        const mbtn = `background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;color:var(--muted);font-size:13px;padding:5px 11px;font-family:var(--fm);line-height:1;`;
+        const mbtn = `background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;color:var(--muted);font-size:13px;padding:5px 11px;font-family:var(--fm);line-height:1;transition:border-color .15s,color .15s;`;
         const pills = Object.entries(Q_LABELS)
           .map(([v, l]) => {
             const active = b.type === v;
-            return `<button onclick="changeQBlockType(${i},'${v}')" style="font-family:var(--fm);font-size:12px;letter-spacing:.5px;padding:6px 16px;border-radius:20px;border:1.5px solid ${active ? "var(--text)" : "var(--border)"};background:${active ? "var(--text)" : "transparent"};color:${active ? "var(--bg)" : "var(--muted)"};cursor:pointer;">${l}</button>`;
+            return `<button onclick="changeQBlockType(${i},'${v}')" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:5px 14px;border-radius:100px;border:1.5px solid ${active ? "var(--text)" : "var(--border)"};background:${active ? "var(--text)" : "transparent"};color:${active ? "var(--bg)" : "var(--muted)"};cursor:pointer;transition:all .15s;">${l}</button>`;
           })
           .join("");
-        const taStyle = `width:100%;box-sizing:border-box;resize:vertical;overflow-y:auto;border:none;background:transparent;padding:20px 20px;font-size:17px;line-height:1.9;color:var(--text);min-height:140px;max-height:320px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;${Q_STYLES[b.type] || ""}`;
-        return `
-          <div id="qblock_${i}" style="border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg2);margin-bottom:2px;">
-            <div style="display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg);">
-              <div style="display:flex;gap:6px;">${pills}</div>
-              <div style="flex:1;"></div>
-              <button onclick="moveQBlock(${i},-1)" style="${mbtn}" ${i === 0 ? "disabled" : ""} title="Lên">↑</button>
-              <button onclick="moveQBlock(${i},1)"  style="${mbtn}" ${i === last ? "disabled" : ""} title="Xuống">↓</button>
-              <button onclick="removeQBlock(${i})"  style="${mbtn}border-color:#f5c6c6;color:#c0392b;" title="Xóa">✕</button>
-            </div>
-            <textarea id="qbta_${i}"
-              style="${taStyle}"
+        const isImg = b.type === "img";
+        const content = isImg
+          ? `<div style="display:flex;gap:8px;align-items:center;padding:12px 16px;">
+              <img src="${b.text}" style="height:56px;width:88px;object-fit:cover;border-radius:4px;flex-shrink:0;${b.text ? "" : "display:none;"}" onerror="this.style.display='none'" onload="this.style.display='block'" />
+              <input value="${b.text}" placeholder="${Q_PLACEHOLDER.img}" style="flex:1;"
+                oninput="_editBlocks[${i}].text=this.value; const img=this.previousElementSibling; if(this.value){img.src=this.value;img.style.display='block';}else{img.style.display='none';}" />
+              <label style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 12px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+                Upload<input type="file" accept="image/*" style="display:none;" onchange="pickQBlockImg(this,${i})" />
+              </label>
+            </div>`
+          : `<textarea id="qbta_${i}"
+              style="width:100%;box-sizing:border-box;resize:vertical;overflow-y:auto;border:none;background:transparent;padding:16px 20px;font-size:17px;line-height:1.9;color:var(--text);min-height:80px;max-height:400px;scrollbar-width:thin;${Q_STYLES[b.type] || ""}"
               placeholder="${Q_PLACEHOLDER[b.type] || ""}"
               oninput="_editBlocks[${i}].text=this.value;"
-            >${b.text}</textarea>
+            >${b.text}</textarea>`;
+        return `
+          <div id="qblock_${i}" style="border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg2);margin-bottom:2px;">
+            <div style="display:flex;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--bg);">
+              <div style="display:flex;gap:4px;">${pills}</div>
+              <div style="flex:1;"></div>
+              <button onclick="moveQBlock(${i},-1)" style="${mbtn}" ${i === 0 ? "disabled style='opacity:.3;'" : ""} title="Up" onmouseover="this.style.borderColor='var(--text)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">↑</button>
+              <button onclick="moveQBlock(${i},1)"  style="${mbtn}" ${i === last ? "disabled style='opacity:.3;'" : ""} title="Down" onmouseover="this.style.borderColor='var(--text)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">↓</button>
+              <button onclick="removeQBlock(${i})"  style="${mbtn}border-color:var(--border);color:var(--danger);" title="Remove" onmouseover="this.style.borderColor='var(--danger)'" onmouseout="this.style.borderColor='var(--border)'">✕</button>
+            </div>
+            ${content}
           </div>`;
       }
 
@@ -1763,7 +1887,7 @@
         const el = document.getElementById("qBlocks");
         if (!el) return;
         if (_editBlocks.length === 0) {
-          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:12px 0;">Chưa có nội dung. Nhấn "+ Thêm đoạn" để bắt đầu.</div>`;
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:12px 0;">No content yet — click "+ Add block" to start writing.</div>`;
           return;
         }
         const last = _editBlocks.length - 1;
@@ -1773,18 +1897,12 @@
       }
 
       function changeQBlockType(i, type) {
-        // sync current textarea value before updating
-        const ta = document.getElementById(`qbta_${i}`);
-        if (ta) _editBlocks[i].text = ta.value;
+        syncQBlocks();
         _editBlocks[i].type = type;
-        // full re-render (keeps move buttons on neighbours correct)
+        _dirty = true;
         renderQBlocks();
-        // restore focus & cursor on the new textarea
         const newTa = document.getElementById(`qbta_${i}`);
-        if (newTa) {
-          newTa.focus();
-          autoResize(newTa);
-        }
+        if (newTa) { newTa.focus(); newTa.selectionStart = newTa.selectionEnd = newTa.value.length; }
       }
 
       function addQBlock() {
@@ -1802,15 +1920,49 @@
       }
 
       function removeQBlock(i) {
+        if (!confirm(`Remove this block?`)) return;
+        syncQBlocks();
         _editBlocks.splice(i, 1);
+        _dirty = true;
         renderQBlocks();
       }
 
       function moveQBlock(i, dir) {
         const j = i + dir;
         if (j < 0 || j >= _editBlocks.length) return;
+        syncQBlocks();
         [_editBlocks[i], _editBlocks[j]] = [_editBlocks[j], _editBlocks[i]];
+        _dirty = true;
         renderQBlocks();
+        // Re-focus block yang dipindah
+        const movedTa = document.getElementById(`qbta_${j}`);
+        if (movedTa) { movedTa.focus(); movedTa.selectionStart = movedTa.selectionEnd = movedTa.value.length; }
+      }
+
+      /* Upload ảnh trong image block */
+      async function pickQBlockImg(fileInput, i) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const row = fileInput.closest("div[style]");
+        const inp = row?.querySelector("input[type=text]");
+        const img = row?.querySelector("img");
+        const blob = URL.createObjectURL(file);
+        if (img) { img.src = blob; img.style.display = "block"; }
+        if (inp) inp.value = "Uploading...";
+        toast("⏳ Uploading to Cloudinary...");
+        try {
+          const url = await uploadToCloudinary(file);
+          _editBlocks[i].text = url;
+          if (inp) inp.value = url;
+          if (img) img.src = url;
+          URL.revokeObjectURL(blob);
+          toast("✓ Uploaded!");
+        } catch(e) {
+          if (inp) inp.value = "";
+          if (img) { img.src = ""; img.style.display = "none"; }
+          URL.revokeObjectURL(blob);
+          toast("❌ Upload failed: " + e.message);
+        }
       }
 
       /* ── QUIET ADMIN ── */
@@ -1819,10 +1971,17 @@
       function renderAQ() {
         const tb = document.getElementById("qtb");
         if (!tb) return;
+        if (!posts.length) {
+          tb.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:48px;font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:1px;">No posts yet — click "+ Add Post" to get started.</td></tr>`;
+          return;
+        }
         tb.innerHTML = posts
           .map(
-            (q, i) =>
-              `<tr draggable="true" data-id="${q.id}"
+            (q, i) => {
+              const thumb = q.cover
+                ? `<img src="${q.cover}" style="width:48px;height:32px;object-fit:cover;border-radius:4px;display:block;flex-shrink:0;" onerror="this.style.display='none'">`
+                : `<div style="width:48px;height:32px;border-radius:4px;background:var(--bg2);flex-shrink:0;"></div>`;
+              return `<tr draggable="true" data-id="${q.id}"
                 ondragstart="onQDragStart(event,'${q.id}')"
                 ondragover="onQDragOver(event)"
                 ondrop="onQDrop(event,'${q.id}')"
@@ -1830,13 +1989,14 @@
                 style="cursor:grab;transition:opacity 0.15s;"
               >
                 <td style="font-family:var(--fm);font-size:10px;color:var(--muted2);user-select:none;">
-                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Kéo để sắp xếp">⠿</span>${String(i + 1).padStart(2, "0")}
+                  <span style="cursor:grab;font-size:14px;color:var(--muted2);margin-right:8px;vertical-align:middle;" title="Drag to reorder">⠿</span>${String(i + 1).padStart(2, "0")}
                 </td>
-                <td style="max-width:220px">${q.title}</td>
+                <td><div style="display:flex;align-items:center;gap:12px;">${thumb}<div><span style="max-width:180px;display:block;">${q.title}</span>${q.draft ? `<span style="font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:1px 6px;display:inline-block;margin-top:2px;">DRAFT</span>` : ""}</div></div></td>
                 <td style="font-family:var(--fm);font-size:11px">${q.date}</td>
                 <td><span class="tag">${q.category}</span></td>
                 <td><div class="ta"><button class="bed" onclick="openQM('${q.id}')">Edit</button><button class="bdel" onclick="delQ('${q.id}')">Delete</button></div></td>
-              </tr>`,
+              </tr>`;
+            }
           )
           .join("");
       }
@@ -1862,7 +2022,7 @@
         posts.splice(toIdx, 0, moved);
         sv(LQ, posts); sbSave('posts', posts);
         renderAQ();
-        toast("Thứ tự đã cập nhật ✓");
+        toast("Order updated ✓");
       }
       function onQDragEnd(e) {
         e.currentTarget.style.opacity = "";
@@ -1870,15 +2030,15 @@
       }
       function openQM(id) {
         const q = id ? posts.find((x) => x.id === id) : null;
-        document.getElementById("qMT").textContent = q
-          ? "Edit Post"
-          : "Add Post";
+        document.getElementById("qMT").textContent = q ? "Edit Post" : "Add Post";
         document.getElementById("qId").value = q?.id || "";
         document.getElementById("qTi").value = q?.title || "";
+        document.getElementById("qSlug").value = q?.id || "";
         document.getElementById("qDt").value = q?.date || "";
         document.getElementById("qCt").value = q?.category || "Design Thoughts";
         document.getElementById("qRt").value = q?.reading || "";
         document.getElementById("qCo").value = q?.cover || "";
+        document.getElementById("qDraft").checked = q?.draft || false;
         setImgPrev("qCoPrev", q?.cover || "");
         document.getElementById("qEx").value = q?.excerpt || "";
         document.getElementById("qLe").value = q?.lead || "";
@@ -1887,6 +2047,8 @@
         setTimeout(() => {
           autoResize(document.getElementById("qEx"));
           autoResize(document.getElementById("qLe"));
+          const mf = document.querySelector("#qModal .mform");
+          if (mf) mf.scrollTop = 0;
         }, 0);
         _dirty = false;
         document.getElementById("qModal").classList.add("open");
@@ -1900,19 +2062,28 @@
         unlockBody();
       }
       function savePost() {
-        const id =
-          document.getElementById("qId").value ||
-          slugify(document.getElementById("qTi").value) ||
-          "q" + Date.now();
+        // Validate title
+        const titleEl = document.getElementById("qTi");
+        if (!titleEl.value.trim()) {
+          titleEl.focus();
+          toast("Title is required", "error");
+          return;
+        }
+        // Sync blocks before save
+        syncQBlocks();
+        const slugVal = document.getElementById("qSlug").value.trim();
+        const id = document.getElementById("qId").value ||
+          slugVal || slugify(titleEl.value) || "q" + Date.now();
         const d = {
           id,
-          title: document.getElementById("qTi").value,
+          title: titleEl.value,
           date: document.getElementById("qDt").value,
           category: document.getElementById("qCt").value,
           reading: document.getElementById("qRt").value,
           cover: document.getElementById("qCo").value,
           excerpt: document.getElementById("qEx").value,
           lead: document.getElementById("qLe").value,
+          draft: document.getElementById("qDraft").checked,
           content: blocksToHtml(_editBlocks),
         };
         const i = posts.findIndex((q) => q.id === id);
@@ -1922,7 +2093,7 @@
         _dirty = false;
         closeQM();
         renderAQ();
-        toast("Post saved ✓");
+        toast(d.draft ? "Saved as draft ✓" : "Post saved ✓");
       }
       function delQ(id) {
         if (!confirm("Delete post?")) return;
@@ -1936,10 +2107,14 @@
       function renderAC() {
         const tb = document.getElementById("ctb");
         if (!tb) return;
+        if (!career.length) {
+          tb.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:48px;font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:1px;">No positions yet — click "+ Add Position" to get started.</td></tr>`;
+          return;
+        }
         tb.innerHTML = career
           .map(
             (c) =>
-              `<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current ? "var(--ame)" : "var(--muted)"}"> ${c.current ? "Yes" : "No"}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`,
+              `<tr><td>${c.role}</td><td style="font-weight:500">${c.company}</td><td style="font-family:var(--fm);font-size:10px;color:var(--muted)">${c.period}</td><td style="font-family:var(--fm);font-size:10px;color:${c.current ? "var(--ame)" : "var(--muted)"}"> ${c.current ? "● Yes" : "No"}</td><td><div class="ta"><button class="bed" onclick="openCM('${c.id}')">Edit</button><button class="bdel" onclick="delC('${c.id}')">Delete</button></div></td></tr>`,
           )
           .join("");
       }
@@ -2005,6 +2180,48 @@
           .replace(/<p>([\s\S]*?)<\/p>/gi, "<br>$1")
           .replace(/^<br>/i, "");
         ta.value = html;
+      }
+
+      /* ── BIO FORMATTER (About page) ── */
+      function syncBioFromEditor() {
+        const editor = document.getElementById("abBioEditor");
+        const ta = document.getElementById("abBio");
+        if (editor && ta) ta.value = editor.innerHTML;
+      }
+
+      function bioFormat(type) {
+        const editor = document.getElementById("abBioEditor");
+        if (!editor) return;
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount || sel.isCollapsed) return;
+        const range = sel.getRangeAt(0);
+
+        if (type === "plain") {
+          const plain = range.toString();
+          range.deleteContents();
+          const textNode = document.createTextNode(plain);
+          range.insertNode(textNode);
+          const newR = document.createRange();
+          newR.setStartAfter(textNode); newR.collapse(true);
+          sel.removeAllRanges(); sel.addRange(newR);
+          syncBioFromEditor(); return;
+        }
+
+        let wrapper;
+        if (type === "em")     { wrapper = document.createElement("em"); }
+        else if (type === "bold")   { wrapper = document.createElement("span"); wrapper.className = "hi-bold"; }
+        else if (type === "muted")  { wrapper = document.createElement("em"); wrapper.style.opacity = "0.45"; }
+        else if (type === "purple") { wrapper = document.createElement("span"); wrapper.className = "hi-ame"; }
+        else if (type === "green")  { wrapper = document.createElement("span"); wrapper.className = "hi-oli"; }
+        if (!wrapper) return;
+
+        try { range.surroundContents(wrapper); }
+        catch (e) { const frag = range.extractContents(); wrapper.appendChild(frag); range.insertNode(wrapper); }
+
+        const newRange = document.createRange();
+        newRange.setStartAfter(wrapper); newRange.collapse(true);
+        sel.removeAllRanges(); sel.addRange(newRange);
+        syncBioFromEditor();
       }
 
       function heroFormat(type) {
@@ -2086,7 +2303,7 @@
         const el = document.getElementById("ctContactList");
         if (!el) return;
         if (!_ctContacts.length) {
-          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">Chưa có contact. Nhấn "+ Add Contact".</div>`;
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">No contacts yet. Click "+ Add Contact".</div>`;
           return;
         }
         el.innerHTML = _ctContacts
@@ -2109,7 +2326,7 @@
         const el = document.getElementById("ctSocialList");
         if (!el) return;
         if (!_ctSocials.length) {
-          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">Chưa có social. Nhấn "+ Add Social".</div>`;
+          el.innerHTML = `<div style="font-family:var(--fm);font-size:12px;color:var(--muted);padding:8px 0;">No socials yet. Click "+ Add Social".</div>`;
           return;
         }
         el.innerHTML = _ctSocials
@@ -2185,7 +2402,15 @@
         document.getElementById("abName").value = about.name || "";
         document.getElementById("abRole").value = about.role || "";
         document.getElementById("abBirth").value = about.birth || "";
+        document.getElementById("abResume").value = about.resume || "";
+        document.getElementById("abAvail").value = about.availableForWork || "";
+        document.getElementById("abSocLI").value = about.socials?.linkedin || "";
+        document.getElementById("abSocBe").value = about.socials?.behance || "";
+        document.getElementById("abSocDr").value = about.socials?.dribbble || "";
         document.getElementById("abBio").value = about.bio || "";
+        const bioEd = document.getElementById("abBioEditor");
+        if (bioEd) bioEd.innerHTML = about.bio || "";
+        document.getElementById("abBioBody").value = about.bioBody || "";
         document.getElementById("abQuote").value = about.quote || "";
         document.getElementById("abSkH").value = about.skills?.help || "";
         document.getElementById("abSkT").value = about.skills?.tools || "";
@@ -2194,11 +2419,20 @@
       }
 
       function saveAbout() {
+        syncBioFromEditor();
         about.photo = document.getElementById("abPhoto").value;
         about.name = document.getElementById("abName").value;
         about.role = document.getElementById("abRole").value;
         about.birth = document.getElementById("abBirth").value;
+        about.resume = document.getElementById("abResume").value;
+        about.availableForWork = document.getElementById("abAvail").value;
+        about.socials = {
+          linkedin: document.getElementById("abSocLI").value,
+          behance: document.getElementById("abSocBe").value,
+          dribbble: document.getElementById("abSocDr").value,
+        };
         about.bio = document.getElementById("abBio").value;
+        about.bioBody = document.getElementById("abBioBody").value;
         about.quote = document.getElementById("abQuote").value;
         about.skills = {
           help: document.getElementById("abSkH").value,
@@ -2215,18 +2449,23 @@
         const blob = URL.createObjectURL(file);
         const prev = document.getElementById("abPhotoPrev");
         const inp = document.getElementById("abPhoto");
+        const wrap = document.getElementById("abPhotoUrlWrap");
         if (prev) { prev.src = blob; prev.style.display = "block"; }
-        if (inp) inp.value = "Đang upload...";
-        toast("⏳ Đang upload ảnh lên Cloudinary...");
+        if (inp) inp.value = "Uploading...";
+        toast("⏳ Uploading to Cloudinary...");
         try {
           const url = await uploadToCloudinary(file);
           if (inp) inp.value = url;
           if (prev) prev.src = url;
           URL.revokeObjectURL(blob);
-          toast("✓ Upload thành công!");
+          // Ẩn URL input dài, show nút "Change photo" gọn hơn
+          if (wrap) wrap.style.display = "none";
+          toast("✓ Uploaded!");
         } catch(e) {
           if (inp) inp.value = "";
-          toast("❌ Upload thất bại: " + e.message);
+          if (prev) { prev.src = ""; prev.style.display = "none"; }
+          URL.revokeObjectURL(blob);
+          toast("❌ Upload failed: " + e.message);
         }
       }
 
@@ -2329,6 +2568,31 @@ let works = ld(LW, DW),
           _dirty = true;
         });
       });
+      // Theo dõi thay đổi trong About và Contact → bật dirty indicator
+      ["admin-about", "admin-contact"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener("input", () => {
+          if (_activeTab === "about" || _activeTab === "contact") setFooterDirty();
+        });
+      });
+
+      // Gắn dirty cho các save functions — reset footer sau khi save
+      const _origSaveHero = saveHero;
+      saveHero = function() { _origSaveHero(); setFooterClean(); };
+      const _origSaveAbout = saveAbout;
+      saveAbout = function() { _origSaveAbout(); setFooterClean(); };
+      const _origSaveContact = saveContact;
+      saveContact = function() { _origSaveContact(); setFooterClean(); };
+
+      // Ctrl+S / Cmd+S → save
+      document.addEventListener("keydown", (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+          e.preventDefault();
+          if (_footerTabs[_activeTab]) footerSave();
+        }
+      });
+
       initAdmin();
     </script>
   </body>

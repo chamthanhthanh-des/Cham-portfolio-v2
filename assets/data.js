@@ -549,7 +549,15 @@ const DA = {
   name: "Thanh Châm",
   role: "Senior Product · Branding Designer",
   birth: "1995 · Born in Ha Noi",
-  bio: "Hi there! I'm a Designer with 5 years in digital product design and 8 years in branding & graphic design. I enjoy crafting clean, intuitive experiences that connect users with products in a natural and meaningful way.\n\nWith a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right.\n\nI love simple ideas, smooth user flows, and building things that actually help people. Let's connect and create something great together!",
+  resume: "https://drive.google.com/file/d/1ogmVIP-TKXft0pwJzTQ1Xr3Z5sx37nO5/view",
+  availableForWork: "open",
+  socials: {
+    linkedin: "https://www.linkedin.com/in/chamthanhthanh/",
+    behance: "",
+    dribbble: "",
+  },
+  bio: "Hi there! I'm a Designer with <span class=\"hi-ame\"> 5 years in digital product design</span> and <span class=\"hi-ame\"> 8 years in branding &amp; graphic design.</span> I enjoy crafting <span class=\"hi-oli\"> clean, intuitive experiences</span> that connect users with products in a <span class=\"hi-bold\" style=\"color:inherit\">natural and meaningful way.</span>",
+  bioBody: "With a background in both user experience and visual identity, I focus on finding the sweet spot between usability and personality — making sure every design not only works but feels right.\n\nI love simple ideas, smooth user flows, and building things that actually help people. Let's connect and create something great together!",
   quote:
     '"An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way." — Charles Bukowski',
   skills: {
@@ -570,7 +578,14 @@ const SB_KEY = "sb_publishable_AtWYRDc3MM6Zs4_yaLOYxQ_waumWHSA";
 function ld(k, d) {
   try {
     const v = localStorage.getItem(k);
-    return v ? JSON.parse(v) : d;
+    if (!v) return d;
+    const parsed = JSON.parse(v);
+    // Object: merge với default để fill fields mới bị thiếu
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed) &&
+        d && typeof d === 'object' && !Array.isArray(d)) {
+      return { ...d, ...parsed };
+    }
+    return parsed;
   } catch {
     return d;
   }
@@ -600,6 +615,7 @@ async function _loadFromSupabase() {
     if (map.works?.length)   { works   = map.works;   sv(LW,    works);   }
     if (map.posts?.length)   { posts   = map.posts;   sv(LQ,    posts);   }
     if (map.career?.length)  { career  = map.career;  sv(LC,    career);  }
+    else if (!career?.length) { career = DC; } // fallback nếu cả Supabase lẫn localStorage đều rỗng
     if (map.hero && Object.keys(map.hero).length)    { hero    = map.hero;    sv(LH,    hero);    }
     if (map.about && Object.keys(map.about).length)  { about   = map.about;   sv(LA_AB, about);   }
     if (map.contact && Object.keys(map.contact).length) { contact = map.contact; sv(LCT,  contact); }
@@ -611,4 +627,8 @@ async function _loadFromSupabase() {
 }
 
 // Tất cả pages đợi promise này trước khi render
-window._dataReady = _loadFromSupabase();
+// Timeout 3s — nếu Supabase không trả lời thì dùng localStorage
+window._dataReady = Promise.race([
+  _loadFromSupabase(),
+  new Promise(resolve => setTimeout(() => resolve(false), 3000))
+]);

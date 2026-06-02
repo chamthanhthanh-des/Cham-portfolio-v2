@@ -61,11 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ── TOAST ───────────────────────────────────────── */
-function toast(msg) {
+function toast(msg, type) {
   const e = document.querySelector(".toast");
   if (e) e.remove();
   const t = document.createElement("div");
-  t.className = "toast";
+  // type: "success" | "error" | "info" | undefined (default = success)
+  const isError = type === "error" || msg.startsWith("❌");
+  const isInfo  = type === "info"  || msg.startsWith("⏳");
+  t.className = "toast" + (isError ? " toast-error" : isInfo ? " toast-info" : "");
   t.textContent = msg;
   document.body.appendChild(t);
   setTimeout(() => t.remove(), 2700);

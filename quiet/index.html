@@ -129,6 +129,7 @@
         const list = document.getElementById("qList");
         if (list)
           list.innerHTML = posts
+            .filter(q => !q.draft)
             .map(
               (q, i) => `
 <div
