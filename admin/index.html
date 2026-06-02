@@ -40,11 +40,20 @@
         border-color: var(--text) !important;
         box-shadow: none !important;
       }
-      [contenteditable]:not(#heroEditor):not(#abBioEditor) { font-family: "Syne", system-ui, sans-serif !important; }
-      [contenteditable]:not(#heroEditor):not(#abBioEditor) * { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable]:not(#heroEditor):not(#abBioEditor):not(#qEditor) { font-family: "Syne", system-ui, sans-serif !important; }
+      [contenteditable]:not(#heroEditor):not(#abBioEditor):not(#qEditor) * { font-family: "Syne", system-ui, sans-serif !important; }
       #abBioEditor { font-family: "Cormorant Garamond", serif !important; font-style: italic !important; font-weight: 500 !important; }
       #abBioEditor * { font-family: "Cormorant Garamond", serif !important; }
       [contenteditable] p { margin: 0 0 10px; }
+      /* qEditor — blog preview styles */
+      #qEditor p { margin-bottom: 28px; }
+      #qEditor h2 { font-family: "Cormorant Garamond", serif; font-size: 26px; font-style: italic; font-weight: 600; margin: 40px 0 16px; color: var(--text); }
+      #qEditor h3 { font-family: "Syne", sans-serif; font-size: 17px; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+      #qEditor blockquote { border-left: 3px solid #86a36e; padding-left: 20px; margin: 28px 0; font-family: "Cormorant Garamond", serif; font-size: 20px; font-style: italic; font-weight: 600; color: #86a36e; line-height: 1.5; }
+      #qEditor img { width: 100%; border-radius: 6px; display: block; margin: 20px 0; }
+      #qEditor ul { margin: 0 0 24px; padding-left: 24px; }
+      #qEditor li { margin-bottom: 8px; }
+      #qEditor a { color: #6a4f7a; text-decoration: underline; }
       [contenteditable] p:last-child { margin-bottom: 0; }
       [contenteditable] ul { margin: 6px 0 10px; padding-left: 20px; }
       [contenteditable] li { margin-bottom: 4px; }
@@ -899,27 +908,51 @@
               oninput="autoResize(this)"
             ></textarea>
           </div>
-          <!-- CONTENT BLOCKS -->
-          <div style="margin-top: 4px">
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-bottom: 12px;
-              "
-            >
-              <label style="margin: 0; font-size: 13px; letter-spacing: 1.5px"
-                >CONTENT</label
-              >
-              <button class="badd" onclick="addQBlock()" style="margin-bottom:0;">
-                + Add block
-              </button>
+          <!-- CONTENT EDITOR (WYSIWYG) -->
+          <div style="margin-top:4px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+              <label style="margin:0;font-size:13px;letter-spacing:1.5px;">CONTENT</label>
+              <div style="display:flex;gap:3px;align-items:center;flex-wrap:wrap;">
+                <!-- Text type -->
+                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','p')" title="Paragraph" style="font-family:var(--fu);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">P</button>
+                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','h2')" title="Heading H2" style="font-family:var(--fd);font-style:italic;font-weight:600;font-size:13px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">H2</button>
+                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','h3')" title="Heading H3" style="font-family:var(--fu);font-weight:600;font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">H3</button>
+                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','blockquote')" title="Quote" style="font-family:var(--fd);font-style:italic;font-size:13px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--oli);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">"Q"</button>
+                <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
+                <!-- Inline styles -->
+                <button type="button" onmousedown="event.preventDefault();qFmt('bold')" title="Bold" style="font-family:var(--fu);font-weight:700;font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">B</button>
+                <button type="button" onmousedown="event.preventDefault();qFmt('italic')" title="Italic" style="font-family:var(--fu);font-style:italic;font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">I</button>
+                <button type="button" onmousedown="event.preventDefault();qFmtColor('#6a4f7a')" title="Purple" style="font-family:var(--fu);font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#6a4f7a;font-weight:600;transition:background .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#6a4f7a'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
+                <button type="button" onmousedown="event.preventDefault();qFmtColor('#86a36e')" title="Green" style="font-family:var(--fu);font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#86a36e;font-weight:600;transition:background .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#86a36e'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
+                <button type="button" onmousedown="event.preventDefault();qFmt('removeFormat')" title="Clear format" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--muted);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">✕</button>
+                <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
+                <!-- Lists & image -->
+                <button type="button" onmousedown="event.preventDefault();qFmt('insertUnorderedList')" title="Bullet list" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">• List</button>
+                <button type="button" onmousedown="event.preventDefault();qInsertLink()" title="Insert link" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">🔗</button>
+                <label title="Insert image" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;display:inline-flex;align-items:center;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">
+                  🖼
+                  <input type="file" accept="image/*" style="display:none;" onchange="qInsertImg(this)">
+                </label>
+              </div>
             </div>
-            <div
-              id="qBlocks"
-              style="display: flex; flex-direction: column; gap: 12px"
-            ></div>
+            <!-- WYSIWYG editor styled as blog preview -->
+            <div id="qEditor" contenteditable="true"
+              oninput="qSyncEditor();_dirty=true;"
+              onfocus="this.style.borderColor='var(--text)'"
+              onblur="this.style.borderColor='var(--border)'"
+              style="
+                min-height:300px;max-height:600px;overflow-y:auto;
+                padding:28px 32px;
+                border:1px solid var(--border);border-radius:8px;
+                background:var(--bg);outline:none;
+                transition:border-color .15s;
+                scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+                /* blog preview styles */
+                font-size:17px;line-height:1.85;color:#333;
+                font-family:var(--fu);
+              ">
+            </div>
+            <textarea id="qContent" style="display:none;"></textarea>
           </div>
 
         </div>
@@ -1782,6 +1815,65 @@
         img: "https://... or /assets/images/...",
       };
 
+      /* ── WYSIWYG BLOG EDITOR ── */
+      function qSyncEditor() {
+        const el = document.getElementById("qEditor");
+        const ta = document.getElementById("qContent");
+        if (el && ta) ta.value = el.innerHTML;
+      }
+
+      function qFmt(cmd, val) {
+        document.getElementById("qEditor")?.focus();
+        document.execCommand(cmd, false, val || null);
+        qSyncEditor();
+      }
+
+      function qFmtColor(color) {
+        document.getElementById("qEditor")?.focus();
+        document.execCommand("foreColor", false, color);
+        qSyncEditor();
+      }
+
+      function qInsertLink() {
+        document.getElementById("qEditor")?.focus();
+        const sel = window.getSelection()?.toString() || "";
+        const url = prompt("URL:", "https://");
+        if (!url) return;
+        if (sel) {
+          document.execCommand("createLink", false, url);
+        } else {
+          const txt = prompt("Link text:", url) || url;
+          document.execCommand("insertHTML", false, `<a href="${url}" target="_blank">${txt}</a>`);
+        }
+        qSyncEditor();
+      }
+
+      async function qInsertImg(fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        toast("⏳ Uploading to Cloudinary...");
+        try {
+          const url = await uploadToCloudinary(file);
+          document.getElementById("qEditor")?.focus();
+          document.execCommand("insertHTML", false, `<img src="${url}" alt="" style="width:100%;border-radius:6px;display:block;margin:20px 0;" />`);
+          qSyncEditor();
+          toast("✓ Image inserted!");
+        } catch(e) {
+          toast("❌ Upload failed: " + e.message);
+        }
+        fileInput.value = "";
+      }
+
+      /* ── Auto-calculate reading time từ editor content ── */
+      function qCalcReadingFromEditor() {
+        const el = document.getElementById("qEditor");
+        if (!el) return;
+        const text = el.innerText || el.textContent || "";
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        const mins = Math.max(1, Math.round(words / 200));
+        document.getElementById("qRt").value = `${mins} min read`;
+      }
+
       /* ── Auto-slug từ title ── */
       function qAutoSlug() {
         const idEl = document.getElementById("qId");
@@ -1791,24 +1883,10 @@
       }
 
       /* ── Auto-calculate reading time ── */
-      function qCalcReading() {
-        syncQBlocks();
-        const words = _editBlocks
-          .filter(b => b.type !== "img")
-          .map(b => b.text.trim())
-          .join(" ")
-          .split(/\s+/)
-          .filter(Boolean).length;
-        const mins = Math.max(1, Math.round(words / 200));
-        document.getElementById("qRt").value = `${mins} min read`;
-      }
+      function qCalcReading() { qCalcReadingFromEditor(); }
 
-      /* ── Sync tất cả textarea vào _editBlocks ── */
-      function syncQBlocks() {
-        document.querySelectorAll("#qBlocks textarea").forEach((ta, i) => {
-          if (_editBlocks[i]) _editBlocks[i].text = ta.value;
-        });
-      }
+      /* ── Legacy — giữ để không break code cũ ── */
+      function syncQBlocks() { qSyncEditor(); }
 
       function parseContentToBlocks(html) {
         if (!html || !html.trim()) return [];
@@ -2042,8 +2120,11 @@
         setImgPrev("qCoPrev", q?.cover || "");
         document.getElementById("qEx").value = q?.excerpt || "";
         document.getElementById("qLe").value = q?.lead || "";
-        _editBlocks = parseContentToBlocks(q?.content || "");
-        renderQBlocks();
+        // Load content vào WYSIWYG editor
+        const qEd = document.getElementById("qEditor");
+        const qCt = document.getElementById("qContent");
+        if (qEd) qEd.innerHTML = q?.content || "";
+        if (qCt) qCt.value = q?.content || "";
         setTimeout(() => {
           autoResize(document.getElementById("qEx"));
           autoResize(document.getElementById("qLe"));
@@ -2069,8 +2150,8 @@
           toast("Title is required", "error");
           return;
         }
-        // Sync blocks before save
-        syncQBlocks();
+        // Sync editor before save
+        qSyncEditor();
         const slugVal = document.getElementById("qSlug").value.trim();
         const id = document.getElementById("qId").value ||
           slugVal || slugify(titleEl.value) || "q" + Date.now();
@@ -2084,7 +2165,7 @@
           excerpt: document.getElementById("qEx").value,
           lead: document.getElementById("qLe").value,
           draft: document.getElementById("qDraft").checked,
-          content: blocksToHtml(_editBlocks),
+          content: document.getElementById("qContent").value,
         };
         const i = posts.findIndex((q) => q.id === id);
         if (i >= 0) posts[i] = d;
