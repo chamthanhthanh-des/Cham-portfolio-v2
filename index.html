@@ -223,62 +223,39 @@
     <script src="/assets/app.js"></script>
     <script>
       /* ── HOMEPAGE INIT ───────────────────────────────── */
-      window._dataReady.then(() => {
-
-      // Populate hero text from stored/custom data
-      const ht = document.getElementById("heroTitle"),
-        hd = document.getElementById("heroDesc");
-      if (ht) ht.innerHTML = hero.title;
-      if (hd) hd.innerHTML = hero.desc;
-
-      // Resume links
-      if (hero.resume) {
-        ["navResume", "ctaResume"].forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) el.href = hero.resume;
-        });
+      function renderHomepage() {
+        const ht = document.getElementById("heroTitle"),
+          hd = document.getElementById("heroDesc");
+        if (ht) ht.innerHTML = hero.title;
+        if (hd) hd.innerHTML = hero.desc;
+        if (hero.resume) {
+          ["navResume", "ctaResume"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.href = hero.resume;
+          });
+        }
+        const catEl = document.getElementById("catImg");
+        if (catEl && hero.cat) catEl.src = hero.cat;
+        const mqItems = [
+          "Product Design","Branding","UI/UX Research","Design Systems",
+          "Web3","Art Direction","9+ Years","Việt Nam","System Thinking",
+          "Editorial Layouts","AI × Design","Creative Coding","Digital Experiences","Emotional Design",
+        ];
+        const mqTrack = document.getElementById("mqt");
+        if (mqTrack)
+          mqTrack.innerHTML = [...mqItems, ...mqItems]
+            .map((x) => `<span class="mq-item"><span class="mq-dot"></span>${x}</span>`)
+            .join("");
+        const featW = document.getElementById("featW");
+        if (featW)
+          featW.innerHTML = works.filter((w) => w.featured).slice(0, 3)
+            .map((w, i) => fwCardHTML(w, i)).join("");
       }
 
-      // Cat image
-      const catEl = document.getElementById("catImg");
-      if (catEl && hero.cat) catEl.src = hero.cat;
-
-      // Marquee items
-      const mqItems = [
-        "Product Design",
-        "Branding",
-        "UI/UX Research",
-        "Design Systems",
-        "Web3",
-        "Art Direction",
-        "9+ Years",
-        "Việt Nam",
-        "System Thinking",
-        "Editorial Layouts",
-        "AI × Design",
-        "Creative Coding",
-        "Digital Experiences",
-        "Emotional Design",
-      ];
-      const mqTrack = document.getElementById("mqt");
-      if (mqTrack)
-        mqTrack.innerHTML = [...mqItems, ...mqItems]
-          .map(
-            (x) =>
-              `<span class="mq-item"><span class="mq-dot"></span>${x}</span>`,
-          )
-          .join("");
-
-      // Featured works list
-      const featW = document.getElementById("featW");
-      if (featW)
-        featW.innerHTML = works
-          .filter((w) => w.featured)
-          .slice(0, 3)
-          .map((w, i) => fwCardHTML(w, i))
-          .join("");
-
-      }); // end _dataReady
+      renderHomepage();
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) renderHomepage();
+      }).catch(() => {});
 
       /* ── CAT ANIMATION ───────────────────────────────── */
       const cat = document.getElementById("catImg");

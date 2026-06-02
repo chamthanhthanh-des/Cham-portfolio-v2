@@ -148,6 +148,9 @@
             <div class="ani" onclick="swTab('career')" id="tab-career">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Career
             </div>
+            <div class="ani" onclick="swTab('guide')" id="tab-guide">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Guide
+            </div>
             <div style="flex: 1"></div>
             <div class="a-logout" onclick="doLogout()">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Leave dashboard
@@ -623,6 +626,124 @@
                     <div class="fg" style="margin:0;">
                       <label>Skills</label>
                       <textarea id="abSkS" style="resize:vertical;min-height:160px;font-size:15px;line-height:1.9;overflow-y:auto;scrollbar-width:thin;" placeholder="UI Visual design&#10;UX Research&#10;..."></textarea>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- GUIDE -->
+            <div id="admin-guide" class="a-sec">
+              <div class="a-ptl">Hướng dẫn sử dụng</div>
+              <p class="a-psub">Cách cập nhật nội dung đúng cách, hạn chế lỗi.</p>
+
+              <div style="display:flex;flex-direction:column;gap:16px;">
+
+                <!-- QUY TRÌNH -->
+                <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                  <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
+                    <span style="font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);">✦ Quy trình cập nhật đúng</span>
+                  </div>
+                  <div style="padding:20px 24px;display:flex;flex-direction:column;gap:14px;">
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1px;background:var(--text);color:var(--bg);border-radius:100px;padding:3px 10px;flex-shrink:0;margin-top:2px;">01</span>
+                      <div>
+                        <div style="font-family:var(--fm);font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:3px;">Chỉnh nội dung trong tab tương ứng</div>
+                        <div style="font-family:var(--fu);font-size:14px;color:var(--muted);line-height:1.7;">Sửa text, upload ảnh, thêm/xóa project hoặc bài viết tùy ý. Hệ thống sẽ tự động lưu khi chuyển tab.</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1px;background:var(--text);color:var(--bg);border-radius:100px;padding:3px 10px;flex-shrink:0;margin-top:2px;">02</span>
+                      <div>
+                        <div style="font-family:var(--fm);font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:3px;">Kiểm tra badge ở góc trên phải</div>
+                        <div style="font-family:var(--fu);font-size:14px;line-height:1.7;">
+                          <span style="color:#86a36e;font-weight:600;">● Synced ✓</span> — xong, website tự cập nhật sau ~2 giây.<br>
+                          <span style="color:#e8a838;font-weight:600;">⚠ Local only</span> — chưa lên cloud, làm thêm bước 03.<br>
+                          <span style="color:#c0392b;font-weight:600;">● Sync failed</span> — lỗi mạng hoặc Supabase, làm thêm bước 03.
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1px;background:var(--border);color:var(--muted);border-radius:100px;padding:3px 10px;flex-shrink:0;margin-top:2px;">03</span>
+                      <div>
+                        <div style="font-family:var(--fm);font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:3px;color:var(--muted);">Chỉ khi badge không xanh: nhấn Backup</div>
+                        <div style="font-family:var(--fu);font-size:14px;color:var(--muted);line-height:1.7;">Nhấn nút <strong style="color:var(--text);">Backup</strong> → tải về <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">data.js</code> → replace file <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">/assets/data.js</code> trong project → deploy lại. Bước này chỉ cần thiết khi Supabase có vấn đề.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LỖI THƯỜNG GẶP -->
+                <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                  <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
+                    <span style="font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);">⚠ Lỗi thường gặp &amp; cách xử lý</span>
+                  </div>
+                  <div style="padding:4px 0;">
+                    <div style="padding:14px 24px;border-bottom:1px solid var(--border);">
+                      <div style="font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;">Badge luôn hiện "Local only" dù có mạng</div>
+                      <div style="font-family:var(--fu);font-size:13px;color:var(--muted);line-height:1.6;">Supabase free tier tự pause sau 1 tuần không dùng. Vào <a href="https://supabase.com/dashboard" target="_blank" style="color:var(--text);">supabase.com/dashboard</a> → mở project → đợi 30 giây → quay lại admin và refresh.</div>
+                    </div>
+                    <div style="padding:14px 24px;border-bottom:1px solid var(--border);">
+                      <div style="font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;">Website hiển thị nội dung cũ dù đã save</div>
+                      <div style="font-family:var(--fu);font-size:13px;color:var(--muted);line-height:1.6;">Hard refresh trang web: <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">Cmd+Shift+R</code> (Mac) hoặc <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">Ctrl+Shift+R</code> (Windows). Nếu vẫn cũ → làm bước Backup &amp; deploy.</div>
+                    </div>
+                    <div style="padding:14px 24px;border-bottom:1px solid var(--border);">
+                      <div style="font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;">Upload ảnh không hiện lên</div>
+                      <div style="font-family:var(--fu);font-size:13px;color:var(--muted);line-height:1.6;">Kiểm tra toast thông báo ở góc dưới — nếu hiện "Upload failed" thì kiểm tra kết nối mạng và thử lại. Ảnh upload qua Cloudinary, không cần deploy mới có tác dụng.</div>
+                    </div>
+                    <div style="padding:14px 24px;border-bottom:1px solid var(--border);">
+                      <div style="font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;">Lỡ xóa hoặc sửa nhầm nội dung</div>
+                      <div style="font-family:var(--fu);font-size:13px;color:var(--muted);line-height:1.6;">Nhấn nút <strong style="color:var(--text);">Reset</strong> ở topbar → load lại từ file <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">data.js</code> gốc. Lưu ý: mọi thay đổi chưa Backup sẽ mất.</div>
+                    </div>
+                    <div style="padding:14px 24px;">
+                      <div style="font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;">Mở admin trên máy khác không thấy data mới</div>
+                      <div style="font-family:var(--fu);font-size:13px;color:var(--muted);line-height:1.6;">Bình thường — admin dùng localStorage của từng máy. Chỉ cần đợi Supabase sync (~2 giây sau khi mở trang) hoặc nhấn <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">Reset</code> rồi reload.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ĐỊNH KỲ -->
+                <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                  <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
+                    <span style="font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);">📅 Nên làm định kỳ</span>
+                  </div>
+                  <div style="padding:16px 24px;display:flex;flex-direction:column;gap:10px;">
+                    <div style="display:flex;gap:10px;align-items:flex-start;">
+                      <span style="color:#86a36e;font-size:16px;flex-shrink:0;line-height:1.4;">✓</span>
+                      <div style="font-family:var(--fu);font-size:14px;line-height:1.6;"><strong style="color:var(--text);">Mỗi tháng 1 lần:</strong> vào Supabase dashboard để giữ project active (tránh bị pause).</div>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:flex-start;">
+                      <span style="color:#86a36e;font-size:16px;flex-shrink:0;line-height:1.4;">✓</span>
+                      <div style="font-family:var(--fu);font-size:14px;line-height:1.6;"><strong style="color:var(--text);">Sau mỗi đợt update lớn:</strong> nhấn Backup, lưu file <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);padding:2px 6px;border-radius:4px;">data.js</code> vào Google Drive hoặc Desktop để có bản dự phòng.</div>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:flex-start;">
+                      <span style="color:#86a36e;font-size:16px;flex-shrink:0;line-height:1.4;">✓</span>
+                      <div style="font-family:var(--fu);font-size:14px;line-height:1.6;"><strong style="color:var(--text);">Khi thấy badge màu vàng hoặc đỏ:</strong> không ignore — xử lý ngay theo hướng dẫn bên trên trước khi tiếp tục edit.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PHÍM TẮT -->
+                <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                  <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
+                    <span style="font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);">⌨ Phím tắt hữu ích</span>
+                  </div>
+                  <div style="padding:16px 24px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                    <div style="display:flex;gap:10px;align-items:center;">
+                      <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:4px;white-space:nowrap;">Cmd / Ctrl + S</code>
+                      <span style="font-family:var(--fu);font-size:13px;color:var(--muted);">Save tab hiện tại</span>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                      <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:4px;white-space:nowrap;">Ctrl + B / I / K</code>
+                      <span style="font-family:var(--fu);font-size:13px;color:var(--muted);">Bold / Italic / Link trong blog</span>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                      <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:4px;white-space:nowrap;">Enter</code>
+                      <span style="font-family:var(--fu);font-size:13px;color:var(--muted);">Xuống dòng trong Hero title</span>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                      <code style="font-family:var(--fm);font-size:11px;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:4px;white-space:nowrap;">Bôi đen text</code>
+                      <span style="font-family:var(--fu);font-size:13px;color:var(--muted);">Hiện floating toolbar định dạng</span>
                     </div>
                   </div>
                 </div>

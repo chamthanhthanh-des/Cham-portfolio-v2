@@ -123,20 +123,12 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      window._dataReady.then(() => {
+      function renderQuietList() {
         if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
-
         const list = document.getElementById("qList");
         if (list)
-          list.innerHTML = posts
-            .filter(q => !q.draft)
-            .map(
-              (q, i) => `
-<div
-  class="q-item"
-  style="--q-cover: url('${q.cover}')"
-  onclick="location.href='/quiet/detail.html?id=${q.id}'"
->
+          list.innerHTML = posts.filter(q => !q.draft).map((q, i) => `
+<div class="q-item" style="--q-cover: url('${q.cover}')" onclick="location.href='/quiet/detail.html?id=${q.id}'">
     <div class="q-num">${String(i + 1).padStart(2, "0")}</div>
     <div class="q-main">
       <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
@@ -147,10 +139,12 @@
       <div class="q-reading">${q.reading}</div>
       <div class="q-circle">↗</div>
     </div>
-  </div>`,
-            )
-            .join("");
-      });
+  </div>`).join("");
+      }
+      renderQuietList();
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) renderQuietList();
+      }).catch(() => {});
     </script>
   </body>
 </html>

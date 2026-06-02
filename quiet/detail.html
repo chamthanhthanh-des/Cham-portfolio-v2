@@ -135,13 +135,17 @@ ${
         setTimeout(initReveal, 80);
       }
 
-      window._dataReady.then(() => {
+      function initPostDetail() {
         if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
         const id = new URLSearchParams(window.location.search).get("id");
         const q = posts.find((x) => x.id === id);
         if (q) renderQD(q);
         else location.href = "/quiet/";
-      });
+      }
+      initPostDetail();
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) initPostDetail();
+      }).catch(() => {});
     </script>
   </body>
 </html>

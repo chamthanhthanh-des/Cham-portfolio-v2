@@ -194,18 +194,10 @@
         e.target.reset();
       }
 
-      window._dataReady.then(() => {
-      /* ── Resume link ── */
-      if (hero.resume) {
-        const navR = document.getElementById("navResume");
-        if (navR) navR.href = hero.resume;
-      }
-
-      /* ── Contact dynamic content ── */
-      (function renderContact() {
+      function renderContact() {
         const el = (id) => document.getElementById(id);
+        if (hero.resume) { const r = el("navResume"); if (r) r.href = hero.resume; }
 
-        // Hero text
         const title = el("contact-title");
         if (title && contact.title) title.textContent = contact.title;
         const desc = el("conDesc");
@@ -213,27 +205,19 @@
         const sayHi = el("conSayHi");
         if (sayHi && contact.sayHiDesc) sayHi.textContent = contact.sayHiDesc;
 
-        // Helper: detect href type from value
         function toHref(val) {
           if (!val) return "#";
           if (val.includes("@")) return "mailto:" + val;
-          if (/^[\+\d][\d\s\-\(\)]+$/.test(val.trim()))
-            return "tel:" + val.replace(/\s/g, "");
+          if (/^[\+\d][\d\s\-\(\)]+$/.test(val.trim())) return "tel:" + val.replace(/\s/g, "");
           return val.startsWith("http") ? val : "https://" + val;
         }
 
-        // Contact info block
         const infoGrid = el("conInfoGrid");
         if (infoGrid && contact.contacts?.length) {
           infoGrid.innerHTML = `
             <div>
               <div class="con-info-label">Contact</div>
-              ${contact.contacts
-                .map(
-                  (c) =>
-                    `<p class="con-info-val"><a href="${toHref(c.value)}">${c.value}</a></p>`,
-                )
-                .join("")}
+              ${contact.contacts.map((c) => `<p class="con-info-val"><a href="${toHref(c.value)}">${c.value}</a></p>`).join("")}
             </div>
             <div>
               <div class="con-info-label">Socials</div>
@@ -241,36 +225,26 @@
             </div>`;
         }
 
-        // Socials
         const socDiv = el("conSocials");
         if (socDiv && contact.socials?.length) {
           socDiv.innerHTML = contact.socials
-            .map(
-              (s) =>
-                `<a href="${s.url}" target="_blank" class="soc-a"><span class="soc-name">${s.name}</span><span class="soc-arr">↗</span></a>`,
-            )
+            .map((s) => `<a href="${s.url}" target="_blank" class="soc-a"><span class="soc-name">${s.name}</span><span class="soc-arr">↗</span></a>`)
             .join("");
         }
 
-        // Footer — first contact becomes phone/email links
-        const ftPh = el("ftPhone"),
-          ftEm = el("ftEmail"),
-          ftLI = el("ftLinkedIn");
+        const ftPh = el("ftPhone"), ftEm = el("ftEmail"), ftLI = el("ftLinkedIn");
         contact.contacts?.forEach((c) => {
-          if (c.value.includes("@") && ftEm) {
-            ftEm.href = "mailto:" + c.value;
-            ftEm.textContent = c.value;
-          } else if (/^[\+\d]/.test(c.value.trim()) && ftPh) {
-            ftPh.href = "tel:" + c.value.replace(/\s/g, "");
-            ftPh.textContent = c.value;
-          }
+          if (c.value.includes("@") && ftEm) { ftEm.href = "mailto:" + c.value; ftEm.textContent = c.value; }
+          else if (/^[\+\d]/.test(c.value.trim()) && ftPh) { ftPh.href = "tel:" + c.value.replace(/\s/g, ""); ftPh.textContent = c.value; }
         });
-        const liSoc = contact.socials?.find((s) =>
-          s.name.toLowerCase().includes("linkedin"),
-        );
+        const liSoc = contact.socials?.find((s) => s.name.toLowerCase().includes("linkedin"));
         if (liSoc && ftLI) ftLI.href = liSoc.url;
-      })();
-      }); // end _dataReady
+      }
+
+      renderContact();
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) renderContact();
+      }).catch(() => {});
     </script>
   </body>
 </html>

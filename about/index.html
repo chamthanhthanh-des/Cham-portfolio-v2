@@ -215,15 +215,13 @@
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      window._dataReady.then(() => {
-        // Fallback: nếu career rỗng (Supabase seed = []) thì dùng default DC
-        const careerData = (career && career.length) ? career : DC;
+      /* ── Render functions — gọi được ngay lập tức hoặc sau cloud load ── */
 
-        /* ── Career timeline ── */
+      function renderCareer() {
         try {
+          const careerData = (career && career.length) ? career : DC;
           const tl = document.getElementById("tlCareer");
-          if (tl)
-            tl.innerHTML = careerData.map((c) => `
+          if (tl) tl.innerHTML = careerData.map((c) => `
   <div class="tl-item reveal">
     <div>
       <div class="tl-role">${c.role}</div>
@@ -232,8 +230,9 @@
     <div class="tl-period">${c.period}</div>
   </div>`).join("");
         } catch(e) { console.warn("Career render error:", e); }
+      }
 
-        /* ── Resume link ── */
+      function renderAboutContent() {
         try {
           if (hero.resume) {
             const navR = document.getElementById("navResume");
@@ -241,7 +240,6 @@
           }
         } catch(e) {}
 
-        /* ── About page dynamic content ── */
         try {
           const photoEl = document.querySelector(".about-hero__image-wrap img");
           if (photoEl && about.photo) photoEl.src = about.photo;
@@ -250,7 +248,6 @@
           if (infoEl)
             infoEl.innerHTML = `<h2>${about.name||""}</h2><p>${about.role||""}</p><p>${about.birth||""}</p>`;
 
-          // Bio intro (rich text) + body paragraphs
           const bioEl = document.querySelector(".ab-row-content");
           if (bioEl) {
             let introHtml = "";
@@ -268,7 +265,6 @@
           }
         } catch(e) { console.warn("About content render error:", e); }
 
-        /* ── Skills grid ── */
         try {
           const skillsGrid = document.querySelector(".ab-skills-grid");
           if (skillsGrid) {
@@ -284,7 +280,19 @@
               </div>`).join("");
           }
         } catch(e) { console.warn("Skills render error:", e); }
-      });
+      }
+
+      // ① Render ngay từ localStorage/default — không đợi cloud
+      renderCareer();
+      renderAboutContent();
+
+      // ② Nếu Supabase trả về data mới hơn → re-render im lặng
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) {
+          renderCareer();
+          renderAboutContent();
+        }
+      }).catch(() => {});
     </script>
   </body>
 </html>

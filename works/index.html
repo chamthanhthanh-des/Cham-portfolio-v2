@@ -160,10 +160,13 @@
           .join("");
       }
 
-      window._dataReady.then(() => {
+      function applyResume() {
         if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
-        renderWorks();
-      });
+      }
+      applyResume(); renderWorks();
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        if (fromCloud) { applyResume(); renderWorks(); }
+      }).catch(() => {});
     </script>
   </body>
 </html>
