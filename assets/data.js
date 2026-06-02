@@ -606,19 +606,35 @@ let works = ld(LW, DW),
 async function _loadFromSupabase() {
   try {
     if (!SB_URL || SB_URL === "YOUR_SUPABASE_URL") return false;
+    // Load Supabase SDK động — không block page render
+    if (!window.supabase) {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
     const sb = window.supabase?.createClient(SB_URL, SB_KEY);
     if (!sb) return false;
     window._sb = sb;
     const { data, error } = await sb.from("site_data").select("key, value");
     if (error || !data?.length) return false;
-    const map = Object.fromEntries(data.map((r) => [r.key, r.value]));
-    if (map.works?.length)   { works   = map.works;   sv(LW,    works);   }
-    if (map.posts?.length)   { posts   = map.posts;   sv(LQ,    posts);   }
-    if (map.career?.length)  { career  = map.career;  sv(LC,    career);  }
-    else if (!career?.length) { career = DC; } // fallback nếu cả Supabase lẫn localStorage đều rỗng
-    if (map.hero && Object.keys(map.hero).length)    { hero    = map.hero;    sv(LH,    hero);    }
-    if (map.about && Object.keys(map.about).length)  { about   = map.about;   sv(LA_AB, about);   }
-    if (map.contact && Object.keys(map.contact).length) { contact = map.contact; sv(LCT,  contact); }
+    // Parse value nếu Supabase trả về dạng text thay vì jsonb
+    const map = Object.fromEntries(data.map((r) => {
+      let val = r.value;
+      if (typeof val === 'string') { try { val = JSON.parse(val); } catch(e) {} }
+      return [r.key, val];
+    }));
+    if (Array.isArray(map.works)  && map.works.length)  { works  = map.works;  sv(LW, works);  }
+    if (Array.isArray(map.posts)  && map.posts.length)  { posts  = map.posts;  sv(LQ, posts);  }
+    if (Array.isArray(map.career) && map.career.length) { career = map.career; sv(LC, career); }
+    else if (!Array.isArray(career) || !career.length)  { career = DC; } // fallback về default
+    const isObj = (v) => v && typeof v === 'object' && !Array.isArray(v);
+    if (isObj(map.hero)    && Object.keys(map.hero).length)    { hero    = map.hero;    sv(LH,    hero);    }
+    if (isObj(map.about)   && Object.keys(map.about).length)   { about   = map.about;   sv(LA_AB, about);   }
+    if (isObj(map.contact) && Object.keys(map.contact).length) { contact = map.contact; sv(LCT,  contact); }
     return true;
   } catch (e) {
     console.warn("[data] Supabase load failed, using localStorage fallback:", e);

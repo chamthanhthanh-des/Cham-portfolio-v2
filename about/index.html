@@ -189,7 +189,7 @@
       </footer>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
     <script>
       // Auto-clear localStorage nếu data cũ/thiếu fields
       (function() {
@@ -219,9 +219,10 @@
 
       function renderCareer() {
         try {
-          const careerData = (career && career.length) ? career : DC;
+          const careerData = (Array.isArray(career) && career.length) ? career : DC;
           const tl = document.getElementById("tlCareer");
-          if (tl) tl.innerHTML = careerData.map((c) => `
+          if (tl) {
+            tl.innerHTML = careerData.map((c) => `
   <div class="tl-item reveal">
     <div>
       <div class="tl-role">${c.role}</div>
@@ -229,6 +230,9 @@
     </div>
     <div class="tl-period">${c.period}</div>
   </div>`).join("");
+            // Re-observe sau khi render vì initReveal() chỉ chạy 1 lần lúc DOMContentLoaded
+            setTimeout(initReveal, 50);
+          }
         } catch(e) { console.warn("Career render error:", e); }
       }
 
