@@ -597,7 +597,7 @@ function sv(k, v) {
 /* ── LIVE DATA (defaults từ localStorage / data.js) ── */
 let works = ld(LW, DW),
   posts = ld(LQ, DQ),
-  career = ld(LC, DC),
+  career = (()=>{ const c = ld(LC, DC); return (Array.isArray(c) && c.length) ? c : DC; })(),
   hero = ld(LH, DH),
   about = ld(LA_AB, DA),
   contact = ld(LCT, DCT);

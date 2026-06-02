@@ -160,13 +160,20 @@
                 <span>Admin Panel</span>
               </div>
               <div style="display:flex;gap:10px;align-items:center;">
+                <!-- Sync status badge -->
+                <div id="syncBadge"
+                  style="display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:100px;border:1.5px solid var(--border);color:var(--muted);cursor:default;user-select:none;transition:all 0.3s;"
+                  title="Trạng thái đồng bộ với cloud">
+                  <span id="syncDot" style="width:7px;height:7px;border-radius:50%;background:var(--muted);flex-shrink:0;transition:background 0.3s;"></span>
+                  <span id="syncLabel">Connecting…</span>
+                </div>
                 <button onclick="resetFromDataJS()" title="Xóa localStorage, load lại từ data.js gốc"
                   style="display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border-radius:100px;border:none;box-shadow:inset 0 0 0 1.5px var(--text);background:transparent;color:var(--text);cursor:pointer;transition:opacity 0.2s;"
                   onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Reset from data.js
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Reset
                 </button>
-                <button class="a-export-btn" onclick="exportDataJS()" title="Download data.js với toàn bộ data hiện tại">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export data.js
+                <button class="a-export-btn" onclick="exportDataJS()" title="Backup data.js — chỉ cần nếu Supabase chưa kết nối">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Backup
                 </button>
               </div>
             </div>
@@ -908,51 +915,91 @@
               oninput="autoResize(this)"
             ></textarea>
           </div>
-          <!-- CONTENT EDITOR (WYSIWYG) -->
+          <!-- CONTENT EDITOR -->
           <div style="margin-top:4px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <label style="margin:0;font-size:13px;letter-spacing:1.5px;">CONTENT</label>
-              <div style="display:flex;gap:3px;align-items:center;flex-wrap:wrap;">
-                <!-- Text type -->
-                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','p')" title="Paragraph" style="font-family:var(--fu);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">P</button>
-                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','h2')" title="Heading H2" style="font-family:var(--fd);font-style:italic;font-weight:600;font-size:13px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">H2</button>
-                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','h3')" title="Heading H3" style="font-family:var(--fu);font-weight:600;font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">H3</button>
-                <button type="button" onmousedown="event.preventDefault();qFmt('formatBlock','blockquote')" title="Quote" style="font-family:var(--fd);font-style:italic;font-size:13px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--oli);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">"Q"</button>
-                <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
-                <!-- Inline styles -->
-                <button type="button" onmousedown="event.preventDefault();qFmt('bold')" title="Bold" style="font-family:var(--fu);font-weight:700;font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">B</button>
-                <button type="button" onmousedown="event.preventDefault();qFmt('italic')" title="Italic" style="font-family:var(--fu);font-style:italic;font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">I</button>
-                <button type="button" onmousedown="event.preventDefault();qFmtColor('#6a4f7a')" title="Purple" style="font-family:var(--fu);font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#6a4f7a;font-weight:600;transition:background .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#6a4f7a'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
-                <button type="button" onmousedown="event.preventDefault();qFmtColor('#86a36e')" title="Green" style="font-family:var(--fu);font-size:12px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:#86a36e;font-weight:600;transition:background .15s;" onmouseover="this.style.background='var(--bg2)';this.style.borderColor='#86a36e'" onmouseout="this.style.background='var(--bg)';this.style.borderColor='var(--border)'">A</button>
-                <button type="button" onmousedown="event.preventDefault();qFmt('removeFormat')" title="Clear format" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--muted);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">✕</button>
-                <div style="width:1px;height:18px;background:var(--border);margin:0 2px;flex-shrink:0;"></div>
-                <!-- Lists & image -->
-                <button type="button" onmousedown="event.preventDefault();qFmt('insertUnorderedList')" title="Bullet list" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">• List</button>
-                <button type="button" onmousedown="event.preventDefault();qInsertLink()" title="Insert link" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">🔗</button>
-                <label title="Insert image" style="font-family:var(--fm);font-size:11px;padding:3px 9px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:background .15s;display:inline-flex;align-items:center;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">
-                  🖼
+              <!-- Block type bar -->
+              <div style="display:flex;gap:3px;align-items:center;">
+                <span style="font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:1px;margin-right:4px;">BLOCK TYPE:</span>
+                <button type="button" data-qcmd="p" onclick="qFmt('formatBlock','p')" title="Normal text (Ctrl+0)"
+                  style="font-family:var(--fu);font-size:11px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:all .15s;">Normal</button>
+                <button type="button" data-qcmd="h2" onclick="qFmt('formatBlock','h2')" title="Large title (Ctrl+2)"
+                  style="font-family:var(--fd);font-style:italic;font-weight:600;font-size:12px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:all .15s;">Title</button>
+                <button type="button" data-qcmd="h3" onclick="qFmt('formatBlock','h3')" title="Subtitle (Ctrl+3)"
+                  style="font-family:var(--fu);font-weight:700;font-size:11px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:all .15s;">Subtitle</button>
+                <button type="button" data-qcmd="blockquote" onclick="qFmt('formatBlock','blockquote')" title="Pull quote (Ctrl+Q)"
+                  style="font-family:var(--fd);font-style:italic;font-size:12px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--oli);transition:all .15s;">Quote</button>
+                <div style="width:1px;height:18px;background:var(--border);margin:0 4px;"></div>
+                <button type="button" onclick="qFmt('insertUnorderedList')" title="Bullet list"
+                  style="font-family:var(--fm);font-size:11px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);transition:all .15s;">• List</button>
+                <label title="Insert image" style="font-family:var(--fm);font-size:11px;padding:4px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--text);display:inline-flex;align-items:center;gap:4px;transition:all .15s;">
+                  📷 Image
                   <input type="file" accept="image/*" style="display:none;" onchange="qInsertImg(this)">
                 </label>
               </div>
             </div>
-            <!-- WYSIWYG editor styled as blog preview -->
-            <div id="qEditor" contenteditable="true"
-              oninput="qSyncEditor();_dirty=true;"
-              onfocus="this.style.borderColor='var(--text)'"
-              onblur="this.style.borderColor='var(--border)'"
-              style="
-                min-height:300px;max-height:600px;overflow-y:auto;
-                padding:28px 32px;
-                border:1px solid var(--border);border-radius:8px;
-                background:var(--bg);outline:none;
-                transition:border-color .15s;
-                scrollbar-width:thin;scrollbar-color:var(--border) transparent;
-                /* blog preview styles */
-                font-size:17px;line-height:1.85;color:#333;
-                font-family:var(--fu);
-              ">
+
+            <!-- Hint -->
+            <div style="font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:.5px;margin-bottom:8px;">
+              ✦ Bôi đen text → toolbar nổi hiện ra để định dạng · Ctrl+B bold · Ctrl+I italic · Ctrl+K link
+            </div>
+
+            <!-- Editor -->
+            <div style="position:relative;">
+              <div id="qEditor" contenteditable="true"
+                oninput="qSyncEditor();qCalcReadingFromEditor();_dirty=true;"
+                onpaste="qCleanPaste(event)"
+                onkeydown="qHandleKey(event)"
+                onfocus="this.style.borderColor='var(--text)'"
+                onblur="this.style.borderColor='var(--border)'"
+                style="min-height:320px;max-height:560px;overflow-y:auto;padding:28px 32px;border:1px solid var(--border);border-radius:8px;background:var(--bg);outline:none;transition:border-color .15s;scrollbar-width:thin;scrollbar-color:var(--border) transparent;font-size:17px;line-height:1.85;color:#333;font-family:var(--fu);"
+              ></div>
             </div>
             <textarea id="qContent" style="display:none;"></textarea>
+          </div>
+
+          <!-- FLOATING TOOLBAR — hiện khi bôi đen text -->
+          <div id="qFloatBar" style="
+            display:none;position:fixed;z-index:9999;
+            background:var(--text);border-radius:8px;
+            padding:6px 8px;gap:2px;align-items:center;
+            box-shadow:0 4px 20px rgba(0,0,0,0.25);
+          ">
+            <button type="button" data-qcmd="bold" onclick="qFmt('bold')" title="Bold (Ctrl+B)"
+              style="font-family:var(--fu);font-weight:700;font-size:13px;padding:4px 10px;background:transparent;border:none;border-radius:4px;cursor:pointer;color:var(--bg);transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">B</button>
+            <button type="button" data-qcmd="italic" onclick="qFmt('italic')" title="Italic (Ctrl+I)"
+              style="font-family:var(--fu);font-style:italic;font-size:13px;padding:4px 10px;background:transparent;border:none;border-radius:4px;cursor:pointer;color:var(--bg);transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">I</button>
+            <div style="width:1px;height:14px;background:rgba(255,255,255,0.25);margin:0 2px;"></div>
+            <!-- Color swatches với tooltip -->
+            <div style="position:relative;display:inline-flex;">
+              <button type="button" onclick="qFmtColor('#6a4f7a')"
+                style="width:20px;height:20px;background:#6a4f7a;border:2px solid rgba(255,255,255,0.3);border-radius:50%;cursor:pointer;flex-shrink:0;transition:transform .15s;padding:0;"
+                onmouseover="this.style.transform='scale(1.2)';this.nextElementSibling.style.opacity='1';this.nextElementSibling.style.transform='translateX(-50%) translateY(0)'"
+                onmouseout="this.style.transform='scale(1)';this.nextElementSibling.style.opacity='0';this.nextElementSibling.style.transform='translateX(-50%) translateY(4px)'"></button>
+              <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%) translateY(4px);background:rgba(0,0,0,0.75);color:#fff;font-family:var(--fm);font-size:9px;letter-spacing:.5px;padding:3px 6px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:all .15s;">Purple</span>
+            </div>
+            <div style="position:relative;display:inline-flex;">
+              <button type="button" onclick="qFmtColor('#86a36e')"
+                style="width:20px;height:20px;background:#86a36e;border:2px solid rgba(255,255,255,0.3);border-radius:50%;cursor:pointer;flex-shrink:0;transition:transform .15s;padding:0;"
+                onmouseover="this.style.transform='scale(1.2)';this.nextElementSibling.style.opacity='1';this.nextElementSibling.style.transform='translateX(-50%) translateY(0)'"
+                onmouseout="this.style.transform='scale(1)';this.nextElementSibling.style.opacity='0';this.nextElementSibling.style.transform='translateX(-50%) translateY(4px)'"></button>
+              <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%) translateY(4px);background:rgba(0,0,0,0.75);color:#fff;font-family:var(--fm);font-size:9px;letter-spacing:.5px;padding:3px 6px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:all .15s;">Green</span>
+            </div>
+            <div style="position:relative;display:inline-flex;">
+              <button type="button" onclick="qResetColor()"
+                style="width:20px;height:20px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);border-radius:50%;cursor:pointer;flex-shrink:0;transition:transform .15s;padding:0;display:flex;align-items:center;justify-content:center;"
+                onmouseover="this.style.transform='scale(1.2)';this.nextElementSibling.style.opacity='1';this.nextElementSibling.style.transform='translateX(-50%) translateY(0)'"
+                onmouseout="this.style.transform='scale(1)';this.nextElementSibling.style.opacity='0';this.nextElementSibling.style.transform='translateX(-50%) translateY(4px)'">
+                <span style="font-size:9px;color:rgba(255,255,255,0.7);line-height:1;">✕</span>
+              </button>
+              <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%) translateY(4px);background:rgba(0,0,0,0.75);color:#fff;font-family:var(--fm);font-size:9px;letter-spacing:.5px;padding:3px 6px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:all .15s;">Default</span>
+            </div>
+            <div style="width:1px;height:14px;background:rgba(255,255,255,0.25);margin:0 2px;"></div>
+            <button type="button" onclick="qInsertLink()" title="Add link (Ctrl+K)"
+              style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:4px 10px;background:transparent;border:none;border-radius:4px;cursor:pointer;color:var(--bg);transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">Link</button>
+            <button type="button" onclick="qFmt('removeFormat')" title="Clear ALL format"
+              style="font-family:var(--fm);font-size:11px;padding:4px 8px;background:transparent;border:none;border-radius:4px;cursor:pointer;color:rgba(255,255,255,0.5);transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">Clear</button>
           </div>
 
         </div>
@@ -1085,6 +1132,12 @@
       }
 
       function swTab(t) {
+        // Auto-save tab hiện tại nếu có unsaved changes — không cần hỏi
+        if (_footerDirty && _footerTabs[_activeTab] && t !== _activeTab) {
+          _footerTabs[_activeTab](); // silent save
+          setFooterClean();
+          toast("Auto-saved " + _activeTab + " ✓");
+        }
         document
           .querySelectorAll(".a-sec")
           .forEach((s) => s.classList.remove("active"));
@@ -1816,6 +1869,81 @@
       };
 
       /* ── WYSIWYG BLOG EDITOR ── */
+      /* ── WYSIWYG EDITOR CORE ── */
+      let _qSavedRange = null;
+
+      // Fix 1: selectionchange — bắt mọi cách chọn text + điều khiển floating toolbar
+      document.addEventListener('selectionchange', () => {
+        const sel = window.getSelection();
+        const editor = document.getElementById('qEditor');
+        const floatBar = document.getElementById('qFloatBar');
+        if (!editor || !floatBar) return;
+
+        if (sel && sel.rangeCount > 0 && editor.contains(sel.anchorNode)) {
+          try { _qSavedRange = sel.getRangeAt(0).cloneRange(); } catch(e) {}
+          qUpdateToolbarState();
+
+          // Hiện floating toolbar khi có text được bôi đen
+          if (!sel.isCollapsed) {
+            const rect = sel.getRangeAt(0).getBoundingClientRect();
+            const barW = 280;
+            let left = rect.left + (rect.width / 2) - (barW / 2);
+            let top  = rect.top + window.scrollY - 50;
+            // Clamp vào viewport
+            left = Math.max(8, Math.min(left, window.innerWidth - barW - 8));
+            if (top < 8) top = rect.bottom + window.scrollY + 8;
+            floatBar.style.display = 'flex';
+            floatBar.style.left = left + 'px';
+            floatBar.style.top  = top + 'px';
+            floatBar.style.width = barW + 'px';
+          } else {
+            floatBar.style.display = 'none';
+          }
+        } else {
+          floatBar.style.display = 'none';
+        }
+      });
+
+      // Ẩn floating bar khi click ngoài editor
+      document.addEventListener('click', (e) => {
+        const floatBar = document.getElementById('qFloatBar');
+        const editor = document.getElementById('qEditor');
+        if (floatBar && !floatBar.contains(e.target) && !editor?.contains(e.target)) {
+          floatBar.style.display = 'none';
+        }
+      });
+
+      // Fix 2: try/catch cho stale range khi load existing post
+      function qRestoreSelection() {
+        const editor = document.getElementById("qEditor");
+        if (!editor) return;
+        editor.focus();
+        if (_qSavedRange) {
+          try {
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(_qSavedRange);
+          } catch(e) { _qSavedRange = null; }
+        }
+      }
+
+      // Fix 3: active state cho toolbar
+      function qUpdateToolbarState() {
+        try {
+          const isBold   = document.queryCommandState('bold');
+          const isItalic = document.queryCommandState('italic');
+          const block    = document.queryCommandValue('formatBlock').toLowerCase().replace(/[<>]/g,'');
+          ['bold','italic','p','h2','h3','blockquote'].forEach(cmd => {
+            const btn = document.querySelector(`[data-qcmd="${cmd}"]`);
+            if (!btn) return;
+            const active = cmd === 'bold' ? isBold : cmd === 'italic' ? isItalic : block === cmd;
+            btn.style.background   = active ? 'var(--text)' : 'var(--bg)';
+            btn.style.color        = active ? 'var(--bg)'  : (cmd === 'blockquote' ? 'var(--oli)' : 'var(--text)');
+            btn.style.borderColor  = active ? 'var(--text)' : 'var(--border)';
+          });
+        } catch(e) {}
+      }
+
       function qSyncEditor() {
         const el = document.getElementById("qEditor");
         const ta = document.getElementById("qContent");
@@ -1823,38 +1951,79 @@
       }
 
       function qFmt(cmd, val) {
-        document.getElementById("qEditor")?.focus();
+        qRestoreSelection();
         document.execCommand(cmd, false, val || null);
         qSyncEditor();
+        qUpdateToolbarState();
+        _dirty = true;
       }
 
       function qFmtColor(color) {
-        document.getElementById("qEditor")?.focus();
+        qRestoreSelection();
         document.execCommand("foreColor", false, color);
         qSyncEditor();
+        _dirty = true;
       }
 
+      function qResetColor() {
+        qRestoreSelection();
+        // Remove color bằng cách wrap lại với color inherit
+        const sel = window.getSelection();
+        if (!sel || sel.isCollapsed) return;
+        try {
+          // Xóa font color tags — execCommand foreColor với màu mặc định
+          document.execCommand("foreColor", false, "#333333");
+          // Sau đó strip font tags ra khỏi selection
+          document.execCommand("removeFormat");
+          // Re-apply bold/italic nếu có (removeFormat xóa hết, cần xử lý khác)
+        } catch(e) {}
+        // Approach tốt hơn: thay thế font tags trong selection bằng plain span
+        qStripColorFromSelection();
+        qSyncEditor();
+        _dirty = true;
+      }
+
+      function qStripColorFromSelection() {
+        const sel = window.getSelection();
+        if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+        const range = sel.getRangeAt(0);
+        const frag = range.cloneContents();
+        // Strip color styles khỏi fragment
+        frag.querySelectorAll('[color],[style*="color"]').forEach(el => {
+          el.removeAttribute('color');
+          if (el.style) el.style.color = '';
+          if (!el.style?.cssText && el.tagName === 'FONT') {
+            el.replaceWith(...el.childNodes);
+          }
+        });
+        range.deleteContents();
+        range.insertNode(frag);
+      }
+
+      // Fix 5: single restore cho insert link
       function qInsertLink() {
-        document.getElementById("qEditor")?.focus();
-        const sel = window.getSelection()?.toString() || "";
+        const savedRange = _qSavedRange;
+        const selText = window.getSelection()?.toString() || "";
         const url = prompt("URL:", "https://");
         if (!url) return;
-        if (sel) {
-          document.execCommand("createLink", false, url);
-        } else {
-          const txt = prompt("Link text:", url) || url;
-          document.execCommand("insertHTML", false, `<a href="${url}" target="_blank">${txt}</a>`);
-        }
+        const txt = selText || prompt("Link text:", url) || url;
+        _qSavedRange = savedRange;
+        qRestoreSelection();
+        if (selText) document.execCommand("createLink", false, url);
+        else document.execCommand("insertHTML", false, `<a href="${url}" target="_blank">${txt}</a>`);
         qSyncEditor();
+        _dirty = true;
       }
 
       async function qInsertImg(fileInput) {
         const file = fileInput.files[0];
         if (!file) return;
+        const savedRange = _qSavedRange;
         toast("⏳ Uploading to Cloudinary...");
         try {
           const url = await uploadToCloudinary(file);
-          document.getElementById("qEditor")?.focus();
+          _qSavedRange = savedRange;
+          qRestoreSelection();
           document.execCommand("insertHTML", false, `<img src="${url}" alt="" style="width:100%;border-radius:6px;display:block;margin:20px 0;" />`);
           qSyncEditor();
           toast("✓ Image inserted!");
@@ -1862,6 +2031,42 @@
           toast("❌ Upload failed: " + e.message);
         }
         fileInput.value = "";
+      }
+
+      // Keyboard shortcuts
+      function qHandleKey(e) {
+        if (e.ctrlKey || e.metaKey) {
+          switch(e.key.toLowerCase()) {
+            case 'b': e.preventDefault(); qFmt('bold'); break;
+            case 'i': e.preventDefault(); qFmt('italic'); break;
+            case 'k': e.preventDefault(); qInsertLink(); break;
+            case '0': e.preventDefault(); qFmt('formatBlock','p'); break;
+            case '2': e.preventDefault(); qFmt('formatBlock','h2'); break;
+            case '3': e.preventDefault(); qFmt('formatBlock','h3'); break;
+            case 'q': e.preventDefault(); qFmt('formatBlock','blockquote'); break;
+          }
+        }
+      }
+
+      // Fix 4: paste handler — strip dirty HTML, giữ basic formatting
+      function qCleanPaste(e) {
+        e.preventDefault();
+        const html = (e.clipboardData || window.clipboardData).getData('text/html');
+        const plain = (e.clipboardData || window.clipboardData).getData('text/plain');
+        if (html) {
+          // Strip chỉ giữ b/i/a/br/p, bỏ hết span/div/font/style
+          const tmp = document.createElement('div');
+          tmp.innerHTML = html;
+          tmp.querySelectorAll('span,div,font,[style],[class]').forEach(el => {
+            // Giữ content, bỏ wrapper
+            el.replaceWith(...el.childNodes);
+          });
+          document.execCommand('insertHTML', false, tmp.innerHTML);
+        } else {
+          document.execCommand('insertText', false, plain);
+        }
+        qSyncEditor();
+        _dirty = true;
       }
 
       /* ── Auto-calculate reading time từ editor content ── */
@@ -2614,18 +2819,55 @@ let works = ld(LW, DW),
         toast("data.js exported ✓ — Replace assets/data.js với file vừa tải");
       }
 
+      /* ── SYNC BADGE ── */
+      function updateSyncBadge(state) {
+        const dot   = document.getElementById('syncDot');
+        const label = document.getElementById('syncLabel');
+        const badge = document.getElementById('syncBadge');
+        if (!dot || !label || !badge) return;
+        const map = {
+          connecting: { color: 'var(--muted)',  text: 'Connecting…',   border: 'var(--border)',  title: 'Đang kết nối Supabase…' },
+          synced:     { color: '#86a36e',        text: 'Synced ✓',      border: '#86a36e',        title: 'Đã lưu lên cloud — website tự cập nhật' },
+          saving:     { color: '#e8a838',        text: 'Saving…',       border: '#e8a838',        title: 'Đang lưu lên cloud…' },
+          local:      { color: '#e8a838',        text: 'Local only',    border: '#e8a838',        title: '⚠ Supabase chưa kết nối — data chỉ lưu trong trình duyệt này. Nhấn Backup để giữ an toàn.' },
+          error:      { color: '#c0392b',        text: 'Sync failed',   border: '#c0392b',        title: '❌ Không thể lưu lên cloud — đã lưu cục bộ, thử lại sau hoặc nhấn Backup.' },
+        };
+        const s = map[state] || map.local;
+        dot.style.background    = s.color;
+        label.textContent       = s.text;
+        badge.style.borderColor = s.border;
+        badge.style.color       = s.color;
+        badge.title             = s.title;
+      }
+
       /* ── SUPABASE SAVE HELPER ── */
       async function sbSave(key, value) {
-        const sb = window._sb;
-        if (!sb) return;
+        // Nếu _sb chưa ready, đợi _dataReady rồi thử lại một lần
+        let sb = window._sb;
+        if (!sb) {
+          updateSyncBadge('local');
+          try {
+            await window._dataReady;
+            sb = window._sb;
+          } catch(e) {}
+        }
+        if (!sb) { updateSyncBadge('local'); return; }
+
+        updateSyncBadge('saving');
         try {
           const { error } = await sb.from("site_data").upsert(
             { key, value, updated_at: new Date().toISOString() },
             { onConflict: "key" }
           );
-          if (error) console.warn("[admin] Supabase save error:", error);
+          if (error) {
+            console.warn("[admin] Supabase save error:", error);
+            updateSyncBadge('error');
+          } else {
+            updateSyncBadge('synced');
+          }
         } catch (e) {
           console.warn("[admin] Supabase save failed:", e);
+          updateSyncBadge('error');
         }
       }
 
@@ -2674,7 +2916,16 @@ let works = ld(LW, DW),
         }
       });
 
-      initAdmin();
+      // Chờ data load từ Supabase trước khi khởi tạo dashboard
+      // → admin luôn hiển thị data mới nhất từ cloud, không phải localStorage cũ
+      updateSyncBadge('connecting');
+      (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
+        updateSyncBadge(fromCloud ? 'synced' : (window._sb ? 'error' : 'local'));
+        initAdmin();
+      }).catch(() => {
+        updateSyncBadge('local');
+        initAdmin();
+      });
     </script>
   </body>
 </html>

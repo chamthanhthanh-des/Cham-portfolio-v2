@@ -191,16 +191,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script>
-      // Auto-clear localStorage nếu about data thiếu skills (data cũ)
-      try {
-        const raw = localStorage.getItem("ctw_ab1");
-        if (raw) {
-          const d = JSON.parse(raw);
-          if (!d.skills || typeof d.skills !== 'object') {
-            localStorage.removeItem("ctw_ab1");
+      // Auto-clear localStorage nếu data cũ/thiếu fields
+      (function() {
+        try {
+          // Career: clear nếu rỗng
+          const rc = localStorage.getItem("ctw_c4");
+          if (rc) {
+            const c = JSON.parse(rc);
+            if (!Array.isArray(c) || c.length === 0) localStorage.removeItem("ctw_c4");
           }
-        }
-      } catch(e) { localStorage.removeItem("ctw_ab1"); }
+        } catch(e) { localStorage.removeItem("ctw_c4"); }
+
+        try {
+          // About: clear nếu thiếu skills
+          const ra = localStorage.getItem("ctw_ab1");
+          if (ra) {
+            const a = JSON.parse(ra);
+            if (!a.skills || typeof a.skills !== 'object') localStorage.removeItem("ctw_ab1");
+          }
+        } catch(e) { localStorage.removeItem("ctw_ab1"); }
+      })();
     </script>
     <script src="/assets/data.js"></script>
     <script src="/assets/app.js"></script>
