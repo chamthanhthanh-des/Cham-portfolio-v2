@@ -879,7 +879,7 @@ footer {
 }
 .mq-track {
   display: flex;
-  animation: mqanim 30s linear infinite;
+  animation: mqanim 50s linear infinite;
   width: max-content;
 }
 .mq-track:hover {
