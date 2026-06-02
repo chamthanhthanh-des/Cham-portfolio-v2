@@ -3162,30 +3162,46 @@ footer {
 
 .toast {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 9997;
-  background: var(--grad);
-  color: white;
+  top: 72px;
+  right: 28px;
+  z-index: 9999;
+  background: #86a36e;
+  color: #fff;
   font-family: var(--fm);
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 13px 22px;
   border-radius: 100px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(134, 163, 110, 0.35);
   animation:
-    tIn 0.3s var(--ease),
-    tOut 0.3s var(--ease) 2.3s forwards;
-  box-shadow: 0 8px 24px rgba(122, 112, 186, 0.28);
+    tIn 0.25s var(--ease),
+    tOut 0.25s var(--ease) 2.3s forwards;
+}
+.toast::before {
+  content: "✓";
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
 }
 .toast-error {
-  background: linear-gradient(135deg, #c0392b, #e74c3c);
-  box-shadow: 0 8px 24px rgba(192, 57, 43, 0.3);
+  background: #c0392b;
+  box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3);
+}
+.toast-error::before {
+  content: "✕";
 }
 .toast-info {
-  background: linear-gradient(135deg, #2c3e50, #4a6278);
-  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.3);
+  background: #5a7a9a;
+  box-shadow: 0 4px 20px rgba(90, 122, 154, 0.3);
+}
+.toast-info::before {
+  content: "…";
+  letter-spacing: 0;
 }
 @keyframes tIn {
   from {
