@@ -1473,12 +1473,17 @@
 
       function parsePDFToSections(text) {
         const sections = [];
-        // Match pattern: "01 — CONTEXT" or "01 — CONTEXT\n"
-        const markerRx = /^(\d{2})\s*[—\-–]\s*([A-Z][A-Z\s\/&]+)$/gm;
+        // Match both formats:
+        // "01. Heading Title" (PDF numbered heading)
+        // "01 — LABEL" (manual format)
+        const markerRx = /^(\d{2})[.\s]*[.—\-–]\s*(.+)$|^(\d{2})\.\s+(.+)$/gm;
         const markers = [];
         let m;
         while ((m = markerRx.exec(text)) !== null) {
-          markers.push({ num: m[1], label: m[2].trim(), pos: m.index, end: m.index + m[0].length });
+          const num = m[1] || m[3];
+          const title = (m[2] || m[4] || "").trim();
+          if (!title) continue;
+          markers.push({ num, label: title, pos: m.index, end: m.index + m[0].length });
         }
         for (let i = 0; i < markers.length; i++) {
           const start = markers[i].end;
@@ -1486,13 +1491,14 @@
           const chunk = text.slice(start, end).trim();
           const lines = chunk.split("\n").map(l => l.trim()).filter(l => l.length > 0);
           if (!lines.length) continue;
+          // First non-empty line = heading, rest = body
           const heading = lines[0];
           const bodyLines = lines.slice(1);
-          // Group lines into paragraphs — merge short continuation lines
+          // Group lines into paragraphs
           const paragraphs = [];
           let current = "";
           for (const line of bodyLines) {
-            if (line.length < 60 && current && !current.endsWith(".")) {
+            if (line.length < 80 && current && !current.match(/[.!?]$/)) {
               current += " " + line;
             } else if (current) {
               paragraphs.push(current.trim());
@@ -1502,14 +1508,13 @@
             }
           }
           if (current) paragraphs.push(current.trim());
-
-          const body = paragraphs.filter(p => p).map(p => `<p>${p}</p>`).join("");
-          const labelFormatted = markers[i].label.charAt(0) + markers[i].label.slice(1).toLowerCase();
-
+          const body = paragraphs.filter(p => p.length > 1).map(p => `<p>${p}</p>`).join("");
+          // Use first 2 words of title as label
+          const labelWords = markers[i].label.replace(/^(\d+\.?\s*)/, "").split(/\s+/).slice(0, 2).join(" ");
           sections.push({
             num: markers[i].num,
-            label: labelFormatted,
-            heading,
+            label: labelWords,
+            heading: markers[i].label.replace(/^(\d+\.?\s*)/, ""),
             body,
             images: [],
           });
@@ -2958,7 +2963,8 @@ const LW = ${JSON.stringify(LW)},
   LQ = ${JSON.stringify(LQ)},
   LC = ${JSON.stringify(LC)},
   LH = ${JSON.stringify(LH)},
-  LA = ${JSON.stringify(LA)};
+  LA = ${JSON.stringify(LA)},
+  LA_AB = ${JSON.stringify(LA_AB)};
 
 /* ── DEFAULT DATA ────────────────────────────────── */
 const DW = ${JSON.stringify(works, null, 2)};
@@ -2972,7 +2978,6 @@ const DH = ${JSON.stringify(hero, null, 2)};
 const LCT = ${JSON.stringify(LCT)};
 const DCT = ${JSON.stringify(contact, null, 2)};
 
-const LA_AB = ${JSON.stringify(LA_AB)};
 const DA = ${JSON.stringify(about, null, 2)};
 
 /* ── STORAGE UTILS ───────────────────────────────── */
