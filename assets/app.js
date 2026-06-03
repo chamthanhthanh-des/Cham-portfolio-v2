@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", initHeroMouse);
 (function initLenis() {
   if (window.location.pathname.startsWith("/admin")) return;
   const script = document.createElement("script");
-  script.src = "https://unpkg.com/lenis@1.1.20/dist/lenis.min.js";
+  script.src = "https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js";
   script.onload = () => {
     const lenis = new Lenis({
       duration: 1.2,

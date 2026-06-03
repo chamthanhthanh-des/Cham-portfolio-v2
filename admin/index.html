@@ -1176,10 +1176,17 @@
           swTab("hero");
         }
       }
-      function doLogin() {
+      /* ── PASSWORD HASH (SHA-256) ─────────────────── */
+      const _PWD_HASH = "2204de842e9d0caab8793234affb0f612abf67755816c506ac8583111da03698";
+      async function _hashPwd(s) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+      }
+      async function doLogin() {
         const pw = document.getElementById("apw").value,
           er = document.getElementById("lerr");
-        if (pw === PWD) {
+        const hash = await _hashPwd(pw);
+        if (hash === _PWD_HASH) {
           sessionStorage.setItem(LA, "1");
           document.getElementById("aLogin").style.display = "none";
           document.getElementById("aDash").style.display = "block";
@@ -2884,9 +2891,8 @@
       }
 
       function exportDataJS() {
-        const content = `/* ── KEYS & AUTH ─────────────────────────────────── */
-const PWD = ${JSON.stringify(PWD)},
-  LW = ${JSON.stringify(LW)},
+        const content = `/* ── KEYS ────────────────────────────────────────── */
+const LW = ${JSON.stringify(LW)},
   LQ = ${JSON.stringify(LQ)},
   LC = ${JSON.stringify(LC)},
   LH = ${JSON.stringify(LH)},

@@ -25,8 +25,23 @@
     />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <!-- Open Graph (updated dynamically by JS) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Châm Thanh Thanh" />
+    <meta id="ogUrl"   property="og:url"         content="https://chamthanhthanh.com/works/" />
+    <meta id="ogTitle" property="og:title"        content="Works — Châm Thanh Thanh" />
+    <meta id="ogDesc"  property="og:description"  content="UI/UX &amp; Branding Designer — Portfolio of Châm Thanh Thanh." />
+    <meta id="ogImg"   property="og:image"        content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta id="twTitle" name="twitter:title"       content="Works — Châm Thanh Thanh" />
+    <meta id="twDesc"  name="twitter:description" content="UI/UX &amp; Branding Designer — Portfolio of Châm Thanh Thanh." />
+    <meta id="twImg"   name="twitter:image"       content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
   </head>
   <body>
+    <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f9f7f4;font-family:sans-serif;text-align:center;padding:24px;z-index:9999"><div><p style="font-size:18px;font-weight:600;margin:0 0 8px">JavaScript is required</p><p style="font-size:14px;color:#666;margin:0">Please enable JavaScript to view this site.<br>Vui lòng bật JavaScript để xem trang.</p></div></div></noscript>
     <button
       class="btt"
       id="btt"
@@ -155,8 +170,21 @@
           ? `<div class="wd-ni nx" onclick="location.href='/works/detail.html?id=${next.id}'"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
           : `<div style="background:var(--bg2)"></div>`;
 
-        // Update page title
+        // Update page title + OG meta
         document.title = `${w.title} — Châm Thanh Thanh`;
+        const _ogImg = w.cover
+          ? `https://chamthanhthanh.com${w.cover}`
+          : "https://chamthanhthanh.com/assets/images/thumbnail-web.png";
+        const _ogDesc = (w.description || "").split("\n\n")[0].slice(0, 160);
+        const _ogUrl  = `https://chamthanhthanh.com/works/detail.html?id=${w.id}`;
+        const _set = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
+        _set("ogUrl",   "content", _ogUrl);
+        _set("ogTitle", "content", `${w.title} — Châm Thanh Thanh`);
+        _set("ogDesc",  "content", _ogDesc);
+        _set("ogImg",   "content", _ogImg);
+        _set("twTitle", "content", `${w.title} — Châm Thanh Thanh`);
+        _set("twDesc",  "content", _ogDesc);
+        _set("twImg",   "content", _ogImg);
 
         document.getElementById("wdc").innerHTML = `
     <div class="wd-hero">
