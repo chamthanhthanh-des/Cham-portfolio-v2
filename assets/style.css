@@ -720,7 +720,7 @@ footer {
     height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.3s ease;
-  mix-blend-mode: multiply;
+  mix-blend-mode: difference;
 }
 
 .hero-cursor-ring::before {
@@ -745,7 +745,7 @@ footer {
   position: absolute;
   inset: 1px;
   border-radius: inherit;
-  background: rgba(255, 255, 255, 0.82);
+  background: transparent;
 }
 
 .hero:hover .hero-cursor,
@@ -1786,10 +1786,10 @@ footer {
 .about-lab-title {
   width: 100%;
   font-family: var(--fd);
-  font-size: clamp(36px, 5vw, 80px);
+  font-size: clamp(32px, 4.2vw, 72px);
   font-weight: 400;
   letter-spacing: -0.05em;
-  line-height: 0.95;
+  line-height: 1.1;
   color: var(--text);
   margin-bottom: 48px;
 }
@@ -2551,7 +2551,7 @@ footer {
 
 .con-row {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 300px;
   align-items: start;
 }
@@ -2608,7 +2608,7 @@ footer {
   margin-bottom: 24px;
 }
 .con-info-val {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--muted);
   margin-bottom: 4px;
   line-height: 1.8;
@@ -2686,6 +2686,10 @@ footer {
     line-height: 1.7;
   }
 
+  .con-info-val {
+    font-size: 16px;
+  }
+
   .con-form-wrap {
     max-width: none;
     width: 100%;
@@ -2700,6 +2704,8 @@ footer {
 .soc-l {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-top: 34px;
 }
 .soc-a {
   display: flex;
@@ -3506,6 +3512,10 @@ footer {
   }
   .con-info {
     gap: 24px;
+  }
+
+  .con-info-val {
+    font-size: 15px;
   }
 
   .wpage-hero h1 {
