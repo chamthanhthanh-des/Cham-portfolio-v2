@@ -1275,6 +1275,14 @@ footer {
   background: var(--border);
   width: 100%;
 }
+.wgrid::after {
+  content: "";
+  background: var(--bg);
+  display: none;
+}
+.wgrid.has-odd::after {
+  display: block;
+}
 
 .wgi {
   background: var(--bg);
@@ -1413,7 +1421,7 @@ footer {
   font-style: italic;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  max-width: 1200px;
+  max-width: 100%;
   margin-bottom: 64px;
 }
 

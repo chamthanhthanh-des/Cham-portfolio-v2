@@ -723,6 +723,48 @@
                   </div>
                 </div>
 
+                <!-- FORCE PUSH SUPABASE -->
+                <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                  <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
+                    <span style="font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);">🚀 Force push data lên Supabase</span>
+                  </div>
+                  <div style="padding:20px 24px;display:flex;flex-direction:column;gap:16px;font-family:var(--fu);font-size:15px;line-height:1.85;color:var(--muted);">
+                    <p style="margin:0;color:var(--text);font-size:16px;">Dùng khi: chỉnh trực tiếp <code style="font-family:var(--fm);font-size:12px;background:var(--bg2);padding:2px 6px;border-radius:4px;">data.js</code> ngoài admin (thêm sections, sửa nội dung dài...) và cần đẩy lên Supabase để web live thấy được.</p>
+
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-size:12px;font-weight:700;background:var(--text);color:var(--bg);border-radius:100px;padding:4px 10px;flex-shrink:0;margin-top:3px;">01</span>
+                      <div>Mở trang Admin này trên browser, nhấn <strong>F12</strong> (Windows) hoặc <strong>Cmd + Option + I</strong> (Mac) để mở DevTools.</div>
+                    </div>
+
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-size:12px;font-weight:700;background:var(--text);color:var(--bg);border-radius:100px;padding:4px 10px;flex-shrink:0;margin-top:3px;">02</span>
+                      <div>Click tab <strong>Console</strong> ở thanh trên cùng của DevTools.</div>
+                    </div>
+
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-size:12px;font-weight:700;background:var(--text);color:var(--bg);border-radius:100px;padding:4px 10px;flex-shrink:0;margin-top:3px;">03</span>
+                      <div>Nếu thấy dòng cảnh báo màu vàng "<em>Don't paste code...</em>" → gõ tay chữ <code style="font-family:var(--fm);font-size:12px;background:var(--bg2);padding:2px 6px;border-radius:4px;">allow pasting</code> rồi Enter. (Bước này chỉ cần làm 1 lần.)</div>
+                    </div>
+
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-size:12px;font-weight:700;background:var(--text);color:var(--bg);border-radius:100px;padding:4px 10px;flex-shrink:0;margin-top:3px;">04</span>
+                      <div>
+                        Copy đoạn lệnh bên dưới, paste vào Console, nhấn <strong>Enter</strong>:
+                        <div style="margin-top:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:var(--fm);font-size:12px;color:var(--text);line-height:1.6;user-select:all;cursor:text;">window._sb.from('site_data').upsert({key: 'works', value: DW}).then(r => console.log('Done!', r))</div>
+                      </div>
+                    </div>
+
+                    <div style="display:flex;gap:14px;align-items:flex-start;">
+                      <span style="font-size:12px;font-weight:700;background:var(--text);color:var(--bg);border-radius:100px;padding:4px 10px;flex-shrink:0;margin-top:3px;">05</span>
+                      <div>Đợi vài giây, thấy <code style="font-family:var(--fm);font-size:12px;background:var(--bg2);padding:2px 6px;border-radius:4px;">Done! {success: true, status: 200}</code> là thành công — data đã lên Supabase.</div>
+                    </div>
+
+                    <div style="background:#f0f7ee;border:1px solid #c8e0c0;border-radius:8px;padding:12px 16px;font-size:14px;color:#4a7a42;">
+                      💡 <strong>Lưu ý:</strong> Lệnh này push từ <code style="font-family:var(--fm);font-size:11px;background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:3px;">DW</code> (default data trong data.js) — không phải từ localStorage. Nên đảm bảo đã lưu đúng nội dung vào data.js trước khi chạy.
+                    </div>
+                  </div>
+                </div>
+
                 <!-- QUICK LINKS -->
                 <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
                   <div style="background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--border);">
@@ -836,11 +878,11 @@
                 display:inline-flex;align-items:center;
                 padding:10px 22px;border-radius:100px;cursor:not-allowed;
                 font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-                background:transparent;color:var(--border);border:1.5px solid var(--border);
-                transition:border-color 0.2s,color 0.2s,opacity 0.2s;opacity:0.4;
+                background:transparent;color:var(--muted);border:1.5px solid var(--muted);
+                transition:border-color 0.2s,color 0.2s,opacity 0.2s;opacity:0.5;
               "
-              onmouseover="if(!this.disabled){this.style.borderColor='var(--text)';this.style.color='var(--text)'}"
-              onmouseout="this.style.borderColor='var(--border)';this.style.color=this.disabled?'var(--border)':'var(--muted)'">
+              onmouseover="if(!this.disabled){this.style.borderColor='var(--text)';this.style.color='var(--text)';this.style.opacity='1'}"
+              onmouseout="this.style.borderColor=this.disabled?'var(--muted)':'var(--muted)';this.style.color=this.disabled?'var(--muted)':'var(--muted)';this.style.opacity=this.disabled?'0.5':'1'">
                 Discard
               </button>
               <button id="aFooterBtn" class="badd" onclick="footerSave()" style="margin-bottom:0;border-radius:100px;">
@@ -1287,7 +1329,8 @@
           dis.disabled = false;
           dis.style.opacity = "1";
           dis.style.cursor = "pointer";
-          dis.style.color = "var(--muted)";
+          dis.style.color = "var(--text)";
+          dis.style.borderColor = "var(--text)";
         }
       }
 
@@ -1300,9 +1343,10 @@
         if (lbl) lbl.textContent = "Saved";
         if (dis) {
           dis.disabled = true;
-          dis.style.opacity = "0.4";
+          dis.style.opacity = "0.5";
           dis.style.cursor = "not-allowed";
-          dis.style.color = "var(--border)";
+          dis.style.color = "var(--muted)";
+          dis.style.borderColor = "var(--muted)";
         }
       }
 

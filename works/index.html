@@ -154,6 +154,7 @@
           filter === "all" ? works : works.filter((w) => w.category === filter);
         const g = document.getElementById("wgrid");
         if (!g) return;
+        g.classList.toggle("has-odd", fl.length % 2 !== 0);
         g.innerHTML = fl
           .map((w, i) => {
             const th = w.cover
