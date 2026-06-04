@@ -344,7 +344,7 @@ const DW = [
     tags: ["Brand Strategy", "Art Direction", "Visual Identity"],
     description:
       "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way.",
-    cover: "",
+    cover: "/assets/images/works/qmts/qmts-cover.png",
     color: "#F5EDE8",
     featured: false,
     order: 7,
@@ -354,6 +354,7 @@ const DW = [
         label: "Philosophy",
         heading: "Defining A Philosophy, Not A Tea Brand",
         body: "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>",
+        images: ["/assets/images/works/qmts/qmts-quote.png"],
       },
       { type: "divider" },
       {
