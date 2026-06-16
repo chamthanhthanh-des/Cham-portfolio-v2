@@ -517,19 +517,24 @@ const DW = [
   },
   {
     "id": "bocongann",
+    "client": "Bồ Công Anh",
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "year": "2020",
+    "category": "web",
+    "role": "",
+    "duration": "",
     "tags": [
       "Web Design",
       "Development"
     ],
-    "year": "2020",
+    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
     "color": "#F5F0E8",
-    "cover": "",
-    "order": 5,
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "client": "Bồ Công Anh",
-    "category": "web",
     "featured": false,
-    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively."
+    "link": "",
+    "order": 5,
+    "sections": [],
+    "gallery": []
   }
 ];
 
