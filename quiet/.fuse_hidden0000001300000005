@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Works — Châm Thanh Thanh</title>
-    <meta
-      name="description"
-      content="Selected projects across product design, brand systems, and digital experiences."
-    />
+    <title>Quiet — Châm Thanh Thanh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,17 +15,20 @@
     <link rel="icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://chamthanhthanh.com/works/" />
-    <meta property="og:title" content="Works — Châm Thanh Thanh" />
-    <meta property="og:description" content="UI/UX &amp; Branding Designer — Portfolio of Châm Thanh Thanh." />
-    <meta property="og:image" content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
-    <meta property="og:image:width" content="1200" />
+    <!-- Open Graph (updated dynamically by JS) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Châm Thanh Thanh" />
+    <meta id="ogUrl"   property="og:url"         content="https://chamthanhthanh.com/quiet/" />
+    <meta id="ogTitle" property="og:title"        content="Quiet — Châm Thanh Thanh" />
+    <meta id="ogDesc"  property="og:description"  content="Những bài viết nhỏ về thiết kế, cuộc sống và suy nghĩ." />
+    <meta id="ogImg"   property="og:image"        content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
+    <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
+    <meta id="twTitle" name="twitter:title"       content="Quiet — Châm Thanh Thanh" />
+    <meta id="twDesc"  name="twitter:description" content="Những bài viết nhỏ về thiết kế, cuộc sống và suy nghĩ." />
+    <meta id="twImg"   name="twitter:image"       content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
   </head>
   <body>
     <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f9f7f4;font-family:sans-serif;text-align:center;padding:24px;z-index:9999"><div><p style="font-size:18px;font-weight:600;margin:0 0 8px">JavaScript is required</p><p style="font-size:14px;color:#666;margin:0">Please enable JavaScript to view this site.<br>Vui lòng bật JavaScript để xem trang.</p></div></div></noscript>
@@ -81,20 +80,7 @@
     </div>
 
     <main id="main">
-      <section class="subpage-hero" aria-labelledby="works-title">
-        <div class="subpage-hero__inner">
-          <h1 class="subpage-hero__title" id="works-title">Works</h1>
-          <p class="subpage-hero__description">
-            Selected projects across product design, brand systems, and digital
-            experiences.
-          </p>
-        </div>
-      </section>
-
-      <section class="works-projects" aria-label="Selected work projects">
-        <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
-        <div class="wgrid" id="wgrid"></div>
-      </section>
+      <div id="qdc"></div>
 
       <footer>
         <div class="flogo">Châm Thanh Thanh</div>
@@ -118,68 +104,75 @@
 
 
     <script src="/assets/data.js"></script>
-    <script src="/assets/cloud.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      let filter = "all";
+      function renderQD(q) {
+        const idx = posts.findIndex((x) => x.id === q.id);
+        const prev = posts[idx - 1],
+          next = posts[idx + 1];
+        const navL = prev
+          ? `<div class="q-ni" onclick="location.href='/quiet/detail.html?id=${prev.id}'"><div class="dir">← Previous</div><div class="ttl">${prev.title}</div></div>`
+          : `<div style="background:var(--bg2)"></div>`;
+        const navR = next
+          ? `<div class="q-ni nx" onclick="location.href='/quiet/detail.html?id=${next.id}'"><div class="dir">Next →</div><div class="ttl">${next.title}</div></div>`
+          : `<div style="background:var(--bg2)"></div>`;
 
-      function renderWorks() {
-        const cats = ["all", ...new Set(works.map((w) => w.category))];
-        const f = document.getElementById("wfilters");
-        if (f)
-          f.innerHTML = cats
-            .map(
-              (c) =>
-                `<button class="fbtn${c === filter ? " active" : ""}" onclick="setFilter('${c}')">${c === "all" ? "All" : c}</button>`,
-            )
-            .join("");
-        renderGrid();
-      }
+        document.title = `${q.title} — Châm Thanh Thanh`;
+        const _ogImg = q.cover
+          ? `https://chamthanhthanh.com${q.cover}`
+          : "https://chamthanhthanh.com/assets/images/thumbnail-web.png";
+        const _ogDesc = (q.excerpt || q.lead || "").slice(0, 160);
+        const _ogUrl  = `https://chamthanhthanh.com/quiet/detail.html?id=${q.id}`;
+        const _set = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
+        _set("ogUrl",   "content", _ogUrl);
+        _set("ogTitle", "content", `${q.title} — Châm Thanh Thanh`);
+        _set("ogDesc",  "content", _ogDesc);
+        _set("ogImg",   "content", _ogImg);
+        _set("twTitle", "content", `${q.title} — Châm Thanh Thanh`);
+        _set("twDesc",  "content", _ogDesc);
+        _set("twImg",   "content", _ogImg);
 
-      function setFilter(c) {
-        filter = c;
-        document
-          .querySelectorAll(".fbtn")
-          .forEach((b) =>
-            b.classList.toggle(
-              "active",
-              b.textContent.toLowerCase() === c ||
-                (c === "all" && b.textContent === "All"),
-            ),
-          );
-        renderGrid();
-      }
-
-      function renderGrid() {
-        const fl =
-          filter === "all" ? works : works.filter((w) => w.category === filter);
-        const g = document.getElementById("wgrid");
-        if (!g) return;
-        g.classList.toggle("has-odd", fl.length % 2 !== 0);
-        g.innerHTML = fl
-          .map((w, i) => {
-            const th = w.cover
-              ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
-              : `<div class="wgi-cover" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
-            return `<div class="wgi" onclick="location.href='/works/detail.html?id=${w.id}'">
-      <div class="wgi-num">${String(i + 1).padStart(2, "0")}</div>
-      <div class="wgi-body">
-        <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
-        <div class="wgi-thumb">${th}</div>
-        <div class="wgi-title">${w.title}</div>
-        <div class="wgi-tags">${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+        document.getElementById("qdc").innerHTML = `
+    <div class="qd-hero">
+      <a class="qd-back" href="/quiet/"><span>←</span><span>Back to Quiet</span></a>
+      <div class="qd-meta-row">
+        <span class="qd-cat">${q.category}</span>
+        <span class="qd-date">${q.date}</span>
+        <span class="qd-reading">${q.reading}</span>
       </div>
-    </div>`;
-          })
-          .join("");
+      <h1 class="qd-title">${q.title}</h1>
+    </div>
+    
+${
+  q.cover
+    ? `
+    <div style="padding: 0 var(--page-padding-x); margin: 48px 0;">
+      <img src="${q.cover}" alt="${q.title}"
+           style="width: 100%; display: block; border-radius: var(--img-radius); aspect-ratio: 16/9; object-fit: cover;">
+    </div>
+`
+    : ""
+}
+        
+    <div class="qd-body">
+      <div class="qd-lead">${q.lead}</div>
+      <hr class="qd-divider">
+      <div class="qd-text">${q.content}</div>
+    </div>
+    <div class="q-nav">${navL}${navR}</div>`;
+        setTimeout(initReveal, 80);
       }
 
-      function applyResume() {
+      function initPostDetail() {
         if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
+        const id = new URLSearchParams(window.location.search).get("id");
+        const q = posts.find((x) => x.id === id);
+        if (q) renderQD(q);
+        else location.href = "/quiet/";
       }
-      applyResume(); renderWorks();
+      initPostDetail();
       (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
-        if (fromCloud) { applyResume(); renderWorks(); }
+        if (fromCloud) initPostDetail();
       }).catch(() => {});
     </script>
   </body>

@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Works — Châm Thanh Thanh</title>
+    <title>Quiet — Châm Thanh Thanh</title>
     <meta
       name="description"
-      content="Selected projects across product design, brand systems, and digital experiences."
+      content="Thoughts on design, process, and the things that make work feel meaningful."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,8 +21,8 @@
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://chamthanhthanh.com/works/" />
-    <meta property="og:title" content="Works — Châm Thanh Thanh" />
+    <meta property="og:url" content="https://chamthanhthanh.com/quiet/" />
+    <meta property="og:title" content="Quiet — Châm Thanh Thanh" />
     <meta property="og:description" content="UI/UX &amp; Branding Designer — Portfolio of Châm Thanh Thanh." />
     <meta property="og:image" content="https://chamthanhthanh.com/assets/images/thumbnail-web.png" />
     <meta property="og:image:width" content="1200" />
@@ -81,20 +81,17 @@
     </div>
 
     <main id="main">
-      <section class="subpage-hero" aria-labelledby="works-title">
+      <section class="subpage-hero" aria-labelledby="quiet-title">
         <div class="subpage-hero__inner">
-          <h1 class="subpage-hero__title" id="works-title">Works</h1>
+          <h1 class="subpage-hero__title" id="quiet-title">Quiet thoughts</h1>
           <p class="subpage-hero__description">
-            Selected projects across product design, brand systems, and digital
-            experiences.
+            Thoughts on design, process, and the things that make work feel
+            meaningful.
           </p>
         </div>
       </section>
 
-      <section class="works-projects" aria-label="Selected work projects">
-        <div class="wfilters" id="wfilters" aria-label="Work filters"></div>
-        <div class="wgrid" id="wgrid"></div>
-      </section>
+      <div class="q-list" id="qList"></div>
 
       <footer>
         <div class="flogo">Châm Thanh Thanh</div>
@@ -112,74 +109,53 @@
             >LinkedIn</a
           >
         </div>
-        <div class="fcopy">©2026 Châm Thanh Thanh</div>
+        <div
+          class="fcopy"
+          style="display: inline-flex; align-items: center; gap: 8px"
+        >
+          <a
+            href="/admin/"
+            style="
+              opacity: 0.12;
+              transition: opacity 0.2s;
+              display: flex;
+              align-items: center;
+            "
+            onmouseover="this.style.opacity = '0.35'"
+            onmouseout="this.style.opacity = '0.12'"
+          >
+            <img src="/assets/images/favicon.svg" style="width: 14px; height: 14px" />
+          </a>
+          ©2026 Châm Thanh Thanh
+        </div>
       </footer>
     </main>
 
 
     <script src="/assets/data.js"></script>
-    <script src="/assets/cloud.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      let filter = "all";
-
-      function renderWorks() {
-        const cats = ["all", ...new Set(works.map((w) => w.category))];
-        const f = document.getElementById("wfilters");
-        if (f)
-          f.innerHTML = cats
-            .map(
-              (c) =>
-                `<button class="fbtn${c === filter ? " active" : ""}" onclick="setFilter('${c}')">${c === "all" ? "All" : c}</button>`,
-            )
-            .join("");
-        renderGrid();
-      }
-
-      function setFilter(c) {
-        filter = c;
-        document
-          .querySelectorAll(".fbtn")
-          .forEach((b) =>
-            b.classList.toggle(
-              "active",
-              b.textContent.toLowerCase() === c ||
-                (c === "all" && b.textContent === "All"),
-            ),
-          );
-        renderGrid();
-      }
-
-      function renderGrid() {
-        const fl =
-          filter === "all" ? works : works.filter((w) => w.category === filter);
-        const g = document.getElementById("wgrid");
-        if (!g) return;
-        g.classList.toggle("has-odd", fl.length % 2 !== 0);
-        g.innerHTML = fl
-          .map((w, i) => {
-            const th = w.cover
-              ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
-              : `<div class="wgi-cover" style="background:${w.color || "#f0eee9"}">${w.title.charAt(0)}</div>`;
-            return `<div class="wgi" onclick="location.href='/works/detail.html?id=${w.id}'">
-      <div class="wgi-num">${String(i + 1).padStart(2, "0")}</div>
-      <div class="wgi-body">
-        <div class="wgi-top"><span class="wgi-yr">${w.year}</span><div class="wgi-arr">↗</div></div>
-        <div class="wgi-thumb">${th}</div>
-        <div class="wgi-title">${w.title}</div>
-        <div class="wgi-tags">${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
-      </div>
-    </div>`;
-          })
-          .join("");
-      }
-
-      function applyResume() {
+      function renderQuietList() {
         if (hero.resume) { const r = document.getElementById('navResume'); if (r) r.href = hero.resume; }
+        const list = document.getElementById("qList");
+        if (list)
+          list.innerHTML = posts.filter(q => !q.draft).map((q, i) => `
+<div class="q-item" style="--q-cover: url('${q.cover}')" onclick="location.href='/quiet/detail.html?id=${q.id}'">
+    <div class="q-num">${String(i + 1).padStart(2, "0")}</div>
+    <div class="q-main">
+      <div class="q-catdate"><span class="q-cat">${q.category}</span><span class="q-date">${q.date}</span></div>
+      <div class="q-title">${q.title}</div>
+      <div class="q-excerpt">${q.excerpt}</div>
+    </div>
+    <div class="q-right">
+      <div class="q-reading">${q.reading}</div>
+      <div class="q-circle">↗</div>
+    </div>
+  </div>`).join("");
       }
-      applyResume(); renderWorks();
+      renderQuietList();
       (window._dataReady || Promise.resolve(false)).then((fromCloud) => {
-        if (fromCloud) { applyResume(); renderWorks(); }
+        if (fromCloud) renderQuietList();
       }).catch(() => {});
     </script>
   </body>
