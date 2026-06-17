@@ -139,7 +139,7 @@
               const srcs = s.images?.length ? s.images : s.src ? [s.src] : [];
               const imgs = srcs.map((src) => `
               <div style="padding: 0 var(--page-padding-x); box-sizing: border-box;">
-                <img src="${src}" alt="" style="width:100%;display:block;border-radius:var(--img-radius);background:var(--bg2);">
+                <img src="${src}" alt="" loading="lazy" decoding="async" style="width:100%;display:block;border-radius:var(--img-radius);background:var(--bg2);">
               </div>`).join("");
               return `<div style="display:flex;flex-direction:column;gap:24px;margin-bottom:80px;">${imgs}</div>`;
             }
@@ -158,7 +158,7 @@
             (src) => `
           <div style="padding: 0 var(--page-padding-x); box-sizing: border-box; margin-bottom: 56px;">
             <div style="aspect-ratio: 16/9; background: var(--bg2); border-radius: var(--img-radius); overflow: hidden;">
-              <img src="${src}" style="width: 100%; height: 100%; display: block; object-fit: cover;">
+              <img src="${src}" loading="lazy" decoding="async" style="width: 100%; height: 100%; display: block; object-fit: cover;">
             </div>
           </div>
           `,
@@ -203,16 +203,16 @@
       <div class="wd-body-label">Overview</div>
       <div class="wd-body-text">
   ${ps}
-    <a 
-      href="${w.link || "#"}" 
-      target="_blank" 
-      class="la" 
+    ${(w.link && w.showPreview !== false) ? `<a
+      href="${w.link}"
+      target="_blank"
+      class="la"
       style="margin-top: 24px; font-size: 12px; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s;"
-      onmouseover="this.style.gap='14px'" 
+      onmouseover="this.style.gap='14px'"
       onmouseout="this.style.gap='8px'"
     >
       <span>Design preview</span><span>→</span>
-    </a>
+    </a>` : ""}
   </div>
     </div>
   <hr class="divider">

@@ -983,9 +983,18 @@
             </div>
             <input id="wCl" type="hidden" value="#eeecea" />
           </div>
-          <div class="fg">
-            <label>Design Preview Link</label
-            ><input id="wLk" placeholder="https://figma.com/..." />
+          <div class="mrow">
+            <div class="fg">
+              <label>Design Preview Link</label
+              ><input id="wLk" placeholder="https://figma.com/..." oninput="_dirty=true" />
+            </div>
+            <div class="fg">
+              <label>Nút Design preview</label>
+              <select id="wShowLk" onchange="_dirty=true">
+                <option value="true">Hiện</option>
+                <option value="false">Ẩn</option>
+              </select>
+            </div>
           </div>
 
           <!-- SECTIONS -->
@@ -1990,6 +1999,8 @@
         document.getElementById("wCl").value = w?.color || "#eeecea";
         document.getElementById("wFe").value = w?.featured ? "true" : "false";
         document.getElementById("wLk").value = w?.link || "";
+        // Mặc định "Hiện" — chỉ ẩn khi đã set rõ false
+        document.getElementById("wShowLk").value = w?.showPreview === false ? "false" : "true";
         // Merge standalone type:"image" sections back into their content sections
         const _rawSections = JSON.parse(JSON.stringify(w?.sections || []));
         const _imgMap = {};
@@ -2051,6 +2062,7 @@
           color: document.getElementById("wCl").value,
           featured: document.getElementById("wFe").value === "true",
           link: document.getElementById("wLk").value,
+          showPreview: document.getElementById("wShowLk").value === "true",
           order: existing?.order ?? works.length + 1,
           sections: (() => {
             let sectionNum = 0;

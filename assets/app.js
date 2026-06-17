@@ -197,7 +197,7 @@ function initHeroMouse() {
 /* ── FEATURED WORK CARD HTML ─────────────────────── */
 function fwCardHTML(w, i) {
   const cv = w.cover
-    ? `<img src="${w.cover}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover">`
+    ? `<img src="${w.cover}" alt="${w.title}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover">`
     : `<div class="fw-preview-inner" style="background:${w.color || "#f0eee9"}">${w.title.split("—")[0].trim().charAt(0)}</div>`;
   return `<div class="fw-item" onclick="location.href='/works/detail.html?id=${w.id}'">
     <div class="fw-row">
