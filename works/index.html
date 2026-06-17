@@ -151,8 +151,9 @@
       }
 
       function renderGrid() {
+        const pub = works.filter((w) => w.published !== false);
         const fl =
-          filter === "all" ? works : works.filter((w) => w.category === filter);
+          filter === "all" ? pub : pub.filter((w) => w.category === filter);
         const g = document.getElementById("wgrid");
         if (!g) return;
         g.classList.toggle("has-odd", fl.length % 2 !== 0);

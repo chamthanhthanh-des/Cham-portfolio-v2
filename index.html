@@ -249,7 +249,7 @@
             .join("");
         const featW = document.getElementById("featW");
         if (featW)
-          featW.innerHTML = works.filter((w) => w.featured).slice(0, 3)
+          featW.innerHTML = works.filter((w) => w.featured && w.published !== false).slice(0, 3)
             .map((w, i) => fwCardHTML(w, i)).join("");
       }
 

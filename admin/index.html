@@ -193,6 +193,7 @@
                     <th>Year</th>
                     <th>Category</th>
                     <th>Featured</th>
+                    <th>Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -941,6 +942,13 @@
               </select>
             </div>
           </div>
+          <div class="fg">
+            <label>Trạng thái trên web (Publish)</label>
+            <select id="wPub" onchange="_dirty=true">
+              <option value="true">● Published — hiện với khách</option>
+              <option value="false">Ẩn — chỉ thấy trong admin</option>
+            </select>
+          </div>
           <div class="mrow">
             <div class="fg">
               <label>My Role</label>
@@ -1442,6 +1450,7 @@
                 <td style="font-family:var(--fm);font-size:11px">${w.year}</td>
                 <td><span class="tag">${w.category}</span></td>
                 <td style="font-family:var(--fm);font-size:10px;color:${w.featured ? "var(--ame)" : "var(--muted)"}">${w.featured ? "● Yes" : "No"}</td>
+                <td style="font-family:var(--fm);font-size:10px;color:${w.published === false ? "#c0392b" : "var(--ame)"}">${w.published === false ? "● Hidden" : "● Live"}</td>
                 <td><div class="ta"><button class="bed" onclick="openWM('${w.id}')">Edit</button><button class="bdel" onclick="delW('${w.id}')">Delete</button></div></td>
               </tr>`;
             }
@@ -1998,6 +2007,8 @@
         setImgPrev("wCoPrev", w?.cover || "");
         document.getElementById("wCl").value = w?.color || "#eeecea";
         document.getElementById("wFe").value = w?.featured ? "true" : "false";
+        // Mặc định Published — chỉ ẩn khi set rõ false
+        document.getElementById("wPub").value = w?.published === false ? "false" : "true";
         document.getElementById("wLk").value = w?.link || "";
         // Mặc định "Hiện" — chỉ ẩn khi đã set rõ false
         document.getElementById("wShowLk").value = w?.showPreview === false ? "false" : "true";
@@ -2061,6 +2072,7 @@
           cover: document.getElementById("wCo").value,
           color: document.getElementById("wCl").value,
           featured: document.getElementById("wFe").value === "true",
+          published: document.getElementById("wPub").value === "true",
           link: document.getElementById("wLk").value,
           showPreview: document.getElementById("wShowLk").value === "true",
           order: existing?.order ?? works.length + 1,
