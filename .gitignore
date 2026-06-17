@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Editor / temp backups
+*~
+*.tmp
+.fuse_hidden*
+*.orig
+*.bak
