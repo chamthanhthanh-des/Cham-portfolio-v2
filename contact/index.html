@@ -114,16 +114,16 @@
             <div class="frow">
               <div class="fg">
                 <label>Name</label
-                ><input type="text" placeholder="Nguyễn Văn A" required />
+                ><input type="text" id="conName" placeholder="Nguyễn Văn A" required />
               </div>
               <div class="fg">
                 <label>Email</label
-                ><input type="email" placeholder="email@company.com" required />
+                ><input type="email" id="conEmailIn" placeholder="email@company.com" required />
               </div>
             </div>
             <div class="fg">
               <label>Message</label
-              ><textarea placeholder="Tell me about your project..."></textarea>
+              ><textarea id="conMessage" placeholder="Tell me about your project..."></textarea>
             </div>
             <button type="submit" class="btn1" onclick="subCon(event)">
               Send Message →
@@ -201,10 +201,70 @@
     <script src="/assets/cloud.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      function subCon(e) {
+      /* ── FORMSPREE ──
+         Điền endpoint của bạn (formspree.io → form → Integration → AJAX):
+         dạng "https://formspree.io/f/XXXXXXXX"
+         Khi chưa điền: form sẽ mở sẵn email (mailto) để khách gửi tay. */
+      const FORMSPREE_ENDPOINT = "https://formspree.io/f/xaqzzyyo";
+
+      async function subCon(e) {
         e.preventDefault();
-        toast("Message sent! I'll reply soon ✓");
-        e.target.reset();
+        const btn = e.target;
+        const val = (id) => (document.getElementById(id)?.value || "").trim();
+        const name = val("conName"),
+          email = val("conEmailIn"),
+          message = val("conMessage");
+
+        if (!name || !email) {
+          toast("❌ Vui lòng nhập tên và email", "error");
+          return;
+        }
+
+        // Chưa cấu hình Formspree → mở email với nội dung điền sẵn
+        if (FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")) {
+          const body = `${message}\n\n— ${name} (${email})`;
+          window.location.href =
+            "mailto:chamthanhthanh@gmail.com?subject=" +
+            encodeURIComponent("Portfolio contact — " + name) +
+            "&body=" +
+            encodeURIComponent(body);
+          return;
+        }
+
+        const orig = btn.textContent;
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+        btn.textContent = "Sending…";
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              message,
+              _subject: "Portfolio contact — " + name,
+            }),
+          });
+          if (res.ok) {
+            toast("Message sent! I'll reply soon ✓");
+            ["conName", "conEmailIn", "conMessage"].forEach((id) => {
+              const el = document.getElementById(id);
+              if (el) el.value = "";
+            });
+          } else {
+            toast("❌ Gửi thất bại — thử lại hoặc email trực tiếp", "error");
+          }
+        } catch (err) {
+          toast("❌ Lỗi mạng — thử lại sau", "error");
+        } finally {
+          btn.disabled = false;
+          btn.style.opacity = "";
+          btn.textContent = orig;
+        }
       }
 
       function renderContact() {
