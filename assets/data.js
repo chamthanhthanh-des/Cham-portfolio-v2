@@ -464,7 +464,7 @@ const DW = [
       "Marketing Design"
     ],
     "description": "Hot Cross is a multi-chain Web3 infrastructure ecosystem focused on building more accessible blockchain tools and cross-chain experiences for users, developers, and communities.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169999/weze8kbf1z4gb1skdhb0.png",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781602289/hotcross-cover_a30jdf.png",
     "color": "#F0EBE5",
     "featured": false,
     "link": "",
