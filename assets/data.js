@@ -9,46 +9,6 @@ const LW = "ctw_w4",
 /* ── DEFAULT DATA ────────────────────────────────── */
 const DW = [
   {
-    "id": "selfchain-v2",
-    "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
-    "showPreview": true,
-    "tags": ["Product Design", "Design System", "Web3 UX"],
-    "year": "2023–2025",
-    "color": "#EDE9F7",
-    "cover": "/assets/images/works/selfchain/cover.png",
-    "order": 1,
-    "title": "SelfChain — Rewrite sample (để so sánh)",
-    "client": "SelfChain",
-    "role": "Lead Product & Brand Designer",
-    "duration": "18 months · 2023–2025",
-    "gallery": [],
-    "category": "product",
-    "featured": false,
-    "sections": [
-      { "num": "01", "label": "Context", "heading": "From a wallet people knew to a chain they didn't", "body": "<p>Frontier was a multi-chain wallet with a loyal, existing user base. SelfChain asked those same users to do something far harder: trust an entirely new Layer 1 — keyless accounts, account abstraction, and intent-centric flows most had never seen.</p><p>The real risk wasn't visual, it was behavioral: <strong>every new concept we introduced was a new reason for an existing user to drop off.</strong> So the core design question became — how much new can we add before familiarity breaks?</p>" },
-      { "num": "01", "type": "image", "label": "Context", "src": "/assets/images/works/selfchain/context-01.png" },
-      { "type": "divider" },
-      { "num": "02", "label": "Role & Scope", "heading": "What I actually owned", "body": "<p>As Lead Product & Brand Designer over ~18 months, working daily with product, engineering, and marketing:</p><ul><li><strong>Owned:</strong> migration & onboarding UX, the design system, brand identity, and the ecosystem / data-viz visual language</li><li><strong>Contributed:</strong> staking & explorer flows, governance comms, marketing site</li><li><strong>Team:</strong> [điền số thực — vd 2 designers + 4 engineers]</li></ul><p>Instead of treating each product as a separate set of screens, I built one connected system so the ecosystem could scale without re-deciding the basics every time.</p>" },
-      { "type": "divider" },
-      { "num": "03", "label": "Key Decision", "heading": "Designing migration as reassurance, not a feature", "body": "<p><strong>Insight:</strong> in early testing, users didn't stall on migration because it was complex — they hesitated because they couldn't tell whether their assets were safe <em>mid-transfer</em>.</p><p><strong>Decision:</strong> I built the flow around continuous visibility of state — every step showed what had moved, what remained, and what was reversible, instead of one all-or-nothing 'confirm' moment.</p><p><strong>Trade-off:</strong> this made the flow longer (more steps, more copy). We deliberately chose perceived safety over speed for a one-time, high-anxiety action.</p><p><strong>Result:</strong> [điền kết quả thực — vd: migration-related support tickets ↓ X%, completion rate X% → Y%].</p>" },
-      { "num": "03", "type": "image", "label": "Key Decision", "images": ["/assets/images/works/selfchain/user-journeys.png", "/assets/images/works/selfchain/web-design.png"] },
-      { "type": "divider" },
-      { "num": "04", "label": "Onboarding", "heading": "Hiding the hardest concept until users needed it", "body": "<p>Keyless wallets remove seed phrases — powerful, but unfamiliar. <strong>Insight:</strong> explaining account abstraction upfront increased confusion, not confidence.</p><p><strong>Decision:</strong> progressive disclosure. Users could create an account and act first; the 'how it works' (MPC, recovery) surfaced only at the moment it mattered — e.g. when setting up recovery.</p><p><strong>Trade-off:</strong> less education upfront (which some stakeholders wanted). We prioritized task completion at step one over full comprehension.</p>" },
-      { "type": "divider" },
-      { "num": "05", "label": "Design System", "heading": "One system so the ecosystem could move fast", "body": "<p>SelfChain shipped many surfaces quickly — explorer, staking, hub, dashboards. Without a shared foundation, each would have drifted.</p><p>I built a token-based system bridging Frontier's familiarity with SelfChain's new language: semantic color tokens, a type scale, spacing rules, and ~[N] reusable components with defined states.</p><p><strong>Why it mattered:</strong> [điền — vd: new screens went design→dev in ~X days; consistency held across N products without a dedicated QA pass].</p>" },
-      { "num": "05", "type": "image", "label": "Design System", "images": ["/assets/images/works/selfchain/selfchain-explorer.png", "/assets/images/works/selfchain/selfchain-hub.png", "/assets/images/works/selfchain/selfchain-staking.png"] },
-      { "type": "divider" },
-      { "num": "06", "label": "Data Visualization", "heading": "Making infrastructure data legible", "body": "<p><strong>Problem:</strong> tokenomics and validator data were technically accurate but unreadable — walls of numbers that eroded trust instead of building it.</p><p><strong>Approach:</strong> a hierarchy-first system — one key takeaway per view, detail on demand — for supply, allocation, and release timelines.</p><p><strong>Result:</strong> [điền — vd: used across investor + community comms; cut repeated tokenomics questions].</p>" },
-      { "num": "06", "type": "image", "label": "Data Visualization", "src": "/assets/images/works/selfchain/visual-systems.png" },
-      { "type": "divider" },
-      { "num": "07", "label": "Impact", "heading": "What shipped — and what changed", "body": "<p>SelfChain launched mainnet through a structured multi-phase rollout with active validator participation.</p><p><strong>Thay bằng số thực của bạn:</strong></p><ul><li>Migration: [X]% of eligible users completed</li><li>Onboarding: drop-off [X]% → [Y]%</li><li>Design system: [N] components, adopted across [N] products</li><li>Ecosystem: [validators / TVL / users — gì bạn được phép chia sẻ]</li></ul><p><em>Không có số chính thức? Dùng định tính cụ thể: 'shipped X, dùng bởi team Y, thay thế quy trình thủ công Z'.</em></p>" },
-      { "num": "07", "type": "image", "label": "Impact", "src": "/assets/images/works/selfchain/network-performance-metrics_.png" },
-      { "type": "divider" },
-      { "num": "08", "label": "Reflection", "heading": "What I'd carry forward", "body": "<p>SelfChain taught me that in moments of transformation, design's job is continuity, not novelty. The wins came from reducing anxiety at specific high-stakes moments — migration, recovery, reading data — not from a prettier interface.</p>" }
-    ],
-    "description": "How do you move thousands of existing wallet users onto an entirely new blockchain — without breaking the trust they already had?\n\nSelfChain was the rebuild of Frontier's multi-chain wallet into a keyless, intent-centric Layer 1 ecosystem. As Lead Designer I owned branding, product UX, migration, and the design system that held it together.\n\nImpact (thay bằng số thực của bạn): migration completed by [X]% of users · onboarding drop-off [X]% → [Y]% · design system adopted across [N] products."
-  },
-  {
     "id": "selfchain",
     "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
     "tags": [
@@ -260,176 +220,174 @@ const DW = [
   },
   {
     "id": "self-design-system",
-    "client": "SelfChain",
-    "title": "Self Design System",
-    "year": "2023–2024",
-    "category": "product",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Product Design",
       "Design System"
     ],
-    "description": "How do you scale product design without scaling inconsistency?\n\nAs products grow, design complexity grows with them. New features introduce new patterns. New teams introduce new workflows. New requirements introduce new exceptions. Without a shared foundation, inconsistency becomes inevitable.\n\nSELF Design System was created to establish a common language between design and engineering — transforming fragmented decisions into a scalable framework that could support long-term product growth.",
-    "cover": "/assets/images/works/Self-ds/selfds-cover.png",
+    "year": "2023–2024",
     "color": "#EBF0E9",
-    "featured": false,
-    "link": "",
+    "cover": "/assets/images/works/Self-ds/selfds-cover.png",
     "order": 2,
+    "title": "Self Design System",
+    "client": "SelfChain",
+    "gallery": [],
+    "category": "product",
+    "duration": "",
+    "featured": false,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Consistency should be built into the system, not enforced afterward.</p><p>Many design inconsistencies don't come from poor execution. They come from the absence of clear rules. Instead of solving the same design problems repeatedly, I focused on defining a foundation that could guide decisions before screens were created.</p><p>The system established design tokens, color architecture, typography hierarchy, spacing principles, elevation rules, and interaction states.</p>",
         "label": "Foundation",
-        "heading": "Defining The Rules",
-        "body": "<p>Consistency should be built into the system, not enforced afterward.</p><p>Many design inconsistencies don't come from poor execution. They come from the absence of clear rules. Instead of solving the same design problems repeatedly, I focused on defining a foundation that could guide decisions before screens were created.</p><p>The system established design tokens, color architecture, typography hierarchy, spacing principles, elevation rules, and interaction states.</p>"
+        "heading": "Defining The Rules"
       },
       {
         "type": "divider"
       },
       {
         "num": "02",
+        "body": "<p>Every repeated decision is an opportunity to build a system.</p><p>As recurring patterns emerged across the product, they were transformed into reusable building blocks. Buttons, inputs, navigation, data displays, and feedback states were designed as flexible systems with defined variants, behaviors, and usage principles.</p><p>The objective wasn't creating a UI kit. The objective was reducing future design effort.</p>",
         "label": "Components",
-        "heading": "Designing For Reuse",
-        "body": "<p>Every repeated decision is an opportunity to build a system.</p><p>As recurring patterns emerged across the product, they were transformed into reusable building blocks. Buttons, inputs, navigation, data displays, and feedback states were designed as flexible systems with defined variants, behaviors, and usage principles.</p><p>The objective wasn't creating a UI kit. The objective was reducing future design effort.</p>"
+        "heading": "Designing For Reuse"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p>Alignment is more valuable than consistency.</p><p>A successful design system is not measured by the number of components it contains. It is measured by how effectively it aligns teams.</p><p>To support collaboration between design and engineering, the system introduced shared structures, naming conventions, documentation, and implementation guidelines.</p>",
         "label": "Collaboration",
-        "heading": "Creating A Shared Source Of Truth",
-        "body": "<p>Alignment is more valuable than consistency.</p><p>A successful design system is not measured by the number of components it contains. It is measured by how effectively it aligns teams.</p><p>To support collaboration between design and engineering, the system introduced shared structures, naming conventions, documentation, and implementation guidelines.</p>"
+        "heading": "Creating A Shared Source Of Truth"
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
+        "body": "<p>Great systems make growth feel effortless.</p><p>The value of a design system is often invisible. Users rarely notice it. Teams experience it every day. By creating a reusable foundation, SELF Design System helped reduce design debt, accelerate execution, and improve consistency across products without sacrificing flexibility.</p><p>The result was not simply a collection of components. It was a framework designed to scale.</p>",
         "label": "Scale",
-        "heading": "Designing For Scale",
-        "body": "<p>Great systems make growth feel effortless.</p><p>The value of a design system is often invisible. Users rarely notice it. Teams experience it every day. By creating a reusable foundation, SELF Design System helped reduce design debt, accelerate execution, and improve consistency across products without sacrificing flexibility.</p><p>The result was not simply a collection of components. It was a framework designed to scale.</p>"
+        "heading": "Designing For Scale"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p>I led the design system initiative from concept to implementation. Responsibilities included defining system principles, creating token architecture, building reusable components, establishing documentation standards, supporting engineering implementation, and maintaining long-term system governance.</p><p>More than designing interfaces, my role was to design the framework that made future interfaces easier to build.</p>",
         "label": "My Role",
-        "heading": "Lead Product Designer",
-        "body": "<p>I led the design system initiative from concept to implementation. Responsibilities included defining system principles, creating token architecture, building reusable components, establishing documentation standards, supporting engineering implementation, and maintaining long-term system governance.</p><p>More than designing interfaces, my role was to design the framework that made future interfaces easier to build.</p>"
+        "heading": "Lead Product Designer"
       }
     ],
-    "gallery": []
+    "description": "How do you scale product design without scaling inconsistency?\n\nAs products grow, design complexity grows with them. New features introduce new patterns. New teams introduce new workflows. New requirements introduce new exceptions. Without a shared foundation, inconsistency becomes inevitable.\n\nSELF Design System was created to establish a common language between design and engineering — transforming fragmented decisions into a scalable framework that could support long-term product growth."
   },
   {
     "id": "mill-3",
-    "client": "Mill3",
-    "title": "Mill3 — AI-Native Content Engine for Web3",
-    "year": "2024",
-    "category": "product",
-    "role": "Lead Designer (brand · product · UX · design system)",
-    "duration": "2024 · Frontier → SelfChain transition",
+    "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
+    "role": "",
     "tags": [
       "Product Design",
       "Branding Design",
       "AI × Design"
     ],
-    "description": "An AI-native content engine for Web3 builders.\n\nMill3 turns a single brief into on-brand, publish-ready content — threads, announcements, newsletters, campaign copy — tuned for crypto-native audiences. Not a standalone writer, but one connected workflow: strategy, generation, editing, publishing, and a token-based reward loop in a single intelligent system.\n\nBuilt during the Frontier → SelfChain transition.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169052/uwqnpugpgoudfoz8ormm.png",
+    "year": "2024",
     "color": "#EBF0EC",
-    "featured": true,
-    "showPreview": true,
-    "published": true,
-    "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169052/uwqnpugpgoudfoz8ormm.png",
     "order": 4,
+    "title": "Mill3 — AI Content Platform for Web3",
+    "client": "Mill3",
     "gallery": [],
+    "category": "product",
+    "duration": "",
+    "featured": true,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Mill3 started as an experimental initiative during the transition period between Frontier and the future direction of SelfChain.</p><p>While the ecosystem was undergoing a complex migration and long-term blockchain restructuring process, the team began exploring emerging opportunities beyond infrastructure — particularly within AI-assisted creation and creator-focused workflows.</p><p>At the time, most AI writing platforms were built for general marketing teams rather than blockchain creators navigating token launches, fast-moving narratives, and technically complex products.</p><p>Mill3 began with a simple but ambitious idea: to create an AI-native content workflow system designed specifically for the pace and communication style of Web3 ecosystems.</p>",
         "label": "Context",
-        "heading": "Experimenting beyond infrastructure",
-        "body": "<p>Born in the transition between Frontier and SelfChain, as the team looked past Layer 1 infrastructure toward AI-assisted creation.</p><p>Most AI writers served generic marketers — not blockchain creators navigating token launches and fast-moving narratives. Mill3's bet: an AI workflow built for the pace and voice of Web3.</p>"
+        "heading": "Experimenting beyond blockchain infrastructure"
       },
       {
         "num": "02",
-        "label": "Opportunity",
-        "heading": "Connected AI workflows, not isolated tools",
-        "body": "<p>Web3 teams move fast across Twitter, blogs, announcements, and community — through fragmented tools.</p><p>Mill3 explored one connected workflow that keeps creators fast while holding brand voice, crypto context (tickers, tokenomics, tone), and cross-channel consistency.</p>"
+        "body": "<p>The visual direction was built around the idea of “precision-forward” — a system that feels technologically advanced, structured, and trustworthy without relying on exaggerated crypto aesthetics.</p><p>Rather than using aggressive Web3 visuals, the interface focused on calm layouts, structured spacing, controlled gradients, and a restrained futuristic atmosphere.</p><p>Green became a core accent throughout the product system, representing generation, momentum, creativity, and machine-assisted workflows.</p>",
+        "label": "Direction",
+        "heading": "Creating a calmer and more structured AI experience"
       },
       {
         "num": "03",
-        "label": "Challenge",
-        "heading": "A product category that didn't exist yet",
-        "body": "<p>One product had to combine AI generation, SaaS logic, Web3 wallets, token utility, and a credit system — and still feel intelligent and credible.</p><p>The hard part: doing all that without overwhelming users, or forcing Web3 friction (wallets, gas, jargon) on people who just want content.</p>"
+        "body": "<p>As Lead Designer, I led the end-to-end creative and product direction of the project — from brand identity and product thinking to UX flows and design systems.</p><p>My work included visual identity systems, AI-assisted content workflows, dashboard exploration, onboarding logic, interface design, design systems, and ecosystem communication.</p><p>Because the project was highly experimental, the process remained intentionally iterative, allowing space to test new interaction patterns, speculative product ideas, and future-facing creative workflows.</p>",
+        "label": "Scope",
+        "heading": "Connecting branding, AI workflows, and product systems"
       },
       {
         "num": "04",
-        "label": "Scope",
-        "heading": "Brand, product, and systems — end-to-end",
-        "body": "<p>As Lead Designer I owned brand identity, Web3-marketer personas, AI content workflows, guest onboarding, subscription and token-payment flows, the dashboard, and the design system.</p><p>Highly experimental, so the process stayed intentionally iterative.</p>"
+        "body": "<p>The rise of AI created new opportunities for content automation, but most platforms still felt disconnected from the speed and complexity of Web3 communication.</p><p>Blockchain teams often move rapidly across Twitter, blogs, landing pages, ecosystem announcements, and community updates — usually through fragmented workflows and disconnected tools.</p><p>Mill3 explored how AI-native workflows could help creators move faster across constantly evolving narratives while maintaining clarity, consistency, and strategic direction.</p><p>Rather than building another isolated writing assistant, the project explored a more connected ecosystem where strategy, generation, editing, and publishing could exist within a unified creator workflow.</p>",
+        "label": "Opportunity",
+        "heading": "Reimagining content creation through connected AI workflows"
       },
       {
         "num": "05",
+        "body": "<p>2024. Experimental AI × Web3 initiative developed during the ecosystem transition period between Frontier and SelfChain.</p><p>As the blockchain infrastructure and migration process continued evolving in parallel, the team explored future-facing product opportunities beyond Layer 1 systems — leading to the creation of experimental AI-focused projects including Mill3 and an unreleased RWA initiative.</p><p>Although Mill3 successfully launched publicly, the team eventually shifted focus back toward the larger strategic direction of SelfChain as ecosystem priorities evolved.</p>",
         "label": "Timeline",
-        "heading": "Built during ecosystem transition",
-        "body": "<p>2024. An AI × Web3 initiative during the Frontier → SelfChain transition, alongside an unreleased RWA project.</p><p>Mill3 reached a public test release before the team refocused on SelfChain's broader direction.</p>"
+        "heading": "Built during a period of ecosystem transition"
       },
       {
         "num": "06",
-        "label": "Direction",
-        "heading": "Precision-forward, not crypto-loud",
-        "body": "<p>A calm, structured, trustworthy system with no aggressive crypto visuals. A warm near-black canvas with a lime accent for generation and momentum; later a warm light mode to cut glare.</p><p>Unbounded for display, Inter for text.</p>"
+        "body": "<p>One of the biggest challenges was designing for a product category that did not fully exist yet.</p><p>The platform combined AI content generation, SaaS workflows, Web3 identity systems, token utility, and creator-focused tooling — all within a single ecosystem.</p><p>The challenge was not only making these systems usable, but creating a product that feels intelligent, credible, and emotionally engaging without becoming overly technical or visually overwhelming.</p>",
+        "label": "Challenge",
+        "heading": "Designing for a product category still taking shape"
       },
       {
         "num": "07",
+        "body": "<p>The UX direction focused on simplifying high-speed content workflows for blockchain marketers and creators.</p><p>Instead of organizing the platform around content formats alone, the experience shifted toward goal-driven creation flows — helping users think in outcomes rather than isolated deliverables.</p><p>AI actions such as rewriting, tone adjustment, and optimization were embedded directly into the editing experience to reduce context switching and maintain creative flow.</p><p>The product experience extended across AI-assisted writing flows, dashboard systems, content management, publishing logic, and future ecosystem interactions.</p>",
         "label": "Experience",
-        "heading": "Goal-first creation, friction-last",
-        "body": "<p>Organized around outcomes, not formats, with AI rewrite / tone / optimize built into the editor to protect flow.</p><p>Two signature decisions:</p><ul><li><strong>Guest-first trial</strong> — a few free generations, drafts saved on-device and carried into the account after signup.</li><li><strong>Non-blocking payment</strong> — credits run generation; ETH or discounted MILL3 only as top-up, so a wallet is needed for tokens, never to create.</li></ul>"
+        "heading": "Simplifying high-speed content creation workflows"
       },
       {
         "num": "08",
+        "body": "<p>A scalable design system was created to support both rapid experimentation and long-term product consistency.</p><p>The system included token structures, typography rules, reusable UI components, interaction patterns, and documentation designed specifically to improve collaboration between design and development.</p><p>Rather than building an overly large component library early on, the system intentionally remained lean and focused — prioritizing clarity, scalability, and faster iteration.</p>",
         "label": "System",
-        "heading": "Lean, scalable, documented",
-        "body": "<p>Design tokens with full dark / light theming, typography rules, reusable components, and a unified icon system — documented for design–dev handoff and kept intentionally lean for faster iteration.</p>"
+        "heading": "Building lean systems for rapid experimentation"
       },
       {
         "num": "09",
+        "body": "<p>Mill3 successfully launched as an experimental AI-powered content platform focused on Web3 creators and ecosystem communication.</p><p>The project established a clear visual and UX direction for how AI-native workflows could support high-speed blockchain content production while maintaining stronger strategic consistency across channels.</p><p>The redesigned onboarding and goal-first creation flows helped simplify the transition from idea generation to publish-ready content.</p><p>More importantly, Mill3 became an important exploration phase within the broader ecosystem journey — demonstrating how AI tooling, branding systems, and creator-focused workflows could evolve together inside future Web3 products.</p>",
         "label": "Outcome",
-        "heading": "A defining exploration",
-        "body": "<p>Mill3 reached test release and set a clear direction for AI-native, high-speed Web3 content with stronger cross-channel consistency.</p><p>The team later refocused on SelfChain, so it didn't continue commercially — but it stands as proof of how AI tooling, brand systems, and creator workflows can evolve together.</p><p>If continued, the next step would be validating AI output quality with real marketers before deepening the token economy.</p>"
+        "heading": "Turning AI-assisted creation into a connected workflow"
       }
-    ]
+    ],
+    "description": "Mill3 is an experimental AI-native content platform designed specifically for the fast-moving nature of Web3 communication.\n\nCreated during the transition period between Frontier and SelfChain, the project explored how AI could support blockchain creators, marketers, and ecosystem teams through faster, more adaptive content workflows across Twitter, blogs, newsletters, campaigns, and ecosystem storytelling.\n\nRather than positioning AI as a standalone writing tool, Mill3 envisioned a more connected creator ecosystem where strategy, generation, editing, and publishing could exist inside a single intelligent workflow."
   },
   {
     "id": "qmts",
-    "client": "Quang Minh Trà Sư",
-    "title": "QMTS — Cultivating Mindfulness Through Tea",
-    "year": "2024",
-    "category": "branding",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Brand Strategy",
       "Art Direction",
       "Visual Identity"
     ],
-    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way.",
-    "cover": "/assets/images/works/qmts/qmts-cover.png",
+    "year": "2024",
     "color": "#F5EDE8",
-    "featured": true,
-    "link": "",
+    "cover": "/assets/images/works/qmts/qmts-cover.png",
     "order": 7,
+    "title": "QMTS — Cultivating Mindfulness Through Tea",
+    "client": "Quang Minh Trà Sư",
+    "gallery": [],
+    "category": "branding",
+    "duration": "",
+    "featured": true,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>",
         "label": "Philosophy",
-        "heading": "Defining A Philosophy, Not A Tea Brand",
-        "body": "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>"
+        "heading": "Defining A Philosophy, Not A Tea Brand"
       },
       {
-        "type": "image",
         "num": "01",
+        "type": "image",
         "label": "Philosophy",
         "images": [
           "/assets/images/works/qmts/qmts-quote.png"
@@ -440,143 +398,143 @@ const DW = [
       },
       {
         "num": "02",
+        "body": "<p>The brand archetype was built around two complementary roles: Sage and Spiritual Guide.</p><p>QMTS does not communicate as an authority seeking attention, nor as a modern wellness brand promising quick transformation. Instead, it behaves like a teacher: calm, clear, grounded, and deeply human.</p><p>The voice is intentional, thoughtful, sincere, and never performative.</p>",
         "label": "Brand Character",
-        "heading": "Building The Brand Character",
-        "body": "<p>The brand archetype was built around two complementary roles: Sage and Spiritual Guide.</p><p>QMTS does not communicate as an authority seeking attention, nor as a modern wellness brand promising quick transformation. Instead, it behaves like a teacher: calm, clear, grounded, and deeply human.</p><p>The voice is intentional, thoughtful, sincere, and never performative.</p>"
+        "heading": "Building The Brand Character"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p>The identity system is built around four principles:</p><ul><li><strong>CHÂN</strong> — Authenticity</li><li><strong>TRI</strong> — Awareness</li><li><strong>TĨNH</strong> — Stillness</li><li><strong>HỢP</strong> — Harmony</li></ul><p>Together, these values became the framework that guided visual decisions, communication, and future experiences.</p>",
         "label": "Identity System",
-        "heading": "Translating Philosophy Into Form",
-        "body": "<p>The identity system is built around four principles:</p><ul><li><strong>CHÂN</strong> — Authenticity</li><li><strong>TRI</strong> — Awareness</li><li><strong>TĨNH</strong> — Stillness</li><li><strong>HỢP</strong> — Harmony</li></ul><p>Together, these values became the framework that guided visual decisions, communication, and future experiences.</p>"
+        "heading": "Translating Philosophy Into Form"
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
+        "body": "<p>One of the biggest challenges was avoiding the visual clichés commonly associated with tea brands.</p><p>The Sunrise became a symbol of awakening, renewal, and inner clarity.</p><p>The Lạc Bird, inspired by Đông Sơn bronze drums, introduced a deeper cultural layer rooted in Vietnamese heritage. It represents origin, continuity, movement, and connection to ancestral roots.</p><p>Together they form a narrative about returning to one's source while continuing the journey forward.</p>",
         "label": "Art Direction",
-        "heading": "Art Direction & Cultural Narrative",
-        "body": "<p>One of the biggest challenges was avoiding the visual clichés commonly associated with tea brands.</p><p>The Sunrise became a symbol of awakening, renewal, and inner clarity.</p><p>The Lạc Bird, inspired by Đông Sơn bronze drums, introduced a deeper cultural layer rooted in Vietnamese heritage. It represents origin, continuity, movement, and connection to ancestral roots.</p><p>Together they form a narrative about returning to one's source while continuing the journey forward.</p>"
+        "heading": "Art Direction & Cultural Narrative"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p>Most tea brands begin with green. QMTS begins with light.</p><p>Instead of tea green, the identity was built around a muted sunrise red symbolizing awakening, life force, warmth, vitality, and renewal.</p><p>Tea green acts as a grounding layer that restores balance and reconnects the system to nature.</p>",
         "label": "Color Philosophy",
-        "heading": "Color Philosophy",
-        "body": "<p>Most tea brands begin with green. QMTS begins with light.</p><p>Instead of tea green, the identity was built around a muted sunrise red symbolizing awakening, life force, warmth, vitality, and renewal.</p><p>Tea green acts as a grounding layer that restores balance and reconnects the system to nature.</p>"
+        "heading": "Color Philosophy"
       },
       {
         "type": "divider"
       },
       {
         "num": "06",
+        "body": "<p>The project extended beyond logos and visual assets.</p><p>A complete art direction framework was developed to guide future communication across physical and digital touchpoints.</p><p>Photography focused on natural light, human presence, tea rituals, moments of stillness, and cultural depth.</p><p>The goal was not consistency alone, but the creation of a recognizable atmosphere.</p>",
         "label": "Brand System",
-        "heading": "Creating A Living Brand System",
-        "body": "<p>The project extended beyond logos and visual assets.</p><p>A complete art direction framework was developed to guide future communication across physical and digital touchpoints.</p><p>Photography focused on natural light, human presence, tea rituals, moments of stillness, and cultural depth.</p><p>The goal was not consistency alone, but the creation of a recognizable atmosphere.</p>"
+        "heading": "Creating A Living Brand System"
       },
       {
         "type": "divider"
       },
       {
         "num": "07",
+        "body": "<p>QMTS became more than a branding project.</p><p>By combining tea culture, Vietnamese heritage, and modern design thinking, the project created a visual language capable of expressing a timeless idea:</p><p><em>Helping people return to themselves through tea.</em></p>",
         "label": "Outcome",
-        "heading": "More Than A Branding Project",
-        "body": "<p>QMTS became more than a branding project.</p><p>By combining tea culture, Vietnamese heritage, and modern design thinking, the project created a visual language capable of expressing a timeless idea:</p><p><em>Helping people return to themselves through tea.</em></p>"
+        "heading": "More Than A Branding Project"
       }
     ],
-    "gallery": []
+    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way."
   },
   {
     "id": "hotcross",
-    "client": "Hot Cross",
-    "title": "Hot Cross — Multi-Chain Web3 Platform",
-    "year": "2021–2023",
-    "category": "branding",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Brand Development",
       "Dapp Improvement",
       "Marketing Design"
     ],
-    "description": "Hot Cross is a multi-chain Web3 infrastructure ecosystem focused on building more accessible blockchain tools and cross-chain experiences for users, developers, and communities.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781602289/hotcross-cover_a30jdf.png",
+    "year": "2021–2023",
     "color": "#F0EBE5",
-    "featured": false,
-    "link": "",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781602289/hotcross-cover_a30jdf.png",
     "order": 3,
+    "title": "Hot Cross — Multi-Chain Web3 Platform",
+    "client": "Hot Cross",
+    "gallery": [],
+    "category": "branding",
+    "duration": "",
+    "featured": false,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Hot Cross was already gaining strong momentum within the growing Web3 infrastructure space when I joined the ecosystem.</p><p>As blockchain adoption expanded rapidly, the platform continued evolving through multi-chain tooling, NFT systems, launchpad initiatives, and ecosystem-focused community growth.</p>",
         "label": "Context",
-        "heading": "Entering during a period of rapid ecosystem growth",
-        "body": "<p>Hot Cross was already gaining strong momentum within the growing Web3 infrastructure space when I joined the ecosystem.</p><p>As blockchain adoption expanded rapidly, the platform continued evolving through multi-chain tooling, NFT systems, launchpad initiatives, and ecosystem-focused community growth.</p>"
+        "heading": "Entering during a period of rapid ecosystem growth"
       },
       {
         "num": "02",
+        "body": "<p>Rather than relying on aggressive crypto aesthetics, the direction focused on structured layouts, darker visual tones, modular compositions, and clearer typography systems.</p><p>The goal was helping the ecosystem feel visually connected across community platforms, marketing assets, DApps, and NFT-related experiences.</p>",
         "label": "Direction",
-        "heading": "Creating a more mature and connected visual identity",
-        "body": "<p>Rather than relying on aggressive crypto aesthetics, the direction focused on structured layouts, darker visual tones, modular compositions, and clearer typography systems.</p><p>The goal was helping the ecosystem feel visually connected across community platforms, marketing assets, DApps, and NFT-related experiences.</p>"
+        "heading": "Creating a more mature and connected visual identity"
       },
       {
         "num": "03",
+        "body": "<p>Working within a lean and highly collaborative team structure, my role naturally expanded across branding development, marketing communication, product UI, DApp interfaces, ecosystem assets, and NFT art direction.</p><p>The workflow emphasized adaptability and cross-functional collaboration across multiple parts of the ecosystem.</p>",
         "label": "Scope",
-        "heading": "Working across branding, product, and ecosystem communication",
-        "body": "<p>Working within a lean and highly collaborative team structure, my role naturally expanded across branding development, marketing communication, product UI, DApp interfaces, ecosystem assets, and NFT art direction.</p><p>The workflow emphasized adaptability and cross-functional collaboration across multiple parts of the ecosystem.</p>"
+        "heading": "Working across branding, product, and ecosystem communication"
       },
       {
         "num": "04",
+        "body": "<p>Many blockchain platforms at the time focused heavily on infrastructure while overlooking usability, emotional trust, and ecosystem communication.</p><p>Hot Cross explored how a multi-chain ecosystem could feel more accessible through stronger branding systems, clearer communication, and more cohesive visual storytelling.</p>",
         "label": "Opportunity",
-        "heading": "Making complex blockchain experiences feel more approachable",
-        "body": "<p>Many blockchain platforms at the time focused heavily on infrastructure while overlooking usability, emotional trust, and ecosystem communication.</p><p>Hot Cross explored how a multi-chain ecosystem could feel more accessible through stronger branding systems, clearer communication, and more cohesive visual storytelling.</p>"
+        "heading": "Making complex blockchain experiences feel more approachable"
       },
       {
         "num": "05",
+        "body": "<p>The platform included NFT staking, cross-chain infrastructure, launchpad systems, and community-facing blockchain products — all evolving rapidly within the fast-moving Web3 landscape.</p><p>Maintaining consistency across branding, communication, and visual direction became increasingly important as the ecosystem scaled.</p>",
         "label": "Challenge",
-        "heading": "Balancing technical complexity with ecosystem accessibility",
-        "body": "<p>The platform included NFT staking, cross-chain infrastructure, launchpad systems, and community-facing blockchain products — all evolving rapidly within the fast-moving Web3 landscape.</p><p>Maintaining consistency across branding, communication, and visual direction became increasingly important as the ecosystem scaled.</p>"
+        "heading": "Balancing technical complexity with ecosystem accessibility"
       },
       {
         "num": "06",
+        "body": "<p>As the ecosystem expanded through partnerships, launches, community campaigns, and product updates, the work naturally extended across marketing systems, DApp experiences, NFT visuals, and community-facing assets.</p><p>Collaboration remained highly flexible and multidisciplinary, allowing design work to move fluidly between branding, product, and ecosystem communication.</p>",
         "label": "Experience",
-        "heading": "Supporting a growing ecosystem through flexible design workflows",
-        "body": "<p>As the ecosystem expanded through partnerships, launches, community campaigns, and product updates, the work naturally extended across marketing systems, DApp experiences, NFT visuals, and community-facing assets.</p><p>Collaboration remained highly flexible and multidisciplinary, allowing design work to move fluidly between branding, product, and ecosystem communication.</p>"
+        "heading": "Supporting a growing ecosystem through flexible design workflows"
       },
       {
         "num": "07",
+        "body": "<p>The project helped strengthen Hot Cross's visual consistency and ecosystem communication during a period of rapid growth within the Web3 industry.</p><p>A more cohesive branding system and stronger visual direction helped the ecosystem feel more recognizable and mature across platforms and campaigns.</p>",
         "label": "Outcome",
-        "heading": "Strengthening consistency during ecosystem expansion",
-        "body": "<p>The project helped strengthen Hot Cross's visual consistency and ecosystem communication during a period of rapid growth within the Web3 industry.</p><p>A more cohesive branding system and stronger visual direction helped the ecosystem feel more recognizable and mature across platforms and campaigns.</p>"
+        "heading": "Strengthening consistency during ecosystem expansion"
       }
     ],
-    "gallery": []
+    "description": "Hot Cross is a multi-chain Web3 infrastructure ecosystem focused on building more accessible blockchain tools and cross-chain experiences for users, developers, and communities."
   },
   {
     "id": "bocongann",
-    "client": "Bồ Công Anh",
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "year": "2020",
-    "category": "web",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Web Design",
       "Development"
     ],
-    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
+    "year": "2020",
     "color": "#F5F0E8",
-    "featured": false,
-    "link": "",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
     "order": 5,
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "client": "Bồ Công Anh",
+    "gallery": [],
+    "category": "web",
+    "duration": "",
+    "featured": false,
     "sections": [],
-    "gallery": []
+    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively."
   }
 ];
 
