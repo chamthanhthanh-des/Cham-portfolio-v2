@@ -325,79 +325,81 @@ const DW = [
   {
     "id": "mill-3",
     "client": "Mill3",
-    "title": "Mill3 — AI Content Platform for Web3",
+    "title": "Mill3 — AI-Native Content Engine for Web3",
     "year": "2024",
     "category": "product",
-    "role": "",
-    "duration": "",
+    "role": "Lead Designer (brand · product · UX · design system)",
+    "duration": "2024 · Frontier → SelfChain transition",
     "tags": [
       "Product Design",
       "Branding Design",
       "AI × Design"
     ],
-    "description": "Mill3 is an experimental AI-native content platform designed specifically for the fast-moving nature of Web3 communication.\n\nCreated during the transition period between Frontier and SelfChain, the project explored how AI could support blockchain creators, marketers, and ecosystem teams through faster, more adaptive content workflows across Twitter, blogs, newsletters, campaigns, and ecosystem storytelling.\n\nRather than positioning AI as a standalone writing tool, Mill3 envisioned a more connected creator ecosystem where strategy, generation, editing, and publishing could exist inside a single intelligent workflow.",
+    "description": "An AI-native content engine for Web3 builders.\n\nMill3 turns a single brief into on-brand, publish-ready content — threads, announcements, newsletters, campaign copy — tuned for crypto-native audiences. Not a standalone writer, but one connected workflow: strategy, generation, editing, publishing, and a token-based reward loop in a single intelligent system.\n\nBuilt during the Frontier → SelfChain transition.",
     "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169052/uwqnpugpgoudfoz8ormm.png",
     "color": "#EBF0EC",
     "featured": true,
+    "showPreview": true,
+    "published": true,
     "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
     "order": 4,
+    "gallery": [],
     "sections": [
       {
         "num": "01",
         "label": "Context",
-        "heading": "Experimenting beyond blockchain infrastructure",
-        "body": "<p>Mill3 started as an experimental initiative during the transition period between Frontier and the future direction of SelfChain.</p><p>While the ecosystem was undergoing a complex migration and long-term blockchain restructuring process, the team began exploring emerging opportunities beyond infrastructure — particularly within AI-assisted creation and creator-focused workflows.</p><p>At the time, most AI writing platforms were built for general marketing teams rather than blockchain creators navigating token launches, fast-moving narratives, and technically complex products.</p><p>Mill3 began with a simple but ambitious idea: to create an AI-native content workflow system designed specifically for the pace and communication style of Web3 ecosystems.</p>"
+        "heading": "Experimenting beyond infrastructure",
+        "body": "<p>Born in the transition between Frontier and SelfChain, as the team looked past Layer 1 infrastructure toward AI-assisted creation.</p><p>Most AI writers served generic marketers — not blockchain creators navigating token launches and fast-moving narratives. Mill3's bet: an AI workflow built for the pace and voice of Web3.</p>"
       },
       {
         "num": "02",
-        "label": "Direction",
-        "heading": "Creating a calmer and more structured AI experience",
-        "body": "<p>The visual direction was built around the idea of “precision-forward” — a system that feels technologically advanced, structured, and trustworthy without relying on exaggerated crypto aesthetics.</p><p>Rather than using aggressive Web3 visuals, the interface focused on calm layouts, structured spacing, controlled gradients, and a restrained futuristic atmosphere.</p><p>Green became a core accent throughout the product system, representing generation, momentum, creativity, and machine-assisted workflows.</p>"
+        "label": "Opportunity",
+        "heading": "Connected AI workflows, not isolated tools",
+        "body": "<p>Web3 teams move fast across Twitter, blogs, announcements, and community — through fragmented tools.</p><p>Mill3 explored one connected workflow that keeps creators fast while holding brand voice, crypto context (tickers, tokenomics, tone), and cross-channel consistency.</p>"
       },
       {
         "num": "03",
-        "label": "Scope",
-        "heading": "Connecting branding, AI workflows, and product systems",
-        "body": "<p>As Lead Designer, I led the end-to-end creative and product direction of the project — from brand identity and product thinking to UX flows and design systems.</p><p>My work included visual identity systems, AI-assisted content workflows, dashboard exploration, onboarding logic, interface design, design systems, and ecosystem communication.</p><p>Because the project was highly experimental, the process remained intentionally iterative, allowing space to test new interaction patterns, speculative product ideas, and future-facing creative workflows.</p>"
+        "label": "Challenge",
+        "heading": "A product category that didn't exist yet",
+        "body": "<p>One product had to combine AI generation, SaaS logic, Web3 wallets, token utility, and a credit system — and still feel intelligent and credible.</p><p>The hard part: doing all that without overwhelming users, or forcing Web3 friction (wallets, gas, jargon) on people who just want content.</p>"
       },
       {
         "num": "04",
-        "label": "Opportunity",
-        "heading": "Reimagining content creation through connected AI workflows",
-        "body": "<p>The rise of AI created new opportunities for content automation, but most platforms still felt disconnected from the speed and complexity of Web3 communication.</p><p>Blockchain teams often move rapidly across Twitter, blogs, landing pages, ecosystem announcements, and community updates — usually through fragmented workflows and disconnected tools.</p><p>Mill3 explored how AI-native workflows could help creators move faster across constantly evolving narratives while maintaining clarity, consistency, and strategic direction.</p><p>Rather than building another isolated writing assistant, the project explored a more connected ecosystem where strategy, generation, editing, and publishing could exist within a unified creator workflow.</p>"
+        "label": "Scope",
+        "heading": "Brand, product, and systems — end-to-end",
+        "body": "<p>As Lead Designer I owned brand identity, Web3-marketer personas, AI content workflows, guest onboarding, subscription and token-payment flows, the dashboard, and the design system.</p><p>Highly experimental, so the process stayed intentionally iterative.</p>"
       },
       {
         "num": "05",
         "label": "Timeline",
-        "heading": "Built during a period of ecosystem transition",
-        "body": "<p>2024. Experimental AI × Web3 initiative developed during the ecosystem transition period between Frontier and SelfChain.</p><p>As the blockchain infrastructure and migration process continued evolving in parallel, the team explored future-facing product opportunities beyond Layer 1 systems — leading to the creation of experimental AI-focused projects including Mill3 and an unreleased RWA initiative.</p><p>Although Mill3 successfully launched publicly, the team eventually shifted focus back toward the larger strategic direction of SelfChain as ecosystem priorities evolved.</p>"
+        "heading": "Built during ecosystem transition",
+        "body": "<p>2024. An AI × Web3 initiative during the Frontier → SelfChain transition, alongside an unreleased RWA project.</p><p>Mill3 reached a public test release before the team refocused on SelfChain's broader direction.</p>"
       },
       {
         "num": "06",
-        "label": "Challenge",
-        "heading": "Designing for a product category still taking shape",
-        "body": "<p>One of the biggest challenges was designing for a product category that did not fully exist yet.</p><p>The platform combined AI content generation, SaaS workflows, Web3 identity systems, token utility, and creator-focused tooling — all within a single ecosystem.</p><p>The challenge was not only making these systems usable, but creating a product that feels intelligent, credible, and emotionally engaging without becoming overly technical or visually overwhelming.</p>"
+        "label": "Direction",
+        "heading": "Precision-forward, not crypto-loud",
+        "body": "<p>A calm, structured, trustworthy system with no aggressive crypto visuals. A warm near-black canvas with a lime accent for generation and momentum; later a warm light mode to cut glare.</p><p>Unbounded for display, Inter for text.</p>"
       },
       {
         "num": "07",
         "label": "Experience",
-        "heading": "Simplifying high-speed content creation workflows",
-        "body": "<p>The UX direction focused on simplifying high-speed content workflows for blockchain marketers and creators.</p><p>Instead of organizing the platform around content formats alone, the experience shifted toward goal-driven creation flows — helping users think in outcomes rather than isolated deliverables.</p><p>AI actions such as rewriting, tone adjustment, and optimization were embedded directly into the editing experience to reduce context switching and maintain creative flow.</p><p>The product experience extended across AI-assisted writing flows, dashboard systems, content management, publishing logic, and future ecosystem interactions.</p>"
+        "heading": "Goal-first creation, friction-last",
+        "body": "<p>Organized around outcomes, not formats, with AI rewrite / tone / optimize built into the editor to protect flow.</p><p>Two signature decisions:</p><ul><li><strong>Guest-first trial</strong> — a few free generations, drafts saved on-device and carried into the account after signup.</li><li><strong>Non-blocking payment</strong> — credits run generation; ETH or discounted MILL3 only as top-up, so a wallet is needed for tokens, never to create.</li></ul>"
       },
       {
         "num": "08",
         "label": "System",
-        "heading": "Building lean systems for rapid experimentation",
-        "body": "<p>A scalable design system was created to support both rapid experimentation and long-term product consistency.</p><p>The system included token structures, typography rules, reusable UI components, interaction patterns, and documentation designed specifically to improve collaboration between design and development.</p><p>Rather than building an overly large component library early on, the system intentionally remained lean and focused — prioritizing clarity, scalability, and faster iteration.</p>"
+        "heading": "Lean, scalable, documented",
+        "body": "<p>Design tokens with full dark / light theming, typography rules, reusable components, and a unified icon system — documented for design–dev handoff and kept intentionally lean for faster iteration.</p>"
       },
       {
         "num": "09",
         "label": "Outcome",
-        "heading": "Turning AI-assisted creation into a connected workflow",
-        "body": "<p>Mill3 successfully launched as an experimental AI-powered content platform focused on Web3 creators and ecosystem communication.</p><p>The project established a clear visual and UX direction for how AI-native workflows could support high-speed blockchain content production while maintaining stronger strategic consistency across channels.</p><p>The redesigned onboarding and goal-first creation flows helped simplify the transition from idea generation to publish-ready content.</p><p>More importantly, Mill3 became an important exploration phase within the broader ecosystem journey — demonstrating how AI tooling, branding systems, and creator-focused workflows could evolve together inside future Web3 products.</p>"
+        "heading": "A defining exploration",
+        "body": "<p>Mill3 reached test release and set a clear direction for AI-native, high-speed Web3 content with stronger cross-channel consistency.</p><p>The team later refocused on SelfChain, so it didn't continue commercially — but it stands as proof of how AI tooling, brand systems, and creator workflows can evolve together.</p><p>If continued, the next step would be validating AI output quality with real marketers before deepening the token economy.</p>"
       }
-    ],
-    "gallery": []
+    ]
   },
   {
     "id": "qmts",
