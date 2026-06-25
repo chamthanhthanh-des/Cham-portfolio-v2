@@ -517,24 +517,136 @@ const DW = [
   },
   {
     "id": "bocongann",
-    "link": "",
+    "client": "Bồ Công Anh",
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "year": "2020",
+    "category": "web",
     "role": "",
+    "duration": "",
     "tags": [
       "Web Design",
       "Development"
     ],
-    "year": "2020",
-    "color": "#F5F0E8",
+    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.",
     "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
-    "order": 5,
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "client": "Bồ Công Anh",
-    "gallery": [],
-    "category": "web",
-    "duration": "",
+    "color": "#F5F0E8",
     "featured": false,
-    "sections": [],
-    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively."
+    "published": true,
+    "link": "",
+    "showPreview": true,
+    "order": 5,
+    "sections": [
+      {
+        "num": "01",
+        "label": "Understanding People",
+        "heading": "Learning to see products through the eyes of the people using them.",
+        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>"
+      },
+      {
+        "num": "02",
+        "label": "Real Constraints",
+        "heading": "Balancing user needs, business objectives, and technical realities.",
+        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>"
+      },
+      {
+        "num": "03",
+        "label": "Clarity First",
+        "heading": "Creating websites that are accessible without sacrificing quality.",
+        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>"
+      },
+      {
+        "num": "04",
+        "label": "Learning Fast",
+        "heading": "Adapting across industries, audiences, and business models.",
+        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>"
+      },
+      {
+        "num": "05",
+        "label": "Product Thinking",
+        "heading": "Building the mindset that shaped every project that followed.",
+        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>"
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "id": "mill-3-ai",
+    "client": "Mill3",
+    "title": "Mill 3 - AI",
+    "year": "2023–2024",
+    "category": "product",
+    "role": "Lead Product & Brand Designer",
+    "duration": "18 months · 2023–2025",
+    "tags": [
+      "Product Design",
+      "Branding Design",
+      "AI × Design"
+    ],
+    "description": "Mill3 turns a single brief into on-brand, publish-ready content — threads, announcements, newsletters,\ncampaign copy — tuned for crypto-native audiences. Not a standalone writer, but one connected\nworkflow: strategy, generation, editing, publishing, and a token-based reward loop in a single intelligent\nsystem. Built during the Frontier → SelfChain transition.",
+    "cover": "",
+    "color": "#eeecea",
+    "featured": false,
+    "published": true,
+    "link": "",
+    "showPreview": true,
+    "order": 7,
+    "sections": [
+      {
+        "num": "01",
+        "label": "CONTEXT",
+        "heading": "CONTEXT",
+        "body": "<p>Born in the transition between Frontier and SelfChain, as the team looked past Layer 1 infrastructure</p><p>toward AI-assisted creation. Most AI writers served generic marketers — not blockchain creators</p><p>navigating token launches and fast-moving narratives. Mill3's bet: an AI workflow built for the pace and voice of Web3.</p>"
+      },
+      {
+        "num": "02",
+        "label": "OPPORTUNITY",
+        "heading": "OPPORTUNITY",
+        "body": "<p>Web3 teams move fast across Twitter, blogs, announcements, and community — through fragmented</p><p>tools. Mill3 explored one connected workflow that keeps creators fast while holding brand voice, crypto context (tickers, tokenomics, tone), and cross-channel consistency.</p>"
+      },
+      {
+        "num": "03",
+        "label": "CHALLENGE",
+        "heading": "CHALLENGE",
+        "body": "<p>One product had to combine AI generation, SaaS logic, Web3 wallets, token utility, and a credit system</p><p>— and still feel intelligent and credible without overwhelming users, or forcing Web3 friction (wallets, gas, jargon) on people who just want content.</p>"
+      },
+      {
+        "num": "04",
+        "label": "SCOPE",
+        "heading": "SCOPE",
+        "body": "<p>As Lead Designer I owned brand identity, Web3-marketer personas, AI content workflows, guest</p><p>onboarding, subscription and token-payment flows, dashboard, and the design system. Highly experimental, so the process stayed intentionally iterative.</p><p>Mill3 — Case Study Châm Thanh Thanh · Lead Designer</p>"
+      },
+      {
+        "num": "05",
+        "label": "TIMELINE",
+        "heading": "TIMELINE",
+        "body": "<p>2024. An AI × Web3 initiative during the Frontier → SelfChain transition, alongside an unreleased RWA</p><p>project. Mill3 reached a public test release before the team refocused on SelfChain's broader direction.</p>"
+      },
+      {
+        "num": "06",
+        "label": "DIRECTION",
+        "heading": "DIRECTION",
+        "body": "<p>A calm, structured, trustworthy system with no aggressive crypto visuals. A warm near-black canvas</p><p>with a lime accent for generation and momentum; later a warm light mode to cut glare. Unbounded for display, Inter for text.</p>"
+      },
+      {
+        "num": "07",
+        "label": "EXPERIENCE",
+        "heading": "EXPERIENCE",
+        "body": "<p>Organized around outcomes, not formats, with AI rewrite / tone / optimize built into the editor to protect</p><p>flow. Two signature decisions: a guest-first trial (a few free generations, drafts saved on-device and</p><p>carried into the account after signup) and non-blocking payment — credits run generation; ETH or</p><p>discounted MILL3 only as top-up, so a wallet is needed for tokens, never to create.</p>"
+      },
+      {
+        "num": "08",
+        "label": "SYSTEM",
+        "heading": "SYSTEM",
+        "body": "<p>Design tokens with full dark/light theming, typography rules, reusable components, and a unified icon</p><p>system — documented for design–dev handoff and kept intentionally lean for faster iteration.</p>"
+      },
+      {
+        "num": "09",
+        "label": "OUTCOME",
+        "heading": "OUTCOME",
+        "body": "<p>Mill3 reached test release and set a clear direction for AI-native, high-speed Web3 content with stronger</p><p>cross-channel consistency. The team later refocused on SelfChain, so it didn't continue commercially —</p><p>but it stands as proof of how AI tooling, brand systems, and creator workflows can evolve together. If</p><p>continued, the next step would be validating AI output quality with real marketers before deepening the token economy.</p>"
+      }
+    ],
+    "gallery": []
   }
 ];
 
