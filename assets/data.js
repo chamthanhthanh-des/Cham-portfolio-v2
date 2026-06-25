@@ -361,33 +361,35 @@ const DW = [
   },
   {
     "id": "qmts",
-    "link": "",
+    "client": "Quang Minh Trà Sư",
+    "title": "QMTS — Cultivating Mindfulness Through Tea",
+    "year": "2024",
+    "category": "branding",
     "role": "",
+    "duration": "",
     "tags": [
       "Brand Strategy",
       "Art Direction",
       "Visual Identity"
     ],
-    "year": "2024",
-    "color": "#F5EDE8",
+    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way.",
     "cover": "/assets/images/works/qmts/qmts-cover.png",
-    "order": 7,
-    "title": "QMTS — Cultivating Mindfulness Through Tea",
-    "client": "Quang Minh Trà Sư",
-    "gallery": [],
-    "category": "branding",
-    "duration": "",
+    "color": "#F5EDE8",
     "featured": true,
+    "published": true,
+    "link": "",
+    "showPreview": true,
+    "order": 7,
     "sections": [
       {
         "num": "01",
-        "body": "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>",
         "label": "Philosophy",
-        "heading": "Defining A Philosophy, Not A Tea Brand"
+        "heading": "Defining A Philosophy, Not A Tea Brand",
+        "body": "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>"
       },
       {
-        "num": "01",
         "type": "image",
+        "num": "01",
         "label": "Philosophy",
         "images": [
           "/assets/images/works/qmts/qmts-quote.png"
@@ -398,57 +400,57 @@ const DW = [
       },
       {
         "num": "02",
-        "body": "<p>The brand archetype was built around two complementary roles: Sage and Spiritual Guide.</p><p>QMTS does not communicate as an authority seeking attention, nor as a modern wellness brand promising quick transformation. Instead, it behaves like a teacher: calm, clear, grounded, and deeply human.</p><p>The voice is intentional, thoughtful, sincere, and never performative.</p>",
         "label": "Brand Character",
-        "heading": "Building The Brand Character"
+        "heading": "Building The Brand Character",
+        "body": "<p>The brand archetype was built around two complementary roles: Sage and Spiritual Guide.</p><p>QMTS does not communicate as an authority seeking attention, nor as a modern wellness brand promising quick transformation. Instead, it behaves like a teacher: calm, clear, grounded, and deeply human.</p><p>The voice is intentional, thoughtful, sincere, and never performative.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
-        "body": "<p>The identity system is built around four principles:</p><ul><li><strong>CHÂN</strong> — Authenticity</li><li><strong>TRI</strong> — Awareness</li><li><strong>TĨNH</strong> — Stillness</li><li><strong>HỢP</strong> — Harmony</li></ul><p>Together, these values became the framework that guided visual decisions, communication, and future experiences.</p>",
         "label": "Identity System",
-        "heading": "Translating Philosophy Into Form"
+        "heading": "Translating Philosophy Into Form",
+        "body": "<p>The identity system is built around four principles:</p><ul><li><strong>CHÂN</strong> — Authenticity</li><li><strong>TRI</strong> — Awareness</li><li><strong>TỊNH</strong> — Stillness</li><li><strong>HỢP</strong> — Harmony</li></ul><p>Together, these values became the framework that guided visual decisions, communication, and future experiences.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
-        "body": "<p>One of the biggest challenges was avoiding the visual clichés commonly associated with tea brands.</p><p>The Sunrise became a symbol of awakening, renewal, and inner clarity.</p><p>The Lạc Bird, inspired by Đông Sơn bronze drums, introduced a deeper cultural layer rooted in Vietnamese heritage. It represents origin, continuity, movement, and connection to ancestral roots.</p><p>Together they form a narrative about returning to one's source while continuing the journey forward.</p>",
         "label": "Art Direction",
-        "heading": "Art Direction & Cultural Narrative"
+        "heading": "Art Direction & Cultural Narrative",
+        "body": "<p>One of the biggest challenges was avoiding the visual clichés commonly associated with tea brands.</p><p>The Sunrise became a symbol of awakening, renewal, and inner clarity.</p><p>The Lạc Bird, inspired by Đông Sơn bronze drums, introduced a deeper cultural layer rooted in Vietnamese heritage. It represents origin, continuity, movement, and connection to ancestral roots.</p><p>Together they form a narrative about returning to one's source while continuing the journey forward.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
-        "body": "<p>Most tea brands begin with green. QMTS begins with light.</p><p>Instead of tea green, the identity was built around a muted sunrise red symbolizing awakening, life force, warmth, vitality, and renewal.</p><p>Tea green acts as a grounding layer that restores balance and reconnects the system to nature.</p>",
         "label": "Color Philosophy",
-        "heading": "Color Philosophy"
+        "heading": "Color Philosophy",
+        "body": "<p>Most tea brands begin with green. QMTS begins with light.</p><p>Instead of tea green, the identity was built around a muted sunrise red symbolizing awakening, life force, warmth, vitality, and renewal.</p><p>Tea green acts as a grounding layer that restores balance and reconnects the system to nature.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "06",
-        "body": "<p>The project extended beyond logos and visual assets.</p><p>A complete art direction framework was developed to guide future communication across physical and digital touchpoints.</p><p>Photography focused on natural light, human presence, tea rituals, moments of stillness, and cultural depth.</p><p>The goal was not consistency alone, but the creation of a recognizable atmosphere.</p>",
         "label": "Brand System",
-        "heading": "Creating A Living Brand System"
+        "heading": "Creating A Living Brand System",
+        "body": "<p>The project extended beyond logos and visual assets.</p><p>A complete art direction framework was developed to guide future communication across physical and digital touchpoints.</p><p>Photography focused on natural light, human presence, tea rituals, moments of stillness, and cultural depth.</p><p>The goal was not consistency alone, but the creation of a recognizable atmosphere.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "07",
-        "body": "<p>QMTS became more than a branding project.</p><p>By combining tea culture, Vietnamese heritage, and modern design thinking, the project created a visual language capable of expressing a timeless idea:</p><p><em>Helping people return to themselves through tea.</em></p>",
         "label": "Outcome",
-        "heading": "More Than A Branding Project"
+        "heading": "More Than A Branding Project",
+        "body": "<p>QMTS became more than a branding project.</p><p>By combining tea culture, Vietnamese heritage, and modern design thinking, the project created a visual language capable of expressing a timeless idea:</p><p><em>Helping people return to themselves through tea.</em></p>"
       }
     ],
-    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way."
+    "gallery": []
   },
   {
     "id": "hotcross",
