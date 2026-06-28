@@ -372,7 +372,7 @@ const DW = [
       "Art Direction",
       "Visual Identity"
     ],
-    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by teacher Quang Minh, where tea becomes more than a beverage — it becomes a pathway to presence, self-awareness, and inner transformation.\n\nUnlike conventional tea brands, QMTS is not centered around products, commerce, or consumption. Instead, it is built around a philosophy: using tea as a daily practice to help people slow down, reconnect with themselves, and cultivate a deeper awareness of life.\n\nAs Brand Strategist and Art Director, my role was to develop the strategic foundation, visual identity, and art direction system that could express this philosophy in a contemporary and culturally relevant way.",
+    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by Laoshi Quang Minh, where tea becomes more than a beverage—it is a medium for presence, self-connection, and inner awareness.\n\nUnlike conventional tea brands, QMTS is not built around products or commerce, but around the philosophy of tea as a daily practice that encourages people to slow down, reconnect with themselves, and cultivate mindfulness.\n\nThe visual identity draws inspiration from the spirit of ancient Vietnamese culture through the Lạc Bird, the Sun, and a signature crimson red palette, combined with a contemporary reinterpretation of traditional mother-of-pearl inlay patterns. Together, these elements form a visual language that balances cultural heritage with a modern expression of mindfulness.\n\nAs Brand Strategist and Art Director, I led the development of the brand strategy, visual identity, and art direction system, translating QMTS's philosophy and cultural values into a cohesive and contemporary brand experience.",
     "cover": "/assets/images/works/qmts/qmts-cover.png",
     "color": "#F5EDE8",
     "featured": true,
@@ -385,7 +385,7 @@ const DW = [
         "num": "01",
         "label": "Philosophy",
         "heading": "Defining A Philosophy, Not A Tea Brand",
-        "body": "<p>Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</p><p>The project began with a fundamental question: How can a cup of tea become a doorway to awareness?</p><p>Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice — one that helps people return to themselves through tea.</p><p><em>Tea is not the destination. Tea is the path.</em></p>"
+        "body": "<h2><span style=\"font-size: 15px; font-weight: normal;\">Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</span></h2><p class=\"isSelectedEnd\">The project began with a fundamental question: <strong>How can a cup of tea become a doorway to awareness?</strong></p><p class=\"isSelectedEnd\">Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice—one that helps people return to themselves through tea. Drawing from the spirit of Vietnamese cultural heritage, where rituals have long connected people with nature, community, and inner harmony, tea becomes more than a daily habit—it becomes a mindful act of presence.</p><p><strong><i>Tea is not the destination. Tea is the path.</i></strong></p>"
       },
       {
         "type": "image",
@@ -402,16 +402,24 @@ const DW = [
         "num": "02",
         "label": "Brand Character",
         "heading": "Building The Brand Character",
-        "body": "<p>The brand archetype was built around two complementary roles: Sage and Spiritual Guide.</p><p>QMTS does not communicate as an authority seeking attention, nor as a modern wellness brand promising quick transformation. Instead, it behaves like a teacher: calm, clear, grounded, and deeply human.</p><p>The voice is intentional, thoughtful, sincere, and never performative.</p>"
+        "body": "<p class=\"isSelectedEnd\">QMTS was built around two complementary archetypes: <strong>The Sage</strong> and <strong>The Spiritual Guide</strong>.</p><p class=\"isSelectedEnd\">Inspired by the quiet wisdom of traditional Eastern teachers, the brand does not seek attention or promise instant transformation. Instead, it offers gentle guidance—encouraging people to slow down, observe, and reconnect with themselves.</p><p>Its voice is calm, thoughtful, sincere, and deeply human—never performative, never imposing.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
-        "label": "Identity System",
+        "label": "Visual Foundation",
         "heading": "Translating Philosophy Into Form",
-        "body": "<p>The identity system is built around four principles:</p><ul><li><strong>CHÂN</strong> — Authenticity</li><li><strong>TRI</strong> — Awareness</li><li><strong>TỊNH</strong> — Stillness</li><li><strong>HỢP</strong> — Harmony</li></ul><p>Together, these values became the framework that guided visual decisions, communication, and future experiences.</p>"
+        "body": "<p class=\"isSelectedEnd\">The identity system was built upon four guiding principles drawn from the philosophy of QMTS and the spirit of Eastern thought:</p><p class=\"isSelectedEnd\"></p><ul><li><strong>CHÂN&nbsp;</strong>— Authenticity</li><li><strong>TRI&nbsp;</strong>— Awareness</li><li><strong>TỊNH&nbsp;</strong>— Stillness</li><li><strong>HỢP&nbsp;</strong>— Harmony</li></ul><p></p><p>Rather than serving as brand values alone, these principles became the foundation for every design decision—from visual identity and communication to the experience the brand creates. Together, they express a way of living rooted in presence, balance, and a deep connection between people, nature, and culture.</p>"
+      },
+      {
+        "type": "image",
+        "num": "03",
+        "label": "Visual Foundation",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782636998/q9x0c0f4aikh2gpn7jlx.png"
+        ]
       },
       {
         "type": "divider"
@@ -420,7 +428,7 @@ const DW = [
         "num": "04",
         "label": "Art Direction",
         "heading": "Art Direction & Cultural Narrative",
-        "body": "<p>One of the biggest challenges was avoiding the visual clichés commonly associated with tea brands.</p><p>The Sunrise became a symbol of awakening, renewal, and inner clarity.</p><p>The Lạc Bird, inspired by Đông Sơn bronze drums, introduced a deeper cultural layer rooted in Vietnamese heritage. It represents origin, continuity, movement, and connection to ancestral roots.</p><p>Together they form a narrative about returning to one's source while continuing the journey forward.</p>"
+        "body": "<p class=\"isSelectedEnd\">One of the project's core ambitions was to build <strong>QMTS as a contemporary Vietnamese tea brand</strong>—one that represents not only the quality of Vietnamese tea, but also the depth of its culture, philosophy, and identity.</p><p class=\"isSelectedEnd\">Instead of borrowing familiar aesthetics from Japanese Zen or Chinese tea traditions, the visual language returns to Vietnam's own cultural roots. Inspired by symbols such as the <strong>Sun</strong>, the <strong>Lạc Bird</strong>, and the <strong>tea leaf</strong>, the identity reflects a uniquely Vietnamese perspective on tea.</p><p class=\"isSelectedEnd\">The Sun symbolizes awakening and life. The Lạc Bird, rooted in the Đông Sơn civilization, represents continuity, cultural identity, and the connection between people and nature. The tea leaf embodies cultivation, patience, and the belief that transformation begins with everyday rituals.</p><p>Together, these elements are translated into a contemporary visual system that honors Vietnamese heritage while presenting it through a modern lens. The result is a brand that celebrates <strong>Vietnamese tea</strong> not simply as an agricultural product, but as a living cultural practice.</p>"
       },
       {
         "type": "divider"
@@ -428,8 +436,16 @@ const DW = [
       {
         "num": "05",
         "label": "Color Philosophy",
-        "heading": "Color Philosophy",
-        "body": "<p>Most tea brands begin with green. QMTS begins with light.</p><p>Instead of tea green, the identity was built around a muted sunrise red symbolizing awakening, life force, warmth, vitality, and renewal.</p><p>Tea green acts as a grounding layer that restores balance and reconnects the system to nature.</p>"
+        "heading": "More Than A Palette, A Cultural Expression",
+        "body": "<p class=\"isSelectedEnd\">The color system was designed to express the identity of a <strong>contemporary Vietnamese tea brand</strong>, rather than following the familiar palette of modern tea brands.</p><p class=\"isSelectedEnd\">At its core is a muted <strong>crimson red</strong>, inspired by the enduring presence of red throughout Vietnamese culture—from traditional lacquerware and temple architecture to ceremonial objects. It symbolizes vitality, cultural identity, warmth, and the quiet strength that lies at the heart of the brand.</p><p class=\"isSelectedEnd\">Supporting it is a restrained <strong>tea green</strong>, drawn from mature tea leaves and the natural landscape where Vietnamese tea is cultivated. Rather than competing for attention, it grounds the system with a sense of calm, balance, and connection to nature.</p><p>Together, these colors create a visual language that reflects Vietnamese tea—not only as a product of the land, but as a cultural practice rooted in heritage, craftsmanship, and mindfulness.</p>"
+      },
+      {
+        "type": "image",
+        "num": "05",
+        "label": "Color Philosophy",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782641180/zyyyoixzmfjryp6taj3u.png"
+        ]
       },
       {
         "type": "divider"
@@ -438,7 +454,7 @@ const DW = [
         "num": "06",
         "label": "Brand System",
         "heading": "Creating A Living Brand System",
-        "body": "<p>The project extended beyond logos and visual assets.</p><p>A complete art direction framework was developed to guide future communication across physical and digital touchpoints.</p><p>Photography focused on natural light, human presence, tea rituals, moments of stillness, and cultural depth.</p><p>The goal was not consistency alone, but the creation of a recognizable atmosphere.</p>"
+        "body": "<p class=\"isSelectedEnd\">The identity was designed as a living system rather than a fixed set of assets.</p><p class=\"isSelectedEnd\">A flexible art direction framework guides every expression of the brand—from photography and editorial design to digital experiences and future applications.</p><p class=\"isSelectedEnd\">Inspired by the philosophy of tea and the richness of Vietnamese culture, the visual language emphasizes natural light, human presence, handcrafted details, and moments of quiet reflection.</p><p>More than maintaining consistency, the system creates a distinctive atmosphere—one that makes Quang Minh Trà Sư instantly recognizable wherever the brand appears.</p>"
       },
       {
         "type": "divider"
@@ -447,7 +463,15 @@ const DW = [
         "num": "07",
         "label": "Outcome",
         "heading": "More Than A Branding Project",
-        "body": "<p>QMTS became more than a branding project.</p><p>By combining tea culture, Vietnamese heritage, and modern design thinking, the project created a visual language capable of expressing a timeless idea:</p><p><em>Helping people return to themselves through tea.</em></p>"
+        "body": "<p class=\"isSelectedEnd\">QMTS is more than a visual identity—it is a contemporary expression of Vietnamese tea culture.</p><p class=\"isSelectedEnd\">By bringing together cultural heritage, tea philosophy, and modern design, the project created a brand system that feels authentic, timeless, and distinctly Vietnamese.</p><p>It demonstrates that Vietnamese tea can be represented through a visual language rooted in its own history, craftsmanship, and values—offering not just a brand, but a renewed cultural identity for a new generation.</p>"
+      },
+      {
+        "type": "image",
+        "num": "07",
+        "label": "Outcome",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782641854/yxoxo9cocyeqs5cxvebw.png"
+        ]
       }
     ],
     "gallery": []
@@ -519,136 +543,253 @@ const DW = [
   },
   {
     "id": "bocongann",
-    "client": "Bồ Công Anh",
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "year": "2020",
-    "category": "web",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Web Design",
       "Development"
     ],
-    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
+    "year": "2020",
     "color": "#F5F0E8",
-    "featured": false,
-    "published": true,
-    "link": "",
-    "showPreview": true,
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
     "order": 5,
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "client": "Bồ Công Anh",
+    "gallery": [],
+    "category": "web",
+    "duration": "",
+    "featured": false,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>",
         "label": "Understanding People",
-        "heading": "Learning to see products through the eyes of the people using them.",
-        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>"
+        "heading": "Learning to see products through the eyes of the people using them."
       },
       {
         "num": "02",
+        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>",
         "label": "Real Constraints",
-        "heading": "Balancing user needs, business objectives, and technical realities.",
-        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>"
+        "heading": "Balancing user needs, business objectives, and technical realities."
       },
       {
         "num": "03",
+        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>",
         "label": "Clarity First",
-        "heading": "Creating websites that are accessible without sacrificing quality.",
-        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>"
+        "heading": "Creating websites that are accessible without sacrificing quality."
       },
       {
         "num": "04",
+        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>",
         "label": "Learning Fast",
-        "heading": "Adapting across industries, audiences, and business models.",
-        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>"
+        "heading": "Adapting across industries, audiences, and business models."
       },
       {
         "num": "05",
+        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>",
         "label": "Product Thinking",
-        "heading": "Building the mindset that shaped every project that followed.",
-        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>"
+        "heading": "Building the mindset that shaped every project that followed."
       }
     ],
-    "gallery": []
+    "published": true,
+    "description": "Designed and developed the website for Bồ Công Anh Creative Agency, translating their creative positioning into a digital experience that showcases their work effectively.",
+    "showPreview": true
+  },
+  {
+    "id": "oqeo-app",
+    "link": "",
+    "role": "",
+    "tags": [],
+    "year": "",
+    "color": "#eeecea",
+    "cover": "",
+    "order": 8,
+    "title": "OQEO App - ",
+    "client": "",
+    "gallery": [],
+    "category": "",
+    "duration": "",
+    "featured": false,
+    "sections": [
+      {
+        "num": "01",
+        "body": "<p>Through early research, I realised women weren't avoiding ride-hailing because the technology had failed. They were avoiding situations where they couldn't predict who they would be travelling with.</p><p>The opportunity wasn't to redesign booking flows. It was to redesign the feeling users have before they tap Confirm Ride.</p>",
+        "label": "THE OPPORTUNITY",
+        "heading": "The problem wasn't transportation. It was uncertainty."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "02",
+        "body": "<p>OQEO is built around Malaysia because the market already demonstrates strong acceptance of women-only transportation. Instead of introducing a new behaviour, the product extends an experience that already feels familiar.</p>",
+        "label": "UNDERSTANDING THE",
+        "heading": "Designing for the right market matters as much as designing the right product."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "03",
+        "body": "<p>I explored reports, market trends, existing mobility services and user behaviours to understand how women experience transportation differently. Safety is shaped by everything users know—or don't know—before the ride begins.</p>",
+        "label": "RESEARCH",
+        "heading": "Looking beyond transportation."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "04",
+        "body": "<p>Women weren't simply asking for more safety features; they were looking for reassurance before making a decision.</p>",
+        "label": "KEY INSIGHTS",
+        "heading": "Trust starts long before the journey does."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "05",
+        "body": "<p>The challenge became clear: how might we design an experience where trust exists before the vehicle arrives?</p>",
+        "label": "DEFINING THE",
+        "heading": "DEFINING THE PROBLEM"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "06",
+        "body": "<p>The strategy focuses on validating one market first and building a healthy driver network before expanding.</p>",
+        "label": "BUSINESS STRATEGY",
+        "heading": "BUSINESS STRATEGY"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "07",
+        "body": "<p>Every feature directly responds to a research insight instead of adding unnecessary complexity.</p>",
+        "label": "FROM INSIGHTS",
+        "heading": "Safety shouldn't begin after something goes wrong."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "08",
+        "body": "<p>The MVP focuses on the smallest set of features needed to deliver OQEO's core promise.</p>",
+        "label": "MVP STRATEGY",
+        "heading": "Building for trust before building for scale."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "09",
+        "body": "<p>Every interaction reduces uncertainty through clarity, familiarity and transparency.</p>",
+        "label": "EXPERIENCE DESIGN",
+        "heading": ""
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "num": "10",
+        "body": "<p>The next step is validating whether the experience increases confidence without creating friction.</p>",
+        "label": "VALIDATION",
+        "heading": ""
+      },
+      {
+        "num": "11",
+        "body": "<p>This project reinforced that meaningful products are built by making every decision support a single purpose.</p>",
+        "label": "REFLECTION",
+        "heading": "REFLECTION"
+      },
+      {
+        "type": "divider"
+      }
+    ],
+    "published": false,
+    "description": "Building trust before the journey even begins.\n\nRide-hailing has made transportation more accessible, but accessibility doesn't always create confidence. For many women, especially when travelling alone, uncertainty begins long before the trip starts.\n\nOQEO wasn't created to compete with existing ride-hailing platforms. It was designed to explore a different question: what if trust became the foundation of every journey instead of a feature users rely on only when something goes wrong?",
+    "showPreview": true
   },
   {
     "id": "mill-3-ai",
-    "client": "Mill3",
-    "title": "Mill 3 - AI",
-    "year": "2023–2024",
-    "category": "product",
+    "link": "",
     "role": "Lead Product & Brand Designer",
-    "duration": "18 months · 2023–2025",
     "tags": [
       "Product Design",
       "Branding Design",
       "AI × Design"
     ],
-    "description": "Mill3 turns a single brief into on-brand, publish-ready content — threads, announcements, newsletters,\ncampaign copy — tuned for crypto-native audiences. Not a standalone writer, but one connected\nworkflow: strategy, generation, editing, publishing, and a token-based reward loop in a single intelligent\nsystem. Built during the Frontier → SelfChain transition.",
-    "cover": "",
+    "year": "2023–2024",
     "color": "#eeecea",
-    "featured": false,
-    "published": true,
-    "link": "",
-    "showPreview": true,
+    "cover": "",
     "order": 7,
+    "title": "Mill 3 - AI",
+    "client": "Mill3",
+    "gallery": [],
+    "category": "product",
+    "duration": "18 months · 2023–2025",
+    "featured": false,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Born in the transition between Frontier and SelfChain, as the team looked past Layer 1 infrastructure</p><p>toward AI-assisted creation. Most AI writers served generic marketers — not blockchain creators</p><p>navigating token launches and fast-moving narratives. Mill3's bet: an AI workflow built for the pace and voice of Web3.</p>",
         "label": "CONTEXT",
-        "heading": "CONTEXT",
-        "body": "<p>Born in the transition between Frontier and SelfChain, as the team looked past Layer 1 infrastructure</p><p>toward AI-assisted creation. Most AI writers served generic marketers — not blockchain creators</p><p>navigating token launches and fast-moving narratives. Mill3's bet: an AI workflow built for the pace and voice of Web3.</p>"
+        "heading": "CONTEXT"
       },
       {
         "num": "02",
+        "body": "<p>Web3 teams move fast across Twitter, blogs, announcements, and community — through fragmented</p><p>tools. Mill3 explored one connected workflow that keeps creators fast while holding brand voice, crypto context (tickers, tokenomics, tone), and cross-channel consistency.</p>",
         "label": "OPPORTUNITY",
-        "heading": "OPPORTUNITY",
-        "body": "<p>Web3 teams move fast across Twitter, blogs, announcements, and community — through fragmented</p><p>tools. Mill3 explored one connected workflow that keeps creators fast while holding brand voice, crypto context (tickers, tokenomics, tone), and cross-channel consistency.</p>"
+        "heading": "OPPORTUNITY"
       },
       {
         "num": "03",
+        "body": "<p>One product had to combine AI generation, SaaS logic, Web3 wallets, token utility, and a credit system</p><p>— and still feel intelligent and credible without overwhelming users, or forcing Web3 friction (wallets, gas, jargon) on people who just want content.</p>",
         "label": "CHALLENGE",
-        "heading": "CHALLENGE",
-        "body": "<p>One product had to combine AI generation, SaaS logic, Web3 wallets, token utility, and a credit system</p><p>— and still feel intelligent and credible without overwhelming users, or forcing Web3 friction (wallets, gas, jargon) on people who just want content.</p>"
+        "heading": "CHALLENGE"
       },
       {
         "num": "04",
+        "body": "<p>As Lead Designer I owned brand identity, Web3-marketer personas, AI content workflows, guest</p><p>onboarding, subscription and token-payment flows, dashboard, and the design system. Highly experimental, so the process stayed intentionally iterative.</p><p>Mill3 — Case Study Châm Thanh Thanh · Lead Designer</p>",
         "label": "SCOPE",
-        "heading": "SCOPE",
-        "body": "<p>As Lead Designer I owned brand identity, Web3-marketer personas, AI content workflows, guest</p><p>onboarding, subscription and token-payment flows, dashboard, and the design system. Highly experimental, so the process stayed intentionally iterative.</p><p>Mill3 — Case Study Châm Thanh Thanh · Lead Designer</p>"
+        "heading": "SCOPE"
       },
       {
         "num": "05",
+        "body": "<p>2024. An AI × Web3 initiative during the Frontier → SelfChain transition, alongside an unreleased RWA</p><p>project. Mill3 reached a public test release before the team refocused on SelfChain's broader direction.</p>",
         "label": "TIMELINE",
-        "heading": "TIMELINE",
-        "body": "<p>2024. An AI × Web3 initiative during the Frontier → SelfChain transition, alongside an unreleased RWA</p><p>project. Mill3 reached a public test release before the team refocused on SelfChain's broader direction.</p>"
+        "heading": "TIMELINE"
       },
       {
         "num": "06",
+        "body": "<p>A calm, structured, trustworthy system with no aggressive crypto visuals. A warm near-black canvas</p><p>with a lime accent for generation and momentum; later a warm light mode to cut glare. Unbounded for display, Inter for text.</p>",
         "label": "DIRECTION",
-        "heading": "DIRECTION",
-        "body": "<p>A calm, structured, trustworthy system with no aggressive crypto visuals. A warm near-black canvas</p><p>with a lime accent for generation and momentum; later a warm light mode to cut glare. Unbounded for display, Inter for text.</p>"
+        "heading": "DIRECTION"
       },
       {
         "num": "07",
+        "body": "<p>Organized around outcomes, not formats, with AI rewrite / tone / optimize built into the editor to protect</p><p>flow. Two signature decisions: a guest-first trial (a few free generations, drafts saved on-device and</p><p>carried into the account after signup) and non-blocking payment — credits run generation; ETH or</p><p>discounted MILL3 only as top-up, so a wallet is needed for tokens, never to create.</p>",
         "label": "EXPERIENCE",
-        "heading": "EXPERIENCE",
-        "body": "<p>Organized around outcomes, not formats, with AI rewrite / tone / optimize built into the editor to protect</p><p>flow. Two signature decisions: a guest-first trial (a few free generations, drafts saved on-device and</p><p>carried into the account after signup) and non-blocking payment — credits run generation; ETH or</p><p>discounted MILL3 only as top-up, so a wallet is needed for tokens, never to create.</p>"
+        "heading": "EXPERIENCE"
       },
       {
         "num": "08",
+        "body": "<p>Design tokens with full dark/light theming, typography rules, reusable components, and a unified icon</p><p>system — documented for design–dev handoff and kept intentionally lean for faster iteration.</p>",
         "label": "SYSTEM",
-        "heading": "SYSTEM",
-        "body": "<p>Design tokens with full dark/light theming, typography rules, reusable components, and a unified icon</p><p>system — documented for design–dev handoff and kept intentionally lean for faster iteration.</p>"
+        "heading": "SYSTEM"
       },
       {
         "num": "09",
+        "body": "<p>Mill3 reached test release and set a clear direction for AI-native, high-speed Web3 content with stronger</p><p>cross-channel consistency. The team later refocused on SelfChain, so it didn't continue commercially —</p><p>but it stands as proof of how AI tooling, brand systems, and creator workflows can evolve together. If</p><p>continued, the next step would be validating AI output quality with real marketers before deepening the token economy.</p>",
         "label": "OUTCOME",
-        "heading": "OUTCOME",
-        "body": "<p>Mill3 reached test release and set a clear direction for AI-native, high-speed Web3 content with stronger</p><p>cross-channel consistency. The team later refocused on SelfChain, so it didn't continue commercially —</p><p>but it stands as proof of how AI tooling, brand systems, and creator workflows can evolve together. If</p><p>continued, the next step would be validating AI output quality with real marketers before deepening the token economy.</p>"
+        "heading": "OUTCOME"
       }
     ],
-    "gallery": []
+    "published": false,
+    "description": "Mill3 turns a single brief into on-brand, publish-ready content — threads, announcements, newsletters,\ncampaign copy — tuned for crypto-native audiences. Not a standalone writer, but one connected\nworkflow: strategy, generation, editing, publishing, and a token-based reward loop in a single intelligent\nsystem. Built during the Frontier → SelfChain transition.",
+    "showPreview": true
   }
 ];
 
