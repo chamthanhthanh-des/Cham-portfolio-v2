@@ -543,6 +543,14 @@ const DW = [
         "body": "<p class=\"isSelectedEnd\">Hanzi Garden transforms language learning into a progression-driven pixel adventure.</p><p class=\"isSelectedEnd\">Instead of moving through isolated lessons, players travel across a handcrafted pixel world where each new environment introduces fresh vocabulary, interactive characters, and themed learning challenges.</p><p class=\"isSelectedEnd\">Completing activities rewards players with experience points, collectible items, achievements, and access to new locations—creating a satisfying sense of progression similar to casual adventure games.</p><p>By combining education with exploration, the experience encourages users to learn naturally through curiosity rather than obligation.</p>"
       },
       {
+        "type": "image",
+        "num": "05",
+        "label": "Game Concept",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782811889/y4hpvsff8ea9vzcs0p6e.png"
+        ]
+      },
+      {
         "type": "divider"
       },
       {
@@ -552,10 +560,21 @@ const DW = [
         "body": "<p class=\"isSelectedEnd\">The pixel-art world was designed as more than a visual style—it became a core part of the learning experience.</p><p class=\"isSelectedEnd\">Different environments represent different stages of language learning, allowing vocabulary themes and gameplay progression to evolve together.</p><p class=\"isSelectedEnd\">As players continue exploring the world, they unlock new locations, encounter new characters, and gradually discover more challenging learning content.</p><p>This world-building approach helps transform educational progress into an adventure filled with curiosity and achievement.</p>"
       },
       {
+        "type": "divider"
+      },
+      {
         "num": "07",
         "label": "UX Strategy",
         "heading": "Balancing Learning with Player Engagement",
         "body": "<p class=\"isSelectedEnd\">Designing a learning game required balancing two equally important objectives: creating an effective educational experience while maintaining the enjoyment expected from a mobile game.</p><p class=\"isSelectedEnd\">The UX strategy focused on reducing learning friction through intuitive navigation and simple interactions while increasing motivation through progression systems, immediate feedback, rewards, and a clear sense of accomplishment.</p><p>Every interface was designed to support both learning efficiency and emotional engagement.</p>"
+      },
+      {
+        "type": "image",
+        "num": "07",
+        "label": "UX Strategy",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782813643/bhfr2ppta9lmvno6pwjm.png"
+        ]
       },
       {
         "type": "divider"
@@ -565,6 +584,18 @@ const DW = [
         "label": "Final Design",
         "heading": "From Concept to Playable Experience",
         "body": "<p class=\"isSelectedEnd\">The final prototype demonstrates the complete product experience—from onboarding and world navigation to learning sessions, gameplay interactions, achievements, progression systems, and supporting interfaces.</p><p class=\"isSelectedEnd\">Together, these screens establish the visual identity of Hanzi Garden while showcasing how UX thinking can be applied to create an engaging educational game.</p><p>Although developed as an educational concept, the prototype demonstrates a complete gameplay flow and a cohesive interface system that could serve as a strong foundation for future product development.</p>"
+      },
+      {
+        "type": "image",
+        "num": "08",
+        "label": "Final Design",
+        "images": [
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782809790/cnjdiqylmxk26hpnbho9.png",
+          "https://res.cloudinary.com/dfaqife6i/image/upload/v1782811957/gzbyqssszyboct6jxd7h.png"
+        ]
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "09",
