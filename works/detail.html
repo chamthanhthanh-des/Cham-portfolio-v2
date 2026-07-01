@@ -189,6 +189,13 @@
         _set("twDesc",  "content", _ogDesc);
         _set("twImg",   "content", _ogImg);
 
+        const previewBtn = (w.link && w.showPreview !== false)
+          ? `<a href="${w.link}" target="_blank" rel="noopener noreferrer"
+      style="display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:13px 24px;border-radius:100px;background:var(--oli);color:#fff;text-decoration:none;transition:background .2s ease,gap .2s ease;"
+      onmouseover="this.style.background='#6f8a5a';this.style.gap='12px'" onmouseout="this.style.background='var(--oli)';this.style.gap='8px'"
+    ><span>View design in Figma</span><span>→</span></a>`
+          : "";
+
         document.getElementById("wdc").innerHTML = `
     <div class="wd-hero">
       <a class="wd-back" href="/works/"><span>←</span><span>Back to Works</span></a>
@@ -205,20 +212,11 @@
       <div class="wd-body-label">Overview</div>
       <div class="wd-body-text">
   ${ps}
-    ${(w.link && w.showPreview !== false) ? `<a
-      href="${w.link}"
-      target="_blank"
-      class="la"
-      style="margin-top: 24px; font-size: 12px; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s;"
-      onmouseover="this.style.gap='14px'"
-      onmouseout="this.style.gap='8px'"
-    >
-      <span>Design preview</span><span>→</span>
-    </a>` : ""}
+    ${previewBtn ? `<div style="margin-top:28px;">${previewBtn}</div>` : ""}
   </div>
     </div>
   <hr class="divider">
-  ${sections}${gallery}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>`;
+  ${sections}${gallery}${previewBtn ? `<div style="display:flex;justify-content:center;padding:0 var(--page-padding-x);margin:8px 0 16px;">${previewBtn}</div>` : ""}<div style="height: 120px;"></div><div class="wd-nav">${navL}${navR}</div>`;
 
         setTimeout(initReveal, 80);
       }
