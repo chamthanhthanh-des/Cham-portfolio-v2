@@ -10,94 +10,104 @@ const LW = "ctw_w4",
 const DW = [
   {
     "id": "selfchain",
-    "link": "https://www.figma.com/design/z5DqkG0uPj1JuwyNSHhr0r/Design-by-Cham?node-id=249-509&t=L98yohyNk6S3Xq2O-1",
+    "client": "SelfChain",
+    "title": "SelfChain — Intent-Centric Layer 1 Ecosystem",
+    "year": "2023–2025",
+    "category": "product",
+    "role": "",
+    "duration": "",
     "tags": [
       "Product Design",
       "Branding Design",
       "Product Improvement"
     ],
-    "year": "2023–2025",
-    "color": "#EDE9F7",
+    "description": "SelfChain is a next-generation Layer 1 blockchain ecosystem designed around keyless Web3 access, intent-centric interactions, and AI-ready infrastructure.\n\nMore than a rebrand from Frontier, the project represented a strategic transformation — evolving from a multi-chain wallet ecosystem into a broader blockchain platform built for users, developers, and future autonomous agents.\n\nAs Lead Designer, I helped shape the design direction across branding, product UX, ecosystem communication, migration flows, onboarding systems, governance communication, and scalable design infrastructure.",
     "cover": "/assets/images/works/selfchain/cover.png",
-    "order": 1,
-    "title": "SelfChain — Intent-Centric Layer 1 Ecosystem",
-    "client": "SelfChain",
-    "gallery": [],
-    "category": "product",
+    "color": "#EDE9F7",
     "featured": true,
+    "published": true,
+    "link": "https://www.figma.com/design/gvKGqAAaPmdiaqKq5d914x/SelfChain?node-id=37-12172&t=mgN0Uxu4QWrf9G9k-1",
+    "showPreview": true,
+    "order": 1,
     "sections": [
       {
         "num": "01",
-        "body": "<p>SelfChain was created as a new Modular Intent-Centric Access Layer1 focused on decentralized identity, keyless access, and future-facing blockchain interactions.</p><p>The ecosystem expanded beyond Frontier's existing wallet experience into a larger infrastructure platform designed for scalability, accessibility, and long-term ecosystem growth.</p><p>This transition required more than a visual refresh — it demanded a complete redesign of how users understand, trust, and interact with the ecosystem.</p><p>The transformation also represented a broader shift toward intent-centric UX, keyless infrastructure, AI-assisted interaction patterns, and more accessible blockchain experiences for both technical and non-technical audiences.</p>",
         "label": "Context",
-        "heading": "From multi-chain wallet to blockchain ecosystem"
+        "heading": "From multi-chain wallet to blockchain ecosystem",
+        "body": "<p>SelfChain was created as a new Modular Intent-Centric Access Layer1 focused on decentralized identity, keyless access, and future-facing blockchain interactions.</p><p>The ecosystem expanded beyond Frontier's existing wallet experience into a larger infrastructure platform designed for scalability, accessibility, and long-term ecosystem growth.</p><p>This transition required more than a visual refresh — it demanded a complete redesign of how users understand, trust, and interact with the ecosystem.</p><p>The transformation also represented a broader shift toward intent-centric UX, keyless infrastructure, AI-assisted interaction patterns, and more accessible blockchain experiences for both technical and non-technical audiences.</p>"
       },
       {
-        "num": "01",
-        "src": "/assets/images/works/selfchain/context-01.png",
         "type": "image",
-        "label": "Context"
+        "num": "01",
+        "label": "Context",
+        "images": [
+          "/assets/images/works/selfchain/context-01.png"
+        ]
       },
       {
         "type": "divider"
       },
       {
         "num": "02",
-        "body": "<p>I worked across many parts of the SelfChain ecosystem as the project transitioned from Frontier into a new Layer 1 blockchain platform.</p><p>My work ranged from branding and product UI to design systems, dashboards, ecosystem visuals, and infrastructure communication. Instead of treating each product as isolated experiences, I focused on building a more connected and scalable visual ecosystem that could grow consistently over time.</p><p>Along the way, I collaborated closely with product, engineering, and marketing teams to help turn complex blockchain concepts into clearer and more approachable user experiences.</p><p><span style='font-weight:600;'>Scope:</span></p><ul><li>Branding</li><li>Product Design</li><li>Design System</li><li>Ecosystem Experience</li><li>Data Visualization</li></ul>",
         "label": "My Role",
-        "heading": "Lead Product & Brand Designer"
+        "heading": "Lead Product & Brand Designer",
+        "body": "<p>I worked across many parts of the SelfChain ecosystem as the project transitioned from Frontier into a new Layer 1 blockchain platform.</p><p>My work ranged from branding and product UI to design systems, dashboards, ecosystem visuals, and infrastructure communication. Instead of treating each product as isolated experiences, I focused on building a more connected and scalable visual ecosystem that could grow consistently over time.</p><p>Along the way, I collaborated closely with product, engineering, and marketing teams to help turn complex blockchain concepts into clearer and more approachable user experiences.</p><p><span style=\"font-weight:600;\">Scope:</span></p><ul><li>Branding</li><li>Product Design</li><li>Design System</li><li>Ecosystem Experience</li><li>Data Visualization</li></ul>"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
-        "body": "<p>One of the biggest challenges was balancing continuity and transformation simultaneously.</p><p>Existing Frontier users were already familiar with the wallet ecosystem, while SelfChain introduced entirely new concepts such as:</p><ul><li>Keyless Wallet systems</li><li>Intent-centric interactions</li><li>Account abstraction</li><li>AI-assisted UX flows</li><li>Blockchain-native identity infrastructure</li><li>MPC wallet architecture</li><li>Threshold signature systems</li></ul><p>The challenge was not only launching a new blockchain platform, but designing a migration experience that felt trustworthy, approachable, and familiar enough for users to transition without friction or confusion.</p><p>Another key challenge was translating highly technical blockchain infrastructure into communication systems that remain understandable without oversimplifying the technology itself.</p>",
         "label": "Challenge",
-        "heading": "Designing continuity during transformation"
+        "heading": "Designing continuity during transformation",
+        "body": "<p>One of the biggest challenges was balancing continuity and transformation simultaneously.</p><p>Existing Frontier users were already familiar with the wallet ecosystem, while SelfChain introduced entirely new concepts such as:</p><ul><li>Keyless Wallet systems</li><li>Intent-centric interactions</li><li>Account abstraction</li><li>AI-assisted UX flows</li><li>Blockchain-native identity infrastructure</li><li>MPC wallet architecture</li><li>Threshold signature systems</li></ul><p>The challenge was not only launching a new blockchain platform, but designing a migration experience that felt trustworthy, approachable, and familiar enough for users to transition without friction or confusion.</p><p>Another key challenge was translating highly technical blockchain infrastructure into communication systems that remain understandable without oversimplifying the technology itself.</p>"
       },
       {
-        "num": "03",
-        "src": "/assets/images/works/selfchain/challenge-01.png",
         "type": "image",
-        "label": "Challenge"
+        "num": "03",
+        "label": "Challenge",
+        "images": [
+          "/assets/images/works/selfchain/challenge-01.png"
+        ]
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
-        "body": "<p>The project was structured into predefined sprints across three distinct phases, each building on the previous iteration.</p><ul><li>Phase 1 — Branding &amp; Foundation: Research, brand strategy, prototype, logo design, brand guidelines</li><li>Phase 2 — Product &amp; UX: UI/UX research, audit, prototyping, design system, UI design</li><li>Phase 3 — Ecosystem &amp; Growth: Marketing design, style guide, social media, event assets</li></ul><p>Each phase offered opportunities to refine and enhance previous iterations, allowing the ecosystem to evolve continuously while maintaining design coherence throughout.</p>",
         "label": "Timeline",
-        "heading": "A structured evolution across three phases"
+        "heading": "A structured evolution across three phases",
+        "body": "<p>The project was structured into predefined sprints across three distinct phases, each building on the previous iteration.</p><ul><li>Phase 1 — Branding &amp; Foundation: Research, brand strategy, prototype, logo design, brand guidelines</li><li>Phase 2 — Product &amp; UX: UI/UX research, audit, prototyping, design system, UI design</li><li>Phase 3 — Ecosystem &amp; Growth: Marketing design, style guide, social media, event assets</li></ul><p>Each phase offered opportunities to refine and enhance previous iterations, allowing the ecosystem to evolve continuously while maintaining design coherence throughout.</p>"
       },
       {
-        "num": "04",
-        "src": "/assets/images/works/selfchain/timeline-01.png",
         "type": "image",
-        "label": "Timeline"
+        "num": "04",
+        "label": "Timeline",
+        "images": [
+          "/assets/images/works/selfchain/timeline-01.png"
+        ]
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
-        "body": "<p>As Lead Designer, I worked across multiple layers of the ecosystem:</p><ul><li>Brand identity &amp; visual direction</li><li>Product UX &amp; onboarding flows</li><li>Migration and staking experiences</li><li>Design systems &amp; semantic UI foundations</li><li>Marketing website UI</li><li>Governance &amp; migration proposal communication</li><li>Product consistency across multiple platforms</li><li>Data visualization &amp; tokenomics communication</li><li>Ecosystem communication &amp; infrastructure storytelling</li></ul><p>The goal was to create a connected system where branding, infrastructure, product experience, and ecosystem scalability all support the same strategic direction.</p>",
         "label": "Scope & Contribution",
-        "heading": "Building a connected ecosystem experience"
+        "heading": "Building a connected ecosystem experience",
+        "body": "<p>As Lead Designer, I worked across multiple layers of the ecosystem:</p><ul><li>Brand identity &amp; visual direction</li><li>Product UX &amp; onboarding flows</li><li>Migration and staking experiences</li><li>Design systems &amp; semantic UI foundations</li><li>Marketing website UI</li><li>Governance &amp; migration proposal communication</li><li>Product consistency across multiple platforms</li><li>Data visualization &amp; tokenomics communication</li><li>Ecosystem communication &amp; infrastructure storytelling</li></ul><p>The goal was to create a connected system where branding, infrastructure, product experience, and ecosystem scalability all support the same strategic direction.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "06",
-        "body": "<p>The visual language was designed to feel futuristic, structured, and trustworthy — combining the sophistication of blockchain infrastructure with a calmer and more emotionally accessible experience.</p><p>Key visual principles included:</p><ul><li>Deep futuristic purple gradients</li><li>Modular layouts</li><li>Structured spacing systems</li><li>High-contrast typography</li><li>System-driven UI consistency</li><li>Calm but scalable interaction patterns</li></ul><p>Rather than designing isolated interfaces, the focus was building a unified ecosystem where branding, dashboards, onboarding flows, documentation, governance communication, and ecosystem materials all shared the same visual rhythm and design logic.</p><p>The visual direction also needed to support highly technical educational content while remaining accessible for broader Web3 audiences.</p>",
         "label": "Design Direction",
-        "heading": "Futuristic, structured, and emotionally accessible"
+        "heading": "Futuristic, structured, and emotionally accessible",
+        "body": "<p>The visual language was designed to feel futuristic, structured, and trustworthy — combining the sophistication of blockchain infrastructure with a calmer and more emotionally accessible experience.</p><p>Key visual principles included:</p><ul><li>Deep futuristic purple gradients</li><li>Modular layouts</li><li>Structured spacing systems</li><li>High-contrast typography</li><li>System-driven UI consistency</li><li>Calm but scalable interaction patterns</li></ul><p>Rather than designing isolated interfaces, the focus was building a unified ecosystem where branding, dashboards, onboarding flows, documentation, governance communication, and ecosystem materials all shared the same visual rhythm and design logic.</p><p>The visual direction also needed to support highly technical educational content while remaining accessible for broader Web3 audiences.</p>"
       },
       {
-        "num": "06",
         "type": "image",
+        "num": "06",
         "label": "Design Direction",
         "images": [
           "/assets/images/works/selfchain/direction-01.png",
@@ -109,22 +119,22 @@ const DW = [
       },
       {
         "num": "07",
-        "body": "<p>One of the core focuses of the project was translating complex blockchain infrastructure into visuals that feel understandable, scalable, and trustworthy.</p><p>I designed ecosystem-focused communication systems covering multiple strategic verticals:</p><ul><li>DeFi Infrastructure</li><li>GameFi Experiences</li><li>Keyless Wallet Ecosystem</li><li>Enterprise Web3 Solutions</li><li>AI-assisted Web3 interactions</li><li>MPC &amp; cryptographic privacy systems</li></ul><p>These visual systems helped communicate SelfChain's broader vision while simplifying highly technical concepts into more approachable narratives for users, investors, validators, and ecosystem partners.</p>",
         "label": "Ecosystem Communication",
-        "heading": "Translating infrastructure into understandable narratives"
+        "heading": "Translating infrastructure into understandable narratives",
+        "body": "<p>One of the core focuses of the project was translating complex blockchain infrastructure into visuals that feel understandable, scalable, and trustworthy.</p><p>I designed ecosystem-focused communication systems covering multiple strategic verticals:</p><ul><li>DeFi Infrastructure</li><li>GameFi Experiences</li><li>Keyless Wallet Ecosystem</li><li>Enterprise Web3 Solutions</li><li>AI-assisted Web3 interactions</li><li>MPC &amp; cryptographic privacy systems</li></ul><p>These visual systems helped communicate SelfChain's broader vision while simplifying highly technical concepts into more approachable narratives for users, investors, validators, and ecosystem partners.</p>"
       },
       {
         "type": "divider"
       },
       {
         "num": "08",
-        "body": "<p>SelfChain evolved through multiple ecosystem phases between 2023–2025, including:</p><ul><li>Core blockchain infrastructure</li><li>Explorer and staking systems</li><li>Migration products</li><li>Testnet and mainnet launches</li><li>Multi-chain account abstraction</li><li>Keyless Wallet SDK</li><li>Intent protocol infrastructure</li><li>SDK ecosystem expansion</li><li>MPC wallet infrastructure</li><li>AI-assisted interaction systems</li></ul><p>Instead of presenting roadmap information as static timelines, the goal was to create a stronger sense of momentum, ecosystem maturity, and long-term strategic scalability.</p>",
         "label": "Product Evolution",
-        "heading": "Communicating long-term ecosystem growth"
+        "heading": "Communicating long-term ecosystem growth",
+        "body": "<p>SelfChain evolved through multiple ecosystem phases between 2023–2025, including:</p><ul><li>Core blockchain infrastructure</li><li>Explorer and staking systems</li><li>Migration products</li><li>Testnet and mainnet launches</li><li>Multi-chain account abstraction</li><li>Keyless Wallet SDK</li><li>Intent protocol infrastructure</li><li>SDK ecosystem expansion</li><li>MPC wallet infrastructure</li><li>AI-assisted interaction systems</li></ul><p>Instead of presenting roadmap information as static timelines, the goal was to create a stronger sense of momentum, ecosystem maturity, and long-term strategic scalability.</p>"
       },
       {
-        "num": "08",
         "type": "image",
+        "num": "08",
         "label": "Product Evolution",
         "images": [
           "/assets/images/works/selfchain/roadmap.png"
@@ -135,13 +145,13 @@ const DW = [
       },
       {
         "num": "09",
-        "body": "<p>The UX direction focused heavily on reducing onboarding friction and making blockchain interactions feel less technical and more intuitive.</p><p>Migration flows were designed to simplify token conversion and ecosystem transition while maintaining transparency and trust throughout the experience.</p><p>The experience expanded across:</p><ul><li>Staking systems</li><li>Explorer platforms</li><li>Wallet onboarding</li><li>Identity management</li><li>Ecosystem dashboards</li><li>Keyless authentication flows</li><li>AI-assisted onboarding experiences</li><li>Intent-centric interaction patterns</li><li>Future LLM-assisted UX directions</li></ul><p>Every touchpoint was designed to lower the barrier to entry — making it possible for both crypto-native users and newcomers to navigate the ecosystem with confidence.</p>",
         "label": "UX & Onboarding",
-        "heading": "Making blockchain interactions feel approachable"
+        "heading": "Making blockchain interactions feel approachable",
+        "body": "<p>The UX direction focused heavily on reducing onboarding friction and making blockchain interactions feel less technical and more intuitive.</p><p>Migration flows were designed to simplify token conversion and ecosystem transition while maintaining transparency and trust throughout the experience.</p><p>The experience expanded across:</p><ul><li>Staking systems</li><li>Explorer platforms</li><li>Wallet onboarding</li><li>Identity management</li><li>Ecosystem dashboards</li><li>Keyless authentication flows</li><li>AI-assisted onboarding experiences</li><li>Intent-centric interaction patterns</li><li>Future LLM-assisted UX directions</li></ul><p>Every touchpoint was designed to lower the barrier to entry — making it possible for both crypto-native users and newcomers to navigate the ecosystem with confidence.</p>"
       },
       {
-        "num": "09",
         "type": "image",
+        "num": "09",
         "label": "UX & Onboarding",
         "images": [
           "/assets/images/works/selfchain/user-journeys.png",
@@ -158,13 +168,13 @@ const DW = [
       },
       {
         "num": "10",
-        "body": "<p>A scalable design system was built to bridge familiarity from Frontier while establishing a completely new visual and UX foundation for SelfChain.</p><p>The system included:</p><ul><li>Typography structures</li><li>Semantic tokens</li><li>Color variables</li><li>Shared interaction patterns</li><li>Reusable components</li><li>Modular layouts</li><li>Cross-platform UI consistency</li><li>Dashboard communication patterns</li><li>Educational data presentation systems</li></ul><p>This system-driven approach helped maintain consistency across rapidly evolving ecosystem products while allowing the platform to scale more efficiently over time.</p>",
         "label": "Design System & Scalability",
-        "heading": "Building consistency across a growing ecosystem"
+        "heading": "Building consistency across a growing ecosystem",
+        "body": "<p>A scalable design system was built to bridge familiarity from Frontier while establishing a completely new visual and UX foundation for SelfChain.</p><p>The system included:</p><ul><li>Typography structures</li><li>Semantic tokens</li><li>Color variables</li><li>Shared interaction patterns</li><li>Reusable components</li><li>Modular layouts</li><li>Cross-platform UI consistency</li><li>Dashboard communication patterns</li><li>Educational data presentation systems</li></ul><p>This system-driven approach helped maintain consistency across rapidly evolving ecosystem products while allowing the platform to scale more efficiently over time.</p>"
       },
       {
-        "num": "10",
         "type": "image",
+        "num": "10",
         "label": "Design System & Scalability",
         "images": [
           "/assets/images/works/selfchain/selfchain-explorer.png",
@@ -177,13 +187,13 @@ const DW = [
       },
       {
         "num": "11",
-        "body": "<p>Blockchain ecosystems often involve highly layered and difficult-to-read infrastructure data.</p><p>To improve clarity and transparency, I designed visual systems capable of communicating:</p><ul><li>Circulating supply growth</li><li>Token allocation structures</li><li>Long-term release timelines</li><li>Ecosystem distribution logic</li><li>Multi-layer quantitative information</li><li>Validator ecosystem metrics</li><li>Governance proposal results</li><li>MPC infrastructure comparisons</li></ul><p>The visual approach prioritized readability, hierarchy, and structured communication while preserving the premium and futuristic tone of the SelfChain ecosystem.</p>",
         "label": "Data Visualization & Tokenomics",
-        "heading": "Simplifying complex infrastructure data"
+        "heading": "Simplifying complex infrastructure data",
+        "body": "<p>Blockchain ecosystems often involve highly layered and difficult-to-read infrastructure data.</p><p>To improve clarity and transparency, I designed visual systems capable of communicating:</p><ul><li>Circulating supply growth</li><li>Token allocation structures</li><li>Long-term release timelines</li><li>Ecosystem distribution logic</li><li>Multi-layer quantitative information</li><li>Validator ecosystem metrics</li><li>Governance proposal results</li><li>MPC infrastructure comparisons</li></ul><p>The visual approach prioritized readability, hierarchy, and structured communication while preserving the premium and futuristic tone of the SelfChain ecosystem.</p>"
       },
       {
-        "num": "11",
         "type": "image",
+        "num": "11",
         "label": "Data Visualization & Tokenomics",
         "images": [
           "/assets/images/works/selfchain/visual-systems.png"
@@ -194,13 +204,13 @@ const DW = [
       },
       {
         "num": "12",
-        "body": "<p>SelfChain successfully launched its mainnet through a structured multi-phase rollout supported by strong validator participation and ecosystem engagement.</p><p>These milestones helped position SelfChain as a growing Layer 1 ecosystem supported by both strong infrastructure and an expanding Web3 community.</p>",
         "label": "Impact",
-        "heading": "Supporting ecosystem growth and adoption"
+        "heading": "Supporting ecosystem growth and adoption",
+        "body": "<p>SelfChain successfully launched its mainnet through a structured multi-phase rollout supported by strong validator participation and ecosystem engagement.</p><p>These milestones helped position SelfChain as a growing Layer 1 ecosystem supported by both strong infrastructure and an expanding Web3 community.</p>"
       },
       {
-        "num": "12",
         "type": "image",
+        "num": "12",
         "label": "Impact",
         "images": [
           "/assets/images/works/selfchain/network-performance-metrics_.png"
@@ -211,12 +221,12 @@ const DW = [
       },
       {
         "num": "13",
-        "body": "<p>SelfChain became one of the most defining projects in shaping how I approach system thinking across branding, UX, and emerging technologies.</p><p>The experience reinforced the importance of designing continuity during moments of transformation — especially when users are transitioning between familiar systems and entirely new ecosystems.</p><p>Working across infrastructure communication, AI-assisted UX concepts, governance systems, tokenomics visualization, and cryptographic education also deepened my understanding of how design can make highly technical systems feel more understandable and emotionally accessible.</p><p>More than designing interfaces, the project was ultimately about building trust, clarity, and long-term accessibility within a rapidly evolving Web3 environment.</p>",
         "label": "Reflection",
-        "heading": "Designing trust within emerging technologies"
+        "heading": "Designing trust within emerging technologies",
+        "body": "<p>SelfChain became one of the most defining projects in shaping how I approach system thinking across branding, UX, and emerging technologies.</p><p>The experience reinforced the importance of designing continuity during moments of transformation — especially when users are transitioning between familiar systems and entirely new ecosystems.</p><p>Working across infrastructure communication, AI-assisted UX concepts, governance systems, tokenomics visualization, and cryptographic education also deepened my understanding of how design can make highly technical systems feel more understandable and emotionally accessible.</p><p>More than designing interfaces, the project was ultimately about building trust, clarity, and long-term accessibility within a rapidly evolving Web3 environment.</p>"
       }
     ],
-    "description": "SelfChain is a next-generation Layer 1 blockchain ecosystem designed around keyless Web3 access, intent-centric interactions, and AI-ready infrastructure.\n\nMore than a rebrand from Frontier, the project represented a strategic transformation — evolving from a multi-chain wallet ecosystem into a broader blockchain platform built for users, developers, and future autonomous agents.\n\nAs Lead Designer, I helped shape the design direction across branding, product UX, ecosystem communication, migration flows, onboarding systems, governance communication, and scalable design infrastructure."
+    "gallery": []
   },
   {
     "id": "self-design-system",
@@ -494,7 +504,7 @@ const DW = [
     "description": "Hanzi Garden is a pixel-art Chinese learning game concept created as the final project of the UX Foundation Advanced Program. Designed through a complete UX process, the project explores how gamification, progression systems, and visual storytelling can transform language learning into an engaging gameplay experience.\n\nAs Team Lead and UI/UX Designer, I led the project from research and product strategy to gameplay design, interface design, and interactive prototyping.\n\nThis project marked the beginning of my journey into Game UI Design and was recognized with the Best Student Award for outstanding performance throughout the program.",
     "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1782719124/osgvmj0ycyszot1raard.jpg",
     "color": "#eeecea",
-    "featured": false,
+    "featured": true,
     "published": true,
     "link": "https://www.figma.com/deck/OddTlSZZHMInUVTRcR8XWs/Team-2_K46_Slide--Mine-?node-id=12-160&viewport=-136%2C-295%2C0.63&t=Y2CLMTAGOagGDS5N-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     "showPreview": true,
@@ -672,60 +682,6 @@ const DW = [
     "description": "Hot Cross is a multi-chain Web3 infrastructure ecosystem focused on building more accessible blockchain tools and cross-chain experiences for users, developers, and communities."
   },
   {
-    "id": "bocongann",
-    "client": "Bồ Công Anh",
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "year": "2020",
-    "category": "web",
-    "role": "",
-    "duration": "",
-    "tags": [
-      "Web Design",
-      "Development"
-    ],
-    "description": "Where I learned that great websites are built for people, not designers.\n\nBefore working on blockchain products, AI platforms, and design systems, I spent several years designingwebsites for businesses across a wide range of industries.\n\nAt Bồ Công Anh Creative Agency, I wasn't designing a single product. Instead, I worked across dozens ofclient projects—from corporate websites and campaign landing pages to government-related platformsoperating under strict technical and security requirements.\n\nThis experience exposed me to something far more valuable than visual design: understanding howdifferent people interact with technology, and how design decisions impact real-world usability.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
-    "color": "#F5F0E8",
-    "featured": false,
-    "published": true,
-    "link": "https://www.figma.com/design/eGPI9V2HwtnXqLsE1S00zN/BCA-Creative-Agency?node-id=0-1&t=hXprU2zmQz3g87r3-1",
-    "showPreview": true,
-    "order": 5,
-    "sections": [
-      {
-        "num": "01",
-        "label": "Understanding People",
-        "heading": "Learning to see products through the eyes of the people using them.",
-        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>"
-      },
-      {
-        "num": "02",
-        "label": "Real Constraints",
-        "heading": "Balancing user needs, business objectives, and technical realities.",
-        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>"
-      },
-      {
-        "num": "03",
-        "label": "Clarity First",
-        "heading": "Creating websites that are accessible without sacrificing quality.",
-        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>"
-      },
-      {
-        "num": "04",
-        "label": "Learning Fast",
-        "heading": "Adapting across industries, audiences, and business models.",
-        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>"
-      },
-      {
-        "num": "05",
-        "label": "Product Thinking",
-        "heading": "Building the mindset that shaped every project that followed.",
-        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>"
-      }
-    ],
-    "gallery": []
-  },
-  {
     "id": "oqeo-app",
     "link": "",
     "role": "",
@@ -841,6 +797,60 @@ const DW = [
     "published": false,
     "description": "Building trust before the journey even begins.\n\nRide-hailing has made transportation more accessible, but accessibility doesn't always create confidence. For many women, especially when travelling alone, uncertainty begins long before the trip starts.\n\nOQEO wasn't created to compete with existing ride-hailing platforms. It was designed to explore a different question: what if trust became the foundation of every journey instead of a feature users rely on only when something goes wrong?",
     "showPreview": true
+  },
+  {
+    "id": "bocongann",
+    "client": "Bồ Công Anh",
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "year": "2020",
+    "category": "web",
+    "role": "",
+    "duration": "",
+    "tags": [
+      "Web Design",
+      "Development"
+    ],
+    "description": "Where I learned that great websites are built for people, not designers.\n\nBefore working on blockchain products, AI platforms, and design systems, I spent several years designingwebsites for businesses across a wide range of industries.\n\nAt Bồ Công Anh Creative Agency, I wasn't designing a single product. Instead, I worked across dozens ofclient projects—from corporate websites and campaign landing pages to government-related platformsoperating under strict technical and security requirements.\n\nThis experience exposed me to something far more valuable than visual design: understanding howdifferent people interact with technology, and how design decisions impact real-world usability.",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
+    "color": "#F5F0E8",
+    "featured": false,
+    "published": true,
+    "link": "https://www.figma.com/design/eGPI9V2HwtnXqLsE1S00zN/BCA-Creative-Agency?node-id=0-1&t=hXprU2zmQz3g87r3-1",
+    "showPreview": true,
+    "order": 5,
+    "sections": [
+      {
+        "num": "01",
+        "label": "Understanding People",
+        "heading": "Learning to see products through the eyes of the people using them.",
+        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>"
+      },
+      {
+        "num": "02",
+        "label": "Real Constraints",
+        "heading": "Balancing user needs, business objectives, and technical realities.",
+        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>"
+      },
+      {
+        "num": "03",
+        "label": "Clarity First",
+        "heading": "Creating websites that are accessible without sacrificing quality.",
+        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>"
+      },
+      {
+        "num": "04",
+        "label": "Learning Fast",
+        "heading": "Adapting across industries, audiences, and business models.",
+        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>"
+      },
+      {
+        "num": "05",
+        "label": "Product Thinking",
+        "heading": "Building the mindset that shaped every project that followed.",
+        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>"
+      }
+    ],
+    "gallery": []
   }
 ];
 
