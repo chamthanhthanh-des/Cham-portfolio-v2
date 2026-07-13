@@ -267,6 +267,55 @@
           currentY = 0,
           isAvoiding = false;
 
+        /* ── MEOW khi con trỏ lại gần mèo ── */
+        let nearCat = false,
+          meowCooldown = false,
+          meowReady = false;
+        const meowAudio = new Audio("/assets/sounds/meow.mp3");
+        meowAudio.preload = "auto";
+        meowAudio.volume = 0.55;
+        meowAudio.addEventListener("canplaythrough", () => (meowReady = true));
+
+        function synthMeow() {
+          try {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return;
+            const ctx = synthMeow._ctx || (synthMeow._ctx = new AC());
+            if (ctx.state === "suspended") ctx.resume();
+            const t = ctx.currentTime;
+            const osc = ctx.createOscillator(),
+              gain = ctx.createGain(),
+              filt = ctx.createBiquadFilter();
+            filt.type = "bandpass";
+            filt.frequency.value = 900;
+            filt.Q.value = 4;
+            osc.type = "sawtooth";
+            osc.frequency.setValueAtTime(620, t);
+            osc.frequency.exponentialRampToValueAtTime(880, t + 0.12);
+            osc.frequency.exponentialRampToValueAtTime(500, t + 0.42);
+            gain.gain.setValueAtTime(0.0001, t);
+            gain.gain.exponentialRampToValueAtTime(0.16, t + 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+            osc.connect(filt);
+            filt.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(t);
+            osc.stop(t + 0.52);
+          } catch (e) {}
+        }
+
+        function meow() {
+          if (meowCooldown) return;
+          meowCooldown = true;
+          setTimeout(() => (meowCooldown = false), 1200);
+          if (meowReady) {
+            meowAudio.currentTime = 0;
+            meowAudio.play().catch(() => synthMeow());
+          } else {
+            synthMeow();
+          }
+        }
+
         document.addEventListener("mousemove", (e) => {
           const rect = cat.getBoundingClientRect();
           const cx = rect.left + rect.width / 2;
@@ -285,6 +334,9 @@
             targetY = 0;
             isAvoiding = false;
           }
+          const near = dist < 220;
+          if (near && !nearCat) meow();
+          nearCat = near;
         });
 
         (function animateCat() {
