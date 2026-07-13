@@ -126,13 +126,17 @@
         const cv = w.cover
           ? `<img src="${w.cover}" alt="${w.title}">`
           : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-style:italic;color:rgba(0,0,0,.06)">${w.title.split("—")[0].trim()}</div>`;
-        const ps = w.description
-          .split("\n\n")
-          .map(
-            (p, i, arr) =>
-              `<p style="${i === arr.length - 1 ? "padding-bottom:0;" : ""}">${p}</p>`,
-          )
-          .join("");
+        // Description: nếu đã là HTML (từ editor mới) dùng thẳng; nếu là text cũ thì tách đoạn theo dòng trống
+        const _desc = w.description || "";
+        const ps = /<(p|h2|h3|ul|ol|li|br|div|blockquote)\b/i.test(_desc)
+          ? _desc
+          : _desc
+              .split("\n\n")
+              .map(
+                (p, i, arr) =>
+                  `<p style="${i === arr.length - 1 ? "padding-bottom:0;" : ""}">${p}</p>`,
+              )
+              .join("");
         const sections = (w.sections || [])
           .map((s) => {
             if (s.type === "divider")
@@ -178,7 +182,11 @@
         const _ogImg = w.cover
           ? `https://chamthanhthanh.com${w.cover}`
           : "https://chamthanhthanh.com/assets/images/thumbnail-web.png";
-        const _ogDesc = (w.description || "").split("\n\n")[0].slice(0, 160);
+        const _ogDesc = (w.description || "")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 160);
         const _ogUrl  = `https://chamthanhthanh.com/works/detail.html?id=${w.id}`;
         const _set = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
         _set("ogUrl",   "content", _ogUrl);

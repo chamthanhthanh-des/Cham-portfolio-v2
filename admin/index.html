@@ -982,8 +982,28 @@
             <div style="font-family:var(--fm);font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5;">Các nhãn nhỏ hiện trong project. Thêm bao nhiêu cũng được — không tạo nút lọc.</div>
           </div>
           <div class="fg">
-            <label>Description (use blank line to separate paragraphs)</label>
-            <textarea id="wDe" rows="5"></textarea>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:12px;">
+              <label style="margin:0;">Description <span style="font-family:var(--fm);font-size:9px;letter-spacing:0.5px;color:var(--muted);text-transform:none;">— phần Overview đầu trang project</span></label>
+              <div style="display:flex;gap:4px;flex-shrink:0;">
+                <button type="button" id="deFmtBold" onmousedown="event.preventDefault();deFmt('bold')" title="Bold" style="font-family:var(--fm);font-weight:700;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:all .15s;">B</button>
+                <button type="button" id="deFmtItalic" onmousedown="event.preventDefault();deFmt('italic')" title="Italic" style="font-family:var(--fm);font-style:italic;font-size:12px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);transition:all .15s;">I</button>
+                <button type="button" onmousedown="event.preventDefault();deFmt('insertUnorderedList')" title="Bullet list" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);">• List</button>
+                <button type="button" onmousedown="event.preventDefault();deFmt('insertOrderedList')" title="Numbered list" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);">1. List</button>
+                <button type="button" onmousedown="event.preventDefault();insertDeLink()" title="Insert link" style="font-family:var(--fm);font-size:11px;letter-spacing:.5px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);">🔗</button>
+                <button type="button" onmousedown="event.preventDefault();deFmt('formatBlock','h2')" title="Heading H2" style="font-family:var(--fu);font-weight:700;font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);">H2</button>
+                <button type="button" onmousedown="event.preventDefault();deFmt('formatBlock','h3')" title="Heading H3" style="font-family:var(--fu);font-size:11px;padding:3px 10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;line-height:1.5;color:var(--text);">H3</button>
+              </div>
+            </div>
+            <div
+              id="wDeEditor"
+              contenteditable="true"
+              oninput="_dirty=true"
+              onfocus="this.style.borderColor='var(--text)'"
+              onblur="this.style.borderColor='var(--border)';updateDeFmtBtns(true)"
+              onkeyup="updateDeFmtBtns()"
+              onmouseup="updateDeFmtBtns()"
+              style="min-height:120px;max-height:600px;overflow-y:auto;resize:vertical;font-family:var(--fu);font-size:15px;line-height:1.75;border:1px solid var(--border);border-radius:6px;padding:10px 14px;background:var(--bg);outline:none;transition:border-color .15s;word-break:break-word;"
+            ></div>
           </div>
           <div class="fg">
             <label>Cover Image</label>
@@ -1755,6 +1775,59 @@
         renderWSections();
       }
 
+      /* ── DESCRIPTION rich editor ── */
+      function descToHtml(d) {
+        d = d || "";
+        if (/<(p|h2|h3|ul|ol|li|br|div|blockquote)\b/i.test(d)) return d;
+        return d
+          .split(/\n\n+/)
+          .map(
+            (p) =>
+              `<p>${p
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\n/g, "<br>")}</p>`,
+          )
+          .join("");
+      }
+      function deFmt(cmd, val) {
+        const el = document.getElementById("wDeEditor");
+        if (!el) return;
+        el.focus();
+        document.execCommand(cmd, false, val || null);
+        _dirty = true;
+        updateDeFmtBtns();
+      }
+      function insertDeLink() {
+        const el = document.getElementById("wDeEditor");
+        if (!el) return;
+        el.focus();
+        const selectedText = window.getSelection()?.toString() || "";
+        const url = prompt("Enter URL:", "https://");
+        if (!url) return;
+        if (selectedText) {
+          document.execCommand("createLink", false, url);
+        } else {
+          const text = prompt("Link text:", url) || url;
+          document.execCommand("insertHTML", false, `<a href="${url}" target="_blank">${text}</a>`);
+        }
+        _dirty = true;
+      }
+      function updateDeFmtBtns(reset) {
+        [
+          ["bold", "deFmtBold"],
+          ["italic", "deFmtItalic"],
+        ].forEach(([cmd, id]) => {
+          const btn = document.getElementById(id);
+          if (!btn) return;
+          const on = reset ? false : document.queryCommandState(cmd);
+          btn.style.background = on ? "var(--text)" : "var(--bg)";
+          btn.style.color = on ? "var(--bg)" : "var(--text)";
+          btn.style.borderColor = on ? "var(--text)" : "var(--border)";
+        });
+      }
+
       function formatBodyText(i, cmd, val) {
         const el = document.getElementById('wbody_' + i);
         if (!el) return;
@@ -2089,7 +2162,7 @@
         document.getElementById("wRo").value = w?.role || "";
         document.getElementById("wDu").value = w?.duration || "";
         document.getElementById("wTg").value = w?.tags?.join(", ") || "";
-        document.getElementById("wDe").value = w?.description || "";
+        document.getElementById("wDeEditor").innerHTML = descToHtml(w?.description || "");
         document.getElementById("wCo").value = w?.cover || "";
         setImgPrev("wCoPrev", w?.cover || "");
         document.getElementById("wCl").value = w?.color || "#eeecea";
@@ -2155,7 +2228,7 @@
             .value.split(",")
             .map((t) => t.trim())
             .filter(Boolean),
-          description: document.getElementById("wDe").value,
+          description: document.getElementById("wDeEditor").innerHTML,
           cover: document.getElementById("wCo").value,
           color: document.getElementById("wCl").value,
           featured: document.getElementById("wFe").value === "true",
