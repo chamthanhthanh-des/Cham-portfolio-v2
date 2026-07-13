@@ -84,8 +84,19 @@
         </a>
         <div class="a-box">
           <h2>Admin Panel</h2>
-          <p>Enter your password to manage content.</p>
+          <p>Enter your email and password to manage content.</p>
           <div class="a-form-in">
+            <div class="fg">
+              <label>Email</label>
+              <input
+                type="email"
+                id="aemail"
+                placeholder="you@email.com"
+                autocomplete="username"
+                style="background: white; border-color: var(--border)"
+                onkeydown="if (event.key === 'Enter') doLogin();"
+              />
+            </div>
             <div class="fg">
               <label>Password</label>
               <div style="position: relative">
@@ -1289,35 +1300,48 @@
     <script src="/assets/cloud.js"></script>
     <script src="/assets/app.js"></script>
     <script>
-      /* ── AUTH ── */
-      function initAdmin() {
-        const ok = sessionStorage.getItem(LA) === "1";
+      /* ── AUTH (Supabase) ── */
+      async function initAdmin() {
+        let ok = false;
+        try {
+          if (window._sb) {
+            const { data } = await window._sb.auth.getSession();
+            ok = !!(data && data.session);
+          }
+        } catch (e) {}
         document.getElementById("aLogin").style.display = ok ? "none" : "flex";
         document.getElementById("aDash").style.display = ok ? "block" : "none";
-        if (ok) {
-          swTab("hero");
-        }
+        if (ok) swTab("hero");
       }
-      /* ── PASSWORD HASH (SHA-256) ─────────────────── */
-      const _PWD_HASH = "2204de842e9d0caab8793234affb0f612abf67755816c506ac8583111da03698";
-      async function _hashPwd(s) {
-        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
-        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
-      }
+
       async function doLogin() {
-        const pw = document.getElementById("apw").value,
-          er = document.getElementById("lerr");
-        const hash = await _hashPwd(pw);
-        if (hash === _PWD_HASH) {
-          sessionStorage.setItem(LA, "1");
+        const email = document.getElementById("aemail").value.trim();
+        const pw = document.getElementById("apw").value;
+        const er = document.getElementById("lerr");
+        if (!window._sb) {
+          er.textContent = "Đang kết nối cloud, đợi vài giây rồi thử lại.";
+          er.classList.add("show");
+          return;
+        }
+        const { data, error } = await window._sb.auth.signInWithPassword({
+          email,
+          password: pw,
+        });
+        if (error || !data || !data.session) {
+          er.textContent = "Email hoặc mật khẩu không đúng.";
+          er.classList.add("show");
+        } else {
+          er.classList.remove("show");
           document.getElementById("aLogin").style.display = "none";
           document.getElementById("aDash").style.display = "block";
           swTab("hero");
-          er.classList.remove("show");
-        } else er.classList.add("show");
+        }
       }
-      function doLogout() {
-        sessionStorage.removeItem(LA);
+
+      async function doLogout() {
+        try {
+          if (window._sb) await window._sb.auth.signOut();
+        } catch (e) {}
         location.href = "/";
       }
 
