@@ -942,10 +942,14 @@
           </div>
           <div class="mrow">
             <div class="fg">
-              <label>Category <span style="font-family:var(--fm);font-size:9px;letter-spacing:0.5px;color:var(--muted);text-transform:none;">— nút lọc, 1 từ</span></label>
-              <input id="wCat" list="wCatList" placeholder="vd: product" oninput="_dirty=true" />
-              <datalist id="wCatList"></datalist>
-              <div style="font-family:var(--fm);font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5;">Tạo nút lọc trên trang Works (ALL / PRODUCT…). Gõ để chọn category đã có, hoặc gõ mới. Nên viết thường, 1 từ.</div>
+              <label>Category <span style="font-family:var(--fm);font-size:9px;letter-spacing:0.5px;color:var(--muted);text-transform:none;">— nút lọc, chọn 1 hoặc nhiều</span></label>
+              <input type="hidden" id="wCat" />
+              <div id="wCatChips" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;"></div>
+              <div style="display:flex;gap:8px;">
+                <input id="wCatNew" placeholder="+ Thêm category mới…" style="flex:1;" onkeydown="if(event.key==='Enter'){event.preventDefault();addNewCat();}" />
+                <button type="button" onclick="addNewCat()" style="font-family:var(--fm);font-size:11px;letter-spacing:1px;padding:6px 16px;background:var(--text);color:var(--bg);border:none;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Thêm</button>
+              </div>
+              <div style="font-family:var(--fm);font-size:10px;color:var(--muted);margin-top:6px;line-height:1.6;">Bấm chọn 1 hoặc nhiều nhóm (bấm lần nữa để bỏ). Project sẽ hiện dưới mọi nút được chọn trên trang Works.</div>
             </div>
             <div class="fg">
               <label>Featured</label>
@@ -2017,6 +2021,55 @@
         return confirm("You have unsaved changes. Leave anyway?");
       }
 
+      /* ── CATEGORY multi-select (chip) ── */
+      let _selectedCats = [];
+      function updateWCatValue() {
+        const el = document.getElementById("wCat");
+        if (el) el.value = _selectedCats.join(", ");
+      }
+      function renderCatChips() {
+        const cont = document.getElementById("wCatChips");
+        if (!cont) return;
+        const all = [
+          ...new Set([
+            ...works
+              .flatMap((x) => (x.category || "").split(","))
+              .map((c) => c.trim().toLowerCase())
+              .filter(Boolean),
+            ..._selectedCats,
+          ]),
+        ].sort();
+        cont.innerHTML =
+          all
+            .map((c) => {
+              const on = _selectedCats.includes(c);
+              return `<button type="button" onclick="toggleCat('${c}')" style="font-family:var(--fm);font-size:11px;letter-spacing:0.5px;text-transform:uppercase;padding:6px 13px;border-radius:100px;cursor:pointer;transition:all .15s;border:1px solid ${on ? "var(--oli)" : "var(--border)"};background:${on ? "var(--oli)" : "transparent"};color:${on ? "#fff" : "var(--text)"};">${on ? "✓ " : ""}${c}</button>`;
+            })
+            .join("") ||
+          `<span style="font-family:var(--fm);font-size:11px;color:var(--muted);">Chưa có category — thêm mới bên dưới</span>`;
+      }
+      function toggleCat(c) {
+        c = (c || "").trim().toLowerCase();
+        if (!c) return;
+        const i = _selectedCats.indexOf(c);
+        if (i >= 0) _selectedCats.splice(i, 1);
+        else _selectedCats.push(c);
+        updateWCatValue();
+        renderCatChips();
+        _dirty = true;
+      }
+      function addNewCat() {
+        const inp = document.getElementById("wCatNew");
+        if (!inp) return;
+        const c = (inp.value || "").trim().toLowerCase();
+        if (!c) return;
+        if (!_selectedCats.includes(c)) _selectedCats.push(c);
+        inp.value = "";
+        updateWCatValue();
+        renderCatChips();
+        _dirty = true;
+      }
+
       function openWM(id) {
         const w = id ? works.find((x) => x.id === id) : null;
         document.getElementById("wMT").textContent = w
@@ -2026,19 +2079,13 @@
         document.getElementById("wTi").value = w?.title || "";
         document.getElementById("wCli").value = w?.client || "";
         document.getElementById("wYr").value = w?.year || "";
-        document.getElementById("wCat").value = w?.category || "";
-        // Gợi ý các category đã dùng (gõ để chọn, hoặc gõ mới)
-        const _catDl = document.getElementById("wCatList");
-        if (_catDl)
-          _catDl.innerHTML = [
-            ...new Set(
-              works
-                .map((x) => (x.category || "").trim().toLowerCase())
-                .filter(Boolean),
-            ),
-          ]
-            .map((c) => `<option value="${c}">`)
-            .join("");
+        // Category — multi-select chip
+        _selectedCats = (w?.category || "")
+          .split(",")
+          .map((c) => c.trim().toLowerCase())
+          .filter(Boolean);
+        updateWCatValue();
+        renderCatChips();
         document.getElementById("wRo").value = w?.role || "";
         document.getElementById("wDu").value = w?.duration || "";
         document.getElementById("wTg").value = w?.tags?.join(", ") || "";

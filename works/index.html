@@ -129,7 +129,8 @@
           ...new Set(
             works
               .filter((w) => w.published !== false)
-              .map((w) => (w.category || "").trim().toLowerCase())
+              .flatMap((w) => (w.category || "").split(","))
+              .map((c) => c.trim().toLowerCase())
               .filter(Boolean),
           ),
         ];
@@ -163,8 +164,11 @@
         const fl =
           filter === "all"
             ? pub
-            : pub.filter(
-                (w) => (w.category || "").trim().toLowerCase() === filter,
+            : pub.filter((w) =>
+                (w.category || "")
+                  .split(",")
+                  .map((c) => c.trim().toLowerCase())
+                  .includes(filter),
               );
         const g = document.getElementById("wgrid");
         if (!g) return;
