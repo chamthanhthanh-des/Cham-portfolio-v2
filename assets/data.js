@@ -21,7 +21,7 @@ const DW = [
       "Branding Design",
       "Product Improvement"
     ],
-    "description": "SelfChain is a next-generation Layer 1 blockchain ecosystem designed around keyless Web3 access, intent-centric interactions, and AI-ready infrastructure.\n\nMore than a rebrand from Frontier, the project represented a strategic transformation — evolving from a multi-chain wallet ecosystem into a broader blockchain platform built for users, developers, and future autonomous agents.\n\nAs Lead Designer, I helped shape the design direction across branding, product UX, ecosystem communication, migration flows, onboarding systems, governance communication, and scalable design infrastructure.",
+    "description": "<p>SelfChain is a next-generation Layer 1 blockchain ecosystem designed around keyless Web3 access, intent-centric interactions, and AI-ready infrastructure.</p><p>More than a rebrand from Frontier, the project represented a strategic transformation — evolving from a multi-chain wallet ecosystem into a broader blockchain platform built for users, developers, and future autonomous agents.</p><p>As Lead Designer, I helped shape the design direction across branding, product UX, ecosystem communication, migration flows, onboarding systems, governance communication, and scalable design infrastructure.</p>",
     "cover": "/assets/images/works/selfchain/cover.png",
     "color": "#EDE9F7",
     "featured": true,
@@ -230,180 +230,202 @@ const DW = [
   },
   {
     "id": "self-design-system",
-    "client": "SelfChain",
-    "title": "Self Design System",
-    "year": "2023–2024",
-    "category": "product",
+    "link": "https://www.figma.com/design/gvKGqAAaPmdiaqKq5d914x/SelfChain?node-id=0-1&t=TMFWtd4KYOTEzTKB-1",
     "role": "",
-    "duration": "",
     "tags": [
       "Product Design",
       "Design System"
     ],
-    "description": "How do you scale product design without scaling inconsistency?\n\nAs products grow, design complexity grows with them. New features introduce new patterns. New teams introduce new workflows. New requirements introduce new exceptions. Without a shared foundation, inconsistency becomes inevitable.\n\nSELF Design System was created to establish a common language between design and engineering — transforming fragmented decisions into a scalable framework that could support long-term product growth.",
-    "cover": "/assets/images/works/Self-ds/selfds-cover.png",
+    "year": "2023–2024",
     "color": "#EBF0E9",
-    "featured": false,
-    "published": true,
-    "link": "https://www.figma.com/design/gvKGqAAaPmdiaqKq5d914x/SelfChain?node-id=0-1&t=TMFWtd4KYOTEzTKB-1",
-    "showPreview": true,
+    "cover": "/assets/images/works/Self-ds/selfds-cover.png",
     "order": 2,
+    "title": "Self Design System",
+    "client": "SelfChain",
+    "gallery": [],
+    "category": "product",
+    "duration": "",
+    "featured": false,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Consistency should be built into the system, not enforced afterward.</p><p>Many design inconsistencies don't come from poor execution. They come from the absence of clear rules. Instead of solving the same design problems repeatedly, I focused on defining a foundation that could guide decisions before screens were created.</p><p>The system established design tokens, color architecture, typography hierarchy, spacing principles, elevation rules, and interaction states.</p>",
         "label": "Foundation",
-        "heading": "Defining The Rules",
-        "body": "<p>Consistency should be built into the system, not enforced afterward.</p><p>Many design inconsistencies don't come from poor execution. They come from the absence of clear rules. Instead of solving the same design problems repeatedly, I focused on defining a foundation that could guide decisions before screens were created.</p><p>The system established design tokens, color architecture, typography hierarchy, spacing principles, elevation rules, and interaction states.</p>"
+        "heading": "Defining The Rules"
       },
       {
         "type": "divider"
       },
       {
         "num": "02",
+        "body": "<p>Every repeated decision is an opportunity to build a system.</p><p>As recurring patterns emerged across the product, they were transformed into reusable building blocks. Buttons, inputs, navigation, data displays, and feedback states were designed as flexible systems with defined variants, behaviors, and usage principles.</p><p>The objective wasn't creating a UI kit. The objective was reducing future design effort.</p>",
         "label": "Components",
-        "heading": "Designing For Reuse",
-        "body": "<p>Every repeated decision is an opportunity to build a system.</p><p>As recurring patterns emerged across the product, they were transformed into reusable building blocks. Buttons, inputs, navigation, data displays, and feedback states were designed as flexible systems with defined variants, behaviors, and usage principles.</p><p>The objective wasn't creating a UI kit. The objective was reducing future design effort.</p>"
+        "heading": "Designing For Reuse"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p>Alignment is more valuable than consistency.</p><p>A successful design system is not measured by the number of components it contains. It is measured by how effectively it aligns teams.</p><p>To support collaboration between design and engineering, the system introduced shared structures, naming conventions, documentation, and implementation guidelines.</p>",
         "label": "Collaboration",
-        "heading": "Creating A Shared Source Of Truth",
-        "body": "<p>Alignment is more valuable than consistency.</p><p>A successful design system is not measured by the number of components it contains. It is measured by how effectively it aligns teams.</p><p>To support collaboration between design and engineering, the system introduced shared structures, naming conventions, documentation, and implementation guidelines.</p>"
+        "heading": "Creating A Shared Source Of Truth"
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
+        "body": "<p>Great systems make growth feel effortless.</p><p>The value of a design system is often invisible. Users rarely notice it. Teams experience it every day. By creating a reusable foundation, SELF Design System helped reduce design debt, accelerate execution, and improve consistency across products without sacrificing flexibility.</p><p>The result was not simply a collection of components. It was a framework designed to scale.</p>",
         "label": "Scale",
-        "heading": "Designing For Scale",
-        "body": "<p>Great systems make growth feel effortless.</p><p>The value of a design system is often invisible. Users rarely notice it. Teams experience it every day. By creating a reusable foundation, SELF Design System helped reduce design debt, accelerate execution, and improve consistency across products without sacrificing flexibility.</p><p>The result was not simply a collection of components. It was a framework designed to scale.</p>"
+        "heading": "Designing For Scale"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p>I led the design system initiative from concept to implementation. Responsibilities included defining system principles, creating token architecture, building reusable components, establishing documentation standards, supporting engineering implementation, and maintaining long-term system governance.</p><p>More than designing interfaces, my role was to design the framework that made future interfaces easier to build.</p>",
         "label": "My Role",
-        "heading": "Lead Product Designer",
-        "body": "<p>I led the design system initiative from concept to implementation. Responsibilities included defining system principles, creating token architecture, building reusable components, establishing documentation standards, supporting engineering implementation, and maintaining long-term system governance.</p><p>More than designing interfaces, my role was to design the framework that made future interfaces easier to build.</p>"
+        "heading": "Lead Product Designer"
       }
     ],
-    "gallery": []
+    "published": true,
+    "description": "How do you scale product design without scaling inconsistency?\n\nAs products grow, design complexity grows with them. New features introduce new patterns. New teams introduce new workflows. New requirements introduce new exceptions. Without a shared foundation, inconsistency becomes inevitable.\n\nSELF Design System was created to establish a common language between design and engineering — transforming fragmented decisions into a scalable framework that could support long-term product growth.",
+    "showPreview": true
   },
   {
     "id": "mill-3",
-    "client": "Mill3",
-    "title": "Mill3 — AI Content Platform for Web3",
-    "year": "2024",
-    "category": "product",
+    "link": "https://www.figma.com/design/A4cAwfDcC4AcddoJOnd6xH/Mill-3?node-id=29-2452&t=liXGnEfkwK0Y3JFV-1",
     "role": "",
-    "duration": "",
     "tags": [
       "Product Design",
       "Branding Design",
       "AI × Design"
     ],
-    "description": "Mill3 is an experimental AI-native content platform designed specifically for the fast-moving nature of Web3 communication.\n\nCreated during the transition period between Frontier and SelfChain, the project explored how AI could support blockchain creators, marketers, and ecosystem teams through faster, more adaptive content workflows across Twitter, blogs, newsletters, campaigns, and ecosystem storytelling.\n\nRather than positioning AI as a standalone writing tool, Mill3 envisioned a more connected creator ecosystem where strategy, generation, editing, and publishing could exist inside a single intelligent workflow.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169052/uwqnpugpgoudfoz8ormm.png",
+    "year": "2024",
     "color": "#EBF0EC",
-    "featured": true,
-    "published": true,
-    "link": "https://www.figma.com/design/A4cAwfDcC4AcddoJOnd6xH/Mill-3?node-id=29-2452&t=liXGnEfkwK0Y3JFV-1",
-    "showPreview": true,
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1781169052/uwqnpugpgoudfoz8ormm.png",
     "order": 4,
+    "title": "Mill3 — AI Content Platform for Web3",
+    "client": "Mill3",
+    "gallery": [],
+    "category": "product",
+    "duration": "",
+    "featured": true,
     "sections": [
       {
         "num": "01",
+        "body": "<p>Mill3 started as an experimental initiative during the transition period between Frontier and the future direction of SelfChain.</p><p>While the ecosystem was undergoing a complex migration and long-term blockchain restructuring process, the team began exploring emerging opportunities beyond infrastructure — particularly within AI-assisted creation and creator-focused workflows.</p><p>At the time, most AI writing platforms were built for general marketing teams rather than blockchain creators navigating token launches, fast-moving narratives, and technically complex products.</p><p>Mill3 began with a simple but ambitious idea: to create an AI-native content workflow system designed specifically for the pace and communication style of Web3 ecosystems.</p>",
         "label": "Context",
-        "heading": "Experimenting beyond blockchain infrastructure",
-        "body": "<p>Mill3 started as an experimental initiative during the transition period between Frontier and the future direction of SelfChain.</p><p>While the ecosystem was undergoing a complex migration and long-term blockchain restructuring process, the team began exploring emerging opportunities beyond infrastructure — particularly within AI-assisted creation and creator-focused workflows.</p><p>At the time, most AI writing platforms were built for general marketing teams rather than blockchain creators navigating token launches, fast-moving narratives, and technically complex products.</p><p>Mill3 began with a simple but ambitious idea: to create an AI-native content workflow system designed specifically for the pace and communication style of Web3 ecosystems.</p>"
+        "heading": "Experimenting beyond blockchain infrastructure"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "02",
+        "body": "<p>The visual direction was built around the idea of “precision-forward” — a system that feels technologically advanced, structured, and trustworthy without relying on exaggerated crypto aesthetics.</p><p>Rather than using aggressive Web3 visuals, the interface focused on calm layouts, structured spacing, controlled gradients, and a restrained futuristic atmosphere.</p><p>Green became a core accent throughout the product system, representing generation, momentum, creativity, and machine-assisted workflows.</p>",
         "label": "Direction",
-        "heading": "Creating a calmer and more structured AI experience",
-        "body": "<p>The visual direction was built around the idea of “precision-forward” — a system that feels technologically advanced, structured, and trustworthy without relying on exaggerated crypto aesthetics.</p><p>Rather than using aggressive Web3 visuals, the interface focused on calm layouts, structured spacing, controlled gradients, and a restrained futuristic atmosphere.</p><p>Green became a core accent throughout the product system, representing generation, momentum, creativity, and machine-assisted workflows.</p>"
+        "heading": "Creating a calmer and more structured AI experience"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p>As Lead Designer, I led the end-to-end creative and product direction of the project — from brand identity and product thinking to UX flows and design systems.</p><p>My work included visual identity systems, AI-assisted content workflows, dashboard exploration, onboarding logic, interface design, design systems, and ecosystem communication.</p><p>Because the project was highly experimental, the process remained intentionally iterative, allowing space to test new interaction patterns, speculative product ideas, and future-facing creative workflows.</p>",
         "label": "Scope",
-        "heading": "Connecting branding, AI workflows, and product systems",
-        "body": "<p>As Lead Designer, I led the end-to-end creative and product direction of the project — from brand identity and product thinking to UX flows and design systems.</p><p>My work included visual identity systems, AI-assisted content workflows, dashboard exploration, onboarding logic, interface design, design systems, and ecosystem communication.</p><p>Because the project was highly experimental, the process remained intentionally iterative, allowing space to test new interaction patterns, speculative product ideas, and future-facing creative workflows.</p>"
+        "heading": "Connecting branding, AI workflows, and product systems"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "04",
+        "body": "<p>The rise of AI created new opportunities for content automation, but most platforms still felt disconnected from the speed and complexity of Web3 communication.</p><p>Blockchain teams often move rapidly across Twitter, blogs, landing pages, ecosystem announcements, and community updates — usually through fragmented workflows and disconnected tools.</p><p>Mill3 explored how AI-native workflows could help creators move faster across constantly evolving narratives while maintaining clarity, consistency, and strategic direction.</p><p>Rather than building another isolated writing assistant, the project explored a more connected ecosystem where strategy, generation, editing, and publishing could exist within a unified creator workflow.</p>",
         "label": "Opportunity",
-        "heading": "Reimagining content creation through connected AI workflows",
-        "body": "<p>The rise of AI created new opportunities for content automation, but most platforms still felt disconnected from the speed and complexity of Web3 communication.</p><p>Blockchain teams often move rapidly across Twitter, blogs, landing pages, ecosystem announcements, and community updates — usually through fragmented workflows and disconnected tools.</p><p>Mill3 explored how AI-native workflows could help creators move faster across constantly evolving narratives while maintaining clarity, consistency, and strategic direction.</p><p>Rather than building another isolated writing assistant, the project explored a more connected ecosystem where strategy, generation, editing, and publishing could exist within a unified creator workflow.</p>"
+        "heading": "Reimagining content creation through connected AI workflows"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p>2024. Experimental AI × Web3 initiative developed during the ecosystem transition period between Frontier and SelfChain.</p><p>As the blockchain infrastructure and migration process continued evolving in parallel, the team explored future-facing product opportunities beyond Layer 1 systems — leading to the creation of experimental AI-focused projects including Mill3 and an unreleased RWA initiative.</p><p>Although Mill3 successfully launched publicly, the team eventually shifted focus back toward the larger strategic direction of SelfChain as ecosystem priorities evolved.</p>",
         "label": "Timeline",
-        "heading": "Built during a period of ecosystem transition",
-        "body": "<p>2024. Experimental AI × Web3 initiative developed during the ecosystem transition period between Frontier and SelfChain.</p><p>As the blockchain infrastructure and migration process continued evolving in parallel, the team explored future-facing product opportunities beyond Layer 1 systems — leading to the creation of experimental AI-focused projects including Mill3 and an unreleased RWA initiative.</p><p>Although Mill3 successfully launched publicly, the team eventually shifted focus back toward the larger strategic direction of SelfChain as ecosystem priorities evolved.</p>"
+        "heading": "Built during a period of ecosystem transition"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "06",
+        "body": "<p>One of the biggest challenges was designing for a product category that did not fully exist yet.</p><p>The platform combined AI content generation, SaaS workflows, Web3 identity systems, token utility, and creator-focused tooling — all within a single ecosystem.</p><p>The challenge was not only making these systems usable, but creating a product that feels intelligent, credible, and emotionally engaging without becoming overly technical or visually overwhelming.</p>",
         "label": "Challenge",
-        "heading": "Designing for a product category still taking shape",
-        "body": "<p>One of the biggest challenges was designing for a product category that did not fully exist yet.</p><p>The platform combined AI content generation, SaaS workflows, Web3 identity systems, token utility, and creator-focused tooling — all within a single ecosystem.</p><p>The challenge was not only making these systems usable, but creating a product that feels intelligent, credible, and emotionally engaging without becoming overly technical or visually overwhelming.</p>"
+        "heading": "Designing for a product category still taking shape"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "07",
+        "body": "<p>The UX direction focused on simplifying high-speed content workflows for blockchain marketers and creators.</p><p>Instead of organizing the platform around content formats alone, the experience shifted toward goal-driven creation flows — helping users think in outcomes rather than isolated deliverables.</p><p>AI actions such as rewriting, tone adjustment, and optimization were embedded directly into the editing experience to reduce context switching and maintain creative flow.</p><p>The product experience extended across AI-assisted writing flows, dashboard systems, content management, publishing logic, and future ecosystem interactions.</p>",
         "label": "Experience",
-        "heading": "Simplifying high-speed content creation workflows",
-        "body": "<p>The UX direction focused on simplifying high-speed content workflows for blockchain marketers and creators.</p><p>Instead of organizing the platform around content formats alone, the experience shifted toward goal-driven creation flows — helping users think in outcomes rather than isolated deliverables.</p><p>AI actions such as rewriting, tone adjustment, and optimization were embedded directly into the editing experience to reduce context switching and maintain creative flow.</p><p>The product experience extended across AI-assisted writing flows, dashboard systems, content management, publishing logic, and future ecosystem interactions.</p>"
+        "heading": "Simplifying high-speed content creation workflows"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "08",
+        "body": "<p>A scalable design system was created to support both rapid experimentation and long-term product consistency.</p><p>The system included token structures, typography rules, reusable UI components, interaction patterns, and documentation designed specifically to improve collaboration between design and development.</p><p>Rather than building an overly large component library early on, the system intentionally remained lean and focused — prioritizing clarity, scalability, and faster iteration.</p>",
         "label": "System",
-        "heading": "Building lean systems for rapid experimentation",
-        "body": "<p>A scalable design system was created to support both rapid experimentation and long-term product consistency.</p><p>The system included token structures, typography rules, reusable UI components, interaction patterns, and documentation designed specifically to improve collaboration between design and development.</p><p>Rather than building an overly large component library early on, the system intentionally remained lean and focused — prioritizing clarity, scalability, and faster iteration.</p>"
+        "heading": "Building lean systems for rapid experimentation"
+      },
+      {
+        "type": "divider"
       },
       {
         "num": "09",
+        "body": "<p>Mill3 successfully launched as an experimental AI-powered content platform focused on Web3 creators and ecosystem communication.</p><p>The project established a clear visual and UX direction for how AI-native workflows could support high-speed blockchain content production while maintaining stronger strategic consistency across channels.</p><p>The redesigned onboarding and goal-first creation flows helped simplify the transition from idea generation to publish-ready content.</p><p>More importantly, Mill3 became an important exploration phase within the broader ecosystem journey — demonstrating how AI tooling, branding systems, and creator-focused workflows could evolve together inside future Web3 products.</p>",
         "label": "Outcome",
-        "heading": "Turning AI-assisted creation into a connected workflow",
-        "body": "<p>Mill3 successfully launched as an experimental AI-powered content platform focused on Web3 creators and ecosystem communication.</p><p>The project established a clear visual and UX direction for how AI-native workflows could support high-speed blockchain content production while maintaining stronger strategic consistency across channels.</p><p>The redesigned onboarding and goal-first creation flows helped simplify the transition from idea generation to publish-ready content.</p><p>More importantly, Mill3 became an important exploration phase within the broader ecosystem journey — demonstrating how AI tooling, branding systems, and creator-focused workflows could evolve together inside future Web3 products.</p>"
+        "heading": "Turning AI-assisted creation into a connected workflow"
       }
     ],
-    "gallery": []
+    "published": true,
+    "description": "Mill3 is an experimental AI-native content platform designed specifically for the fast-moving nature of Web3 communication.\n\nCreated during the transition period between Frontier and SelfChain, the project explored how AI could support blockchain creators, marketers, and ecosystem teams through faster, more adaptive content workflows across Twitter, blogs, newsletters, campaigns, and ecosystem storytelling.\n\nRather than positioning AI as a standalone writing tool, Mill3 envisioned a more connected creator ecosystem where strategy, generation, editing, and publishing could exist inside a single intelligent workflow.",
+    "showPreview": true
   },
   {
     "id": "qmts",
-    "client": "Quang Minh Trà Sư",
-    "title": "QMTS — Cultivating Mindfulness Through Tea",
-    "year": "2024",
-    "category": "branding",
+    "link": "",
     "role": "",
-    "duration": "",
     "tags": [
       "Brand Strategy",
       "Art Direction",
       "Visual Identity"
     ],
-    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by Laoshi Quang Minh, where tea becomes more than a beverage—it is a medium for presence, self-connection, and inner awareness.\n\nUnlike conventional tea brands, QMTS is not built around products or commerce, but around the philosophy of tea as a daily practice that encourages people to slow down, reconnect with themselves, and cultivate mindfulness.\n\nThe visual identity draws inspiration from the spirit of ancient Vietnamese culture through the Lạc Bird, the Sun, and a signature crimson red palette, combined with a contemporary reinterpretation of traditional mother-of-pearl inlay patterns. Together, these elements form a visual language that balances cultural heritage with a modern expression of mindfulness.\n\nAs Brand Strategist and Art Director, I led the development of the brand strategy, visual identity, and art direction system, translating QMTS's philosophy and cultural values into a cohesive and contemporary brand experience.",
-    "cover": "/assets/images/works/qmts/qmts-cover.png",
+    "year": "2024",
     "color": "#F5EDE8",
-    "featured": true,
-    "published": true,
-    "link": "",
-    "showPreview": true,
+    "cover": "/assets/images/works/qmts/qmts-cover.png",
     "order": 7,
+    "title": "QMTS — Cultivating Mindfulness Through Tea",
+    "client": "Quang Minh Trà Sư",
+    "gallery": [],
+    "category": "branding",
+    "duration": "",
+    "featured": true,
     "sections": [
       {
         "num": "01",
+        "body": "<h2><span style=\"font-size: 15px; font-weight: normal;\">Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</span></h2><p class=\"isSelectedEnd\">The project began with a fundamental question: <strong>How can a cup of tea become a doorway to awareness?</strong></p><p class=\"isSelectedEnd\">Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice—one that helps people return to themselves through tea. Drawing from the spirit of Vietnamese cultural heritage, where rituals have long connected people with nature, community, and inner harmony, tea becomes more than a daily habit—it becomes a mindful act of presence.</p><p><strong><i>Tea is not the destination. Tea is the path.</i></strong></p>",
         "label": "Philosophy",
-        "heading": "Defining A Philosophy, Not A Tea Brand",
-        "body": "<h2><span style=\"font-size: 15px; font-weight: normal;\">Most tea brands focus on tea itself. QMTS focuses on what tea makes possible.</span></h2><p class=\"isSelectedEnd\">The project began with a fundamental question: <strong>How can a cup of tea become a doorway to awareness?</strong></p><p class=\"isSelectedEnd\">Rather than positioning QMTS as a tea house, educational program, or lifestyle brand, we defined it as a living practice—one that helps people return to themselves through tea. Drawing from the spirit of Vietnamese cultural heritage, where rituals have long connected people with nature, community, and inner harmony, tea becomes more than a daily habit—it becomes a mindful act of presence.</p><p><strong><i>Tea is not the destination. Tea is the path.</i></strong></p>"
+        "heading": "Defining A Philosophy, Not A Tea Brand"
       },
       {
-        "type": "image",
         "num": "01",
+        "type": "image",
         "label": "Philosophy",
         "images": [
           "/assets/images/works/qmts/qmts-quote.png"
@@ -414,22 +436,22 @@ const DW = [
       },
       {
         "num": "02",
+        "body": "<p class=\"isSelectedEnd\">QMTS was built around two complementary archetypes: <strong>The Sage</strong> and <strong>The Spiritual Guide</strong>.</p><p class=\"isSelectedEnd\">Inspired by the quiet wisdom of traditional Eastern teachers, the brand does not seek attention or promise instant transformation. Instead, it offers gentle guidance—encouraging people to slow down, observe, and reconnect with themselves.</p><p>Its voice is calm, thoughtful, sincere, and deeply human—never performative, never imposing.</p>",
         "label": "Brand Character",
-        "heading": "Building The Brand Character",
-        "body": "<p class=\"isSelectedEnd\">QMTS was built around two complementary archetypes: <strong>The Sage</strong> and <strong>The Spiritual Guide</strong>.</p><p class=\"isSelectedEnd\">Inspired by the quiet wisdom of traditional Eastern teachers, the brand does not seek attention or promise instant transformation. Instead, it offers gentle guidance—encouraging people to slow down, observe, and reconnect with themselves.</p><p>Its voice is calm, thoughtful, sincere, and deeply human—never performative, never imposing.</p>"
+        "heading": "Building The Brand Character"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p class=\"isSelectedEnd\">The identity system was built upon four guiding principles drawn from the philosophy of QMTS and the spirit of Eastern thought:</p><p class=\"isSelectedEnd\"></p><ul><li><strong>CHÂN&nbsp;</strong>— Authenticity</li><li><strong>TRI&nbsp;</strong>— Awareness</li><li><strong>TỊNH&nbsp;</strong>— Stillness</li><li><strong>HỢP&nbsp;</strong>— Harmony</li></ul><p></p><p>Rather than serving as brand values alone, these principles became the foundation for every design decision—from visual identity and communication to the experience the brand creates. Together, they express a way of living rooted in presence, balance, and a deep connection between people, nature, and culture.</p>",
         "label": "Visual Foundation",
-        "heading": "Translating Philosophy Into Form",
-        "body": "<p class=\"isSelectedEnd\">The identity system was built upon four guiding principles drawn from the philosophy of QMTS and the spirit of Eastern thought:</p><p class=\"isSelectedEnd\"></p><ul><li><strong>CHÂN&nbsp;</strong>— Authenticity</li><li><strong>TRI&nbsp;</strong>— Awareness</li><li><strong>TỊNH&nbsp;</strong>— Stillness</li><li><strong>HỢP&nbsp;</strong>— Harmony</li></ul><p></p><p>Rather than serving as brand values alone, these principles became the foundation for every design decision—from visual identity and communication to the experience the brand creates. Together, they express a way of living rooted in presence, balance, and a deep connection between people, nature, and culture.</p>"
+        "heading": "Translating Philosophy Into Form"
       },
       {
-        "type": "image",
         "num": "03",
+        "type": "image",
         "label": "Visual Foundation",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782636998/q9x0c0f4aikh2gpn7jlx.png"
@@ -440,22 +462,22 @@ const DW = [
       },
       {
         "num": "04",
+        "body": "<p class=\"isSelectedEnd\">One of the project's core ambitions was to build <strong>QMTS as a contemporary Vietnamese tea brand</strong>—one that represents not only the quality of Vietnamese tea, but also the depth of its culture, philosophy, and identity.</p><p class=\"isSelectedEnd\">Instead of borrowing familiar aesthetics from Japanese Zen or Chinese tea traditions, the visual language returns to Vietnam's own cultural roots. Inspired by symbols such as the <strong>Sun</strong>, the <strong>Lạc Bird</strong>, and the <strong>tea leaf</strong>, the identity reflects a uniquely Vietnamese perspective on tea.</p><p class=\"isSelectedEnd\">The Sun symbolizes awakening and life. The Lạc Bird, rooted in the Đông Sơn civilization, represents continuity, cultural identity, and the connection between people and nature. The tea leaf embodies cultivation, patience, and the belief that transformation begins with everyday rituals.</p><p>Together, these elements are translated into a contemporary visual system that honors Vietnamese heritage while presenting it through a modern lens. The result is a brand that celebrates <strong>Vietnamese tea</strong> not simply as an agricultural product, but as a living cultural practice.</p>",
         "label": "Art Direction",
-        "heading": "Art Direction & Cultural Narrative",
-        "body": "<p class=\"isSelectedEnd\">One of the project's core ambitions was to build <strong>QMTS as a contemporary Vietnamese tea brand</strong>—one that represents not only the quality of Vietnamese tea, but also the depth of its culture, philosophy, and identity.</p><p class=\"isSelectedEnd\">Instead of borrowing familiar aesthetics from Japanese Zen or Chinese tea traditions, the visual language returns to Vietnam's own cultural roots. Inspired by symbols such as the <strong>Sun</strong>, the <strong>Lạc Bird</strong>, and the <strong>tea leaf</strong>, the identity reflects a uniquely Vietnamese perspective on tea.</p><p class=\"isSelectedEnd\">The Sun symbolizes awakening and life. The Lạc Bird, rooted in the Đông Sơn civilization, represents continuity, cultural identity, and the connection between people and nature. The tea leaf embodies cultivation, patience, and the belief that transformation begins with everyday rituals.</p><p>Together, these elements are translated into a contemporary visual system that honors Vietnamese heritage while presenting it through a modern lens. The result is a brand that celebrates <strong>Vietnamese tea</strong> not simply as an agricultural product, but as a living cultural practice.</p>"
+        "heading": "Art Direction & Cultural Narrative"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p class=\"isSelectedEnd\">The color system was designed to express the identity of a <strong>contemporary Vietnamese tea brand</strong>, rather than following the familiar palette of modern tea brands.</p><p class=\"isSelectedEnd\">At its core is a muted <strong>crimson red</strong>, inspired by the enduring presence of red throughout Vietnamese culture—from traditional lacquerware and temple architecture to ceremonial objects. It symbolizes vitality, cultural identity, warmth, and the quiet strength that lies at the heart of the brand.</p><p class=\"isSelectedEnd\">Supporting it is a restrained <strong>tea green</strong>, drawn from mature tea leaves and the natural landscape where Vietnamese tea is cultivated. Rather than competing for attention, it grounds the system with a sense of calm, balance, and connection to nature.</p><p>Together, these colors create a visual language that reflects Vietnamese tea—not only as a product of the land, but as a cultural practice rooted in heritage, craftsmanship, and mindfulness.</p>",
         "label": "Color Philosophy",
-        "heading": "More Than A Palette, A Cultural Expression",
-        "body": "<p class=\"isSelectedEnd\">The color system was designed to express the identity of a <strong>contemporary Vietnamese tea brand</strong>, rather than following the familiar palette of modern tea brands.</p><p class=\"isSelectedEnd\">At its core is a muted <strong>crimson red</strong>, inspired by the enduring presence of red throughout Vietnamese culture—from traditional lacquerware and temple architecture to ceremonial objects. It symbolizes vitality, cultural identity, warmth, and the quiet strength that lies at the heart of the brand.</p><p class=\"isSelectedEnd\">Supporting it is a restrained <strong>tea green</strong>, drawn from mature tea leaves and the natural landscape where Vietnamese tea is cultivated. Rather than competing for attention, it grounds the system with a sense of calm, balance, and connection to nature.</p><p>Together, these colors create a visual language that reflects Vietnamese tea—not only as a product of the land, but as a cultural practice rooted in heritage, craftsmanship, and mindfulness.</p>"
+        "heading": "More Than A Palette, A Cultural Expression"
       },
       {
-        "type": "image",
         "num": "05",
+        "type": "image",
         "label": "Color Philosophy",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782641180/zyyyoixzmfjryp6taj3u.png"
@@ -466,95 +488,95 @@ const DW = [
       },
       {
         "num": "06",
+        "body": "<p class=\"isSelectedEnd\">The identity was designed as a living system rather than a fixed set of assets.</p><p class=\"isSelectedEnd\">A flexible art direction framework guides every expression of the brand—from photography and editorial design to digital experiences and future applications.</p><p class=\"isSelectedEnd\">Inspired by the philosophy of tea and the richness of Vietnamese culture, the visual language emphasizes natural light, human presence, handcrafted details, and moments of quiet reflection.</p><p>More than maintaining consistency, the system creates a distinctive atmosphere—one that makes Quang Minh Trà Sư instantly recognizable wherever the brand appears.</p>",
         "label": "Brand System",
-        "heading": "Creating A Living Brand System",
-        "body": "<p class=\"isSelectedEnd\">The identity was designed as a living system rather than a fixed set of assets.</p><p class=\"isSelectedEnd\">A flexible art direction framework guides every expression of the brand—from photography and editorial design to digital experiences and future applications.</p><p class=\"isSelectedEnd\">Inspired by the philosophy of tea and the richness of Vietnamese culture, the visual language emphasizes natural light, human presence, handcrafted details, and moments of quiet reflection.</p><p>More than maintaining consistency, the system creates a distinctive atmosphere—one that makes Quang Minh Trà Sư instantly recognizable wherever the brand appears.</p>"
+        "heading": "Creating A Living Brand System"
       },
       {
         "type": "divider"
       },
       {
         "num": "07",
+        "body": "<p data-start=\"1521\" data-end=\"1619\" class=\"PDq2pG_selectionAnchorContainer\">QMTS is more than a visual identity—it is a contemporary interpretation of Vietnamese tea culture.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p data-start=\"1624\" data-end=\"1836\">By combining cultural heritage, tea philosophy, and systematic design thinking, the project established a cohesive brand system that extends across packaging, digital experiences, and future brand communications.</p><p data-start=\"1841\" data-end=\"2038\">Rather than relying on decorative cultural references, the identity translates traditional craftsmanship into a modern visual language—one that feels authentic, timeless, and distinctly Vietnamese.</p><p class=\"isSelectedEnd\">\n\n\n</p><p data-start=\"2043\" data-end=\"2264\">More than defining how the brand looks, the project demonstrates how Vietnamese tea can be represented through its own history, values, and craftsmanship, creating a cultural identity that resonates with a new generation.</p>",
         "label": "Outcome",
-        "heading": "More Than A Branding Project",
-        "body": "<p data-start=\"1521\" data-end=\"1619\" class=\"PDq2pG_selectionAnchorContainer\">QMTS is more than a visual identity—it is a contemporary interpretation of Vietnamese tea culture.<span aria-hidden=\"true\" class=\"PDq2pG_selectionAnchor\"></span></p><p data-start=\"1624\" data-end=\"1836\">By combining cultural heritage, tea philosophy, and systematic design thinking, the project established a cohesive brand system that extends across packaging, digital experiences, and future brand communications.</p><p data-start=\"1841\" data-end=\"2038\">Rather than relying on decorative cultural references, the identity translates traditional craftsmanship into a modern visual language—one that feels authentic, timeless, and distinctly Vietnamese.</p><p class=\"isSelectedEnd\">\n\n\n</p><p data-start=\"2043\" data-end=\"2264\">More than defining how the brand looks, the project demonstrates how Vietnamese tea can be represented through its own history, values, and craftsmanship, creating a cultural identity that resonates with a new generation.</p>"
+        "heading": "More Than A Branding Project"
       },
       {
-        "type": "image",
         "num": "07",
+        "type": "image",
         "label": "Outcome",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782641854/yxoxo9cocyeqs5cxvebw.png"
         ]
       }
     ],
-    "gallery": []
+    "published": true,
+    "description": "Quang Minh Trà Sư (QMTS) is a mindful tea practice founded by Laoshi Quang Minh, where tea becomes more than a beverage—it is a medium for presence, self-connection, and inner awareness.\n\nUnlike conventional tea brands, QMTS is not built around products or commerce, but around the philosophy of tea as a daily practice that encourages people to slow down, reconnect with themselves, and cultivate mindfulness.\n\nThe visual identity draws inspiration from the spirit of ancient Vietnamese culture through the Lạc Bird, the Sun, and a signature crimson red palette, combined with a contemporary reinterpretation of traditional mother-of-pearl inlay patterns. Together, these elements form a visual language that balances cultural heritage with a modern expression of mindfulness.\n\nAs Brand Strategist and Art Director, I led the development of the brand strategy, visual identity, and art direction system, translating QMTS's philosophy and cultural values into a cohesive and contemporary brand experience.",
+    "showPreview": true
   },
   {
     "id": "hanzi-garden-a-gamified-chinese-learning-ux-concept",
-    "client": "My team ",
-    "title": "Hanzi Garden — A Gamified Chinese Learning UX Concept",
-    "year": "2025",
-    "category": "product",
+    "link": "https://www.figma.com/deck/OddTlSZZHMInUVTRcR8XWs/Team-2_K46_Slide--Mine-?node-id=12-160&viewport=-136%2C-295%2C0.63&t=Y2CLMTAGOagGDS5N-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     "role": "Team Lead, Project manager",
-    "duration": "2 months ",
     "tags": [
       "Product"
     ],
-    "description": "Hanzi Garden is a pixel-art Chinese learning game concept created as the final project of the UX Foundation Advanced Program. Designed through a complete UX process, the project explores how gamification, progression systems, and visual storytelling can transform language learning into an engaging gameplay experience.\n\nAs Team Lead and UI/UX Designer, I led the project from research and product strategy to gameplay design, interface design, and interactive prototyping.\n\nThis project marked the beginning of my journey into Game UI Design and was recognized with the Best Student Award for outstanding performance throughout the program.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1782719124/osgvmj0ycyszot1raard.jpg",
+    "year": "2025",
     "color": "#eeecea",
-    "featured": true,
-    "published": true,
-    "link": "https://www.figma.com/deck/OddTlSZZHMInUVTRcR8XWs/Team-2_K46_Slide--Mine-?node-id=12-160&viewport=-136%2C-295%2C0.63&t=Y2CLMTAGOagGDS5N-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
-    "showPreview": true,
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1782719124/osgvmj0ycyszot1raard.jpg",
     "order": 10,
+    "title": "Hanzi Garden — A Gamified Chinese Learning UX Concept",
+    "client": "My team ",
+    "gallery": [],
+    "category": "product",
+    "duration": "2 months ",
+    "featured": true,
     "sections": [
       {
         "num": "01",
+        "body": "<p class=\"isSelectedEnd\">Learning Chinese is often perceived as repetitive, difficult, and hard to sustain over time. While many educational apps provide structured lessons, they frequently struggle to maintain long-term user engagement.</p><p class=\"isSelectedEnd\">Our challenge was to rethink the learning experience by introducing game mechanics that encourage curiosity, progression, and exploration.</p><p class=\"isSelectedEnd\">Instead of designing another educational application, we envisioned a world where studying Chinese feels like embarking on a pixel-art adventure. Every completed lesson unlocks new places to explore, new characters to meet, and meaningful rewards that motivate users to continue learning naturally.</p><p>The goal was to balance educational value with player enjoyment—creating an experience that users genuinely want to come back to every day.</p>",
         "label": "The Challenge",
-        "heading": "Making Chinese Learning Feel Like Playing",
-        "body": "<p class=\"isSelectedEnd\">Learning Chinese is often perceived as repetitive, difficult, and hard to sustain over time. While many educational apps provide structured lessons, they frequently struggle to maintain long-term user engagement.</p><p class=\"isSelectedEnd\">Our challenge was to rethink the learning experience by introducing game mechanics that encourage curiosity, progression, and exploration.</p><p class=\"isSelectedEnd\">Instead of designing another educational application, we envisioned a world where studying Chinese feels like embarking on a pixel-art adventure. Every completed lesson unlocks new places to explore, new characters to meet, and meaningful rewards that motivate users to continue learning naturally.</p><p>The goal was to balance educational value with player enjoyment—creating an experience that users genuinely want to come back to every day.</p>"
+        "heading": "Making Chinese Learning Feel Like Playing"
       },
       {
         "type": "divider"
       },
       {
         "num": "02",
+        "body": "<div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\"><p class=\"zlAe0W_TextBase zlAe0W_Text\" data-w-component=\"text\" data-w-weight=\"semibold\" style=\"display: inline !important;\"><b>Role</b></p></div><div><div class=\"duPRdW_Divider\" data-w-component=\"divider\"></div><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\"><ul class=\"Ck6QPa_List\" data-w-component=\"list\" data-w-variant=\"native-unordered\"><li><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\">Team Lead</div></li><li><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\">UI/UX Designer</div></li></ul><b>Responsibilities</b><br><ul><li>Led a team of 4 members throughout the entire project.</li><li>Defined the overall product vision and design direction.</li><li>Planned milestones, assigned tasks, and managed project execution.</li><li>Facilitated discussions and aligned the team on key design decisions.</li><li>Led user research, ideation, and UX strategy development.</li><li>Designed core gameplay flows, system structure, and interface layouts.</li><li>Created wireframes, high-fidelity UI, and the interactive prototype.</li><li>Presented the final solution and guided the project from concept to prototype.<br></li></ul><div>Beyond interface design, my responsibility was to ensure that every design decision aligned with both the learning objectives and the gameplay experience.</div></div></div>",
         "label": "My Role",
-        "heading": "Leading the Team and Driving the Project Forward",
-        "body": "<div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\"><p class=\"zlAe0W_TextBase zlAe0W_Text\" data-w-component=\"text\" data-w-weight=\"semibold\" style=\"display: inline !important;\"><b>Role</b></p></div><div><div class=\"duPRdW_Divider\" data-w-component=\"divider\"></div><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\"><ul class=\"Ck6QPa_List\" data-w-component=\"list\" data-w-variant=\"native-unordered\"><li><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\">Team Lead</div></li><li><div class=\"ac5DTa_Box\" data-w-direction=\"col\" data-w-component=\"col\" style=\"display: inline !important;\">UI/UX Designer</div></li></ul><b>Responsibilities</b><br><ul><li>Led a team of 4 members throughout the entire project.</li><li>Defined the overall product vision and design direction.</li><li>Planned milestones, assigned tasks, and managed project execution.</li><li>Facilitated discussions and aligned the team on key design decisions.</li><li>Led user research, ideation, and UX strategy development.</li><li>Designed core gameplay flows, system structure, and interface layouts.</li><li>Created wireframes, high-fidelity UI, and the interactive prototype.</li><li>Presented the final solution and guided the project from concept to prototype.<br></li></ul><div>Beyond interface design, my responsibility was to ensure that every design decision aligned with both the learning objectives and the gameplay experience.</div></div></div>"
+        "heading": "Leading the Team and Driving the Project Forward"
       },
       {
         "type": "divider"
       },
       {
         "num": "03",
+        "body": "<p class=\"isSelectedEnd\">The project followed a complete UX process, allowing the team to validate ideas before translating them into a playable game concept.</p><p class=\"isSelectedEnd\">Beginning with research and user interviews, we explored how learners interact with educational products and what motivates them to continue learning over time.</p><p class=\"isSelectedEnd\">These insights evolved into personas, JTBD, gameplay concepts, user flows, wireframes, visual exploration, and finally an interactive prototype that demonstrated the complete learning journey.</p><p>Every stage was grounded in UX thinking while continuously balancing educational goals with engaging gameplay mechanics.</p><p></p>",
         "label": "Design Process",
-        "heading": "From Research to Interactive Prototype",
-        "body": "<p class=\"isSelectedEnd\">The project followed a complete UX process, allowing the team to validate ideas before translating them into a playable game concept.</p><p class=\"isSelectedEnd\">Beginning with research and user interviews, we explored how learners interact with educational products and what motivates them to continue learning over time.</p><p class=\"isSelectedEnd\">These insights evolved into personas, JTBD, gameplay concepts, user flows, wireframes, visual exploration, and finally an interactive prototype that demonstrated the complete learning journey.</p><p>Every stage was grounded in UX thinking while continuously balancing educational goals with engaging gameplay mechanics.</p><p></p>"
+        "heading": "From Research to Interactive Prototype"
       },
       {
         "type": "divider"
       },
       {
         "num": "04",
+        "body": "<p class=\"isSelectedEnd\">Rather than focusing solely on language acquisition, our research aimed to understand why learners often lose motivation before reaching their goals.</p><p class=\"isSelectedEnd\">The findings revealed that visible progress, achievable milestones, rewarding feedback, and a sense of discovery significantly influence long-term engagement.</p><p>These insights became the foundation of Hanzi Garden's progression system, where learning is continuously reinforced through exploration, achievements, and meaningful rewards rather than repetition alone.</p>",
         "label": "Research Insights",
-        "heading": "Understanding Learning Motivation",
-        "body": "<p class=\"isSelectedEnd\">Rather than focusing solely on language acquisition, our research aimed to understand why learners often lose motivation before reaching their goals.</p><p class=\"isSelectedEnd\">The findings revealed that visible progress, achievable milestones, rewarding feedback, and a sense of discovery significantly influence long-term engagement.</p><p>These insights became the foundation of Hanzi Garden's progression system, where learning is continuously reinforced through exploration, achievements, and meaningful rewards rather than repetition alone.</p>"
+        "heading": "Understanding Learning Motivation"
       },
       {
         "type": "divider"
       },
       {
         "num": "05",
+        "body": "<p class=\"isSelectedEnd\">Hanzi Garden transforms language learning into a progression-driven pixel adventure.</p><p class=\"isSelectedEnd\">Instead of moving through isolated lessons, players travel across a handcrafted pixel world where each new environment introduces fresh vocabulary, interactive characters, and themed learning challenges.</p><p class=\"isSelectedEnd\">Completing activities rewards players with experience points, collectible items, achievements, and access to new locations—creating a satisfying sense of progression similar to casual adventure games.</p><p>By combining education with exploration, the experience encourages users to learn naturally through curiosity rather than obligation.</p>",
         "label": "Game Concept",
-        "heading": "Learning Chinese Through Pixel Adventure",
-        "body": "<p class=\"isSelectedEnd\">Hanzi Garden transforms language learning into a progression-driven pixel adventure.</p><p class=\"isSelectedEnd\">Instead of moving through isolated lessons, players travel across a handcrafted pixel world where each new environment introduces fresh vocabulary, interactive characters, and themed learning challenges.</p><p class=\"isSelectedEnd\">Completing activities rewards players with experience points, collectible items, achievements, and access to new locations—creating a satisfying sense of progression similar to casual adventure games.</p><p>By combining education with exploration, the experience encourages users to learn naturally through curiosity rather than obligation.</p>"
+        "heading": "Learning Chinese Through Pixel Adventure"
       },
       {
-        "type": "image",
         "num": "05",
+        "type": "image",
         "label": "Game Concept",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782811889/y4hpvsff8ea9vzcs0p6e.png"
@@ -565,22 +587,22 @@ const DW = [
       },
       {
         "num": "06",
+        "body": "<p class=\"isSelectedEnd\">The pixel-art world was designed as more than a visual style—it became a core part of the learning experience.</p><p class=\"isSelectedEnd\">Different environments represent different stages of language learning, allowing vocabulary themes and gameplay progression to evolve together.</p><p class=\"isSelectedEnd\">As players continue exploring the world, they unlock new locations, encounter new characters, and gradually discover more challenging learning content.</p><p>This world-building approach helps transform educational progress into an adventure filled with curiosity and achievement.</p>",
         "label": "World Building",
-        "heading": "Building a World That Encourages Exploration",
-        "body": "<p class=\"isSelectedEnd\">The pixel-art world was designed as more than a visual style—it became a core part of the learning experience.</p><p class=\"isSelectedEnd\">Different environments represent different stages of language learning, allowing vocabulary themes and gameplay progression to evolve together.</p><p class=\"isSelectedEnd\">As players continue exploring the world, they unlock new locations, encounter new characters, and gradually discover more challenging learning content.</p><p>This world-building approach helps transform educational progress into an adventure filled with curiosity and achievement.</p>"
+        "heading": "Building a World That Encourages Exploration"
       },
       {
         "type": "divider"
       },
       {
         "num": "07",
+        "body": "<p class=\"isSelectedEnd\">Designing a learning game required balancing two equally important objectives: creating an effective educational experience while maintaining the enjoyment expected from a mobile game.</p><p class=\"isSelectedEnd\">The UX strategy focused on reducing learning friction through intuitive navigation and simple interactions while increasing motivation through progression systems, immediate feedback, rewards, and a clear sense of accomplishment.</p><p>Every interface was designed to support both learning efficiency and emotional engagement.</p>",
         "label": "UX Strategy",
-        "heading": "Balancing Learning with Player Engagement",
-        "body": "<p class=\"isSelectedEnd\">Designing a learning game required balancing two equally important objectives: creating an effective educational experience while maintaining the enjoyment expected from a mobile game.</p><p class=\"isSelectedEnd\">The UX strategy focused on reducing learning friction through intuitive navigation and simple interactions while increasing motivation through progression systems, immediate feedback, rewards, and a clear sense of accomplishment.</p><p>Every interface was designed to support both learning efficiency and emotional engagement.</p>"
+        "heading": "Balancing Learning with Player Engagement"
       },
       {
-        "type": "image",
         "num": "07",
+        "type": "image",
         "label": "UX Strategy",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782813643/bhfr2ppta9lmvno6pwjm.png"
@@ -591,13 +613,13 @@ const DW = [
       },
       {
         "num": "08",
+        "body": "<p class=\"isSelectedEnd\">The final prototype demonstrates the complete product experience—from onboarding and world navigation to learning sessions, gameplay interactions, achievements, progression systems, and supporting interfaces.</p><p class=\"isSelectedEnd\">Together, these screens establish the visual identity of Hanzi Garden while showcasing how UX thinking can be applied to create an engaging educational game.</p><p>Although developed as an educational concept, the prototype demonstrates a complete gameplay flow and a cohesive interface system that could serve as a strong foundation for future product development.</p>",
         "label": "Final Design",
-        "heading": "From Concept to Playable Experience",
-        "body": "<p class=\"isSelectedEnd\">The final prototype demonstrates the complete product experience—from onboarding and world navigation to learning sessions, gameplay interactions, achievements, progression systems, and supporting interfaces.</p><p class=\"isSelectedEnd\">Together, these screens establish the visual identity of Hanzi Garden while showcasing how UX thinking can be applied to create an engaging educational game.</p><p>Although developed as an educational concept, the prototype demonstrates a complete gameplay flow and a cohesive interface system that could serve as a strong foundation for future product development.</p>"
+        "heading": "From Concept to Playable Experience"
       },
       {
-        "type": "image",
         "num": "08",
+        "type": "image",
         "label": "Final Design",
         "images": [
           "https://res.cloudinary.com/dfaqife6i/image/upload/v1782809790/cnjdiqylmxk26hpnbho9.png",
@@ -609,12 +631,14 @@ const DW = [
       },
       {
         "num": "09",
+        "body": "<p class=\"isSelectedEnd\">Hanzi Garden became much more than the final project of a UX course.</p><p class=\"isSelectedEnd\">It challenged me to think beyond traditional product design and introduced me to the unique relationship between user experience and player psychology.</p><p class=\"isSelectedEnd\">Unlike productivity products, game interfaces are not only designed to help users complete tasks—they are designed to create anticipation, encourage exploration, celebrate progress, and build emotional connections through interaction.</p><p>This experience fundamentally changed how I think about UX and became the starting point of my journey toward Game UI Design.</p>",
         "label": "Reflection",
-        "heading": "Discovering a New Design Direction",
-        "body": "<p class=\"isSelectedEnd\">Hanzi Garden became much more than the final project of a UX course.</p><p class=\"isSelectedEnd\">It challenged me to think beyond traditional product design and introduced me to the unique relationship between user experience and player psychology.</p><p class=\"isSelectedEnd\">Unlike productivity products, game interfaces are not only designed to help users complete tasks—they are designed to create anticipation, encourage exploration, celebrate progress, and build emotional connections through interaction.</p><p>This experience fundamentally changed how I think about UX and became the starting point of my journey toward Game UI Design.</p>"
+        "heading": "Discovering a New Design Direction"
       }
     ],
-    "gallery": []
+    "published": true,
+    "description": "Hanzi Garden is a pixel-art Chinese learning game concept created as the final project of the UX Foundation Advanced Program. Designed through a complete UX process, the project explores how gamification, progression systems, and visual storytelling can transform language learning into an engaging gameplay experience.\n\nAs Team Lead and UI/UX Designer, I led the project from research and product strategy to gameplay design, interface design, and interactive prototyping.\n\nThis project marked the beginning of my journey into Game UI Design and was recognized with the Best Student Award for outstanding performance throughout the program.",
+    "showPreview": true
   },
   {
     "id": "hotcross",
@@ -682,6 +706,60 @@ const DW = [
     "description": "Hot Cross is a multi-chain Web3 infrastructure ecosystem focused on building more accessible blockchain tools and cross-chain experiences for users, developers, and communities."
   },
   {
+    "id": "bocongann",
+    "link": "https://www.figma.com/design/eGPI9V2HwtnXqLsE1S00zN/BCA-Creative-Agency?node-id=0-1&t=hXprU2zmQz3g87r3-1",
+    "role": "",
+    "tags": [
+      "Web Design",
+      "Development"
+    ],
+    "year": "2020",
+    "color": "#F5F0E8",
+    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
+    "order": 5,
+    "title": "Bồ Công Anh — Creative Agency Web",
+    "client": "Bồ Công Anh",
+    "gallery": [],
+    "category": "web",
+    "duration": "",
+    "featured": false,
+    "sections": [
+      {
+        "num": "01",
+        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>",
+        "label": "Understanding People",
+        "heading": "Learning to see products through the eyes of the people using them."
+      },
+      {
+        "num": "02",
+        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>",
+        "label": "Real Constraints",
+        "heading": "Balancing user needs, business objectives, and technical realities."
+      },
+      {
+        "num": "03",
+        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>",
+        "label": "Clarity First",
+        "heading": "Creating websites that are accessible without sacrificing quality."
+      },
+      {
+        "num": "04",
+        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>",
+        "label": "Learning Fast",
+        "heading": "Adapting across industries, audiences, and business models."
+      },
+      {
+        "num": "05",
+        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>",
+        "label": "Product Thinking",
+        "heading": "Building the mindset that shaped every project that followed."
+      }
+    ],
+    "published": true,
+    "description": "Where I learned that great websites are built for people, not designers.\n\nBefore working on blockchain products, AI platforms, and design systems, I spent several years designingwebsites for businesses across a wide range of industries.\n\nAt Bồ Công Anh Creative Agency, I wasn't designing a single product. Instead, I worked across dozens ofclient projects—from corporate websites and campaign landing pages to government-related platformsoperating under strict technical and security requirements.\n\nThis experience exposed me to something far more valuable than visual design: understanding howdifferent people interact with technology, and how design decisions impact real-world usability.",
+    "showPreview": true
+  },
+  {
     "id": "oqeo-app",
     "link": "",
     "role": "",
@@ -693,7 +771,7 @@ const DW = [
     "title": "OQEO App - ",
     "client": "",
     "gallery": [],
-    "category": "",
+    "category": "app, product",
     "duration": "",
     "featured": false,
     "sections": [
@@ -797,60 +875,6 @@ const DW = [
     "published": false,
     "description": "Building trust before the journey even begins.\n\nRide-hailing has made transportation more accessible, but accessibility doesn't always create confidence. For many women, especially when travelling alone, uncertainty begins long before the trip starts.\n\nOQEO wasn't created to compete with existing ride-hailing platforms. It was designed to explore a different question: what if trust became the foundation of every journey instead of a feature users rely on only when something goes wrong?",
     "showPreview": true
-  },
-  {
-    "id": "bocongann",
-    "client": "Bồ Công Anh",
-    "title": "Bồ Công Anh — Creative Agency Web",
-    "year": "2020",
-    "category": "web",
-    "role": "",
-    "duration": "",
-    "tags": [
-      "Web Design",
-      "Development"
-    ],
-    "description": "Where I learned that great websites are built for people, not designers.\n\nBefore working on blockchain products, AI platforms, and design systems, I spent several years designingwebsites for businesses across a wide range of industries.\n\nAt Bồ Công Anh Creative Agency, I wasn't designing a single product. Instead, I worked across dozens ofclient projects—from corporate websites and campaign landing pages to government-related platformsoperating under strict technical and security requirements.\n\nThis experience exposed me to something far more valuable than visual design: understanding howdifferent people interact with technology, and how design decisions impact real-world usability.",
-    "cover": "https://res.cloudinary.com/dfaqife6i/image/upload/v1780831017/nwdzbjwwmzwxceqptlbi.png",
-    "color": "#F5F0E8",
-    "featured": false,
-    "published": true,
-    "link": "https://www.figma.com/design/eGPI9V2HwtnXqLsE1S00zN/BCA-Creative-Agency?node-id=0-1&t=hXprU2zmQz3g87r3-1",
-    "showPreview": true,
-    "order": 5,
-    "sections": [
-      {
-        "num": "01",
-        "label": "Understanding People",
-        "heading": "Learning to see products through the eyes of the people using them.",
-        "body": "<p>Many of the stakeholders I worked with were not digital natives. Some were senior executives, government representatives, or operational teams with limited technical experience.</p><p>The challenge wasn't creating visually impressive interfaces. The challenge was creating interfaces that felt intuitive to people who didn't speak the language of technology.</p><p>This shifted the way I approached design. Instead of asking how a website should look, I started asking how</p><p>users think, what information they need first, and where friction might prevent them from achieving their goals.</p>"
-      },
-      {
-        "num": "02",
-        "label": "Real Constraints",
-        "heading": "Balancing user needs, business objectives, and technical realities.",
-        "body": "<p>Every project came with its own set of constraints.</p><p>Some clients required integration with proprietary systems. Others operated under strict security</p><p>standards, approval processes, and technical frameworks that limited what could be implemented.</p><p>Success depended on finding the right balance between user expectations, stakeholder requirements, technical feasibility, and business objectives.</p><p>Working in these environments taught me that great design is rarely about ideal solutions. It's about delivering the best possible outcome within real-world constraints.</p>"
-      },
-      {
-        "num": "03",
-        "label": "Clarity First",
-        "heading": "Creating websites that are accessible without sacrificing quality.",
-        "body": "<p>One lesson became increasingly clear throughout these projects: accessibility and aesthetics should never be treated as opposing forces.</p><p>Users need clarity. Businesses need credibility. Brands need identity.</p><p>My role often involved simplifying complex information structures, improving content hierarchy, and</p><p>creating experiences that remained approachable for less technical audiences while maintaining a modern and professional visual standard.</p><p>The goal was never to make things simpler by removing value. The goal was to remove unnecessary friction.</p>"
-      },
-      {
-        "num": "04",
-        "label": "Learning Fast",
-        "heading": "Adapting across industries, audiences, and business models.",
-        "body": "<p>Unlike working on a single product, agency life required constant adaptation.</p><p>Each client represented a different industry, audience, business model, and operational challenge. Every</p><p>project demanded a new understanding of user behavior, business objectives, and communication needs.</p><p>This constant context-switching strengthened my ability to quickly understand unfamiliar domains and translate complexity into clear digital experiences.</p><p>Those skills later became invaluable when moving into Web3, blockchain infrastructure, and AI products.</p>"
-      },
-      {
-        "num": "05",
-        "label": "Product Thinking",
-        "heading": "Building the mindset that shaped every project that followed.",
-        "body": "<p>Looking back, Bồ Công Anh wasn't where I designed the most advanced products.</p><p>It was where I developed the mindset that would shape every project that followed.</p><p>I learned that successful digital products are not defined by trends, visual effects, or design awards. They</p><p>are defined by how effectively they help people accomplish what they came to do.</p><p>The empathy, systems thinking, and problem-solving skills I developed during this period became the foundation for my later work across Hotcross, SelfChain, Mill3, and beyond.</p>"
-      }
-    ],
-    "gallery": []
   }
 ];
 
