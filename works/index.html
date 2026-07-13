@@ -124,7 +124,15 @@
       let filter = "all";
 
       function renderWorks() {
-        const cats = ["all", ...new Set(works.map((w) => w.category))];
+        const cats = [
+          "all",
+          ...new Set(
+            works
+              .filter((w) => w.published !== false)
+              .map((w) => (w.category || "").trim().toLowerCase())
+              .filter(Boolean),
+          ),
+        ];
         const f = document.getElementById("wfilters");
         if (f)
           f.innerHTML = cats
@@ -153,7 +161,11 @@
       function renderGrid() {
         const pub = works.filter((w) => w.published !== false);
         const fl =
-          filter === "all" ? pub : pub.filter((w) => w.category === filter);
+          filter === "all"
+            ? pub
+            : pub.filter(
+                (w) => (w.category || "").trim().toLowerCase() === filter,
+              );
         const g = document.getElementById("wgrid");
         if (!g) return;
         g.classList.toggle("has-odd", fl.length % 2 !== 0);
