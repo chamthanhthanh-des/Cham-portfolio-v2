@@ -428,8 +428,8 @@ label {
   background: var(--text);
   transition: all 0.3s var(--ease);
 }
-.nburger span:nth-child(3) {
-  transition: opacity 0.3s var(--ease);
+.nburger span:nth-child(2) {
+  transition: opacity 0.12s var(--ease);
 }
 
 .mmenu {
