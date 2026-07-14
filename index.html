@@ -271,7 +271,7 @@
         let nearCat = false,
           meowCooldown = false,
           meowReady = false;
-        const meowAudio = new Audio("/assets/sounds/meow2.mp3");
+        const meowAudio = new Audio("/assets/sounds/meow3.mp3");
         meowAudio.preload = "auto";
         meowAudio.volume = 0.55;
         meowAudio.addEventListener("canplaythrough", () => (meowReady = true));
@@ -315,6 +315,10 @@
             synthMeow();
           }
         }
+
+        // Chạm/click vào mèo cũng kêu (cho điện thoại — vốn không có hover)
+        cat.style.cursor = "pointer";
+        cat.addEventListener("click", meow);
 
         document.addEventListener("mousemove", (e) => {
           const rect = cat.getBoundingClientRect();
