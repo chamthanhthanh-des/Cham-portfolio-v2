@@ -317,6 +317,30 @@
           }
         }
 
+        // Mở khoá âm thanh ở lần tương tác ĐẦU TIÊN (trình duyệt chặn tiếng tới
+        // khi có gesture). Unlock thầm lặng (muted) nên không kêu ở bước này.
+        function unlockAudio() {
+          meowAudio.muted = true;
+          const p = meowAudio.play();
+          if (p && p.then)
+            p.then(() => {
+              meowAudio.pause();
+              meowAudio.currentTime = 0;
+              meowAudio.muted = false;
+            }).catch(() => (meowAudio.muted = false));
+          try {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (AC) {
+              const ctx = synthMeow._ctx || (synthMeow._ctx = new AC());
+              if (ctx.state === "suspended") ctx.resume();
+            }
+          } catch (e) {}
+          document.removeEventListener("pointerdown", unlockAudio);
+          document.removeEventListener("touchstart", unlockAudio);
+        }
+        document.addEventListener("pointerdown", unlockAudio);
+        document.addEventListener("touchstart", unlockAudio, { passive: true });
+
         // Chạm/click trong vùng con mèo là kêu — bắt ở document nên chạy được
         // cả trên điện thoại, không phụ thuộc pointer-events/z-index của mèo
         cat.style.cursor = "pointer";
