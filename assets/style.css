@@ -3693,7 +3693,8 @@ footer {
   position: absolute;
   right: -200px;
   bottom: 140px;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   z-index: 1;
 }
 /* Desktop lớn: >= 1440px */
