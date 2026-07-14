@@ -32,6 +32,7 @@ function togMenu() {
   const s = document.querySelectorAll(".nburger span");
   s[0].style.transform = mopen ? "translateY(7px) rotate(45deg)" : "";
   s[1].style.opacity = mopen ? "0" : "";
+  s[1].style.transform = mopen ? "scaleX(0)" : "";
   s[2].style.transform = mopen ? "translateY(-7px) rotate(-45deg)" : "";
 }
 

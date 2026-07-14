@@ -430,7 +430,7 @@ label {
   transition: all 0.3s var(--ease);
 }
 .nburger span:nth-child(2) {
-  transition: opacity 0.12s var(--ease);
+  transition: transform 0.2s var(--ease), opacity 0.2s var(--ease);
 }
 
 .mmenu {
