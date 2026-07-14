@@ -308,17 +308,28 @@
           if (meowCooldown) return;
           meowCooldown = true;
           setTimeout(() => (meowCooldown = false), 1200);
-          if (meowReady) {
+          try {
             meowAudio.currentTime = 0;
-            meowAudio.play().catch(() => synthMeow());
-          } else {
+            const p = meowAudio.play();
+            if (p && p.catch) p.catch(() => synthMeow());
+          } catch (e) {
             synthMeow();
           }
         }
 
-        // Chạm/click vào mèo cũng kêu (cho điện thoại — vốn không có hover)
+        // Chạm/click trong vùng con mèo là kêu — bắt ở document nên chạy được
+        // cả trên điện thoại, không phụ thuộc pointer-events/z-index của mèo
         cat.style.cursor = "pointer";
-        cat.addEventListener("click", meow);
+        document.addEventListener("click", (e) => {
+          const r = cat.getBoundingClientRect();
+          if (
+            e.clientX >= r.left &&
+            e.clientX <= r.right &&
+            e.clientY >= r.top &&
+            e.clientY <= r.bottom
+          )
+            meow();
+        });
 
         document.addEventListener("mousemove", (e) => {
           const rect = cat.getBoundingClientRect();
