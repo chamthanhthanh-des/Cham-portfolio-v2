@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/style.css?v=4" />
+    <link rel="stylesheet" href="/assets/style.css?v=6" />
     <link
       rel="icon"
       href="/assets/images/favicon-32.png"
@@ -155,6 +155,9 @@
             </div>
             <div class="ani" onclick="swTab('contact')" id="tab-contact">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contact
+            </div>
+            <div class="ani" onclick="swTab('footer')" id="tab-footer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Footer
             </div>
             <div class="ani" onclick="swTab('career')" id="tab-career">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Career
@@ -402,6 +405,15 @@
                   ></textarea>
                 </div>
 
+                <div class="fg">
+                  <label>Section "Connect" (khối dưới form)</label>
+                  <select id="ctShowConnect" onchange="setFooterDirty()" style="width:180px;">
+                    <option value="true">● Hiện</option>
+                    <option value="false">Ẩn cả section</option>
+                  </select>
+                  <div style="font-family:var(--fm);font-size:11px;color:var(--muted);line-height:1.6;margin-top:5px;">Ẩn toàn bộ khối Connect ở cuối trang Contact (gồm CONNECT + Contact info + Socials).</div>
+                </div>
+
                 <!-- CONTACT INFO -->
                 <div
                   style="border-top: 1px solid var(--border); padding-top: 20px"
@@ -503,6 +515,45 @@
               </div>
             </div>
 
+            <div id="admin-footer" class="a-sec">
+              <div class="a-ptl">Footer</div>
+              <p class="a-psub">Sửa hoặc ẩn 3 thông tin ở giữa footer — áp dụng cho tất cả các trang.</p>
+              <div class="a-frm">
+                <div class="fg">
+                  <label>Số điện thoại</label>
+                  <div style="display:flex;gap:10px;">
+                    <input id="aFtPhone" placeholder="+84 336 009 451" style="flex:1" oninput="setFooterDirty()" />
+                    <select id="aFtPhoneShow" onchange="setFooterDirty()" style="width:120px;flex-shrink:0;">
+                      <option value="true">● Hiện</option>
+                      <option value="false">Ẩn</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="fg">
+                  <label>Email</label>
+                  <div style="display:flex;gap:10px;">
+                    <input id="aFtEmail" placeholder="chamthanhthanh@gmail.com" style="flex:1" oninput="setFooterDirty()" />
+                    <select id="aFtEmailShow" onchange="setFooterDirty()" style="width:120px;flex-shrink:0;">
+                      <option value="true">● Hiện</option>
+                      <option value="false">Ẩn</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="fg">
+                  <label>LinkedIn (URL)</label>
+                  <div style="display:flex;gap:10px;">
+                    <input id="aFtLink" placeholder="https://www.linkedin.com/in/..." style="flex:1" oninput="setFooterDirty()" />
+                    <select id="aFtLinkShow" onchange="setFooterDirty()" style="width:120px;flex-shrink:0;">
+                      <option value="true">● Hiện</option>
+                      <option value="false">Ẩn</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="font-family:var(--fm);font-size:11px;color:var(--muted);line-height:1.6;margin-top:4px;">
+                  Chọn "Ẩn" để bỏ thông tin đó khỏi footer (tên và dòng ©bản quyền vẫn giữ nguyên). Nhớ bấm Save ở dưới.
+                </div>
+              </div>
+            </div>
             <div id="admin-career" class="a-sec">
               <div class="a-ptl">Career</div>
               <p class="a-psub">Manage career timeline.</p>
@@ -1324,9 +1375,9 @@
       </div>
     </div>
 
-    <script src="/assets/data.js?v=4"></script>
-    <script src="/assets/cloud.js?v=4"></script>
-    <script src="/assets/app.js?v=4"></script>
+    <script src="/assets/data.js?v=6"></script>
+    <script src="/assets/cloud.js?v=6"></script>
+    <script src="/assets/app.js?v=6"></script>
     <script>
       /* ── AUTH (Supabase) ── */
       async function initAdmin() {
@@ -1374,7 +1425,7 @@
       }
 
       /* ── SAVE FOOTER ── */
-      const _footerTabs = { hero: saveHero, about: saveAbout, contact: saveContact };
+      const _footerTabs = { hero: saveHero, about: saveAbout, contact: saveContact, footer: saveFooter };
       let _activeTab = "hero";
       let _footerDirty = false;
 
@@ -1432,6 +1483,7 @@
         if (_activeTab === "hero") loadHA();
         if (_activeTab === "about") loadAboutAdmin();
         if (_activeTab === "contact") loadContactAdmin();
+        if (_activeTab === "footer") loadFooterAdmin();
         setFooterClean();
       }
 
@@ -1458,6 +1510,7 @@
         if (t === "hero") loadHA();
         if (t === "about") loadAboutAdmin();
         if (t === "contact") loadContactAdmin();
+        if (t === "footer") loadFooterAdmin();
       }
       function loadHA() {
         const editor = document.getElementById("heroEditor");
@@ -3085,6 +3138,7 @@
         document.getElementById("ctTi").value = contact.title || "";
         document.getElementById("ctDesc").value = contact.desc || "";
         document.getElementById("ctSayHi").value = contact.sayHiDesc || "";
+        document.getElementById("ctShowConnect").value = contact.showConnect === false ? "false" : "true";
         _ctContacts = JSON.parse(JSON.stringify(contact.contacts || []));
         _ctSocials = JSON.parse(JSON.stringify(contact.socials || []));
         renderCtContacts();
@@ -3099,10 +3153,31 @@
         contact.title = document.getElementById("ctTi").value;
         contact.desc = document.getElementById("ctDesc").value;
         contact.sayHiDesc = document.getElementById("ctSayHi").value;
+        contact.showConnect = document.getElementById("ctShowConnect").value === "true";
         contact.contacts = _ctContacts.filter((c) => c.value.trim());
         contact.socials = _ctSocials.filter((s) => s.url.trim());
         sv(LCT, contact); sbSave('contact', contact);
         toast("Contact saved ✓");
+      }
+
+      function loadFooterAdmin() {
+        document.getElementById("aFtPhone").value = footerInfo.phone || "";
+        document.getElementById("aFtEmail").value = footerInfo.email || "";
+        document.getElementById("aFtLink").value = footerInfo.linkedin || "";
+        document.getElementById("aFtPhoneShow").value = footerInfo.showPhone === false ? "false" : "true";
+        document.getElementById("aFtEmailShow").value = footerInfo.showEmail === false ? "false" : "true";
+        document.getElementById("aFtLinkShow").value = footerInfo.showLinkedin === false ? "false" : "true";
+      }
+
+      function saveFooter() {
+        footerInfo.phone = document.getElementById("aFtPhone").value.trim();
+        footerInfo.email = document.getElementById("aFtEmail").value.trim();
+        footerInfo.linkedin = document.getElementById("aFtLink").value.trim();
+        footerInfo.showPhone = document.getElementById("aFtPhoneShow").value === "true";
+        footerInfo.showEmail = document.getElementById("aFtEmailShow").value === "true";
+        footerInfo.showLinkedin = document.getElementById("aFtLinkShow").value === "true";
+        sv(LFT, footerInfo); sbSave('footer', footerInfo);
+        toast("Footer saved ✓");
       }
 
       /* ── ABOUT ADMIN ── */
@@ -3182,7 +3257,7 @@
       /* ── EXPORT DATA.JS ── */
       function resetFromDataJS() {
         if (!confirm("Reset toàn bộ data về data.js gốc?\nMọi thay đổi chưa export sẽ bị mất.")) return;
-        [LW, LQ, LC, LH, LCT, LA_AB].forEach(k => localStorage.removeItem(k));
+        [LW, LQ, LC, LH, LCT, LA_AB, LFT].forEach(k => localStorage.removeItem(k));
         location.reload();
       }
 

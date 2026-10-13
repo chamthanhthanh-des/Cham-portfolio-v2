@@ -19,6 +19,7 @@ const _CLOUD_MAP = [
   ["hero", "ctw_h4", (v) => (hero = v)],
   ["about", "ctw_ab1", (v) => (about = v)],
   ["contact", "ctw_ct1", (v) => (contact = v)],
+  ["footer", "ctw_fo1", (v) => (footerInfo = v)],
 ];
 
 /* ── coi là "rỗng" nếu mảng [] hoặc object {} → giữ data mặc định ── */

@@ -257,3 +257,28 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   if (loader) setTimeout(() => loader.classList.add("hidden"), 800);
 });
+
+/* ── FOOTER (dựng 3 thông tin giữa footer từ dữ liệu, có thể ẩn) ── */
+function renderFooter() {
+  const links = document.querySelector("footer .flinks");
+  if (!links) return;
+  const f = (typeof footerInfo !== "undefined" && footerInfo) || {};
+  const parts = [];
+  if (f.showPhone !== false && f.phone)
+    parts.push(
+      `<a class="flink" href="tel:${(f.phone || "").replace(/[\s()]/g, "")}">${f.phone}</a>`,
+    );
+  if (f.showEmail !== false && f.email)
+    parts.push(`<a class="flink" href="mailto:${f.email}">${f.email}</a>`);
+  if (f.showLinkedin !== false && f.linkedin)
+    parts.push(
+      `<a class="flink" href="${f.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>`,
+    );
+  links.innerHTML = parts.join('<div class="fdot"></div>');
+}
+renderFooter();
+(window._dataReady || Promise.resolve(false))
+  .then((fromCloud) => {
+    if (fromCloud) renderFooter();
+  })
+  .catch(() => {});

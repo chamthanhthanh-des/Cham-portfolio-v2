@@ -30,7 +30,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/style.css?v=4" />
+    <link rel="stylesheet" href="/assets/style.css?v=6" />
     <link
       rel="icon"
       href="/assets/images/favicon-32.png"
@@ -148,7 +148,7 @@
         </div>
       </section>
 
-      <section class="con-sec con-sec--connect">
+      <section class="con-sec con-sec--connect" id="conConnectSec">
         <div class="con-row">
           <div class="con-row-label">
             <span>Connect</span>
@@ -213,9 +213,9 @@
     </main>
 
 
-    <script src="/assets/data.js?v=4"></script>
-    <script src="/assets/cloud.js?v=4"></script>
-    <script src="/assets/app.js?v=4"></script>
+    <script src="/assets/data.js?v=6"></script>
+    <script src="/assets/cloud.js?v=6"></script>
+    <script src="/assets/app.js?v=6"></script>
     <script>
       /* ── FORMSPREE ──
          Điền endpoint của bạn (formspree.io → form → Integration → AJAX):
@@ -293,6 +293,11 @@
         if (desc && contact.desc) desc.textContent = contact.desc;
         const sayHi = el("conSayHi");
         if (sayHi && contact.sayHiDesc) sayHi.textContent = contact.sayHiDesc;
+
+        // Ẩn/hiện section Connect (điều khiển từ admin)
+        const connectSec = el("conConnectSec");
+        if (connectSec)
+          connectSec.style.display = contact.showConnect === false ? "none" : "";
 
         function toHref(val) {
           if (!val) return "#";

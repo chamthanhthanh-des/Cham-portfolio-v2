@@ -1053,6 +1053,7 @@ const DCT = {
   "title": "Let's talk",
   "desc": "Whether you have a project in mind or just want to say hi — I'd love to hear from you.",
   "sayHiDesc": "Tell me a little about your project, idea, or the thing you're building.",
+  "showConnect": true,
   "contacts": [
     {
       "label": "Email",
@@ -1097,6 +1098,16 @@ const DA = {
   "availableForWork": "open"
 };
 
+const LFT = "ctw_fo1";
+const DFT = {
+  "phone": "+84 336 009 451",
+  "email": "chamthanhthanh@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/chamthanhthanh/",
+  "showPhone": true,
+  "showEmail": true,
+  "showLinkedin": true
+};
+
 /* ── STORAGE UTILS ───────────────────────────────── */
 function ld(k, d) {
   try {
@@ -1116,4 +1127,5 @@ let works = ld(LW, DW),
   career = ld(LC, DC),
   hero = ld(LH, DH),
   about = ld(LA_AB, DA),
-  contact = ld(LCT, DCT);
+  contact = ld(LCT, DCT),
+  footerInfo = ld(LFT, DFT);
